@@ -6,7 +6,7 @@ The native side of the LeviLamina binding: it includes the LL/Bedrock headers an
 
 - Windows x64 only, matching upstream LeviLamina's release/CI support.
 - Built with the LeviLamina ecosystem: xmake, clang-cl, MSVC STL, `/MD`, C++20/23 as required by the headers.
-- Linked against LLAPI when the declaration set requires carrier symbols; the v1 link-safe rule emits header-only calls without a carrier import library. MCAPI symbols follow LeviLamina's own symbol toolchain (`symbolprovider` / `prelink` / `bedrockdata`).
+- The default link-safe mode emits header-only calls without a carrier import library. `--link-carrier` links `LeviLamina.lib` plus the carrier package libraries and admits exported out-of-line members. MCAPI symbols follow LeviLamina's own symbol toolchain (`symbolprovider` / `prelink` / `bedrockdata`).
 - The C ABI is a versioned function table returned by `hosihikari_get_binding_table_v1()`. No CLR hosting, no HostingShim responsibilities, no C++ exceptions crossing the boundary; failures are reported through `hosihikari_get_last_error()`.
 
 ## Layout
@@ -24,4 +24,4 @@ Generated sources are produced by `Hosihikari/Bindings.Generator` with `--native
 
 ## Status
 
-The generator emits the v1 table, its `extern "C"` implementations, and the managed table layout for link-safe LLAPI declarations. The current slice covers the event identity/hash types and other header-only classes. The generator's `frontend/build-shim.ps1` compiles the emitted tree, and `tests/BindingShimSmoke` exercises it end to end. Director emission and carrier import-library linking are subsequent layers.
+The generator emits the v1 table, its `extern "C"` implementations, and the managed table layout for LLAPI declarations. The current LLAPI slice selects 167 link-safe functions, or 396 functions with `--link-carrier` against `LeviLamina.lib`. The generator's `frontend/build-shim.ps1` compiles both forms, and `tests/BindingShimSmoke` exercises string construction, string results, field access, opaque parameters, and methods end to end. Director emission is a subsequent layer.

@@ -12,7 +12,7 @@
 
 ## 当前状态
 
-Interop 与 Idiomatic 工程可构建。生成器为 link-safe 的 LLAPI 声明发射 v1 BindingShim 函数表与 `extern "C"` 实现，覆盖构造函数、析构函数、公共字段与受支持的方法。生成的 shim 由 clang-cl 编译，并通过生成器的端到端 smoke test。下一步集成是把发射出的 `shim/<configuration>/<surface>/` 树接入本仓的原生构建目标，并提交生成的 Interop。
+Interop 与 Idiomatic 工程可构建。生成器为 LLAPI 声明发射 v1 BindingShim 函数表与 `extern "C"` 实现，覆盖构造函数、析构函数、公共字段与受支持的方法。默认模式覆盖 link-safe 的 header-only 类；`--link-carrier` 通过链接 `LeviLamina.lib` 增加导出的 out-of-line 成员。生成的 shim 由 clang-cl 编译，并通过生成器的端到端 smoke test。下一步集成是把发射出的 `shim/<configuration>/<surface>/` 树接入本仓的原生构建目标，并提交生成的 Interop。
 
 ## 构建
 

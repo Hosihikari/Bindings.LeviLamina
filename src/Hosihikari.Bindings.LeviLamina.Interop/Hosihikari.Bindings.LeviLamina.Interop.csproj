@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Hosihikari.Bindings.LeviLamina.Interop</RootNamespace>
+    <AssemblyName>Hosihikari.Bindings.LeviLamina.Interop</AssemblyName>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageId>Hosihikari.Bindings.LeviLamina.Interop</PackageId>
+    <Version>26.51.7-r0</Version>
+    <Authors>Hosihikari</Authors>
+    <Description>CI-generated native-style .NET Interop for the LeviLamina LLAPI surface.</Description>
+    <PackageLicenseExpression>LGPL-3.0-or-later</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Hosihikari/Bindings.LeviLamina</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>minecraft;bedrock;bds;levilamina;interop;hosihikari</PackageTags>
+  </PropertyGroup>
+
+</Project>

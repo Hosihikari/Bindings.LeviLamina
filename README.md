@@ -1,5 +1,7 @@
 # Hosihikari.Bindings.LeviLamina
 
+[English](README.md) | [简体中文](README.zh_hans.md)
+
 The LeviLamina LLAPI surface for the Hosihikari bindings: a CI-generated native-style **Interop**, a hand-written .NET **Idiomatic** layer, and the native **BindingShim**.
 
 ## Boundary
@@ -23,7 +25,7 @@ The package version follows the upstream version plus the binding revision (`26.
 
 ## Sibling repositories
 
-- `Hosihikari/Design`: glossary, ADRs, IR/coverage contract.
+- Internal `Hosihikari/Design` repository (private): glossary, ADRs, IR/coverage contract.
 - `Hosihikari/Bindings.Ir`: schema, models, reader/writer, validator.
 - `Hosihikari/Bindings.Generator`: libTooling frontend and emitters.
 

@@ -12,7 +12,23 @@ The LeviLamina LLAPI surface for the Hosihikari bindings: a CI-generated native-
 
 ## Current state
 
-The Interop and Idiomatic projects build. The generator emits the v1 BindingShim table and `extern "C"` implementations for LLAPI declarations, including constructors, destructors, public fields, and supported methods. The default mode covers link-safe header-only classes; `--link-carrier` adds exported out-of-line members by linking `LeviLamina.lib`. The emitted shim is compiled with clang-cl and exercised by the generator's end-to-end smoke test. The next integration step is to consume the emitted `shim/<configuration>/<surface>/` tree from this repository's native build target and commit the generated Interop.
+The Interop and Idiomatic projects build. The carrier-linked generated Interop, the v1 BindingShim table with its `extern "C"` implementations, and the coverage manifest are committed:
+
+- `src/Hosihikari.Bindings.LeviLamina.Interop/Generated/` contains the generated native-style C# classes and `NativeMethods`.
+- `native/BindingShim/generated/win-x64-server/levilamina/` contains the 396-function table and its implementations.
+- `coverage/` contains the coverage manifest, summary, baseline, and provenance.
+
+The host calls `Hosihikari.Bindings.LeviLamina.Interop.NativeMethods.Load(path)` before using a generated wrapper. `native/BindingShim/build.ps1` builds the shim with clang-cl against `LeviLamina.lib` and fmt.
+
+## Generated-source gate
+
+`scripts/verify_generated.py` checks provenance, the coverage baseline, the native table function count, the table version, and the managed table. The CI builds the solution, runs this verifier, and validates the committed coverage contract with the generator.
+
+Regenerate after a new IR:
+
+```shell
+powershell -File scripts/regenerate.ps1 -IrDirectory ..\Generator\artifacts\llapi-full-ir
+```
 
 ## Build
 

@@ -1,0 +1,12 @@
+{
+    "generator":  "Hosihikari.Bindings.Generator 0.1.0 (IR 1.1.0)",
+    "irVersion":  "1.1.0",
+    "irManifestSha256":  "sha256:ced4a8855060928101eaf22dc7eb41ece07fa2a6ab95a1ea93e9d4bed72d0fba",
+    "carrierCommit":  "342e4c40b3b895d60acf1c2de79c7ec8d3f0165e",
+    "surface":  "levilamina",
+    "configuration":  "win-x64-server",
+    "mode":  "link-carrier",
+    "tableVersion":  1,
+    "functions":  396,
+    "coverageManifestSha256":  "sha256:399c8a5bc2de2e0e5ab7997fde17b8a84237d166d5c89de36795949de2a6bcd2"
+}

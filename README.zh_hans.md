@@ -12,7 +12,23 @@
 
 ## 当前状态
 
-Interop 与 Idiomatic 工程可构建。生成器为 LLAPI 声明发射 v1 BindingShim 函数表与 `extern "C"` 实现，覆盖构造函数、析构函数、公共字段与受支持的方法。默认模式覆盖 link-safe 的 header-only 类；`--link-carrier` 通过链接 `LeviLamina.lib` 增加导出的 out-of-line 成员。生成的 shim 由 clang-cl 编译，并通过生成器的端到端 smoke test。下一步集成是把发射出的 `shim/<configuration>/<surface>/` 树接入本仓的原生构建目标，并提交生成的 Interop。
+Interop 与 Idiomatic 工程可构建。carrier 链接的生成 Interop、v1 BindingShim 函数表及其 `extern "C"` 实现、覆盖清单均已提交：
+
+- `src/Hosihikari.Bindings.LeviLamina.Interop/Generated/` 是生成的原生风格 C# 类与 `NativeMethods`。
+- `native/BindingShim/generated/win-x64-server/levilamina/` 是 396 个函数的函数表与实现。
+- `coverage/` 包含覆盖清单、汇总、基线与 provenance。
+
+宿主在使用生成的包装前调用 `Hosihikari.Bindings.LeviLamina.Interop.NativeMethods.Load(path)`。`native/BindingShim/build.ps1` 用 clang-cl 针对 `LeviLamina.lib` 与 fmt 构建 shim。
+
+## 生成物门禁
+
+`scripts/verify_generated.py` 校验 provenance、覆盖基线、原生函数表函数数、表版本与托管表。CI 构建解决方案、运行该校验器，并用生成器验证已提交的覆盖契约。
+
+新 IR 之后重新生成：
+
+```shell
+powershell -File scripts/regenerate.ps1 -IrDirectory ..\Generator\artifacts\llapi-full-ir
+```
 
 ## 构建
 

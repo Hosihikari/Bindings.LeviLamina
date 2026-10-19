@@ -13,15 +13,14 @@ The native side of the LeviLamina binding: it includes the LL/Bedrock headers an
 
 ```
 generated/
-  tables/        function-table declarations and stable ordering
-  shim/          extern "C" implementations
-  directors/     C++ directors for managed overrides
-include/         generated public headers for the shim
-src/             hand-written glue (error boundary, table registry)
+  win-x64-server/levilamina/binding_table.h    versioned table declaration
+  win-x64-server/levilamina/binding_table.cpp  extern "C" implementations
+directors/                                     C++ directors for managed overrides
+build.ps1                                      clang-cl build against LL + fmt
 ```
 
-Generated sources are produced by `Hosihikari/Bindings.Generator` with `--native-root` and consumed by this build target; the binding repository's CI diff is the integration gate.
+Generated sources are produced by `Hosihikari/Bindings.Generator` with `--native-root --link-carrier` and committed here; `scripts/regenerate.ps1` and `scripts/verify_generated.py` maintain the integration.
 
 ## Status
 
-The generator emits the v1 table, its `extern "C"` implementations, and the managed table layout for LLAPI declarations. The current LLAPI slice selects 167 link-safe functions, or 396 functions with `--link-carrier` against `LeviLamina.lib`. The generator's `frontend/build-shim.ps1` compiles both forms, and `tests/BindingShimSmoke` exercises string construction, string results, field access, opaque parameters, and methods end to end. Director emission is a subsequent layer.
+The committed carrier-linked v1 table has 396 functions. `build.ps1` compiles it with clang-cl against `LeviLamina.lib` and fmt. The generator's smoke tests exercise string construction, string results, field access, opaque parameters, out-of-line methods, and lifecycle calls. Director emission is a subsequent layer.

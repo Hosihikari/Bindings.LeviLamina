@@ -1,0 +1,15 @@
+{
+  "name": "shim-smoke",
+  "entry": "main.cs",
+  "type": "hosihikari",
+  "version": "1.0.0",
+  "dependencies": [
+    { "name": "hosihikari" },
+    { "name": "hosihikari-csharp" }
+  ],
+  "extraInfo": {
+    "api": "2",
+    "format_version": "1",
+    "provider": "csharp"
+  }
+}

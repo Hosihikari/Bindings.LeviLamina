@@ -30,6 +30,16 @@ Regenerate after a new IR:
 powershell -File scripts/regenerate.ps1 -IrDirectory ..\Generator\artifacts\llapi-full-ir
 ```
 
+## Runtime smoke
+
+`scripts/run-runtime-smoke.ps1` builds the shim and Interop, installs a C# test plugin into a local BDS + LeviLamina server, and verifies the result file. It requires Windows x64, BDS 1.26.51.1, LeviLamina 26.51.7, the Hosihikari host, and `hosihikari-csharp`:
+
+```shell
+powershell -File scripts/run-runtime-smoke.ps1 -ServerRoot C:\path\to\bedrock-server
+```
+
+The plugin validates `NativeMethods.Load`, `EventId`, `Version`, out-of-line `ll::Error` construction/`message()`/destruction, and the native-exception boundary. The expected output and requirements are in `tests/runtime-smoke/README.md`.
+
 ## Build
 
 ```shell

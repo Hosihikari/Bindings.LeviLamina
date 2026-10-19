@@ -30,6 +30,16 @@ Interop 与 Idiomatic 工程可构建。carrier 链接的生成 Interop、v1 Bin
 powershell -File scripts/regenerate.ps1 -IrDirectory ..\Generator\artifacts\llapi-full-ir
 ```
 
+## 运行时 smoke
+
+`scripts/run-runtime-smoke.ps1` 构建 shim 与 Interop，把 C# 测试插件安装到本地 BDS + LeviLamina 服务器，并校验结果文件。需要 Windows x64、BDS 1.26.51.1、LeviLamina 26.51.7、Hosihikari 宿主与 `hosihikari-csharp`：
+
+```shell
+powershell -File scripts/run-runtime-smoke.ps1 -ServerRoot C:\path\to\bedrock-server
+```
+
+插件验证 `NativeMethods.Load`、`EventId`、`Version`、out-of-line `ll::Error` 的构造/`message()`/析构，以及原生异常边界。预期输出与依赖见 `tests/runtime-smoke/README.md`。
+
 ## 构建
 
 ```shell

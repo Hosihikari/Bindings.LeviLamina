@@ -12,7 +12,7 @@ The LeviLamina LLAPI surface for the Hosihikari bindings: a CI-generated native-
 
 ## Current state
 
-The Interop and Idiomatic projects build. The native BindingShim target is not implemented yet.
+The Interop and Idiomatic projects build. The generator emits the v1 BindingShim table and `extern "C"` implementations for link-safe LLAPI declarations, including constructors, destructors, public fields, and supported methods. The emitted shim is compiled with clang-cl and exercised by the generator's end-to-end smoke test. The next integration step is to consume the emitted `shim/<configuration>/<surface>/` tree from this repository's native build target and commit the generated Interop.
 
 ## Build
 

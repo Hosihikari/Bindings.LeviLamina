@@ -23,4 +23,4 @@ Generated sources are produced by `Hosihikari/Bindings.Generator` with `--native
 
 ## Status
 
-The committed carrier-linked v1 table has 396 functions. `build.ps1` compiles it with clang-cl against `LeviLamina.lib` and fmt. The generator's smoke tests exercise string construction, string results, field access, opaque parameters, out-of-line methods, and lifecycle calls. Director emission is a subsequent layer.
+The committed carrier-linked v1 table has 426 functions. `build.ps1` compiles it with clang-cl against `LeviLamina.lib` and fmt. The generator's smoke tests exercise string construction, string results, field access, opaque parameters, out-of-line methods, and lifecycle calls. Director emission is a subsequent layer.

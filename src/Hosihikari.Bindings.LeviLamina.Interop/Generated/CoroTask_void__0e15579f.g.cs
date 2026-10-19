@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.coro;
 
-public sealed partial class CoroTask_void_
+public sealed unsafe partial class CoroTask_void_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,14 +14,18 @@ public sealed partial class CoroTask_void_
     public static CoroTask_void_ Create_8c45bc4c(nint other) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public bool done() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool done()
+    {
+        return NativeMethods.TablePtr->f399((void*)_handle);
+    }
 
     public nint getExecutor() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void launch(nint executor) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void launch(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor executor)
+    {
+        NativeMethods.TablePtr->f400((void*)_handle, (void*)executor.Handle);
+    }
 
     public nint operator_co_await() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -38,6 +42,13 @@ public sealed partial class CoroTask_void_
     public nint via(nint executor) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f398((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

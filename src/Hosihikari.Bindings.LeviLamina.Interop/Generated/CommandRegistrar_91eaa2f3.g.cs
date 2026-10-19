@@ -31,7 +31,7 @@ public sealed unsafe partial class CommandRegistrar
 
     public nint getInstance(bool isClientSide)
     {
-        return (nint)NativeMethods.TablePtr->f28((void*)_handle, isClientSide);
+        return (nint)NativeMethods.TablePtr->f353((void*)_handle, isClientSide);
     }
 
     public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
@@ -39,7 +39,7 @@ public sealed unsafe partial class CommandRegistrar
 
     public nint getServerInstance()
     {
-        return (nint)NativeMethods.TablePtr->f29((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f354((void*)_handle);
     }
 
     public bool hasEnum(string name)
@@ -47,7 +47,7 @@ public sealed unsafe partial class CommandRegistrar
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f30((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f355((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -56,7 +56,7 @@ public sealed unsafe partial class CommandRegistrar
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f31((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f356((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 

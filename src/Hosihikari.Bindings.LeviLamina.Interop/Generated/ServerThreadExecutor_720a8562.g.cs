@@ -22,7 +22,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
 
     public nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f387((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f820((void*)_handle);
     }
 
 
@@ -30,7 +30,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f386((void*)_handle);
+            NativeMethods.TablePtr->f819((void*)_handle);
             _handle = 0;
         }
     }

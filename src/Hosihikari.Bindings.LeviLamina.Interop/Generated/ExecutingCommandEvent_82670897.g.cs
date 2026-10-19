@@ -16,7 +16,7 @@ public sealed unsafe partial class ExecutingCommandEvent
 
     public nint commandContext()
     {
-        return (nint)NativeMethods.TablePtr->f151((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f579((void*)_handle);
     }
 
     public void deserialize(nint arg0) =>
@@ -24,6 +24,6 @@ public sealed unsafe partial class ExecutingCommandEvent
 
     public nint suppressOutput()
     {
-        return (nint)NativeMethods.TablePtr->f152((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f580((void*)_handle);
     }
 }

@@ -13,7 +13,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public static UIRawMessage Create()
     {
-        var handle = NativeMethods.TablePtr->f418();
+        var handle = NativeMethods.TablePtr->f855();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public static UIRawMessage Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
-        var handle = NativeMethods.TablePtr->f419((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f856((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -44,7 +44,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
-        return NativeMethods.TablePtr->f420((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->f857((void*)_handle, (void*)arg0.Handle);
     }
 
     public nint rawText(nint messages) =>
@@ -67,7 +67,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f417((void*)_handle);
+            NativeMethods.TablePtr->f854((void*)_handle);
             _handle = 0;
         }
     }

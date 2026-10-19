@@ -13,7 +13,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public static Version Create()
     {
-        var handle = NativeMethods.TablePtr->f88();
+        var handle = NativeMethods.TablePtr->f485();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +27,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(str);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f89(__hs_stringData, (nuint)__hs_stringBytes.Length);
+            var handle = NativeMethods.TablePtr->f486(__hs_stringData, (nuint)__hs_stringBytes.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -57,7 +57,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(str);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f90((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f487((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -66,19 +66,19 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public bool isIdenticalTo(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version other)
     {
-        return NativeMethods.TablePtr->f91((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f488((void*)_handle, (void*)other.Handle);
     }
 
     public ushort major
     {
-        get => NativeMethods.TablePtr->f92((void*)_handle);
-        set => NativeMethods.TablePtr->f93((void*)_handle, value);
+        get => NativeMethods.TablePtr->f489((void*)_handle);
+        set => NativeMethods.TablePtr->f490((void*)_handle, value);
     }
 
     public ushort minor
     {
-        get => NativeMethods.TablePtr->f94((void*)_handle);
-        set => NativeMethods.TablePtr->f95((void*)_handle, value);
+        get => NativeMethods.TablePtr->f491((void*)_handle);
+        set => NativeMethods.TablePtr->f492((void*)_handle, value);
     }
 
     public nint operator_compare(nint other) =>
@@ -86,13 +86,13 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version other)
     {
-        return NativeMethods.TablePtr->f96((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f493((void*)_handle, (void*)other.Handle);
     }
 
     public ushort patch
     {
-        get => NativeMethods.TablePtr->f97((void*)_handle);
-        set => NativeMethods.TablePtr->f98((void*)_handle, value);
+        get => NativeMethods.TablePtr->f494((void*)_handle);
+        set => NativeMethods.TablePtr->f495((void*)_handle, value);
     }
 
     public nint preRelease
@@ -103,7 +103,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public string to_string()
     {
-        var __hs_view = NativeMethods.TablePtr->f99((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f496((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -112,7 +112,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(str);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f100((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f497((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -121,7 +121,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f87((void*)_handle);
+            NativeMethods.TablePtr->f484((void*)_handle);
             _handle = 0;
         }
     }

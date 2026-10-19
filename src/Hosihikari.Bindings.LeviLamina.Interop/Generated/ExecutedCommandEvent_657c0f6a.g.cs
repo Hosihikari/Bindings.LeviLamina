@@ -16,7 +16,7 @@ public sealed unsafe partial class ExecutedCommandEvent
 
     public nint result()
     {
-        return (nint)NativeMethods.TablePtr->f150((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f578((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

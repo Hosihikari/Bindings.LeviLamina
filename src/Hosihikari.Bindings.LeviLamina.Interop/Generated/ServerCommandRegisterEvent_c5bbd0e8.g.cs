@@ -16,7 +16,7 @@ public sealed unsafe partial class ServerCommandRegisterEvent
 
     public bool isClientHostedServer()
     {
-        return NativeMethods.TablePtr->f183((void*)_handle);
+        return NativeMethods.TablePtr->f613((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

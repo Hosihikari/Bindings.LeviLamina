@@ -16,7 +16,7 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f390(__hs_stringData, (nuint)__hs_stringBytes.Length, nThreads);
+            var handle = NativeMethods.TablePtr->f823(__hs_stringData, (nuint)__hs_stringBytes.Length, nThreads);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,7 +28,7 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
 
     public void destroy()
     {
-        NativeMethods.TablePtr->f391((void*)_handle);
+        NativeMethods.TablePtr->f824((void*)_handle);
     }
 
     public void execute(nint arg0) =>
@@ -39,12 +39,12 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
 
     public nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f392((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f825((void*)_handle);
     }
 
     public void resize(ulong nThreads)
     {
-        NativeMethods.TablePtr->f393((void*)_handle, nThreads);
+        NativeMethods.TablePtr->f826((void*)_handle, nThreads);
     }
 
 
@@ -52,7 +52,7 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f389((void*)_handle);
+            NativeMethods.TablePtr->f822((void*)_handle);
             _handle = 0;
         }
     }

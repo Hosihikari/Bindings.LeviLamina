@@ -16,7 +16,7 @@ public sealed unsafe partial class PlayerAttackEvent
 
     public nint cause()
     {
-        return (nint)NativeMethods.TablePtr->f161((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f591((void*)_handle);
     }
 
     public void serialize(nint arg0) =>
@@ -24,6 +24,6 @@ public sealed unsafe partial class PlayerAttackEvent
 
     public nint target()
     {
-        return (nint)NativeMethods.TablePtr->f162((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f592((void*)_handle);
     }
 }

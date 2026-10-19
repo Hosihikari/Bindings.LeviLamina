@@ -19,16 +19,16 @@ public sealed unsafe partial class SpawningMobEvent
 
     public nint fromSpawner()
     {
-        return (nint)NativeMethods.TablePtr->f193((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f623((void*)_handle);
     }
 
     public nint naturalSpawn()
     {
-        return (nint)NativeMethods.TablePtr->f194((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f624((void*)_handle);
     }
 
     public nint surface()
     {
-        return (nint)NativeMethods.TablePtr->f195((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f625((void*)_handle);
     }
 }

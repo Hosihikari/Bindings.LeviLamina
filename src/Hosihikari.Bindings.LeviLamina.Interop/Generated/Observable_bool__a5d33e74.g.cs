@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 
-public sealed partial class Observable_bool_
+public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,17 +11,35 @@ public sealed partial class Observable_bool_
 
     public nint Handle => _handle;
 
-    public static Observable_bool_ Create(bool initial) =>
+    public static Observable_bool_ Create(bool initial)
+    {
+        var handle = NativeMethods.TablePtr->f452(initial);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new Observable_bool_((nint)handle);
+    }
+
+    public static Observable_bool_ Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_bool_ arg0)
+    {
+        var handle = NativeMethods.TablePtr->f453((void*)arg0.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new Observable_bool_((nint)handle);
+    }
+
+    public static Observable_bool_ Create(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public static Observable_bool_ Create_5c5dad5c(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public static Observable_bool_ Create_c75d0f1b(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public bool getData() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool getData()
+    {
+        return NativeMethods.TablePtr->f454((void*)_handle);
+    }
 
     public nint operator_assign_0ddb3b12(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -29,12 +47,25 @@ public sealed partial class Observable_bool_
     public nint operator_assign_c2dc8c65(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void setData(bool value) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void setData(bool value)
+    {
+        NativeMethods.TablePtr->f455((void*)_handle, value);
+    }
 
     public uint subscribe(nint callback) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public bool unsubscribe(uint id) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool unsubscribe(uint id)
+    {
+        return NativeMethods.TablePtr->f456((void*)_handle, id);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f451((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

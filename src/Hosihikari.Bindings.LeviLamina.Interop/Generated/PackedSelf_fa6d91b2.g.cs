@@ -19,7 +19,7 @@ public sealed unsafe partial class PackedSelf
 
     public nint self
     {
-        get => (nint)NativeMethods.TablePtr->f273((void*)_handle);
-        set => NativeMethods.TablePtr->f274((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f703((void*)_handle);
+        set => NativeMethods.TablePtr->f704((void*)_handle, (void*)value);
     }
 }

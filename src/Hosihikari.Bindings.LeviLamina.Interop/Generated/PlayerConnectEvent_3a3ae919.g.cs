@@ -16,12 +16,12 @@ public sealed unsafe partial class PlayerConnectEvent
 
     public nint connectionRequest()
     {
-        return (nint)NativeMethods.TablePtr->f165((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f595((void*)_handle);
     }
 
     public nint networkIdentifier()
     {
-        return (nint)NativeMethods.TablePtr->f166((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f596((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

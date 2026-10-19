@@ -16,7 +16,7 @@ public sealed unsafe partial class PlayerJumpEvent
 
     public nint fromPosition()
     {
-        return (nint)NativeMethods.TablePtr->f174((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f604((void*)_handle);
     }
 
     public void serialize(nint nbt) =>
@@ -24,6 +24,6 @@ public sealed unsafe partial class PlayerJumpEvent
 
     public nint toPosition()
     {
-        return (nint)NativeMethods.TablePtr->f175((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f605((void*)_handle);
     }
 }

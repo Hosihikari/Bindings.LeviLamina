@@ -13,15 +13,15 @@ public sealed unsafe partial class RuntimeEnum
 
     public ulong index
     {
-        get => NativeMethods.TablePtr->f35((void*)_handle);
-        set => NativeMethods.TablePtr->f36((void*)_handle, value);
+        get => NativeMethods.TablePtr->f378((void*)_handle);
+        set => NativeMethods.TablePtr->f379((void*)_handle, value);
     }
 
     public string name
     {
         get
         {
-            var view = NativeMethods.TablePtr->f37((void*)_handle);
+            var view = NativeMethods.TablePtr->f380((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }

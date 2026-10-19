@@ -22,7 +22,7 @@ public sealed unsafe partial class EventBus
 
     public nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f134((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f562((void*)_handle);
     }
 
     public nint getListener(ulong id) =>
@@ -30,12 +30,12 @@ public sealed unsafe partial class EventBus
 
     public ulong getListenerCount(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg0)
     {
-        return NativeMethods.TablePtr->f135((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->f563((void*)_handle, (void*)arg0.Handle);
     }
 
     public bool hasEvent(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView eventId)
     {
-        return NativeMethods.TablePtr->f136((void*)_handle, (void*)eventId.Handle);
+        return NativeMethods.TablePtr->f564((void*)_handle, (void*)eventId.Handle);
     }
 
     public bool hasListener(nint listener) =>
@@ -43,17 +43,17 @@ public sealed unsafe partial class EventBus
 
     public bool hasListener(ulong id)
     {
-        return NativeMethods.TablePtr->f137((void*)_handle, id);
+        return NativeMethods.TablePtr->f565((void*)_handle, id);
     }
 
     public bool hasListener(ulong arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
     {
-        return NativeMethods.TablePtr->f138((void*)_handle, arg0, (void*)arg1.Handle);
+        return NativeMethods.TablePtr->f566((void*)_handle, arg0, (void*)arg1.Handle);
     }
 
     public void publish(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
     {
-        NativeMethods.TablePtr->f139((void*)_handle, (void*)arg0.Handle, (void*)arg1.Handle);
+        NativeMethods.TablePtr->f567((void*)_handle, (void*)arg0.Handle, (void*)arg1.Handle);
     }
 
     public void publish(string modName, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event arg1, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg2)
@@ -61,7 +61,7 @@ public sealed unsafe partial class EventBus
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(modName);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            NativeMethods.TablePtr->f140((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)arg1.Handle, (void*)arg2.Handle);
+            NativeMethods.TablePtr->f568((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)arg1.Handle, (void*)arg2.Handle);
         }
     }
 
@@ -73,7 +73,7 @@ public sealed unsafe partial class EventBus
 
     public bool removeListener(ulong id)
     {
-        return NativeMethods.TablePtr->f141((void*)_handle, id);
+        return NativeMethods.TablePtr->f569((void*)_handle, id);
     }
 
     public bool setEventEmitter(nint fn, nint eventId, nint mod) =>

@@ -22,6 +22,6 @@ public sealed unsafe partial class ServiceEvent
 
     public nint service()
     {
-        return (nint)NativeMethods.TablePtr->f187((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f617((void*)_handle);
     }
 }

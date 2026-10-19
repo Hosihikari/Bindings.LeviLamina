@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 
-public sealed partial class TightPair_ll__data__polymorphicCopy_ll__io__Formatter___std__unique_ptr_ll__io__Formatter___fals_fd321c2c
+public sealed unsafe partial class TightPair_ll__data__polymorphicCopy_ll__io__Formatter___std__unique_ptr_ll__io__Formatter___fals_fd321c2c
 {
     private nint _handle;
 
@@ -11,15 +11,23 @@ public sealed partial class TightPair_ll__data__polymorphicCopy_ll__io__Formatte
 
     public nint Handle => _handle;
 
-    public nint first_9d4d6093() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint first_9d4d6093()
+    {
+        return (nint)NativeMethods.TablePtr->f478((void*)_handle);
+    }
 
-    public nint first_9bccad5c() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint first_9bccad5c()
+    {
+        return (nint)NativeMethods.TablePtr->f479((void*)_handle);
+    }
 
-    public nint second_73c45094() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint second_73c45094()
+    {
+        return (nint)NativeMethods.TablePtr->f480((void*)_handle);
+    }
 
-    public nint second_85bab499() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint second_85bab499()
+    {
+        return (nint)NativeMethods.TablePtr->f481((void*)_handle);
+    }
 }

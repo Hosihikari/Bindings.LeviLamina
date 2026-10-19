@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 
-public sealed partial class UIObservable_std__basic_string_char__
+public sealed unsafe partial class UIObservable_std__basic_string_char__
 {
     private nint _handle;
 
@@ -14,6 +14,8 @@ public sealed partial class UIObservable_std__basic_string_char__
     public static UIObservable_std__basic_string_char__ Create(nint initial, nint options) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public bool isClientWritable() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool isClientWritable()
+    {
+        return NativeMethods.TablePtr->f853((void*)_handle);
+    }
 }

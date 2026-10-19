@@ -19,6 +19,6 @@ public sealed unsafe partial class ServerStartedEvent
 
     public nint server()
     {
-        return (nint)NativeMethods.TablePtr->f185((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f615((void*)_handle);
     }
 }

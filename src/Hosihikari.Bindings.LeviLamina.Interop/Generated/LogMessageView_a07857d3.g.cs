@@ -24,7 +24,7 @@ public sealed unsafe partial class LogMessageView
     {
         get
         {
-            var view = NativeMethods.TablePtr->f243((void*)_handle);
+            var view = NativeMethods.TablePtr->f673((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -33,7 +33,7 @@ public sealed unsafe partial class LogMessageView
     {
         get
         {
-            var view = NativeMethods.TablePtr->f244((void*)_handle);
+            var view = NativeMethods.TablePtr->f674((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }

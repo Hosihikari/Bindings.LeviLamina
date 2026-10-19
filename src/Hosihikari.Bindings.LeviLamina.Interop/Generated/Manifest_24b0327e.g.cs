@@ -39,7 +39,7 @@ public sealed unsafe partial class Manifest
     {
         get
         {
-            var view = NativeMethods.TablePtr->f315((void*)_handle);
+            var view = NativeMethods.TablePtr->f745((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -60,7 +60,7 @@ public sealed unsafe partial class Manifest
     {
         get
         {
-            var view = NativeMethods.TablePtr->f316((void*)_handle);
+            var view = NativeMethods.TablePtr->f746((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -87,7 +87,7 @@ public sealed unsafe partial class Manifest
     {
         get
         {
-            var view = NativeMethods.TablePtr->f317((void*)_handle);
+            var view = NativeMethods.TablePtr->f747((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }

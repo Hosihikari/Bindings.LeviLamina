@@ -15,14 +15,14 @@ public sealed unsafe partial class Dependency
     {
         get
         {
-            var view = NativeMethods.TablePtr->f313((void*)_handle);
+            var view = NativeMethods.TablePtr->f743((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Dependency other)
     {
-        return NativeMethods.TablePtr->f314((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f744((void*)_handle, (void*)other.Handle);
     }
 
     public nint version

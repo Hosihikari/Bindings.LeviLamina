@@ -25,7 +25,7 @@ public sealed unsafe partial class DropdownItemData
 
     public double value
     {
-        get => NativeMethods.TablePtr->f397((void*)_handle);
-        set => NativeMethods.TablePtr->f398((void*)_handle, value);
+        get => NativeMethods.TablePtr->f830((void*)_handle);
+        set => NativeMethods.TablePtr->f831((void*)_handle, value);
     }
 }

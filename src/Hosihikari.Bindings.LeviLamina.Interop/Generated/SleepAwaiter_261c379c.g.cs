@@ -13,12 +13,12 @@ public sealed unsafe partial class SleepAwaiter
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f54((void*)_handle);
+        return NativeMethods.TablePtr->f411((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f55((void*)_handle);
+        NativeMethods.TablePtr->f412((void*)_handle);
     }
 
     public void await_suspend(nint handle) =>

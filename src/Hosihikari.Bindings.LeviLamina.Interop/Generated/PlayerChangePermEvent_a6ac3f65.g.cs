@@ -19,7 +19,7 @@ public sealed unsafe partial class PlayerChangePermEvent
 
     public nint newPerm()
     {
-        return (nint)NativeMethods.TablePtr->f163((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f593((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

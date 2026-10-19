@@ -15,7 +15,7 @@ public sealed unsafe partial class QueryServiceResult
     {
         get
         {
-            var view = NativeMethods.TablePtr->f353((void*)_handle);
+            var view = NativeMethods.TablePtr->f786((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -24,7 +24,7 @@ public sealed unsafe partial class QueryServiceResult
     {
         get
         {
-            var view = NativeMethods.TablePtr->f354((void*)_handle);
+            var view = NativeMethods.TablePtr->f787((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -37,7 +37,7 @@ public sealed unsafe partial class QueryServiceResult
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f355((void*)_handle);
-        set => NativeMethods.TablePtr->f356((void*)_handle, value);
+        get => NativeMethods.TablePtr->f788((void*)_handle);
+        set => NativeMethods.TablePtr->f789((void*)_handle, value);
     }
 }

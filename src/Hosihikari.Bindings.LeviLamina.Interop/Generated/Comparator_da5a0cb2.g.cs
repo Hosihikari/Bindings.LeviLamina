@@ -19,7 +19,7 @@ public sealed unsafe partial class Comparator
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.VersionRequirement_Nested.Comparator arg0)
     {
-        return NativeMethods.TablePtr->f110((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->f507((void*)_handle, (void*)arg0.Handle);
     }
 
     public nint version

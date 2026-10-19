@@ -16,7 +16,7 @@ public sealed unsafe partial class PlayerUseItemEvent
 
     public nint item()
     {
-        return (nint)NativeMethods.TablePtr->f182((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f612((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

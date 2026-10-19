@@ -25,7 +25,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint closeButton()
     {
-        return (nint)NativeMethods.TablePtr->f395((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f828((void*)_handle);
     }
 
     public nint divider(nint options) =>
@@ -39,7 +39,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f396((void*)_handle);
+        return NativeMethods.TablePtr->f829((void*)_handle);
     }
 
     public nint label(nint text, nint options) =>
@@ -71,7 +71,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f394((void*)_handle);
+            NativeMethods.TablePtr->f827((void*)_handle);
             _handle = 0;
         }
     }

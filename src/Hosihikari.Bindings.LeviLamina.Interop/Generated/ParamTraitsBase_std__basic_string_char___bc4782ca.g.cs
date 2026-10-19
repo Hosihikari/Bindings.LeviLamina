@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed partial class ParamTraitsBase_std__basic_string_char__
+public sealed unsafe partial class ParamTraitsBase_std__basic_string_char__
 {
     private nint _handle;
 
@@ -14,8 +14,11 @@ public sealed partial class ParamTraitsBase_std__basic_string_char__
     public nint dataType() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint enumNameOrPostfix() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public string enumNameOrPostfix()
+    {
+        var __hs_view = NativeMethods.TablePtr->f375((void*)_handle);
+        return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
+    }
 
     public nint options() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -23,11 +26,16 @@ public sealed partial class ParamTraitsBase_std__basic_string_char__
     public nint parseFn() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint parseRule() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint parseRule()
+    {
+        return (nint)NativeMethods.TablePtr->f376((void*)_handle);
+    }
 
-    public nint subChain() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public string subChain()
+    {
+        var __hs_view = NativeMethods.TablePtr->f377((void*)_handle);
+        return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
+    }
 
     public void transformData(nint arg0, nint arg1) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");

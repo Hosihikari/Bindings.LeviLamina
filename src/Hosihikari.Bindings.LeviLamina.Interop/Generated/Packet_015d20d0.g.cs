@@ -19,7 +19,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public ulong getRuntimeId()
     {
-        return NativeMethods.TablePtr->f343((void*)_handle);
+        return NativeMethods.TablePtr->f773((void*)_handle);
     }
 
     public nint mCompressible
@@ -66,7 +66,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendToClients()
     {
-        NativeMethods.TablePtr->f344((void*)_handle);
+        NativeMethods.TablePtr->f774((void*)_handle);
     }
 
     public void sendToClients(nint exceptId, nint exceptSubid) =>
@@ -74,7 +74,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendToServer()
     {
-        NativeMethods.TablePtr->f345((void*)_handle);
+        NativeMethods.TablePtr->f775((void*)_handle);
     }
 
     public void write(nint arg0) =>
@@ -85,7 +85,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f342((void*)_handle);
+            NativeMethods.TablePtr->f772((void*)_handle);
             _handle = 0;
         }
     }

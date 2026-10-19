@@ -15,7 +15,7 @@ public sealed unsafe partial class PlayerInfoEntry
     {
         get
         {
-            var view = NativeMethods.TablePtr->f351((void*)_handle);
+            var view = NativeMethods.TablePtr->f784((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -30,7 +30,7 @@ public sealed unsafe partial class PlayerInfoEntry
     {
         get
         {
-            var view = NativeMethods.TablePtr->f352((void*)_handle);
+            var view = NativeMethods.TablePtr->f785((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }

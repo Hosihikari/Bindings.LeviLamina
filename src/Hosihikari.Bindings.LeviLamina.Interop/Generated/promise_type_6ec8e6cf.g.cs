@@ -22,11 +22,11 @@ public sealed unsafe partial class promise_type
 
     public void return_void()
     {
-        NativeMethods.TablePtr->f58((void*)_handle);
+        NativeMethods.TablePtr->f415((void*)_handle);
     }
 
     public void unhandled_exception()
     {
-        NativeMethods.TablePtr->f59((void*)_handle);
+        NativeMethods.TablePtr->f416((void*)_handle);
     }
 }

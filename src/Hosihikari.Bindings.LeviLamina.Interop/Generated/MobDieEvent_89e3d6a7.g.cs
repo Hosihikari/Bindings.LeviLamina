@@ -19,6 +19,6 @@ public sealed unsafe partial class MobDieEvent
 
     public nint source()
     {
-        return (nint)NativeMethods.TablePtr->f158((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f586((void*)_handle);
     }
 }

@@ -16,12 +16,12 @@ public sealed unsafe partial class YieldAwaiter
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f60((void*)_handle);
+        return NativeMethods.TablePtr->f417((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f61((void*)_handle);
+        NativeMethods.TablePtr->f418((void*)_handle);
     }
 
     public void await_suspend(nint handle) =>

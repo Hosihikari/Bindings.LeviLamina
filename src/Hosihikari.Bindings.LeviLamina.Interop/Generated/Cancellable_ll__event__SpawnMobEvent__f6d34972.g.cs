@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed partial class Cancellable_ll__event__SpawnMobEvent_
+public sealed unsafe partial class Cancellable_ll__event__SpawnMobEvent_
 {
     private nint _handle;
 
@@ -11,18 +11,24 @@ public sealed partial class Cancellable_ll__event__SpawnMobEvent_
 
     public nint Handle => _handle;
 
-    public void cancel() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void cancel()
+    {
+        NativeMethods.TablePtr->f545((void*)_handle);
+    }
 
     public void deserialize(nint nbt) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public bool isCancelled() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool isCancelled()
+    {
+        return NativeMethods.TablePtr->f546((void*)_handle);
+    }
 
     public void serialize(nint nbt) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void setCancelled(bool cancelled) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void setCancelled(bool cancelled)
+    {
+        NativeMethods.TablePtr->f547((void*)_handle, cancelled);
+    }
 }

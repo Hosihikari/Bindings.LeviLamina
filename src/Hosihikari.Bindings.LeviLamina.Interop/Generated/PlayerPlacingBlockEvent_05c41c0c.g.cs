@@ -16,7 +16,7 @@ public sealed unsafe partial class PlayerPlacingBlockEvent
 
     public nint face()
     {
-        return (nint)NativeMethods.TablePtr->f181((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f611((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

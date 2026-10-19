@@ -13,7 +13,7 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
 
     public static RotatePolicy Create()
     {
-        var handle = NativeMethods.TablePtr->f268();
+        var handle = NativeMethods.TablePtr->f698();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
 
     public static RotatePolicy Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotateConfig config)
     {
-        var handle = NativeMethods.TablePtr->f269((void*)config.Handle);
+        var handle = NativeMethods.TablePtr->f699((void*)config.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,7 +35,7 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
 
     public string defaultNamer(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.ArchiveNameInfo info)
     {
-        var __hs_view = NativeMethods.TablePtr->f270((void*)_handle, (void*)info.Handle);
+        var __hs_view = NativeMethods.TablePtr->f700((void*)_handle, (void*)info.Handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -52,7 +52,7 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f267((void*)_handle);
+            NativeMethods.TablePtr->f697((void*)_handle);
             _handle = 0;
         }
     }

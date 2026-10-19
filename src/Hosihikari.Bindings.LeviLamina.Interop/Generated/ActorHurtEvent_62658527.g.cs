@@ -16,7 +16,7 @@ public sealed unsafe partial class ActorHurtEvent
 
     public nint damage()
     {
-        return (nint)NativeMethods.TablePtr->f117((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f515((void*)_handle);
     }
 
     public void deserialize(nint arg0) =>
@@ -27,6 +27,6 @@ public sealed unsafe partial class ActorHurtEvent
 
     public nint source()
     {
-        return (nint)NativeMethods.TablePtr->f118((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f516((void*)_handle);
     }
 }

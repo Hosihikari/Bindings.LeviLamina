@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 
-public sealed partial class Observable_ll__ui__UIRawMessage_
+public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,8 +11,16 @@ public sealed partial class Observable_ll__ui__UIRawMessage_
 
     public nint Handle => _handle;
 
-    public static Observable_ll__ui__UIRawMessage_ Create_355fb239(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static Observable_ll__ui__UIRawMessage_ Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_ll__ui__UIRawMessage_ arg0)
+    {
+        var handle = NativeMethods.TablePtr->f464((void*)arg0.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new Observable_ll__ui__UIRawMessage_((nint)handle);
+    }
 
     public static Observable_ll__ui__UIRawMessage_ Create_a2d09c48(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -35,6 +43,17 @@ public sealed partial class Observable_ll__ui__UIRawMessage_
     public uint subscribe(nint callback) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public bool unsubscribe(uint id) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool unsubscribe(uint id)
+    {
+        return NativeMethods.TablePtr->f465((void*)_handle, id);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f463((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

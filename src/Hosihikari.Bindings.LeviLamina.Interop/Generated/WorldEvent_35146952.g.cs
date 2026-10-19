@@ -16,7 +16,7 @@ public sealed unsafe partial class WorldEvent
 
     public nint blockSource()
     {
-        return (nint)NativeMethods.TablePtr->f196((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f626((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

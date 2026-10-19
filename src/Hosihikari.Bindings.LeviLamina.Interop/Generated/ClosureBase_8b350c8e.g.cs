@@ -16,7 +16,7 @@ public sealed unsafe partial class ClosureBase
 
     public nint getClosureData()
     {
-        return (nint)NativeMethods.TablePtr->f272((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f702((void*)_handle);
     }
 
     public static nint jitSize

@@ -19,17 +19,17 @@ public sealed unsafe partial class PlayerPickUpItemEvent
 
     public nint favoredSlot()
     {
-        return (nint)NativeMethods.TablePtr->f176((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f606((void*)_handle);
     }
 
     public nint itemActor()
     {
-        return (nint)NativeMethods.TablePtr->f177((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f607((void*)_handle);
     }
 
     public nint orgCount()
     {
-        return (nint)NativeMethods.TablePtr->f178((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f608((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

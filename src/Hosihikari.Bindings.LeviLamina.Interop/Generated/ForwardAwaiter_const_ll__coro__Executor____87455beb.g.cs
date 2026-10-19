@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.coro;
 
-public sealed partial class ForwardAwaiter_const_ll__coro__Executor___
+public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___
 {
     private nint _handle;
 
@@ -14,18 +14,21 @@ public sealed partial class ForwardAwaiter_const_ll__coro__Executor___
     public static ForwardAwaiter_const_ll__coro__Executor___ Create(nint val) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public bool await_ready() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool await_ready()
+    {
+        return NativeMethods.TablePtr->f403((void*)_handle);
+    }
 
-    public nint await_resume() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint await_resume()
+    {
+        return (nint)NativeMethods.TablePtr->f404((void*)_handle);
+    }
 
     public void await_suspend(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint t
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f405((void*)_handle);
     }
 }

@@ -16,7 +16,7 @@ public sealed unsafe partial class FireSpreadEvent
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f153((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f581((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

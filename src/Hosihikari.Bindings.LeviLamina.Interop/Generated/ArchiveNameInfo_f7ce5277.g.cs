@@ -13,8 +13,8 @@ public sealed unsafe partial class ArchiveNameInfo
 
     public ulong index
     {
-        get => NativeMethods.TablePtr->f234((void*)_handle);
-        set => NativeMethods.TablePtr->f235((void*)_handle, value);
+        get => NativeMethods.TablePtr->f664((void*)_handle);
+        set => NativeMethods.TablePtr->f665((void*)_handle, value);
     }
 
     public nint interval

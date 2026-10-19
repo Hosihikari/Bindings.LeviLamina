@@ -21,7 +21,7 @@ public sealed unsafe partial class StackTraceEntryInfo
     {
         get
         {
-            var view = NativeMethods.TablePtr->f369((void*)_handle);
+            var view = NativeMethods.TablePtr->f802((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -36,7 +36,7 @@ public sealed unsafe partial class StackTraceEntryInfo
     {
         get
         {
-            var view = NativeMethods.TablePtr->f370((void*)_handle);
+            var view = NativeMethods.TablePtr->f803((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }

@@ -16,48 +16,48 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public nint getBehaviorDir()
     {
-        return (nint)NativeMethods.TablePtr->f319((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f749((void*)_handle);
     }
 
     public nint getConfigDir()
     {
-        return (nint)NativeMethods.TablePtr->f320((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f750((void*)_handle);
     }
 
     public nint getDataDir()
     {
-        return (nint)NativeMethods.TablePtr->f321((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f751((void*)_handle);
     }
 
     public nint getLangDir()
     {
-        return (nint)NativeMethods.TablePtr->f322((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f752((void*)_handle);
     }
 
     public nint getLogger()
     {
-        return (nint)NativeMethods.TablePtr->f323((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f753((void*)_handle);
     }
 
     public nint getManifest()
     {
-        return (nint)NativeMethods.TablePtr->f324((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f754((void*)_handle);
     }
 
     public nint getModDir()
     {
-        return (nint)NativeMethods.TablePtr->f325((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f755((void*)_handle);
     }
 
     public string getName()
     {
-        var __hs_view = NativeMethods.TablePtr->f326((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f756((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint getResourceDir()
     {
-        return (nint)NativeMethods.TablePtr->f327((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f757((void*)_handle);
     }
 
     public nint getState() =>
@@ -65,7 +65,7 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public string getType()
     {
-        var __hs_view = NativeMethods.TablePtr->f328((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f758((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -89,12 +89,12 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public bool isDisabled()
     {
-        return NativeMethods.TablePtr->f329((void*)_handle);
+        return NativeMethods.TablePtr->f759((void*)_handle);
     }
 
     public bool isEnabled()
     {
-        return NativeMethods.TablePtr->f330((void*)_handle);
+        return NativeMethods.TablePtr->f760((void*)_handle);
     }
 
     public nint onDisable() =>
@@ -132,7 +132,7 @@ public sealed unsafe partial class Mod : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f318((void*)_handle);
+            NativeMethods.TablePtr->f748((void*)_handle);
             _handle = 0;
         }
     }

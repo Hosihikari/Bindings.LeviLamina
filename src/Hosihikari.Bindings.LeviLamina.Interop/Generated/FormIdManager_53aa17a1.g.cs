@@ -13,6 +13,6 @@ public sealed unsafe partial class FormIdManager
 
     public uint genFormId()
     {
-        return NativeMethods.TablePtr->f206((void*)_handle);
+        return NativeMethods.TablePtr->f636((void*)_handle);
     }
 }

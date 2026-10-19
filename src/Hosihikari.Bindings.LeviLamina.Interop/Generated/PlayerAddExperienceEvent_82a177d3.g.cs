@@ -19,7 +19,7 @@ public sealed unsafe partial class PlayerAddExperienceEvent
 
     public nint experience()
     {
-        return (nint)NativeMethods.TablePtr->f160((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f590((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

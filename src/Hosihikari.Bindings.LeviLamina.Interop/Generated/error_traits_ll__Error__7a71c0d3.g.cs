@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.nonstd.expected_lite;
 
-public sealed partial class error_traits_ll__Error_
+public sealed unsafe partial class error_traits_ll__Error_
 {
     private nint _handle;
 
@@ -11,6 +11,8 @@ public sealed partial class error_traits_ll__Error_
 
     public nint Handle => _handle;
 
-    public void rethrow(nint e) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void rethrow(global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error e)
+    {
+        NativeMethods.TablePtr->f863((void*)_handle, (void*)e.Handle);
+    }
 }

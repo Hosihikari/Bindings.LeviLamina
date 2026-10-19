@@ -25,14 +25,14 @@ public sealed unsafe partial class GetServiceError
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_view = NativeMethods.TablePtr->f347((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            var __hs_view = NativeMethods.TablePtr->f780((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f348((void*)_handle);
-        set => NativeMethods.TablePtr->f349((void*)_handle, value);
+        get => NativeMethods.TablePtr->f781((void*)_handle);
+        set => NativeMethods.TablePtr->f782((void*)_handle, value);
     }
 }

@@ -21,14 +21,14 @@ public sealed unsafe partial class ServiceIdView
     {
         get
         {
-            var view = NativeMethods.TablePtr->f363((void*)_handle);
+            var view = NativeMethods.TablePtr->f796((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f364((void*)_handle);
-        set => NativeMethods.TablePtr->f365((void*)_handle, value);
+        get => NativeMethods.TablePtr->f797((void*)_handle);
+        set => NativeMethods.TablePtr->f798((void*)_handle, value);
     }
 }

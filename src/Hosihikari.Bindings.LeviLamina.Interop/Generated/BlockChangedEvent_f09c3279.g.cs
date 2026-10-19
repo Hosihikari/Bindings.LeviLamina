@@ -16,22 +16,22 @@ public sealed unsafe partial class BlockChangedEvent
 
     public nint layer()
     {
-        return (nint)NativeMethods.TablePtr->f119((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f517((void*)_handle);
     }
 
     public nint newBlock()
     {
-        return (nint)NativeMethods.TablePtr->f120((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f518((void*)_handle);
     }
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f121((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f519((void*)_handle);
     }
 
     public nint previousBlock()
     {
-        return (nint)NativeMethods.TablePtr->f122((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f520((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

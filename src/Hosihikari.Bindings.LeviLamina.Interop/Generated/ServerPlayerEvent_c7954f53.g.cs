@@ -16,6 +16,6 @@ public sealed unsafe partial class ServerPlayerEvent
 
     public nint self()
     {
-        return (nint)NativeMethods.TablePtr->f184((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f614((void*)_handle);
     }
 }

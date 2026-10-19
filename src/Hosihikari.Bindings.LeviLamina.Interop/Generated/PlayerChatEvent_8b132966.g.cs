@@ -19,7 +19,7 @@ public sealed unsafe partial class PlayerChatEvent
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f164((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f594((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 

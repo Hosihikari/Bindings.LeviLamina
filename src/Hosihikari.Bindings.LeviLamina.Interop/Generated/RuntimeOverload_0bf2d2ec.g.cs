@@ -31,7 +31,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f39((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
+            return (nint)NativeMethods.TablePtr->f382((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
         }
     }
 
@@ -43,7 +43,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(postfix);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f40((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f383((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -52,7 +52,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f41((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
+            return (nint)NativeMethods.TablePtr->f384((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
         }
     }
 
@@ -64,7 +64,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f42((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f385((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -73,7 +73,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f38((void*)_handle);
+            NativeMethods.TablePtr->f381((void*)_handle);
             _handle = 0;
         }
     }

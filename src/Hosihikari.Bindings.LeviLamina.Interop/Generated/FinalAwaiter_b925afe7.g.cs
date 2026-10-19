@@ -13,11 +13,11 @@ public sealed unsafe partial class FinalAwaiter
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f47((void*)_handle);
+        return NativeMethods.TablePtr->f396((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f48((void*)_handle);
+        NativeMethods.TablePtr->f397((void*)_handle);
     }
 }

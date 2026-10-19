@@ -16,7 +16,7 @@ public sealed unsafe partial class Signature
 
     public nint back()
     {
-        return (nint)NativeMethods.TablePtr->f283((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f713((void*)_handle);
     }
 
     public nint begin() =>
@@ -27,17 +27,17 @@ public sealed unsafe partial class Signature
 
     public nint front()
     {
-        return (nint)NativeMethods.TablePtr->f284((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f714((void*)_handle);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature other)
     {
-        return NativeMethods.TablePtr->f285((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f715((void*)_handle, (void*)other.Handle);
     }
 
     public nint operator_index(ulong idx)
     {
-        return (nint)NativeMethods.TablePtr->f286((void*)_handle, idx);
+        return (nint)NativeMethods.TablePtr->f716((void*)_handle, idx);
     }
 
     public nint parse(nint str) =>
@@ -45,7 +45,7 @@ public sealed unsafe partial class Signature
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f287((void*)_handle);
+        return NativeMethods.TablePtr->f717((void*)_handle);
     }
 
     public nint view() =>

@@ -13,7 +13,7 @@ public sealed unsafe partial class ObservableOptions
 
     public bool clientWritable
     {
-        get => NativeMethods.TablePtr->f403((void*)_handle);
-        set => NativeMethods.TablePtr->f404((void*)_handle, value);
+        get => NativeMethods.TablePtr->f836((void*)_handle);
+        set => NativeMethods.TablePtr->f837((void*)_handle, value);
     }
 }

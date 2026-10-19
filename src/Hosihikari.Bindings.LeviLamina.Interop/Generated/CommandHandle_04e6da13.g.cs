@@ -19,7 +19,7 @@ public sealed unsafe partial class CommandHandle
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(alias);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f27((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f352((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 

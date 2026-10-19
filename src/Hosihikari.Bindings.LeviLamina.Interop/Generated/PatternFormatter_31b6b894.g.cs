@@ -22,8 +22,8 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
 
     public bool colored
     {
-        get => NativeMethods.TablePtr->f248((void*)_handle);
-        set => NativeMethods.TablePtr->f249((void*)_handle, value);
+        get => NativeMethods.TablePtr->f678((void*)_handle);
+        set => NativeMethods.TablePtr->f679((void*)_handle, value);
     }
 
     public void format(nint view, nint buffer) =>
@@ -33,7 +33,7 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f250((void*)_handle);
+            var view = NativeMethods.TablePtr->f680((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -49,7 +49,7 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f247((void*)_handle);
+            NativeMethods.TablePtr->f677((void*)_handle);
             _handle = 0;
         }
     }

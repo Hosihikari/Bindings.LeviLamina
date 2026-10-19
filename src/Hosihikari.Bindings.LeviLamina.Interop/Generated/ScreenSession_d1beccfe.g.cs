@@ -13,7 +13,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create()
     {
-        var handle = NativeMethods.TablePtr->f410();
+        var handle = NativeMethods.TablePtr->f843();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,7 +33,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
     {
-        var handle = NativeMethods.TablePtr->f411((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f844((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -68,7 +68,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f412((void*)_handle);
+        return NativeMethods.TablePtr->f845((void*)_handle);
     }
 
     public nint operator_assign_e92563b0(nint arg0) =>
@@ -88,7 +88,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f409((void*)_handle);
+            NativeMethods.TablePtr->f842((void*)_handle);
             _handle = 0;
         }
     }

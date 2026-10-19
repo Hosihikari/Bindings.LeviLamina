@@ -34,7 +34,7 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f43((void*)_handle);
+            NativeMethods.TablePtr->f386((void*)_handle);
             _handle = 0;
         }
     }

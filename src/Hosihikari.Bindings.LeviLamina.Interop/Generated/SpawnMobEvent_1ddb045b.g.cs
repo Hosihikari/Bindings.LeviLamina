@@ -16,12 +16,12 @@ public sealed unsafe partial class SpawnMobEvent
 
     public nint fromSpawner()
     {
-        return (nint)NativeMethods.TablePtr->f188((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f618((void*)_handle);
     }
 
     public nint identifier()
     {
-        return (nint)NativeMethods.TablePtr->f189((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f619((void*)_handle);
     }
 
     public nint mFromSpawner
@@ -62,12 +62,12 @@ public sealed unsafe partial class SpawnMobEvent
 
     public nint naturalSpawn()
     {
-        return (nint)NativeMethods.TablePtr->f190((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f620((void*)_handle);
     }
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f191((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f621((void*)_handle);
     }
 
     public void serialize(nint arg0) =>
@@ -78,6 +78,6 @@ public sealed unsafe partial class SpawnMobEvent
 
     public nint surface()
     {
-        return (nint)NativeMethods.TablePtr->f192((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f622((void*)_handle);
     }
 }

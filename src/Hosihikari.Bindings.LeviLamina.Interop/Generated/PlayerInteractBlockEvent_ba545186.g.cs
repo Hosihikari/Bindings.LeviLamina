@@ -19,22 +19,22 @@ public sealed unsafe partial class PlayerInteractBlockEvent
 
     public nint blockPos()
     {
-        return (nint)NativeMethods.TablePtr->f170((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f600((void*)_handle);
     }
 
     public nint clickPos()
     {
-        return (nint)NativeMethods.TablePtr->f171((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f601((void*)_handle);
     }
 
     public nint face()
     {
-        return (nint)NativeMethods.TablePtr->f172((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f602((void*)_handle);
     }
 
     public nint item()
     {
-        return (nint)NativeMethods.TablePtr->f173((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f603((void*)_handle);
     }
 
     public void serialize(nint arg0) =>

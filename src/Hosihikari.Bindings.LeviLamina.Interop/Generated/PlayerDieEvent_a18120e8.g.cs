@@ -19,6 +19,6 @@ public sealed unsafe partial class PlayerDieEvent
 
     public nint source()
     {
-        return (nint)NativeMethods.TablePtr->f168((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f598((void*)_handle);
     }
 }

@@ -13,7 +13,7 @@ public sealed unsafe partial class CoroPromiseBase : global::System.IDisposable
 
     public static CoroPromiseBase Create()
     {
-        var handle = NativeMethods.TablePtr->f46();
+        var handle = NativeMethods.TablePtr->f395();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -56,7 +56,7 @@ public sealed unsafe partial class CoroPromiseBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f45((void*)_handle);
+            NativeMethods.TablePtr->f394((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,11 +13,11 @@ public sealed unsafe partial class ParamStorageType
 
     public bool hold(ulong kind)
     {
-        return NativeMethods.TablePtr->f33((void*)_handle, kind);
+        return NativeMethods.TablePtr->f358((void*)_handle, kind);
     }
 
     public ulong index()
     {
-        return NativeMethods.TablePtr->f34((void*)_handle);
+        return NativeMethods.TablePtr->f359((void*)_handle);
     }
 }

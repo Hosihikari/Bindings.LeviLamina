@@ -13,7 +13,7 @@ public sealed unsafe partial class TmWithMs
 
     public ushort ms
     {
-        get => NativeMethods.TablePtr->f85((void*)_handle);
-        set => NativeMethods.TablePtr->f86((void*)_handle, value);
+        get => NativeMethods.TablePtr->f482((void*)_handle);
+        set => NativeMethods.TablePtr->f483((void*)_handle, value);
     }
 }

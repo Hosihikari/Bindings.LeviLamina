@@ -13,7 +13,7 @@ public sealed unsafe partial class ServiceManager
 
     public nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f366((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f799((void*)_handle);
     }
 
     public nint getService(nint id) =>
@@ -30,11 +30,11 @@ public sealed unsafe partial class ServiceManager
 
     public bool unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
     {
-        return NativeMethods.TablePtr->f367((void*)_handle, (void*)id.Handle);
+        return NativeMethods.TablePtr->f800((void*)_handle, (void*)id.Handle);
     }
 
     public void unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Mod mod)
     {
-        NativeMethods.TablePtr->f368((void*)_handle, (void*)mod.Handle);
+        NativeMethods.TablePtr->f801((void*)_handle, (void*)mod.Handle);
     }
 }

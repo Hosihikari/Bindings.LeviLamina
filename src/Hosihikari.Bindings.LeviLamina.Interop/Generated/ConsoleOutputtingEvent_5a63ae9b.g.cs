@@ -19,7 +19,7 @@ public sealed unsafe partial class ConsoleOutputtingEvent
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f128((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f556((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 

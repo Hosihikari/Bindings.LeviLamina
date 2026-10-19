@@ -34,23 +34,23 @@ public sealed unsafe partial class SymbolView
 
     public string raw()
     {
-        var __hs_view = NativeMethods.TablePtr->f309((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f739((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint resolve(bool disableErrorOutput)
     {
-        return (nint)NativeMethods.TablePtr->f310((void*)_handle, disableErrorOutput);
+        return (nint)NativeMethods.TablePtr->f740((void*)_handle, disableErrorOutput);
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f311((void*)_handle);
+        return NativeMethods.TablePtr->f741((void*)_handle);
     }
 
     public string toString()
     {
-        var __hs_view = NativeMethods.TablePtr->f312((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f742((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 }

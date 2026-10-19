@@ -16,7 +16,7 @@ public sealed unsafe partial class ExecuteCommandEvent
 
     public nint commandContext()
     {
-        return (nint)NativeMethods.TablePtr->f147((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f575((void*)_handle);
     }
 
     public nint mCommandContext
@@ -33,7 +33,7 @@ public sealed unsafe partial class ExecuteCommandEvent
 
     public nint minecraftCommands()
     {
-        return (nint)NativeMethods.TablePtr->f148((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f576((void*)_handle);
     }
 
     public void serialize(nint arg0) =>
@@ -41,6 +41,6 @@ public sealed unsafe partial class ExecuteCommandEvent
 
     public nint suppressOutput()
     {
-        return (nint)NativeMethods.TablePtr->f149((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f577((void*)_handle);
     }
 }

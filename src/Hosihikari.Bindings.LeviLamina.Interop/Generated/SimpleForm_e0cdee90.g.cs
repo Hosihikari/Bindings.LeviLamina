@@ -13,7 +13,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
 
     public static SimpleForm Create()
     {
-        var handle = NativeMethods.TablePtr->f2482();
+        var handle = NativeMethods.TablePtr->f2490();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,12 +28,18 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
     public nint appendButton(nint text, nint imageData, nint imageType, nint callback) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint appendButton(nint text, nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint appendButton(string text, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return (nint)NativeMethods.TablePtr->f2491((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        }
+    }
 
     public nint appendDivider()
     {
-        return (nint)NativeMethods.TablePtr->f2483((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2492((void*)_handle);
     }
 
     public nint appendHeader(string text)
@@ -41,7 +47,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2484((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2493((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -50,22 +56,26 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2485((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2494((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
-    public nint sendTo(nint player, nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    {
+        return (nint)NativeMethods.TablePtr->f2495((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+    }
 
-    public nint sendUpdate(nint player, nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    {
+        return (nint)NativeMethods.TablePtr->f2496((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+    }
 
     public nint setContent(string content)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(content);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2486((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2497((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -74,7 +84,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2487((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2498((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -83,7 +93,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2481((void*)_handle);
+            NativeMethods.TablePtr->f2489((void*)_handle);
             _handle = 0;
         }
     }

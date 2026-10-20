@@ -13,7 +13,7 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
 
     public static RuntimePacket Create()
     {
-        var handle = NativeMethods.TablePtr->f2706();
+        var handle = NativeMethods.TablePtr->f2721();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,17 +33,17 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
 
     public ulong getRuntimeId()
     {
-        return NativeMethods.TablePtr->f2707((void*)_handle);
+        return NativeMethods.TablePtr->f2722((void*)_handle);
     }
 
     public bool hasPacket()
     {
-        return NativeMethods.TablePtr->f2708((void*)_handle);
+        return NativeMethods.TablePtr->f2723((void*)_handle);
     }
 
     public bool isOwned()
     {
-        return NativeMethods.TablePtr->f2709((void*)_handle);
+        return NativeMethods.TablePtr->f2724((void*)_handle);
     }
 
     public void movePacket(nint newPacket) =>
@@ -56,7 +56,7 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2705((void*)_handle);
+            NativeMethods.TablePtr->f2720((void*)_handle);
             _handle = 0;
         }
     }

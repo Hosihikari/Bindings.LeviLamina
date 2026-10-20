@@ -16,15 +16,15 @@ public sealed unsafe partial class LogMessageView : global::System.IDisposable
 
     public int lvl
     {
-        get => NativeMethods.TablePtr->f2527((void*)_handle);
-        set => NativeMethods.TablePtr->f2528((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2538((void*)_handle);
+        set => NativeMethods.TablePtr->f2539((void*)_handle, value);
     }
 
     public string msg
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2529((void*)_handle);
+            var view = NativeMethods.TablePtr->f2540((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -33,22 +33,22 @@ public sealed unsafe partial class LogMessageView : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2530((void*)_handle);
+            var view = NativeMethods.TablePtr->f2541((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint tm
     {
-        get => (nint)NativeMethods.TablePtr->f2531((void*)_handle);
-        set => NativeMethods.TablePtr->f2532((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2542((void*)_handle);
+        set => NativeMethods.TablePtr->f2543((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2526((void*)_handle);
+            NativeMethods.TablePtr->f2537((void*)_handle);
             _handle = 0;
         }
     }

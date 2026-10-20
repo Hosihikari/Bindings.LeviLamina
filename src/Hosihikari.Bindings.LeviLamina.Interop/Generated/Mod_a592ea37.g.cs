@@ -13,7 +13,7 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public static Mod Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Manifest manifest)
     {
-        var handle = NativeMethods.TablePtr->f2668((void*)manifest.Handle);
+        var handle = NativeMethods.TablePtr->f2679((void*)manifest.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,58 +24,58 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public nint getBehaviorDir()
     {
-        return (nint)NativeMethods.TablePtr->f2669((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2680((void*)_handle);
     }
 
     public nint getConfigDir()
     {
-        return (nint)NativeMethods.TablePtr->f2670((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2681((void*)_handle);
     }
 
     public nint getDataDir()
     {
-        return (nint)NativeMethods.TablePtr->f2671((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2682((void*)_handle);
     }
 
     public nint getLangDir()
     {
-        return (nint)NativeMethods.TablePtr->f2672((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2683((void*)_handle);
     }
 
     public nint getLogger()
     {
-        return (nint)NativeMethods.TablePtr->f2673((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2684((void*)_handle);
     }
 
     public nint getManifest()
     {
-        return (nint)NativeMethods.TablePtr->f2674((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2685((void*)_handle);
     }
 
     public nint getModDir()
     {
-        return (nint)NativeMethods.TablePtr->f2675((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2686((void*)_handle);
     }
 
     public string getName()
     {
-        var __hs_view = NativeMethods.TablePtr->f2676((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2687((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint getResourceDir()
     {
-        return (nint)NativeMethods.TablePtr->f2677((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2688((void*)_handle);
     }
 
     public int getState()
     {
-        return NativeMethods.TablePtr->f2678((void*)_handle);
+        return NativeMethods.TablePtr->f2689((void*)_handle);
     }
 
     public string getType()
     {
-        var __hs_view = NativeMethods.TablePtr->f2679((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2690((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -87,32 +87,40 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public bool isDisabled()
     {
-        return NativeMethods.TablePtr->f2680((void*)_handle);
+        return NativeMethods.TablePtr->f2691((void*)_handle);
     }
 
     public bool isEnabled()
     {
-        return NativeMethods.TablePtr->f2681((void*)_handle);
+        return NativeMethods.TablePtr->f2692((void*)_handle);
     }
 
-    public void onDisable(nint func) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void onDisable(nint funcInvoke, nint funcUserData, nint funcRelease)
+    {
+        NativeMethods.TablePtr->f2693((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+    }
 
-    public void onEnable(nint func) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void onEnable(nint funcInvoke, nint funcUserData, nint funcRelease)
+    {
+        NativeMethods.TablePtr->f2694((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+    }
 
-    public void onLoad(nint func) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void onLoad(nint funcInvoke, nint funcUserData, nint funcRelease)
+    {
+        NativeMethods.TablePtr->f2695((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+    }
 
-    public void onUnload(nint func) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void onUnload(nint funcInvoke, nint funcUserData, nint funcRelease)
+    {
+        NativeMethods.TablePtr->f2696((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+    }
 
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2667((void*)_handle);
+            NativeMethods.TablePtr->f2678((void*)_handle);
             _handle = 0;
         }
     }

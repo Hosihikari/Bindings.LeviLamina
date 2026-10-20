@@ -15,7 +15,7 @@ The LeviLamina LLAPI surface for the Hosihikari bindings: a CI-generated native-
 The Interop and Idiomatic projects build. The carrier-linked generated Interop, the v1 BindingShim table with its `extern "C"` implementations, and the coverage manifest are committed:
 
 - `src/Hosihikari.Bindings.LeviLamina.Interop/Generated/` contains the generated native-style C# classes and `NativeMethods`.
-- `native/BindingShim/generated/win-x64-server/levilamina/` contains the 2,861-function table and its implementations.
+- `native/BindingShim/generated/win-x64-server/levilamina/` contains the 2,879-function table and its implementations.
 - `coverage/` contains the coverage manifest, summary, baseline, and provenance.
 
 The host calls `Hosihikari.Bindings.LeviLamina.Interop.NativeMethods.Load(path)` before using a generated wrapper. `native/BindingShim/build.ps1` builds the shim with clang-cl against `LeviLamina.lib`, fmt, and prelinked Bedrock imports.
@@ -38,7 +38,7 @@ powershell -File scripts/regenerate.ps1 -IrDirectory ..\Generator\artifacts\llap
 powershell -File scripts/run-runtime-smoke.ps1 -ServerRoot C:\path\to\bedrock-server
 ```
 
-The plugin validates `NativeMethods.Load`, `EventId`, `Version`, out-of-line `ll::Error` construction/`message()`/destruction, and the native-exception boundary. The expected output and requirements are in `tests/runtime-smoke/README.md`.
+The plugin validates `NativeMethods.Load`, `EventId`, `Version`, out-of-line `ll::Error` construction/`message()`/destruction, allocator-backed virtual-destructor lifecycles, `std::function` callback invocation/release, and the native-exception boundary. The expected output and requirements are in `tests/runtime-smoke/README.md`.
 
 ## Build
 

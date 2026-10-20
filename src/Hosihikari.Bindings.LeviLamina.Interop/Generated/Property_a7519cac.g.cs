@@ -13,7 +13,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
 
     public static Property Create()
     {
-        var handle = NativeMethods.TablePtr->f2806();
+        var handle = NativeMethods.TablePtr->f2824();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
 
     public static Property Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
     {
-        var handle = NativeMethods.TablePtr->f2807((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2825((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -41,7 +41,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2808((void*)_handle);
+        return NativeMethods.TablePtr->f2826((void*)_handle);
     }
 
     public nint operator_assign_bfa12fa4(nint arg0) =>
@@ -61,7 +61,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2805((void*)_handle);
+            NativeMethods.TablePtr->f2823((void*)_handle);
             _handle = 0;
         }
     }

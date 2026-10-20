@@ -24,7 +24,7 @@ if (-not (Test-Path $Manifest)) {
 }
 
 $GeneratorProject = Join-Path $GeneratorRoot "src\Hosihikari.Bindings.Generator\Hosihikari.Bindings.Generator.csproj"
-dotnet run --project $GeneratorProject -c Release -- emit $Manifest $IrDirectory $Output --native-root $LeviLaminaRoot --link-carrier
+dotnet run --project $GeneratorProject -c Release -- emit $Manifest $IrDirectory $Output --native-root $LeviLaminaRoot --link-carrier --ll-allocator
 
 $InteropGenerated = Join-Path $RepoRoot "src\Hosihikari.Bindings.LeviLamina.Interop\Generated"
 $ShimTarget = Join-Path $RepoRoot "native\BindingShim\generated\win-x64-server\levilamina"

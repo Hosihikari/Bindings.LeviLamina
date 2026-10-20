@@ -1,17 +1,40 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using Hosihikari;
 using Hosihikari.Bindings.LeviLamina.Interop;
 using Hosihikari.Bindings.LeviLamina.Interop.ll;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils;
+using Hosihikari.Bindings.LeviLamina.Interop.ll.io;
+using Hosihikari.Bindings.LeviLamina.Interop.ll.thread;
 using LlEventId = Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId;
 using LlVersion = Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version;
 
 public sealed class ShimSmokePlugin : IPlugin
 {
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate void CallbackInvoke(nint userData);
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate void CallbackRelease(nint userData);
+
+    private static readonly CallbackInvoke Callback = OnCallback;
+    private static readonly CallbackRelease Release = OnRelease;
+    private static int _callbackCount;
+    private static bool _callbackReleased;
+
     private IPluginContext _context = null!;
+
+    private static void OnCallback(nint userData) => Interlocked.Increment(ref _callbackCount);
+
+    private static void OnRelease(nint userData)
+    {
+        _callbackReleased = true;
+        GCHandle.FromIntPtr(userData).Free();
+    }
 
     public void OnLoad(IPluginContext context) => _context = context;
 
@@ -41,6 +64,31 @@ public sealed class ShimSmokePlugin : IPlugin
             log.AppendLine($"error.bool={error.operator_bool()}");
             log.AppendLine($"error.message={error.message()}");
             log.AppendLine("error.dispose=ok");
+
+            using (var pauser = GlobalThreadPauser.Create())
+            {
+                log.AppendLine("pauser.create=ok");
+            }
+
+            log.AppendLine("pauser.dispose=ok");
+
+            using (var sink = ConsoleSink.Create())
+            {
+                log.AppendLine("sink.create=ok");
+            }
+
+            log.AppendLine("sink.dispose=ok");
+
+            var executor = InplaceExecutor.Create("hosihikari-smoke");
+            var state = GCHandle.Alloc(new object());
+            executor.execute(
+                (nint)Marshal.GetFunctionPointerForDelegate(Callback),
+                GCHandle.ToIntPtr(state),
+                (nint)Marshal.GetFunctionPointerForDelegate(Release));
+            log.AppendLine($"callback.count={Volatile.Read(ref _callbackCount)}");
+            log.AppendLine($"callback.release={_callbackReleased}");
+            executor.Dispose();
+            log.AppendLine("executor.dispose=ok");
 
             try
             {

@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.form;
 
-public sealed partial class Form
+public sealed unsafe partial class Form
 {
     private nint _handle;
 
@@ -11,9 +11,21 @@ public sealed partial class Form
 
     public nint Handle => _handle;
 
-    public static bool sendRawTo(nint player, nint formData, nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static bool sendRawTo(nint player, string formData, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(formData);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return NativeMethods.TablePtr->f2477((void*)player, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        }
+    }
 
-    public static bool sendRawUpdate(nint player, nint formData, nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static bool sendRawUpdate(nint player, string formData, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(formData);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return NativeMethods.TablePtr->f2478((void*)player, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        }
+    }
 }

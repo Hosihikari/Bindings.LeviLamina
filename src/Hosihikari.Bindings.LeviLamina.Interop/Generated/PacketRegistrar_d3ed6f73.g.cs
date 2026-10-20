@@ -19,7 +19,7 @@ public sealed unsafe partial class PacketRegistrar
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2704();
+        return (nint)NativeMethods.TablePtr->f2719();
     }
 
     public bool registerHandler(nint name, ulong id, nint handler) =>

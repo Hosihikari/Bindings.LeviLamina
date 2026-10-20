@@ -13,7 +13,7 @@ public sealed unsafe partial class ModManagerRegistry
 
     public bool addManager(nint manager)
     {
-        return NativeMethods.TablePtr->f2685((void*)_handle, (void*)manager);
+        return NativeMethods.TablePtr->f2700((void*)_handle, (void*)manager);
     }
 
     public bool eraseManager(string type)
@@ -21,13 +21,13 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(type);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2686((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2701((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
     public bool eraseOnModCallback(ulong id)
     {
-        return NativeMethods.TablePtr->f2687((void*)_handle, id);
+        return NativeMethods.TablePtr->f2702((void*)_handle, id);
     }
 
     public ulong eraseOnModCallback(nint mod, nint type) =>
@@ -50,7 +50,7 @@ public sealed unsafe partial class ModManagerRegistry
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2688();
+        return (nint)NativeMethods.TablePtr->f2703();
     }
 
     public nint getManager(nint type) =>
@@ -67,7 +67,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_view = NativeMethods.TablePtr->f2689((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            var __hs_view = NativeMethods.TablePtr->f2704((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
@@ -77,7 +77,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(type);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2690((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2705((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -86,7 +86,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2691((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2706((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 

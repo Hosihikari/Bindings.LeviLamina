@@ -24,6 +24,8 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `EventId` string construction, name and hash.
 - `Version` string construction, string result, field getters, string method parameter.
 - Out-of-line `ll::Error` construction, `operator bool`, `message()` (string result), and destruction.
+- Out-of-line virtual-destructor and allocator-backed lifecycle: `GlobalThreadPauser`, `ConsoleSink`, and `InplaceExecutor` creation and destruction.
+- `std::function` callback projection: `InplaceExecutor.execute` invokes a managed C callback and its release callback exactly once.
 - Native exception capture: `Version.Create("not-a-version")` must surface as a managed `InvalidOperationException` with the native message.
 
 Expected result:
@@ -38,6 +40,13 @@ version.valid=True
 error.bool=True
 error.message=success
 error.dispose=ok
+pauser.create=ok
+pauser.dispose=ok
+sink.create=ok
+sink.dispose=ok
+callback.count=1
+callback.release=True
+executor.dispose=ok
 invalid=caught:invalid argument
 result=OK
 ```

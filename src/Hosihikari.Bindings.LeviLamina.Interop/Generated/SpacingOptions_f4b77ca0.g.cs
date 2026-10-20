@@ -13,14 +13,14 @@ public sealed unsafe partial class SpacingOptions : global::System.IDisposable
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f2820((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2838((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2819((void*)_handle);
+            NativeMethods.TablePtr->f2837((void*)_handle);
             _handle = 0;
         }
     }

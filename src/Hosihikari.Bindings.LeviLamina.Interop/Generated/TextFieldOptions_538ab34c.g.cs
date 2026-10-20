@@ -13,24 +13,24 @@ public sealed unsafe partial class TextFieldOptions : global::System.IDisposable
 
     public nint description
     {
-        get => (nint)NativeMethods.TablePtr->f2826((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2844((void*)_handle);
     }
 
     public nint disabled
     {
-        get => (nint)NativeMethods.TablePtr->f2827((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2845((void*)_handle);
     }
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f2828((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2846((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2825((void*)_handle);
+            NativeMethods.TablePtr->f2843((void*)_handle);
             _handle = 0;
         }
     }

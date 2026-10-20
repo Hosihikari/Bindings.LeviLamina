@@ -16,17 +16,17 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
 
     public ulong getId()
     {
-        return NativeMethods.TablePtr->f2359((void*)_handle);
+        return NativeMethods.TablePtr->f2361((void*)_handle);
     }
 
     public int getPriority()
     {
-        return NativeMethods.TablePtr->f2360((void*)_handle);
+        return NativeMethods.TablePtr->f2362((void*)_handle);
     }
 
     public nint modPtr
     {
-        get => (nint)NativeMethods.TablePtr->f2361((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2363((void*)_handle);
     }
 
     public nint operator_compare(nint other) =>
@@ -34,7 +34,7 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase other)
     {
-        return NativeMethods.TablePtr->f2362((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2364((void*)_handle, (void*)other.Handle);
     }
 
 
@@ -42,7 +42,7 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2358((void*)_handle);
+            NativeMethods.TablePtr->f2360((void*)_handle);
             _handle = 0;
         }
     }

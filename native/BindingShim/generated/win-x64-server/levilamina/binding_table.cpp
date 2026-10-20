@@ -5,9 +5,13 @@
 #include <cstddef>
 #include <cstdint>
 #include <exception>
+#include <functional>
+#include <memory>
 #include <new>
 #include <string>
 #include <string_view>
+#include "ll/api/memory/Memory.h"
+#include "mc/deps/core/memory/IMemoryAllocator.h"
 #include "ll/api/Expected.h"
 #include "ll/api/base/Alias.h"
 #include "ll/api/base/Meta.h"
@@ -87,6 +91,7 @@
 #include "ll/api/event/world/SpawnMobEvent.h"
 #include "ll/api/event/world/WorldEvent.h"
 #include "ll/api/form/CustomForm.h"
+#include "ll/api/form/FormBase.h"
 #include "ll/api/form/FormIdManager.h"
 #include "ll/api/form/ModalForm.h"
 #include "ll/api/form/SimpleForm.h"
@@ -134,6 +139,43 @@
 #include "ll/api/utils/HashUtils.h"
 #include "ll/api/utils/StacktraceUtils.h"
 #include "ll/api/utils/SystemUtils.h"
+
+void* operator new(std::size_t size)
+{
+    if (void* block = ::ll::memory::getDefaultAllocator()._allocate(size)) { return block; }
+    throw std::bad_alloc();
+}
+void* operator new[](std::size_t size) { return ::operator new(size); }
+void* operator new(std::size_t size, std::nothrow_t const&) noexcept
+{
+    return ::ll::memory::getDefaultAllocator()._allocate(size);
+}
+void* operator new[](std::size_t size, std::nothrow_t const& tag) noexcept
+{
+    return ::operator new(size, tag);
+}
+void* operator new(std::size_t size, std::align_val_t alignment)
+{
+    if (void* block = ::ll::memory::getDefaultAllocator()._alignedAllocate(size, static_cast<std::size_t>(alignment))) { return block; }
+    throw std::bad_alloc();
+}
+void* operator new[](std::size_t size, std::align_val_t alignment) { return ::operator new(size, alignment); }
+void operator delete(void* block) noexcept
+{
+    if (block) { ::ll::memory::getDefaultAllocator()._release(block); }
+}
+void operator delete[](void* block) noexcept { ::operator delete(block); }
+void operator delete(void* block, std::size_t) noexcept { ::operator delete(block); }
+void operator delete[](void* block, std::size_t) noexcept { ::operator delete(block); }
+void operator delete(void* block, std::nothrow_t const&) noexcept { ::operator delete(block); }
+void operator delete[](void* block, std::nothrow_t const&) noexcept { ::operator delete(block); }
+void operator delete(void* block, std::align_val_t alignment) noexcept
+{
+    if (block) { ::ll::memory::getDefaultAllocator()._alignedRelease(block); }
+}
+void operator delete[](void* block, std::align_val_t alignment) noexcept { ::operator delete(block, alignment); }
+void operator delete(void* block, std::size_t, std::align_val_t alignment) noexcept { ::operator delete(block, alignment); }
+void operator delete[](void* block, std::size_t, std::align_val_t alignment) noexcept { ::operator delete(block, alignment); }
 
 namespace {
 
@@ -31464,6 +31506,41 @@ catch (...)
     return;
 }
 
+using hs_cb_invoke_hs_method_df448e2e_cb0 = void (*)(void* userData, void* arg0, void* arg1, void* arg2);
+using hs_cb_release_hs_method_df448e2e_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_df448e2e_cb0
+{
+    hs_cb_invoke_hs_method_df448e2e_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_df448e2e_cb0 release;
+    hs_cb_state_hs_method_df448e2e_cb0(hs_cb_invoke_hs_method_df448e2e_cb0 invoke_, void* userData_, hs_cb_release_hs_method_df448e2e_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_df448e2e_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_df448e2e_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_df448e2e_cb0> state;
+    void operator()(const CommandOrigin & arg0, CommandOutput & arg1, const ll::command::RuntimeCommand & arg2) const
+    {
+        state->invoke(state->userData, const_cast<void*>(static_cast<void const*>(std::addressof(arg0))), static_cast<void*>(std::addressof(arg1)), const_cast<void*>(static_cast<void const*>(std::addressof(arg2))));
+    }
+};
+
+static void hs_method_df448e2e(void* hs_self, void* arg0_invoke, void* arg0_userData, void* arg0_release) try
+{
+    static_cast<ll::command::RuntimeOverload*>(hs_self)->execute(std::function<void (const CommandOrigin &, CommandOutput &, const ll::command::RuntimeCommand &)>(hs_cb_closure_hs_method_df448e2e_cb0{std::make_shared<hs_cb_state_hs_method_df448e2e_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_df448e2e_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_df448e2e_cb0>(arg0_release))}));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
 static void* hs_method_476ed114(void* hs_self, const char* name_data, std::size_t name_size, std::uint64_t kind) try
 {
     return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->optional(std::basic_string_view<char>(name_data, name_size), static_cast<unsigned long long>(kind))));
@@ -32184,6 +32261,41 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+using hs_cb_invoke_hs_create_3e70cb9d_cb0 = void (*)(void* userData);
+using hs_cb_release_hs_create_3e70cb9d_cb0 = void (*)(void*);
+struct hs_cb_state_hs_create_3e70cb9d_cb0
+{
+    hs_cb_invoke_hs_create_3e70cb9d_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_create_3e70cb9d_cb0 release;
+    hs_cb_state_hs_create_3e70cb9d_cb0(hs_cb_invoke_hs_create_3e70cb9d_cb0 invoke_, void* userData_, hs_cb_release_hs_create_3e70cb9d_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_create_3e70cb9d_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_create_3e70cb9d_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_create_3e70cb9d_cb0> state;
+    void operator()() const
+    {
+        state->invoke(state->userData);
+    }
+};
+
+static void* hs_create_3e70cb9d(void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return new ll::data::CancellableCallback(std::function<void ()>(hs_cb_closure_hs_create_3e70cb9d_cb0{std::make_shared<hs_cb_state_hs_create_3e70cb9d_cb0>(reinterpret_cast<hs_cb_invoke_hs_create_3e70cb9d_cb0>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_create_3e70cb9d_cb0>(callback_release))}));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
 }
 
 static bool hs_method_9382df67(void* hs_self) try
@@ -37364,6 +37476,76 @@ catch (...)
     return HosihikariStringView{nullptr, 0};
 }
 
+using hs_cb_invoke_hs_method_fe47f6f6_cb1 = void (*)(void* userData, void* arg0, void* arg1, void* arg2);
+using hs_cb_release_hs_method_fe47f6f6_cb1 = void (*)(void*);
+struct hs_cb_state_hs_method_fe47f6f6_cb1
+{
+    hs_cb_invoke_hs_method_fe47f6f6_cb1 invoke;
+    void* userData;
+    hs_cb_release_hs_method_fe47f6f6_cb1 release;
+    hs_cb_state_hs_method_fe47f6f6_cb1(hs_cb_invoke_hs_method_fe47f6f6_cb1 invoke_, void* userData_, hs_cb_release_hs_method_fe47f6f6_cb1 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_fe47f6f6_cb1() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_fe47f6f6_cb1
+{
+    std::shared_ptr<hs_cb_state_hs_method_fe47f6f6_cb1> state;
+    void operator()(Player & arg0, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, unsigned long long, double, std::basic_string<char>>>> & arg1, std::optional<ModalFormCancelReason> arg2) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), const_cast<void*>(static_cast<void const*>(std::addressof(arg1))), static_cast<void*>(std::addressof(arg2)));
+    }
+};
+
+static void* hs_method_fe47f6f6(void* hs_self, void* player, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->sendTo(*static_cast<Player*>(player), std::function<void (Player &, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, unsigned long long, double, std::basic_string<char>>>> &, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_fe47f6f6_cb1{std::make_shared<hs_cb_state_hs_method_fe47f6f6_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_fe47f6f6_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_fe47f6f6_cb1>(callback_release))}))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+using hs_cb_invoke_hs_method_7ae2e0a5_cb1 = void (*)(void* userData, void* arg0, void* arg1, void* arg2);
+using hs_cb_release_hs_method_7ae2e0a5_cb1 = void (*)(void*);
+struct hs_cb_state_hs_method_7ae2e0a5_cb1
+{
+    hs_cb_invoke_hs_method_7ae2e0a5_cb1 invoke;
+    void* userData;
+    hs_cb_release_hs_method_7ae2e0a5_cb1 release;
+    hs_cb_state_hs_method_7ae2e0a5_cb1(hs_cb_invoke_hs_method_7ae2e0a5_cb1 invoke_, void* userData_, hs_cb_release_hs_method_7ae2e0a5_cb1 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_7ae2e0a5_cb1() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_7ae2e0a5_cb1
+{
+    std::shared_ptr<hs_cb_state_hs_method_7ae2e0a5_cb1> state;
+    void operator()(Player & arg0, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, unsigned long long, double, std::basic_string<char>>>> & arg1, std::optional<ModalFormCancelReason> arg2) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), const_cast<void*>(static_cast<void const*>(std::addressof(arg1))), static_cast<void*>(std::addressof(arg2)));
+    }
+};
+
+static void* hs_method_7ae2e0a5(void* hs_self, void* player, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->sendUpdate(*static_cast<Player*>(player), std::function<void (Player &, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, unsigned long long, double, std::basic_string<char>>>> &, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_7ae2e0a5_cb1{std::make_shared<hs_cb_state_hs_method_7ae2e0a5_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_7ae2e0a5_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_7ae2e0a5_cb1>(callback_release))}))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_method_6e2ffa54(void* hs_self, const char* text_data, std::size_t text_size) try
 {
     return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->setSubmitButton(std::basic_string<char>(text_data, text_size))));
@@ -37392,6 +37574,76 @@ catch (...)
 {
     setLastError("unknown native exception");
     return nullptr;
+}
+
+using hs_cb_invoke_hs_method_48b727ed_cb2 = void (*)(void* userData, void* arg0, void* arg1, void* arg2);
+using hs_cb_release_hs_method_48b727ed_cb2 = void (*)(void*);
+struct hs_cb_state_hs_method_48b727ed_cb2
+{
+    hs_cb_invoke_hs_method_48b727ed_cb2 invoke;
+    void* userData;
+    hs_cb_release_hs_method_48b727ed_cb2 release;
+    hs_cb_state_hs_method_48b727ed_cb2(hs_cb_invoke_hs_method_48b727ed_cb2 invoke_, void* userData_, hs_cb_release_hs_method_48b727ed_cb2 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_48b727ed_cb2() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_48b727ed_cb2
+{
+    std::shared_ptr<hs_cb_state_hs_method_48b727ed_cb2> state;
+    void operator()(Player & arg0, std::optional<std::basic_string<char>> arg1, std::optional<ModalFormCancelReason> arg2) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), static_cast<void*>(std::addressof(arg1)), static_cast<void*>(std::addressof(arg2)));
+    }
+};
+
+static bool hs_method_48b727ed(void* player, const char* formData_data, std::size_t formData_size, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return static_cast<bool>(ll::form::Form::sendRawTo(*static_cast<Player*>(player), std::basic_string<char>(formData_data, formData_size), std::function<void (Player &, std::optional<std::basic_string<char>>, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_48b727ed_cb2{std::make_shared<hs_cb_state_hs_method_48b727ed_cb2>(reinterpret_cast<hs_cb_invoke_hs_method_48b727ed_cb2>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_48b727ed_cb2>(callback_release))})));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
+}
+
+using hs_cb_invoke_hs_method_d54e9c3a_cb2 = void (*)(void* userData, void* arg0, void* arg1, void* arg2);
+using hs_cb_release_hs_method_d54e9c3a_cb2 = void (*)(void*);
+struct hs_cb_state_hs_method_d54e9c3a_cb2
+{
+    hs_cb_invoke_hs_method_d54e9c3a_cb2 invoke;
+    void* userData;
+    hs_cb_release_hs_method_d54e9c3a_cb2 release;
+    hs_cb_state_hs_method_d54e9c3a_cb2(hs_cb_invoke_hs_method_d54e9c3a_cb2 invoke_, void* userData_, hs_cb_release_hs_method_d54e9c3a_cb2 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_d54e9c3a_cb2() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_d54e9c3a_cb2
+{
+    std::shared_ptr<hs_cb_state_hs_method_d54e9c3a_cb2> state;
+    void operator()(Player & arg0, std::optional<std::basic_string<char>> arg1, std::optional<ModalFormCancelReason> arg2) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), static_cast<void*>(std::addressof(arg1)), static_cast<void*>(std::addressof(arg2)));
+    }
+};
+
+static bool hs_method_d54e9c3a(void* player, const char* formData_data, std::size_t formData_size, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return static_cast<bool>(ll::form::Form::sendRawUpdate(*static_cast<Player*>(player), std::basic_string<char>(formData_data, formData_size), std::function<void (Player &, std::optional<std::basic_string<char>>, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_d54e9c3a_cb2{std::make_shared<hs_cb_state_hs_method_d54e9c3a_cb2>(reinterpret_cast<hs_cb_invoke_hs_method_d54e9c3a_cb2>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_d54e9c3a_cb2>(callback_release))})));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
 }
 
 static void hs_destroy_53aa17a1(void* hs_self) try
@@ -37452,6 +37704,76 @@ catch (...)
 {
     setLastError("unknown native exception");
     return nullptr;
+}
+
+using hs_cb_invoke_hs_method_3fad9683_cb1 = void (*)(void* userData, void* arg0, void* arg1, void* arg2);
+using hs_cb_release_hs_method_3fad9683_cb1 = void (*)(void*);
+struct hs_cb_state_hs_method_3fad9683_cb1
+{
+    hs_cb_invoke_hs_method_3fad9683_cb1 invoke;
+    void* userData;
+    hs_cb_release_hs_method_3fad9683_cb1 release;
+    hs_cb_state_hs_method_3fad9683_cb1(hs_cb_invoke_hs_method_3fad9683_cb1 invoke_, void* userData_, hs_cb_release_hs_method_3fad9683_cb1 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_3fad9683_cb1() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_3fad9683_cb1
+{
+    std::shared_ptr<hs_cb_state_hs_method_3fad9683_cb1> state;
+    void operator()(Player & arg0, std::optional<ll::form::ModalFormSelectedButton> arg1, std::optional<ModalFormCancelReason> arg2) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), static_cast<void*>(std::addressof(arg1)), static_cast<void*>(std::addressof(arg2)));
+    }
+};
+
+static bool hs_method_3fad9683(void* hs_self, void* player, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return static_cast<bool>(static_cast<ll::form::ModalForm*>(hs_self)->sendTo(*static_cast<Player*>(player), std::function<void (Player &, std::optional<ll::form::ModalFormSelectedButton>, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_3fad9683_cb1{std::make_shared<hs_cb_state_hs_method_3fad9683_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_3fad9683_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_3fad9683_cb1>(callback_release))})));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
+}
+
+using hs_cb_invoke_hs_method_337e43e5_cb1 = void (*)(void* userData, void* arg0, void* arg1, void* arg2);
+using hs_cb_release_hs_method_337e43e5_cb1 = void (*)(void*);
+struct hs_cb_state_hs_method_337e43e5_cb1
+{
+    hs_cb_invoke_hs_method_337e43e5_cb1 invoke;
+    void* userData;
+    hs_cb_release_hs_method_337e43e5_cb1 release;
+    hs_cb_state_hs_method_337e43e5_cb1(hs_cb_invoke_hs_method_337e43e5_cb1 invoke_, void* userData_, hs_cb_release_hs_method_337e43e5_cb1 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_337e43e5_cb1() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_337e43e5_cb1
+{
+    std::shared_ptr<hs_cb_state_hs_method_337e43e5_cb1> state;
+    void operator()(Player & arg0, std::optional<ll::form::ModalFormSelectedButton> arg1, std::optional<ModalFormCancelReason> arg2) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), static_cast<void*>(std::addressof(arg1)), static_cast<void*>(std::addressof(arg2)));
+    }
+};
+
+static bool hs_method_337e43e5(void* hs_self, void* player, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return static_cast<bool>(static_cast<ll::form::ModalForm*>(hs_self)->sendUpdate(*static_cast<Player*>(player), std::function<void (Player &, std::optional<ll::form::ModalFormSelectedButton>, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_337e43e5_cb1{std::make_shared<hs_cb_state_hs_method_337e43e5_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_337e43e5_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_337e43e5_cb1>(callback_release))})));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
 }
 
 static void* hs_method_8e45f3ac(void* hs_self, const char* content_data, std::size_t content_size) try
@@ -37544,6 +37866,41 @@ catch (...)
     return nullptr;
 }
 
+using hs_cb_invoke_hs_method_da9cd1c5_cb1 = void (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_da9cd1c5_cb1 = void (*)(void*);
+struct hs_cb_state_hs_method_da9cd1c5_cb1
+{
+    hs_cb_invoke_hs_method_da9cd1c5_cb1 invoke;
+    void* userData;
+    hs_cb_release_hs_method_da9cd1c5_cb1 release;
+    hs_cb_state_hs_method_da9cd1c5_cb1(hs_cb_invoke_hs_method_da9cd1c5_cb1 invoke_, void* userData_, hs_cb_release_hs_method_da9cd1c5_cb1 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_da9cd1c5_cb1() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_da9cd1c5_cb1
+{
+    std::shared_ptr<hs_cb_state_hs_method_da9cd1c5_cb1> state;
+    void operator()(Player & arg0) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)));
+    }
+};
+
+static void* hs_method_da9cd1c5(void* hs_self, const char* text_data, std::size_t text_size, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::SimpleForm*>(hs_self)->appendButton(std::basic_string<char>(text_data, text_size), std::function<void (Player &)>(hs_cb_closure_hs_method_da9cd1c5_cb1{std::make_shared<hs_cb_state_hs_method_da9cd1c5_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_da9cd1c5_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_da9cd1c5_cb1>(callback_release))}))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_method_24baaf0f(void* hs_self) try
 {
     return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::SimpleForm*>(hs_self)->appendDivider()));
@@ -37577,6 +37934,76 @@ catch (...)
 static void* hs_method_c894d709(void* hs_self, const char* text_data, std::size_t text_size) try
 {
     return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::SimpleForm*>(hs_self)->appendLabel(std::basic_string<char>(text_data, text_size))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+using hs_cb_invoke_hs_method_a8874cbb_cb1 = void (*)(void* userData, void* arg0, std::int32_t arg1, void* arg2);
+using hs_cb_release_hs_method_a8874cbb_cb1 = void (*)(void*);
+struct hs_cb_state_hs_method_a8874cbb_cb1
+{
+    hs_cb_invoke_hs_method_a8874cbb_cb1 invoke;
+    void* userData;
+    hs_cb_release_hs_method_a8874cbb_cb1 release;
+    hs_cb_state_hs_method_a8874cbb_cb1(hs_cb_invoke_hs_method_a8874cbb_cb1 invoke_, void* userData_, hs_cb_release_hs_method_a8874cbb_cb1 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_a8874cbb_cb1() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_a8874cbb_cb1
+{
+    std::shared_ptr<hs_cb_state_hs_method_a8874cbb_cb1> state;
+    void operator()(Player & arg0, int arg1, std::optional<ModalFormCancelReason> arg2) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), static_cast<std::int32_t>(arg1), static_cast<void*>(std::addressof(arg2)));
+    }
+};
+
+static void* hs_method_a8874cbb(void* hs_self, void* player, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::SimpleForm*>(hs_self)->sendTo(*static_cast<Player*>(player), std::function<void (Player &, int, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_a8874cbb_cb1{std::make_shared<hs_cb_state_hs_method_a8874cbb_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_a8874cbb_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_a8874cbb_cb1>(callback_release))}))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+using hs_cb_invoke_hs_method_ae16a484_cb1 = void (*)(void* userData, void* arg0, std::int32_t arg1, void* arg2);
+using hs_cb_release_hs_method_ae16a484_cb1 = void (*)(void*);
+struct hs_cb_state_hs_method_ae16a484_cb1
+{
+    hs_cb_invoke_hs_method_ae16a484_cb1 invoke;
+    void* userData;
+    hs_cb_release_hs_method_ae16a484_cb1 release;
+    hs_cb_state_hs_method_ae16a484_cb1(hs_cb_invoke_hs_method_ae16a484_cb1 invoke_, void* userData_, hs_cb_release_hs_method_ae16a484_cb1 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_ae16a484_cb1() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_ae16a484_cb1
+{
+    std::shared_ptr<hs_cb_state_hs_method_ae16a484_cb1> state;
+    void operator()(Player & arg0, int arg1, std::optional<ModalFormCancelReason> arg2) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), static_cast<std::int32_t>(arg1), static_cast<void*>(std::addressof(arg2)));
+    }
+};
+
+static void* hs_method_ae16a484(void* hs_self, void* player, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::SimpleForm*>(hs_self)->sendUpdate(*static_cast<Player*>(player), std::function<void (Player &, int, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_ae16a484_cb1{std::make_shared<hs_cb_state_hs_method_ae16a484_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_ae16a484_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_ae16a484_cb1>(callback_release))}))));
 }
 catch (std::exception const& hs_error)
 {
@@ -40558,6 +40985,146 @@ catch (...)
     return false;
 }
 
+using hs_cb_invoke_hs_method_1bbcd94c_cb0 = bool (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_1bbcd94c_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_1bbcd94c_cb0
+{
+    hs_cb_invoke_hs_method_1bbcd94c_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_1bbcd94c_cb0 release;
+    hs_cb_state_hs_method_1bbcd94c_cb0(hs_cb_invoke_hs_method_1bbcd94c_cb0 invoke_, void* userData_, hs_cb_release_hs_method_1bbcd94c_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_1bbcd94c_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_1bbcd94c_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_1bbcd94c_cb0> state;
+    bool operator()(ll::mod::Mod & arg0) const
+    {
+        return static_cast<bool>(state->invoke(state->userData, static_cast<void*>(std::addressof(arg0))));
+    }
+};
+
+static void hs_method_1bbcd94c(void* hs_self, void* func_invoke, void* func_userData, void* func_release) try
+{
+    static_cast<ll::mod::Mod*>(hs_self)->onDisable(std::function<bool (ll::mod::Mod &)>(hs_cb_closure_hs_method_1bbcd94c_cb0{std::make_shared<hs_cb_state_hs_method_1bbcd94c_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_1bbcd94c_cb0>(func_invoke), func_userData, reinterpret_cast<hs_cb_release_hs_method_1bbcd94c_cb0>(func_release))}));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
+using hs_cb_invoke_hs_method_1bd94c1a_cb0 = bool (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_1bd94c1a_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_1bd94c1a_cb0
+{
+    hs_cb_invoke_hs_method_1bd94c1a_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_1bd94c1a_cb0 release;
+    hs_cb_state_hs_method_1bd94c1a_cb0(hs_cb_invoke_hs_method_1bd94c1a_cb0 invoke_, void* userData_, hs_cb_release_hs_method_1bd94c1a_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_1bd94c1a_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_1bd94c1a_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_1bd94c1a_cb0> state;
+    bool operator()(ll::mod::Mod & arg0) const
+    {
+        return static_cast<bool>(state->invoke(state->userData, static_cast<void*>(std::addressof(arg0))));
+    }
+};
+
+static void hs_method_1bd94c1a(void* hs_self, void* func_invoke, void* func_userData, void* func_release) try
+{
+    static_cast<ll::mod::Mod*>(hs_self)->onEnable(std::function<bool (ll::mod::Mod &)>(hs_cb_closure_hs_method_1bd94c1a_cb0{std::make_shared<hs_cb_state_hs_method_1bd94c1a_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_1bd94c1a_cb0>(func_invoke), func_userData, reinterpret_cast<hs_cb_release_hs_method_1bd94c1a_cb0>(func_release))}));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
+using hs_cb_invoke_hs_method_d463a139_cb0 = bool (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_d463a139_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_d463a139_cb0
+{
+    hs_cb_invoke_hs_method_d463a139_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_d463a139_cb0 release;
+    hs_cb_state_hs_method_d463a139_cb0(hs_cb_invoke_hs_method_d463a139_cb0 invoke_, void* userData_, hs_cb_release_hs_method_d463a139_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_d463a139_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_d463a139_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_d463a139_cb0> state;
+    bool operator()(ll::mod::Mod & arg0) const
+    {
+        return static_cast<bool>(state->invoke(state->userData, static_cast<void*>(std::addressof(arg0))));
+    }
+};
+
+static void hs_method_d463a139(void* hs_self, void* func_invoke, void* func_userData, void* func_release) try
+{
+    static_cast<ll::mod::Mod*>(hs_self)->onLoad(std::function<bool (ll::mod::Mod &)>(hs_cb_closure_hs_method_d463a139_cb0{std::make_shared<hs_cb_state_hs_method_d463a139_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_d463a139_cb0>(func_invoke), func_userData, reinterpret_cast<hs_cb_release_hs_method_d463a139_cb0>(func_release))}));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
+using hs_cb_invoke_hs_method_c9532442_cb0 = bool (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_c9532442_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_c9532442_cb0
+{
+    hs_cb_invoke_hs_method_c9532442_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_c9532442_cb0 release;
+    hs_cb_state_hs_method_c9532442_cb0(hs_cb_invoke_hs_method_c9532442_cb0 invoke_, void* userData_, hs_cb_release_hs_method_c9532442_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_c9532442_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_c9532442_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_c9532442_cb0> state;
+    bool operator()(ll::mod::Mod & arg0) const
+    {
+        return static_cast<bool>(state->invoke(state->userData, static_cast<void*>(std::addressof(arg0))));
+    }
+};
+
+static void hs_method_c9532442(void* hs_self, void* func_invoke, void* func_userData, void* func_release) try
+{
+    static_cast<ll::mod::Mod*>(hs_self)->onUnload(std::function<bool (ll::mod::Mod &)>(hs_cb_closure_hs_method_c9532442_cb0{std::make_shared<hs_cb_state_hs_method_c9532442_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_c9532442_cb0>(func_invoke), func_userData, reinterpret_cast<hs_cb_release_hs_method_c9532442_cb0>(func_release))}));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
 static std::uint64_t hs_method_2e586d9c(void* hs_self) try
 {
     return static_cast<std::uint64_t>(static_cast<ll::mod::ModManager*>(hs_self)->getModCount());
@@ -41772,6 +42339,41 @@ catch (...)
     return nullptr;
 }
 
+using hs_cb_invoke_hs_method_c9037fb1_cb0 = void (*)(void* userData);
+using hs_cb_release_hs_method_c9037fb1_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_c9037fb1_cb0
+{
+    hs_cb_invoke_hs_method_c9037fb1_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_c9037fb1_cb0 release;
+    hs_cb_state_hs_method_c9037fb1_cb0(hs_cb_invoke_hs_method_c9037fb1_cb0 invoke_, void* userData_, hs_cb_release_hs_method_c9037fb1_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_c9037fb1_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_c9037fb1_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_c9037fb1_cb0> state;
+    void operator()() const
+    {
+        state->invoke(state->userData);
+    }
+};
+
+static void hs_method_c9037fb1(void* hs_self, void* arg0_invoke, void* arg0_userData, void* arg0_release) try
+{
+    static_cast<ll::thread::InplaceExecutor*>(hs_self)->execute(std::function<void ()>(hs_cb_closure_hs_method_c9037fb1_cb0{std::make_shared<hs_cb_state_hs_method_c9037fb1_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_c9037fb1_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_c9037fb1_cb0>(arg0_release))}));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
 static void* hs_method_34e67db4() try
 {
     return const_cast<void*>(static_cast<void const*>(&ll::thread::InplaceExecutor::getDefault()));
@@ -41862,6 +42464,41 @@ catch (...)
     return;
 }
 
+using hs_cb_invoke_hs_method_c1ea340a_cb0 = void (*)(void* userData);
+using hs_cb_release_hs_method_c1ea340a_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_c1ea340a_cb0
+{
+    hs_cb_invoke_hs_method_c1ea340a_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_c1ea340a_cb0 release;
+    hs_cb_state_hs_method_c1ea340a_cb0(hs_cb_invoke_hs_method_c1ea340a_cb0 invoke_, void* userData_, hs_cb_release_hs_method_c1ea340a_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_c1ea340a_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_c1ea340a_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_c1ea340a_cb0> state;
+    void operator()() const
+    {
+        state->invoke(state->userData);
+    }
+};
+
+static void hs_method_c1ea340a(void* hs_self, void* arg0_invoke, void* arg0_userData, void* arg0_release) try
+{
+    static_cast<ll::thread::ServerThreadExecutor*>(hs_self)->execute(std::function<void ()>(hs_cb_closure_hs_method_c1ea340a_cb0{std::make_shared<hs_cb_state_hs_method_c1ea340a_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_c1ea340a_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_c1ea340a_cb0>(arg0_release))}));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
 static void* hs_method_b24beaae() try
 {
     return const_cast<void*>(static_cast<void const*>(&ll::thread::ServerThreadExecutor::getDefault()));
@@ -41925,6 +42562,41 @@ catch (...)
 static void hs_method_9102e2a1(void* hs_self) try
 {
     static_cast<ll::thread::ThreadPoolExecutor*>(hs_self)->destroy();
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
+using hs_cb_invoke_hs_method_80f90ada_cb0 = void (*)(void* userData);
+using hs_cb_release_hs_method_80f90ada_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_80f90ada_cb0
+{
+    hs_cb_invoke_hs_method_80f90ada_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_80f90ada_cb0 release;
+    hs_cb_state_hs_method_80f90ada_cb0(hs_cb_invoke_hs_method_80f90ada_cb0 invoke_, void* userData_, hs_cb_release_hs_method_80f90ada_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_80f90ada_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_80f90ada_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_80f90ada_cb0> state;
+    void operator()() const
+    {
+        state->invoke(state->userData);
+    }
+};
+
+static void hs_method_80f90ada(void* hs_self, void* arg0_invoke, void* arg0_userData, void* arg0_release) try
+{
+    static_cast<ll::thread::ThreadPoolExecutor*>(hs_self)->execute(std::function<void ()>(hs_cb_closure_hs_method_80f90ada_cb0{std::make_shared<hs_cb_state_hs_method_80f90ada_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_80f90ada_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_80f90ada_cb0>(arg0_release))}));
 }
 catch (std::exception const& hs_error)
 {
@@ -45339,6 +46011,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_set_3bae99b3,
     &hs_get_37f32c06,
     &hs_destroy_0bf2d2ec,
+    &hs_method_df448e2e,
     &hs_method_476ed114,
     &hs_method_c28ab4c5,
     &hs_method_ea35375f,
@@ -45387,6 +46060,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_get_230cd0a5,
     &hs_destroy_a87897d1,
     &hs_destroy_50fc5317,
+    &hs_create_3e70cb9d,
     &hs_method_9382df67,
     &hs_method_a18f4d5f,
     &hs_destroy_ebc4d0dc,
@@ -45731,21 +46405,30 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_a567f46b,
     &hs_method_28c740ca,
     &hs_method_afafee03,
+    &hs_method_fe47f6f6,
+    &hs_method_7ae2e0a5,
     &hs_method_6e2ffa54,
     &hs_method_e3111678,
+    &hs_method_48b727ed,
+    &hs_method_d54e9c3a,
     &hs_destroy_53aa17a1,
     &hs_method_6b6ee35a,
     &hs_destroy_dd3e2f53,
     &hs_create_55e7cbcc,
+    &hs_method_3fad9683,
+    &hs_method_337e43e5,
     &hs_method_8e45f3ac,
     &hs_method_8d93c96d,
     &hs_method_96625c5f,
     &hs_method_712c6f8b,
     &hs_destroy_e0cdee90,
     &hs_create_86b5a47e,
+    &hs_method_da9cd1c5,
     &hs_method_24baaf0f,
     &hs_method_7a953dff,
     &hs_method_c894d709,
+    &hs_method_a8874cbb,
+    &hs_method_ae16a484,
     &hs_method_4b023d33,
     &hs_method_a8eac7f8,
     &hs_destroy_dfd86fa5,
@@ -45942,6 +46625,10 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_b1ac2eef,
     &hs_method_53251ec7,
     &hs_method_d05c78a2,
+    &hs_method_1bbcd94c,
+    &hs_method_1bd94c1a,
+    &hs_method_d463a139,
+    &hs_method_c9532442,
     &hs_method_2e586d9c,
     &hs_method_ee4df28c,
     &hs_method_f65db5e6,
@@ -46022,17 +46709,20 @@ const HosihikariBindingTableV1 kTable{
     &hs_create_38490708,
     &hs_destroy_da451f02,
     &hs_create_f5688f29,
+    &hs_method_c9037fb1,
     &hs_method_34e67db4,
     &hs_destroy_5b0406c5,
     &hs_create_86816acd,
     &hs_method_2af24211,
     &hs_method_17658bc0,
     &hs_destroy_720a8562,
+    &hs_method_c1ea340a,
     &hs_method_b24beaae,
     &hs_destroy_9e48764e,
     &hs_destroy_0cb254d8,
     &hs_create_831264b0,
     &hs_method_9102e2a1,
+    &hs_method_80f90ada,
     &hs_method_8b93b0f4,
     &hs_method_d6c9f17a,
     &hs_destroy_66961f9c,

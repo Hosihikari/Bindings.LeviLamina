@@ -13,8 +13,8 @@ public sealed unsafe partial class HashedIdBase
 
     public ulong hash
     {
-        get => NativeMethods.TablePtr->f2492((void*)_handle);
-        set => NativeMethods.TablePtr->f2493((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2503((void*)_handle);
+        set => NativeMethods.TablePtr->f2504((void*)_handle, value);
     }
 
     public nint operator_compare(nint other) =>
@@ -22,6 +22,6 @@ public sealed unsafe partial class HashedIdBase
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
     {
-        return NativeMethods.TablePtr->f2494((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2505((void*)_handle, (void*)other.Handle);
     }
 }

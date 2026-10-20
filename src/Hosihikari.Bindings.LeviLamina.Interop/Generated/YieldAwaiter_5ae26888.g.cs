@@ -16,12 +16,12 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f2116((void*)_handle);
+        return NativeMethods.TablePtr->f2117((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f2117((void*)_handle);
+        NativeMethods.TablePtr->f2118((void*)_handle);
     }
 
     public void await_suspend(nint handle) =>
@@ -34,7 +34,7 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2115((void*)_handle);
+            NativeMethods.TablePtr->f2116((void*)_handle);
             _handle = 0;
         }
     }

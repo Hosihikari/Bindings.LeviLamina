@@ -13,7 +13,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
 
     public static Subscription Create()
     {
-        var handle = NativeMethods.TablePtr->f2998();
+        var handle = NativeMethods.TablePtr->f2999();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +27,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2999((void*)_handle);
+        return NativeMethods.TablePtr->f3000((void*)_handle);
     }
 
     public nint operator_assign(nint arg0) =>
@@ -35,7 +35,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
 
     public void reset()
     {
-        NativeMethods.TablePtr->f3000((void*)_handle);
+        NativeMethods.TablePtr->f3001((void*)_handle);
     }
 
 
@@ -43,7 +43,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2997((void*)_handle);
+            NativeMethods.TablePtr->f2998((void*)_handle);
             _handle = 0;
         }
     }

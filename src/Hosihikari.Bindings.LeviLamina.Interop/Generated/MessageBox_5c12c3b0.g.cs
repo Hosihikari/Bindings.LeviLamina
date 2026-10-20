@@ -29,13 +29,13 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     public void close()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2961((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2962((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f2962((void*)_handle);
+        return NativeMethods.TablePtr->f2963((void*)_handle);
     }
 
     public nint operator_assign(nint arg0) =>
@@ -52,7 +52,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2960((void*)_handle);
+            NativeMethods.TablePtr->f2961((void*)_handle);
             _handle = 0;
         }
     }

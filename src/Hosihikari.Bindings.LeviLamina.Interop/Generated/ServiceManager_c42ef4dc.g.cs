@@ -36,21 +36,34 @@ public sealed unsafe partial class ServiceManager
         }
     }
 
-    public nint queryServices(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector return type 'll::service::QueryServiceResult' is not supported.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult[] queryServices(string name)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_view = NativeMethods.TablePtr->f2903((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_items = (void**)__hs_view.Data;
+            var __hs_result = new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult[checked((int)__hs_view.Size)];
+            for (var __hs_i = 0; __hs_i < __hs_result.Length; __hs_i++)
+            {
+                __hs_result[__hs_i] = new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult((nint)__hs_items[__hs_i]);
+            }
+            return __hs_result;
+        }
+    }
 
     public bool registerService(nint service, nint mod)
     {
-        return NativeMethods.TablePtr->f2903((void*)_handle, (void*)service, (void*)mod);
+        return NativeMethods.TablePtr->f2904((void*)_handle, (void*)service, (void*)mod);
     }
 
     public bool unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
     {
-        return NativeMethods.TablePtr->f2904((void*)_handle, (void*)id.Handle);
+        return NativeMethods.TablePtr->f2905((void*)_handle, (void*)id.Handle);
     }
 
     public void unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Mod mod)
     {
-        NativeMethods.TablePtr->f2905((void*)_handle, (void*)mod.Handle);
+        NativeMethods.TablePtr->f2906((void*)_handle, (void*)mod.Handle);
     }
 }

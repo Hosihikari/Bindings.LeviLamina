@@ -44415,6 +44415,26 @@ catch (...)
     return nullptr;
 }
 
+static HosihikariArrayView hs_method_ab559b2a(void* hs_self, const char* name_data, std::size_t name_size) try
+{
+    thread_local std::vector<void*> hs_arrayResult;
+    auto result = static_cast<ll::service::ServiceManager*>(hs_self)->queryServices(std::basic_string_view<char>(name_data, name_size));
+    hs_arrayResult.clear();
+    hs_arrayResult.reserve(result.size());
+    for (auto const& item : result) { hs_arrayResult.push_back(static_cast<void*>(new ll::service::QueryServiceResult(item))); }
+    return HosihikariArrayView{hs_arrayResult.data(), hs_arrayResult.size()};
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariArrayView{nullptr, 0};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariArrayView{nullptr, 0};
+}
+
 static bool hs_method_952e2d89(void* hs_self, void* service, void* mod) try
 {
     return static_cast<bool>(static_cast<ll::service::ServiceManager*>(hs_self)->registerService(*static_cast<const std::shared_ptr<ll::service::Service>*>(service), *static_cast<const std::shared_ptr<ll::mod::Mod>*>(mod)));
@@ -49524,6 +49544,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_240c2935,
     &hs_method_87ca1adc,
     &hs_method_8164fb4d,
+    &hs_method_ab559b2a,
     &hs_method_952e2d89,
     &hs_method_b9950e80,
     &hs_method_e639a940,

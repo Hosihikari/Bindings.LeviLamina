@@ -1,5 +1,6 @@
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -109,6 +110,20 @@ public sealed class ShimSmokePlugin : IPlugin
             }
 
             log.AppendLine("shared.dispose=ok");
+
+            var commandRegistrar = new Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar(
+                Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar.getInstance(false));
+            var registered = commandRegistrar.tryRegisterRuntimeEnum(
+                "hosihikari_smoke_enum",
+                new[]
+                {
+                    new KeyValuePair<string, ulong>("one", 1),
+                    new KeyValuePair<string, ulong>("two", 2),
+                });
+            var added = commandRegistrar.addRuntimeEnumValues(
+                "hosihikari_smoke_enum",
+                new[] { new KeyValuePair<string, ulong>("three", 3) });
+            log.AppendLine($"command_enum.pairs={(registered && added ? "ok" : "failed")}");
 
             var playerInfoHandle = Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo.getInstance();
             if (playerInfoHandle != 0)

@@ -20,7 +20,7 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
     public void finish()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2182((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2210((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -30,7 +30,7 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
     public void status()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2183((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2211((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -40,7 +40,7 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(data);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2184((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            NativeMethods.TablePtr->f2212((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
         }
     }
@@ -50,7 +50,7 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2181((void*)_handle);
+            NativeMethods.TablePtr->f2209((void*)_handle);
             _handle = 0;
         }
     }

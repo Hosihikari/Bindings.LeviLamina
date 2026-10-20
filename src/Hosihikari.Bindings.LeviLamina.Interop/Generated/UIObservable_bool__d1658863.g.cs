@@ -16,14 +16,14 @@ public sealed unsafe partial class UIObservable_bool_ : global::System.IDisposab
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->f3020((void*)_handle);
+        return NativeMethods.TablePtr->f3054((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3019((void*)_handle);
+            NativeMethods.TablePtr->f3053((void*)_handle);
             _handle = 0;
         }
     }

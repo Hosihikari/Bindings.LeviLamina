@@ -13,11 +13,11 @@ public sealed unsafe partial class WorldEvent
 
     public nint blockSource()
     {
-        return (nint)NativeMethods.TablePtr->f2575((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2606((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2576((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2607((void*)_handle, (void*)arg0);
     }
 }

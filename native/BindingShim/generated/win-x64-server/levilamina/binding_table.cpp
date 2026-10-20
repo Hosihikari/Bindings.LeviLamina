@@ -6,6 +6,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <exception>
+#include <filesystem>
 #include <functional>
 #include <memory>
 #include <new>
@@ -29702,6 +29703,21 @@ catch (...)
     return 0;
 }
 
+static std::uint16_t hs_method_ba14e157() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraits<ll::command::RuntimeSoftEnum>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_abc5bed1(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraits<std::basic_string<char>>*>(hs_self);
@@ -29916,6 +29932,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_7add693a() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandBlockName>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_2b9bcc40(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<CommandCompareOperator>*>(hs_self);
@@ -30023,6 +30054,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_a4c07917() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandCompareOperator>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_7a20e2d6(void* hs_self) try
@@ -30134,6 +30180,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_8eab183a() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandFilePath>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_3dbd4795(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<CommandIntegerRange>*>(hs_self);
@@ -30241,6 +30302,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_0eb622ea() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandIntegerRange>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_1e3e3191(void* hs_self) try
@@ -30352,6 +30428,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_c9095bfc() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandItem>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_1a47a180(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<CommandMessage>*>(hs_self);
@@ -30459,6 +30550,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_c7a7aa5a() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandMessage>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_e1be1bdf(void* hs_self) try
@@ -30570,6 +30676,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_ddda82d9() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandOperator>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_2efee078(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<CommandPosition>*>(hs_self);
@@ -30677,6 +30798,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_809ebbdc() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandPosition>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_7a135fa8(void* hs_self) try
@@ -30788,6 +30924,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_31167d5e() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandPositionFloat>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_5a303800(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<CommandRawText>*>(hs_self);
@@ -30895,6 +31046,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_37b4a0e8() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandRawText>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_b00f862b(void* hs_self) try
@@ -31006,6 +31172,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_002e30db() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandSelector<Actor>>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_c721b5a8(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<CommandSelector<Player>>*>(hs_self);
@@ -31113,6 +31294,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_28510287() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandSelector<Player>>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_0dd66dff(void* hs_self) try
@@ -31224,6 +31420,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_f39db749() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<CommandWildcardInt>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_68d35b01(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<DimensionType>*>(hs_self);
@@ -31331,6 +31542,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_a253171e() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<DimensionType>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_6485ba95(void* hs_self) try
@@ -31442,6 +31668,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_3a8af6d7() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<Json::Value>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_879f09b8(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<RelativeFloat>*>(hs_self);
@@ -31549,6 +31790,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_22235496() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<RelativeFloat>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_20e54b25(void* hs_self) try
@@ -31660,6 +31916,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_2e136a0d() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<WildcardCommandSelector<Actor>>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_090010a5(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<bool>*>(hs_self);
@@ -31767,6 +32038,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_f3249a77() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<bool>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_28ea2181(void* hs_self) try
@@ -31878,6 +32164,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_6c6c4723() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<const ActorDefinitionIdentifier *>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_78c9b8e5(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<const MobEffect *>*>(hs_self);
@@ -31985,6 +32286,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_a22d2dd3() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<const MobEffect *>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_74a699c6(void* hs_self) try
@@ -32096,6 +32412,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_df82e3e4() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<float>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_2902e132(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<int>*>(hs_self);
@@ -32203,6 +32534,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_5cdc82ce() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<int>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_c7af4a97(void* hs_self) try
@@ -32314,6 +32660,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_bc2009f3() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<ll::command::RuntimeEnum>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_7ce854e0(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<ll::command::RuntimeSoftEnum>*>(hs_self);
@@ -32421,6 +32782,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_7f69c0e5() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<ll::command::RuntimeSoftEnum>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_bc4782ca(void* hs_self) try
@@ -32532,6 +32908,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_f80dcb6f() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<std::basic_string<char>>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_10cbb288(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<std::unique_ptr<Command>>*>(hs_self);
@@ -32641,6 +33032,21 @@ catch (...)
     return;
 }
 
+static std::uint16_t hs_method_41daf5a3() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<std::unique_ptr<Command>>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_destroy_37b0ca73(void* hs_self) try
 {
     delete static_cast<ll::command::ParamTraitsBase<std::vector<BlockStateCommandParam>>*>(hs_self);
@@ -32748,6 +33154,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::uint16_t hs_method_81f1166f() try
+{
+    return static_cast<std::uint16_t>((ll::command::ParamTraitsBase<std::vector<BlockStateCommandParam>>::typeId()).value);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void hs_destroy_0b9817e9(void* hs_self) try
@@ -34212,9 +34633,9 @@ catch (...)
     return;
 }
 
-static void* hs_create_95636f1d(void* path) try
+static void* hs_create_95636f1d(const char* path_data, std::size_t path_size) try
 {
-    return new ll::data::KeyValueDB(*static_cast<const std::filesystem::path*>(path));
+    return new ll::data::KeyValueDB(std::filesystem::path(std::string(path_data, path_size)));
 }
 catch (std::exception const& hs_error)
 {
@@ -34227,9 +34648,9 @@ catch (...)
     return nullptr;
 }
 
-static void* hs_create_bb79597a(void* path, bool createIfMiss, bool fixIfError, std::int32_t bloomFilterBit) try
+static void* hs_create_bb79597a(const char* path_data, std::size_t path_size, bool createIfMiss, bool fixIfError, std::int32_t bloomFilterBit) try
 {
-    return new ll::data::KeyValueDB(*static_cast<const std::filesystem::path*>(path), static_cast<bool>(createIfMiss), static_cast<bool>(fixIfError), static_cast<int>(bloomFilterBit));
+    return new ll::data::KeyValueDB(std::filesystem::path(std::string(path_data, path_size)), static_cast<bool>(createIfMiss), static_cast<bool>(fixIfError), static_cast<int>(bloomFilterBit));
 }
 catch (std::exception const& hs_error)
 {
@@ -34729,6 +35150,21 @@ catch (...)
     return nullptr;
 }
 
+static std::int8_t hs_method_c2f8d78b(void* hs_self, void* other) try
+{
+    return static_cast<std::int8_t>((static_cast<ll::data::PreRelease*>(hs_self)->operator<=>(*static_cast<const ll::data::PreRelease*>(other))) < 0 ? -1 : ((static_cast<ll::data::PreRelease*>(hs_self)->operator<=>(*static_cast<const ll::data::PreRelease*>(other))) > 0 ? 1 : 0));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static bool hs_method_f147eaaf(void* hs_self, void* other) try
 {
     return static_cast<bool>(static_cast<ll::data::PreRelease*>(hs_self)->operator==(*static_cast<const ll::data::PreRelease*>(other)));
@@ -35089,6 +35525,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static std::int8_t hs_method_83e3e871(void* hs_self, void* other) try
+{
+    return static_cast<std::int8_t>((static_cast<ll::data::Version*>(hs_self)->operator<=>(*static_cast<const ll::data::Version*>(other))) < 0 ? -1 : ((static_cast<ll::data::Version*>(hs_self)->operator<=>(*static_cast<const ll::data::Version*>(other))) > 0 ? 1 : 0));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static bool hs_method_30379641(void* hs_self, void* other) try
@@ -37591,6 +38042,21 @@ catch (...)
     return nullptr;
 }
 
+static std::int8_t hs_method_a890d0d7(void* hs_self, void* other) try
+{
+    return static_cast<std::int8_t>((static_cast<ll::event::ListenerBase*>(hs_self)->operator<=>(*static_cast<const ll::event::ListenerBase*>(other))) < 0 ? -1 : ((static_cast<ll::event::ListenerBase*>(hs_self)->operator<=>(*static_cast<const ll::event::ListenerBase*>(other))) > 0 ? 1 : 0));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static bool hs_method_34bb69f6(void* hs_self, void* other) try
 {
     return static_cast<bool>(static_cast<ll::event::ListenerBase*>(hs_self)->operator==(*static_cast<const ll::event::ListenerBase*>(other)));
@@ -40087,6 +40553,21 @@ catch (...)
     return;
 }
 
+static std::int8_t hs_method_96fec99d(void* hs_self, void* other) try
+{
+    return static_cast<std::int8_t>((static_cast<ll::hash_utils::HashedIdBase*>(hs_self)->operator<=>(*static_cast<const ll::hash_utils::HashedIdBase*>(other))) < 0 ? -1 : ((static_cast<ll::hash_utils::HashedIdBase*>(hs_self)->operator<=>(*static_cast<const ll::hash_utils::HashedIdBase*>(other))) > 0 ? 1 : 0));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static bool hs_method_a350e776(void* hs_self, void* other) try
 {
     return static_cast<bool>(static_cast<ll::hash_utils::HashedIdBase*>(hs_self)->operator==(*static_cast<const ll::hash_utils::HashedIdBase*>(other)));
@@ -40164,9 +40645,9 @@ catch (...)
     return HosihikariStringView{nullptr, 0};
 }
 
-static void hs_method_29941b3f(void* hs_self, void* path, bool* hs_hasValue) try
+static void hs_method_29941b3f(void* hs_self, const char* path_data, std::size_t path_size, bool* hs_hasValue) try
 {
-    auto hs_expected = static_cast<ll::i18n::I18n*>(hs_self)->load(*static_cast<const std::filesystem::path*>(path));
+    auto hs_expected = static_cast<ll::i18n::I18n*>(hs_self)->load(std::filesystem::path(std::string(path_data, path_size)));
     if (!hs_expected)
     {
         setLastError(hs_expected.error().message().c_str());
@@ -43022,6 +43503,46 @@ catch (...)
     return HosihikariStringView{nullptr, 0};
 }
 
+static HosihikariStringView hs_method_02a38612(void* hs_self, bool* hs_hasValue) try
+{
+    auto result = static_cast<ll::mod::Mod*>(hs_self)->getWorldConfigDir();
+    *hs_hasValue = result.has_value();
+    g_stringResult.assign(result ? result->string() : "");
+    return HosihikariStringView{g_stringResult.data(), g_stringResult.size()};
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return HosihikariStringView{nullptr, 0};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return HosihikariStringView{nullptr, 0};
+}
+
+static HosihikariStringView hs_method_8eded801(void* hs_self, bool* hs_hasValue) try
+{
+    auto result = static_cast<ll::mod::Mod*>(hs_self)->getWorldDataDir();
+    *hs_hasValue = result.has_value();
+    g_stringResult.assign(result ? result->string() : "");
+    return HosihikariStringView{g_stringResult.data(), g_stringResult.size()};
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return HosihikariStringView{nullptr, 0};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return HosihikariStringView{nullptr, 0};
+}
+
 static bool hs_method_53251ec7(void* hs_self) try
 {
     return static_cast<bool>(static_cast<ll::mod::Mod*>(hs_self)->isDisabled());
@@ -44703,9 +45224,9 @@ catch (...)
     return nullptr;
 }
 
-static void* hs_create_0f3f9b13(void* path) try
+static void* hs_create_0f3f9b13(const char* path_data, std::size_t path_size) try
 {
-    return new ll::sys_utils::DynamicLibrary(*static_cast<const std::filesystem::path*>(path));
+    return new ll::sys_utils::DynamicLibrary(std::filesystem::path(std::string(path_data, path_size)));
 }
 catch (std::exception const& hs_error)
 {
@@ -48808,6 +49329,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_destroy_ea722f2b,
     &hs_method_8d96f19d,
     &hs_method_86605e55,
+    &hs_method_ba14e157,
     &hs_destroy_abc5bed1,
     &hs_method_a3ef1f9e,
     &hs_destroy_fe35bee2,
@@ -48822,6 +49344,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_2e59605e,
     &hs_method_872cca40,
     &hs_method_f9b8eb39,
+    &hs_method_7add693a,
     &hs_destroy_2b9bcc40,
     &hs_method_52002c77,
     &hs_method_43375527,
@@ -48829,6 +49352,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_626076b9,
     &hs_method_f13a33ff,
     &hs_method_aa858af3,
+    &hs_method_a4c07917,
     &hs_destroy_7a20e2d6,
     &hs_method_2715376d,
     &hs_method_99f77880,
@@ -48836,6 +49360,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_8da1161e,
     &hs_method_c098b29b,
     &hs_method_8818ec8f,
+    &hs_method_8eab183a,
     &hs_destroy_3dbd4795,
     &hs_method_c125be26,
     &hs_method_738f08b8,
@@ -48843,6 +49368,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_8e3c6391,
     &hs_method_1a37229a,
     &hs_method_ce1a6220,
+    &hs_method_0eb622ea,
     &hs_destroy_1e3e3191,
     &hs_method_a0f1544a,
     &hs_method_600fb19c,
@@ -48850,6 +49376,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_98af7625,
     &hs_method_412d850e,
     &hs_method_4af91c37,
+    &hs_method_c9095bfc,
     &hs_destroy_1a47a180,
     &hs_method_f1d09b3a,
     &hs_method_85629f43,
@@ -48857,6 +49384,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_b1705eb2,
     &hs_method_8089c9a0,
     &hs_method_20618b97,
+    &hs_method_c7a7aa5a,
     &hs_destroy_e1be1bdf,
     &hs_method_89171070,
     &hs_method_43f34875,
@@ -48864,6 +49392,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_07661eda,
     &hs_method_e98e2ac3,
     &hs_method_3ab80c4e,
+    &hs_method_ddda82d9,
     &hs_destroy_2efee078,
     &hs_method_d87c1517,
     &hs_method_ea2680d9,
@@ -48871,6 +49400,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_df59330d,
     &hs_method_e57ac31e,
     &hs_method_fd373263,
+    &hs_method_809ebbdc,
     &hs_destroy_7a135fa8,
     &hs_method_5b6d377b,
     &hs_method_dcf0fbc9,
@@ -48878,6 +49408,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_d0eb62b2,
     &hs_method_05170c9b,
     &hs_method_e395ce41,
+    &hs_method_31167d5e,
     &hs_destroy_5a303800,
     &hs_method_20a74b7b,
     &hs_method_4c993c08,
@@ -48885,6 +49416,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_91f32926,
     &hs_method_4910365b,
     &hs_method_af61e503,
+    &hs_method_37b4a0e8,
     &hs_destroy_b00f862b,
     &hs_method_5fcb597e,
     &hs_method_d2b31417,
@@ -48892,6 +49424,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_4740a411,
     &hs_method_e6c96f46,
     &hs_method_76fe69c7,
+    &hs_method_002e30db,
     &hs_destroy_c721b5a8,
     &hs_method_6a8f847f,
     &hs_method_f9eb06ce,
@@ -48899,6 +49432,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_42145236,
     &hs_method_cbe14ba8,
     &hs_method_cebaf6c2,
+    &hs_method_28510287,
     &hs_destroy_0dd66dff,
     &hs_method_ac505701,
     &hs_method_7e33d482,
@@ -48906,6 +49440,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_d2f45797,
     &hs_method_11a1d3e6,
     &hs_method_2f57f908,
+    &hs_method_f39db749,
     &hs_destroy_68d35b01,
     &hs_method_b9779f80,
     &hs_method_897f2e36,
@@ -48913,6 +49448,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_8192ded1,
     &hs_method_cc5026fc,
     &hs_method_cc7b61c4,
+    &hs_method_a253171e,
     &hs_destroy_6485ba95,
     &hs_method_157c84a3,
     &hs_method_32ea6ca0,
@@ -48920,6 +49456,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_711028e9,
     &hs_method_f8d0a96c,
     &hs_method_9172eea9,
+    &hs_method_3a8af6d7,
     &hs_destroy_879f09b8,
     &hs_method_697a989f,
     &hs_method_10c136e4,
@@ -48927,6 +49464,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_e5f7b4b8,
     &hs_method_1d0d37d1,
     &hs_method_47a6a5df,
+    &hs_method_22235496,
     &hs_destroy_20e54b25,
     &hs_method_2c2eafda,
     &hs_method_8a6d9cca,
@@ -48934,6 +49472,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_514e5ae6,
     &hs_method_eaecd9d5,
     &hs_method_6be01b4d,
+    &hs_method_2e136a0d,
     &hs_destroy_090010a5,
     &hs_method_0530a89c,
     &hs_method_7cc31150,
@@ -48941,6 +49480,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_9fbe1c0f,
     &hs_method_9ce248d2,
     &hs_method_780a9b0a,
+    &hs_method_f3249a77,
     &hs_destroy_28ea2181,
     &hs_method_117bc252,
     &hs_method_2940e1ec,
@@ -48948,6 +49488,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_2a6c7d23,
     &hs_method_8851b712,
     &hs_method_11893086,
+    &hs_method_6c6c4723,
     &hs_destroy_78c9b8e5,
     &hs_method_16315038,
     &hs_method_c1d92320,
@@ -48955,6 +49496,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_44e4102c,
     &hs_method_67d2087e,
     &hs_method_706ab5f3,
+    &hs_method_a22d2dd3,
     &hs_destroy_74a699c6,
     &hs_method_b977e51b,
     &hs_method_ca4ba503,
@@ -48962,6 +49504,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_440e5a58,
     &hs_method_2355b990,
     &hs_method_079ef5b2,
+    &hs_method_df82e3e4,
     &hs_destroy_2902e132,
     &hs_method_5df060ea,
     &hs_method_3d503cf2,
@@ -48969,6 +49512,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_c159fe84,
     &hs_method_9ae31d84,
     &hs_method_04be3a66,
+    &hs_method_5cdc82ce,
     &hs_destroy_c7af4a97,
     &hs_method_ec8f487d,
     &hs_method_8c7e18af,
@@ -48976,6 +49520,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_e1a05280,
     &hs_method_1e204f9e,
     &hs_method_9cba0085,
+    &hs_method_bc2009f3,
     &hs_destroy_7ce854e0,
     &hs_method_7c5cdff6,
     &hs_method_6813ee72,
@@ -48983,6 +49528,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_099ba77d,
     &hs_method_f2aebe76,
     &hs_method_7e6213dc,
+    &hs_method_7f69c0e5,
     &hs_destroy_bc4782ca,
     &hs_method_9f6ff526,
     &hs_method_7514e426,
@@ -48990,6 +49536,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_c80c76fe,
     &hs_method_9c3971e2,
     &hs_method_f3b044ad,
+    &hs_method_f80dcb6f,
     &hs_destroy_10cbb288,
     &hs_method_f7f05b11,
     &hs_method_752fb603,
@@ -48997,6 +49544,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_68ccde21,
     &hs_method_1a0f0f92,
     &hs_method_8b16d09b,
+    &hs_method_41daf5a3,
     &hs_destroy_37b0ca73,
     &hs_method_899d56b4,
     &hs_method_94322b1a,
@@ -49004,6 +49552,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_036fdacb,
     &hs_method_61ed360d,
     &hs_method_9ed69b2f,
+    &hs_method_81f1166f,
     &hs_destroy_0b9817e9,
     &hs_method_360e25b9,
     &hs_method_9a996ccd,
@@ -49129,6 +49678,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_0076eee9,
     &hs_method_ba0a8712,
     &hs_method_e3bb50d1,
+    &hs_method_c2f8d78b,
     &hs_method_f147eaaf,
     &hs_method_74e53f16,
     &hs_get_585b1762,
@@ -49153,6 +49703,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_set_fd460d14,
     &hs_get_0c189f6b,
     &hs_set_0c189f6b,
+    &hs_method_83e3e871,
     &hs_method_30379641,
     &hs_get_bfb7c086,
     &hs_set_bfb7c086,
@@ -49319,6 +49870,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_2959d3b1,
     &hs_method_57d3c253,
     &hs_get_ef4962f4,
+    &hs_method_a890d0d7,
     &hs_method_34bb69f6,
     &hs_destroy_89e3d6a7,
     &hs_method_8639c6b6,
@@ -49471,6 +50023,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_cf8e6889,
     &hs_get_f121c568,
     &hs_set_f121c568,
+    &hs_method_96fec99d,
     &hs_method_a350e776,
     &hs_destroy_de53ab51,
     &hs_create_de425995,
@@ -49664,6 +50217,8 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_e5585fcd,
     &hs_method_e5a11d67,
     &hs_method_b1ac2eef,
+    &hs_method_02a38612,
+    &hs_method_8eded801,
     &hs_method_53251ec7,
     &hs_method_d05c78a2,
     &hs_method_1bbcd94c,

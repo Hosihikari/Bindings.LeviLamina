@@ -21,22 +21,22 @@ public sealed unsafe partial class ServiceIdView : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2900((void*)_handle);
+            var view = NativeMethods.TablePtr->f2934((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f2901((void*)_handle);
-        set => NativeMethods.TablePtr->f2902((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2935((void*)_handle);
+        set => NativeMethods.TablePtr->f2936((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2899((void*)_handle);
+            NativeMethods.TablePtr->f2933((void*)_handle);
             _handle = 0;
         }
     }

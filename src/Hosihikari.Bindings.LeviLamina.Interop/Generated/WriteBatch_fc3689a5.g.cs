@@ -13,7 +13,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
 
     public static WriteBatch Create()
     {
-        var handle = NativeMethods.TablePtr->f2257();
+        var handle = NativeMethods.TablePtr->f2285();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -30,7 +30,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2258((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2286((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -45,7 +45,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                return (nint)NativeMethods.TablePtr->f2259((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+                return (nint)NativeMethods.TablePtr->f2287((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
             }
         }
     }
@@ -55,7 +55,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2256((void*)_handle);
+            NativeMethods.TablePtr->f2284((void*)_handle);
             _handle = 0;
         }
     }

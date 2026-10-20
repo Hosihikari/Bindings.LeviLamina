@@ -15,7 +15,7 @@
 Interop 与 Idiomatic 工程可构建。carrier 链接的生成 Interop、v1 BindingShim 函数表及其 `extern "C"` 实现、覆盖清单均已提交：
 
 - `src/Hosihikari.Bindings.LeviLamina.Interop/Generated/` 是生成的原生风格 C# 类与 `NativeMethods`；ABI 值类型与 shim 加载器来自 `Hosihikari/Bindings.Abi`。
-- `native/BindingShim/generated/win-x64-server/levilamina/` 是 3,048 个函数的函数表与实现。
+- `native/BindingShim/generated/win-x64-server/levilamina/` 是 3,082 个函数的函数表与实现。
 - `coverage/` 包含覆盖清单、汇总、基线与 provenance。
 
 宿主在使用生成的包装前调用 `Hosihikari.Bindings.LeviLamina.Interop.NativeMethods.Load(path)`。`native/BindingShim/build.ps1` 用 clang-cl 针对 `LeviLamina.lib`、fmt 与 prelink 生成的 Bedrock 导入构建 shim。

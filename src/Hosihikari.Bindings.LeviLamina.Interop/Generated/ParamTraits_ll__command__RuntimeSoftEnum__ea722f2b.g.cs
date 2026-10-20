@@ -24,8 +24,10 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeSoftEnum_ : g
     public static nint parseFn() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: return type 'bool (CommandRegistry::*)(void *, const CommandRegistry::ParseToken &, const CommandOrigin &, int, std::basic_string<char> &, std::vector<std::basic_string<char>> &) const' is not supported.");
 
-    public static nint typeId() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'Bedrock::typeid_t<CommandRegistry>' is not a known bindable declaration.");
+    public static ushort typeId()
+    {
+        return NativeMethods.TablePtr->f1961();
+    }
 
     public void Dispose()
     {

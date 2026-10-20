@@ -13,7 +13,7 @@ public sealed unsafe partial class atomic_backoff : global::System.IDisposable
 
     public static atomic_backoff Create()
     {
-        var handle = NativeMethods.TablePtr->f2330();
+        var handle = NativeMethods.TablePtr->f2360();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class atomic_backoff : global::System.IDisposable
 
     public static atomic_backoff Create(bool arg0)
     {
-        var handle = NativeMethods.TablePtr->f2331(arg0);
+        var handle = NativeMethods.TablePtr->f2361(arg0);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,14 +35,14 @@ public sealed unsafe partial class atomic_backoff : global::System.IDisposable
 
     public void pause()
     {
-        NativeMethods.TablePtr->f2332((void*)_handle);
+        NativeMethods.TablePtr->f2362((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2329((void*)_handle);
+            NativeMethods.TablePtr->f2359((void*)_handle);
             _handle = 0;
         }
     }

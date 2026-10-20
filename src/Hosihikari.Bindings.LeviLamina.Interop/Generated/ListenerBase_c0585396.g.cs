@@ -16,25 +16,27 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
 
     public ulong getId()
     {
-        return NativeMethods.TablePtr->f2469((void*)_handle);
+        return NativeMethods.TablePtr->f2499((void*)_handle);
     }
 
     public int getPriority()
     {
-        return NativeMethods.TablePtr->f2470((void*)_handle);
+        return NativeMethods.TablePtr->f2500((void*)_handle);
     }
 
     public nint modPtr
     {
-        get => (nint)NativeMethods.TablePtr->f2471((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2501((void*)_handle);
     }
 
-    public nint operator_compare(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::strong_ordering' is not a known bindable declaration.");
+    public sbyte operator_compare(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase other)
+    {
+        return NativeMethods.TablePtr->f2502((void*)_handle, (void*)other.Handle);
+    }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase other)
     {
-        return NativeMethods.TablePtr->f2472((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2503((void*)_handle, (void*)other.Handle);
     }
 
 
@@ -42,7 +44,7 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2468((void*)_handle);
+            NativeMethods.TablePtr->f2498((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,7 +13,7 @@ public sealed unsafe partial class CancellableCallback : global::System.IDisposa
 
     public static CancellableCallback Create(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        var handle = NativeMethods.TablePtr->f2230((void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        var handle = NativeMethods.TablePtr->f2258((void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,12 +24,12 @@ public sealed unsafe partial class CancellableCallback : global::System.IDisposa
 
     public bool call()
     {
-        return NativeMethods.TablePtr->f2231((void*)_handle);
+        return NativeMethods.TablePtr->f2259((void*)_handle);
     }
 
     public bool cancel()
     {
-        return NativeMethods.TablePtr->f2232((void*)_handle);
+        return NativeMethods.TablePtr->f2260((void*)_handle);
     }
 
 
@@ -37,7 +37,7 @@ public sealed unsafe partial class CancellableCallback : global::System.IDisposa
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2229((void*)_handle);
+            NativeMethods.TablePtr->f2257((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,18 +13,18 @@ public sealed unsafe partial class ParamTraitsBase_std__basic_string_char__ : gl
 
     public static int dataType()
     {
-        return NativeMethods.TablePtr->f2137();
+        return NativeMethods.TablePtr->f2162();
     }
 
     public static string enumNameOrPostfix()
     {
-        var __hs_view = NativeMethods.TablePtr->f2138();
+        var __hs_view = NativeMethods.TablePtr->f2163();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static byte options()
     {
-        return NativeMethods.TablePtr->f2139();
+        return NativeMethods.TablePtr->f2164();
     }
 
     public static nint parseFn() =>
@@ -32,28 +32,30 @@ public sealed unsafe partial class ParamTraitsBase_std__basic_string_char__ : gl
 
     public static nint parseRule()
     {
-        return (nint)NativeMethods.TablePtr->f2140();
+        return (nint)NativeMethods.TablePtr->f2165();
     }
 
     public static string subChain()
     {
-        var __hs_view = NativeMethods.TablePtr->f2141();
+        var __hs_view = NativeMethods.TablePtr->f2166();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static void transformData(nint arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar arg1)
     {
-        NativeMethods.TablePtr->f2142((void*)arg0, (void*)arg1.Handle);
+        NativeMethods.TablePtr->f2167((void*)arg0, (void*)arg1.Handle);
     }
 
-    public static nint typeId() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'Bedrock::typeid_t<CommandRegistry>' is not a known bindable declaration.");
+    public static ushort typeId()
+    {
+        return NativeMethods.TablePtr->f2168();
+    }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2136((void*)_handle);
+            NativeMethods.TablePtr->f2161((void*)_handle);
             _handle = 0;
         }
     }

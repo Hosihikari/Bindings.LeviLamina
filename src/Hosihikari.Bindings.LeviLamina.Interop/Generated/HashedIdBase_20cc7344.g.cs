@@ -13,15 +13,17 @@ public sealed unsafe partial class HashedIdBase
 
     public ulong hash
     {
-        get => NativeMethods.TablePtr->f2622((void*)_handle);
-        set => NativeMethods.TablePtr->f2623((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2653((void*)_handle);
+        set => NativeMethods.TablePtr->f2654((void*)_handle, value);
     }
 
-    public nint operator_compare(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::strong_ordering' is not a known bindable declaration.");
+    public sbyte operator_compare(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
+    {
+        return NativeMethods.TablePtr->f2655((void*)_handle, (void*)other.Handle);
+    }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
     {
-        return NativeMethods.TablePtr->f2624((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2656((void*)_handle, (void*)other.Handle);
     }
 }

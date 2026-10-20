@@ -15,26 +15,26 @@ public sealed unsafe partial class Dependency : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2787((void*)_handle);
+            var view = NativeMethods.TablePtr->f2819((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Dependency other)
     {
-        return NativeMethods.TablePtr->f2788((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2820((void*)_handle, (void*)other.Handle);
     }
 
     public nint version
     {
-        get => (nint)NativeMethods.TablePtr->f2789((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2821((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2786((void*)_handle);
+            NativeMethods.TablePtr->f2818((void*)_handle);
             _handle = 0;
         }
     }

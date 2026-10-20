@@ -13,11 +13,11 @@ public sealed unsafe partial class MobEvent
 
     public nint self()
     {
-        return (nint)NativeMethods.TablePtr->f2476((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2507((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2477((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2508((void*)_handle, (void*)arg0);
     }
 }

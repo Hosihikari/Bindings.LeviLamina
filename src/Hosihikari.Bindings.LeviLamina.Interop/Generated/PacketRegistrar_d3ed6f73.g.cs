@@ -13,20 +13,20 @@ public sealed unsafe partial class PacketRegistrar
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet? createPacket(ulong runtimeId)
     {
-        var __hs_handle = NativeMethods.TablePtr->f2858((void*)_handle, runtimeId);
+        var __hs_handle = NativeMethods.TablePtr->f2892((void*)_handle, runtimeId);
         return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle) : null;
     }
 
     public nint? getHandler(ulong runtimeId)
     {
         var __hs_hasValue = false;
-        var __hs_handle = NativeMethods.TablePtr->f2859((void*)_handle, runtimeId, &__hs_hasValue);
+        var __hs_handle = NativeMethods.TablePtr->f2893((void*)_handle, runtimeId, &__hs_hasValue);
         return __hs_hasValue ? (nint)__hs_handle : null;
     }
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2860();
+        return (nint)NativeMethods.TablePtr->f2894();
     }
 
     public bool registerHandler(string name, ulong id, global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.IPacketHandler? handler)
@@ -34,7 +34,7 @@ public sealed unsafe partial class PacketRegistrar
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f2861((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, id, (void*)(handler?.Handle ?? 0), handler is not null);
+            return NativeMethods.TablePtr->f2895((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, id, (void*)(handler?.Handle ?? 0), handler is not null);
         }
     }
 

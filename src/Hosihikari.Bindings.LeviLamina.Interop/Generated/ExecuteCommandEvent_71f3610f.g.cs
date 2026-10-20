@@ -13,21 +13,21 @@ public sealed unsafe partial class ExecuteCommandEvent
 
     public nint commandContext()
     {
-        return (nint)NativeMethods.TablePtr->f2452((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2482((void*)_handle);
     }
 
     public nint minecraftCommands()
     {
-        return (nint)NativeMethods.TablePtr->f2453((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2483((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2454((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2484((void*)_handle, (void*)arg0);
     }
 
     public nint suppressOutput()
     {
-        return (nint)NativeMethods.TablePtr->f2455((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2485((void*)_handle);
     }
 }

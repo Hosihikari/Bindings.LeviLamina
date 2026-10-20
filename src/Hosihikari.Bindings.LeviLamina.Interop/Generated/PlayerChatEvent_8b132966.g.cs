@@ -16,25 +16,25 @@ public sealed unsafe partial class PlayerChatEvent : global::System.IDisposable
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2492((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2523((void*)_handle, (void*)arg0);
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f2493((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2524((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2494((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2525((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2491((void*)_handle);
+            NativeMethods.TablePtr->f2522((void*)_handle);
             _handle = 0;
         }
     }

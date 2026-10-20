@@ -16,7 +16,7 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
 
     public void call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event @event)
     {
-        NativeMethods.TablePtr->f2425((void*)_handle, (void*)@event.Handle);
+        NativeMethods.TablePtr->f2455((void*)_handle, (void*)@event.Handle);
     }
 
     public static nint create(nint fn, nint priority, nint mod) =>
@@ -27,7 +27,7 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2424((void*)_handle);
+            NativeMethods.TablePtr->f2454((void*)_handle);
             _handle = 0;
         }
     }

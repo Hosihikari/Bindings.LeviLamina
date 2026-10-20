@@ -19,14 +19,14 @@ public sealed unsafe partial class TypeList_EndTag__ByteTag__ShortTag__IntTag__I
 
     public static ulong size
     {
-        get => NativeMethods.TablePtr->f2779();
+        get => NativeMethods.TablePtr->f2811();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2778((void*)_handle);
+            NativeMethods.TablePtr->f2810((void*)_handle);
             _handle = 0;
         }
     }

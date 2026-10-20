@@ -13,7 +13,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public static BindingHandle Create()
     {
-        var handle = NativeMethods.TablePtr->f3107();
+        var handle = NativeMethods.TablePtr->f3117();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public static BindingHandle Create_d43627b6(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
     {
-        var handle = NativeMethods.TablePtr->f3108((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f3118((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,7 +35,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public static BindingHandle Create_82cd4ec2(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
     {
-        var handle = NativeMethods.TablePtr->f3109((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f3119((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -46,12 +46,12 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->f3110((void*)_handle);
+        return NativeMethods.TablePtr->f3120((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f3111((void*)_handle);
+        return NativeMethods.TablePtr->f3121((void*)_handle);
     }
 
     public nint operator_assign_91e7b69b(nint arg0) =>
@@ -63,7 +63,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
     public void setClientWritable(bool writable)
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3112((void*)_handle, writable, &__hs_hasValue);
+        NativeMethods.TablePtr->f3122((void*)_handle, writable, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -72,7 +72,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3106((void*)_handle);
+            NativeMethods.TablePtr->f3116((void*)_handle);
             _handle = 0;
         }
     }

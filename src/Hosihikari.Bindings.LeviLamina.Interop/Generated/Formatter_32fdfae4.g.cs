@@ -16,7 +16,7 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
 
     public static bool supportColorLog()
     {
-        return NativeMethods.TablePtr->f2698();
+        return NativeMethods.TablePtr->f2701();
     }
 
 
@@ -24,7 +24,7 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2697((void*)_handle);
+            NativeMethods.TablePtr->f2700((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,7 +13,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
 
     public static LogMessage Create()
     {
-        var handle = NativeMethods.TablePtr->f2700();
+        var handle = NativeMethods.TablePtr->f2703();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
 
     public static LogMessage Create_27674e0e(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessage other)
     {
-        var handle = NativeMethods.TablePtr->f2701((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2704((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,7 +35,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
 
     public static LogMessage Create_854a7168(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessage other)
     {
-        var handle = NativeMethods.TablePtr->f2702((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2705((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -52,7 +52,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var handle = NativeMethods.TablePtr->f2703(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, lvl, (void*)tm.Handle);
+                var handle = NativeMethods.TablePtr->f2706(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, lvl, (void*)tm.Handle);
                 if (handle == null)
                 {
                     throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -67,7 +67,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2704((void*)_handle);
+            var view = NativeMethods.TablePtr->f2707((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -76,7 +76,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2705((void*)_handle);
+            var view = NativeMethods.TablePtr->f2708((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -85,7 +85,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2699((void*)_handle);
+            NativeMethods.TablePtr->f2702((void*)_handle);
             _handle = 0;
         }
     }

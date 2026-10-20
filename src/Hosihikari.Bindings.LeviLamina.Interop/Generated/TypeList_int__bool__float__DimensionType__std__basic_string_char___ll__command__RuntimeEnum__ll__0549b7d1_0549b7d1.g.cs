@@ -13,14 +13,14 @@ public sealed unsafe partial class TypeList_int__bool__float__DimensionType__std
 
     public static ulong size
     {
-        get => NativeMethods.TablePtr->f2830();
+        get => NativeMethods.TablePtr->f2834();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2829((void*)_handle);
+            NativeMethods.TablePtr->f2833((void*)_handle);
             _handle = 0;
         }
     }

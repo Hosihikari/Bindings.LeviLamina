@@ -18,7 +18,7 @@ public sealed unsafe partial class PlayerSprintedEvent : global::System.IDisposa
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2584((void*)_handle);
+            NativeMethods.TablePtr->f2587((void*)_handle);
             _handle = 0;
         }
     }

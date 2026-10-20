@@ -11,23 +11,34 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static DynamicListener Create(nint fn, nint priority, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
+    public static DynamicListener Create(nint fnInvoke, nint fnUserData, nint fnRelease, int priority, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
+    {
+        var handle = NativeMethods.TablePtr->f2469((void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, priority, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new DynamicListener((nint)handle);
+    }
 
     public void call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event @event)
     {
-        NativeMethods.TablePtr->f2468((void*)_handle, (void*)@event.Handle);
+        NativeMethods.TablePtr->f2470((void*)_handle, (void*)@event.Handle);
     }
 
-    public static nint create(nint fn, nint priority, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
+    public static global::Hosihikari.Bindings.Abi.SharedHandle? create(nint fnInvoke, nint fnUserData, nint fnRelease, int priority, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
+    {
+        var __hs_shared = NativeMethods.TablePtr->f2471((void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, priority, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
+    }
 
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2467((void*)_handle);
+            NativeMethods.TablePtr->f2468((void*)_handle);
             _handle = 0;
         }
     }

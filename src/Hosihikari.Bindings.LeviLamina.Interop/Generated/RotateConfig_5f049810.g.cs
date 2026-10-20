@@ -13,63 +13,63 @@ public sealed unsafe partial class RotateConfig : global::System.IDisposable
 
     public bool cleanup
     {
-        get => NativeMethods.TablePtr->f2741((void*)_handle);
-        set => NativeMethods.TablePtr->f2742((void*)_handle, value);
-    }
-
-    public bool compress
-    {
-        get => NativeMethods.TablePtr->f2743((void*)_handle);
-        set => NativeMethods.TablePtr->f2744((void*)_handle, value);
-    }
-
-    public int interval
-    {
         get => NativeMethods.TablePtr->f2745((void*)_handle);
         set => NativeMethods.TablePtr->f2746((void*)_handle, value);
     }
 
-    public ulong keepUncompressed
+    public bool compress
     {
         get => NativeMethods.TablePtr->f2747((void*)_handle);
         set => NativeMethods.TablePtr->f2748((void*)_handle, value);
     }
 
-    public int maxAgeDays
+    public int interval
     {
         get => NativeMethods.TablePtr->f2749((void*)_handle);
         set => NativeMethods.TablePtr->f2750((void*)_handle, value);
     }
 
-    public ulong maxFileSize
+    public ulong keepUncompressed
     {
         get => NativeMethods.TablePtr->f2751((void*)_handle);
         set => NativeMethods.TablePtr->f2752((void*)_handle, value);
     }
 
-    public ulong maxFiles
+    public int maxAgeDays
     {
         get => NativeMethods.TablePtr->f2753((void*)_handle);
         set => NativeMethods.TablePtr->f2754((void*)_handle, value);
     }
 
-    public bool rotateOnOpen
+    public ulong maxFileSize
     {
         get => NativeMethods.TablePtr->f2755((void*)_handle);
         set => NativeMethods.TablePtr->f2756((void*)_handle, value);
     }
 
-    public ulong totalSizeCap
+    public ulong maxFiles
     {
         get => NativeMethods.TablePtr->f2757((void*)_handle);
         set => NativeMethods.TablePtr->f2758((void*)_handle, value);
+    }
+
+    public bool rotateOnOpen
+    {
+        get => NativeMethods.TablePtr->f2759((void*)_handle);
+        set => NativeMethods.TablePtr->f2760((void*)_handle, value);
+    }
+
+    public ulong totalSizeCap
+    {
+        get => NativeMethods.TablePtr->f2761((void*)_handle);
+        set => NativeMethods.TablePtr->f2762((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2740((void*)_handle);
+            NativeMethods.TablePtr->f2744((void*)_handle);
             _handle = 0;
         }
     }

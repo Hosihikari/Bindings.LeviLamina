@@ -16,29 +16,29 @@ public sealed unsafe partial class ActorHurtEvent : global::System.IDisposable
 
     public nint damage()
     {
-        return (nint)NativeMethods.TablePtr->f2386((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2387((void*)_handle);
     }
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2387((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2388((void*)_handle, (void*)arg0);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2388((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2389((void*)_handle, (void*)arg0);
     }
 
     public nint source()
     {
-        return (nint)NativeMethods.TablePtr->f2389((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2390((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2385((void*)_handle);
+            NativeMethods.TablePtr->f2386((void*)_handle);
             _handle = 0;
         }
     }

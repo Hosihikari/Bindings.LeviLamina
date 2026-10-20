@@ -17,20 +17,20 @@ public sealed unsafe partial class SpawnedMobEvent : global::System.IDisposable
     public nint? mob()
     {
         var __hs_hasValue = false;
-        var __hs_handle = NativeMethods.TablePtr->f2612((void*)_handle, &__hs_hasValue);
+        var __hs_handle = NativeMethods.TablePtr->f2615((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? (nint)__hs_handle : null;
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2613((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2616((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2611((void*)_handle);
+            NativeMethods.TablePtr->f2614((void*)_handle);
             _handle = 0;
         }
     }

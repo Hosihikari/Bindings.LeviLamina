@@ -13,7 +13,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
 
     public static Property Create()
     {
-        var handle = NativeMethods.TablePtr->f3047();
+        var handle = NativeMethods.TablePtr->f3057();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
 
     public static Property Create_95a67ed4(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
     {
-        var handle = NativeMethods.TablePtr->f3048((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f3058((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,7 +35,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
 
     public static Property Create_917bf7ba(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
     {
-        var handle = NativeMethods.TablePtr->f3049((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f3059((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -47,13 +47,13 @@ public sealed unsafe partial class Property : global::System.IDisposable
     public void erase()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3050((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f3060((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f3051((void*)_handle);
+        return NativeMethods.TablePtr->f3061((void*)_handle);
     }
 
     public nint operator_assign_bfa12fa4(nint arg0) =>
@@ -65,7 +65,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
     public void set(nint value)
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3052((void*)_handle, (void*)value, &__hs_hasValue);
+        NativeMethods.TablePtr->f3062((void*)_handle, (void*)value, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -75,7 +75,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(json);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f3053((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            NativeMethods.TablePtr->f3063((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
         }
     }
@@ -85,7 +85,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3046((void*)_handle);
+            NativeMethods.TablePtr->f3056((void*)_handle);
             _handle = 0;
         }
     }

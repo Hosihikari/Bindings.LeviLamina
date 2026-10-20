@@ -16,17 +16,17 @@ public sealed unsafe partial class RuntimeCommand : global::System.IDisposable
 
     public static void operator_delete(nint arg0)
     {
-        NativeMethods.TablePtr->f2191((void*)arg0);
+        NativeMethods.TablePtr->f2192((void*)arg0);
     }
 
     public static void operator_delete(nint arg0, uint paramCount)
     {
-        NativeMethods.TablePtr->f2192((void*)arg0, paramCount);
+        NativeMethods.TablePtr->f2193((void*)arg0, paramCount);
     }
 
     public static nint operator_new(ulong arg0, uint paramCount)
     {
-        return (nint)NativeMethods.TablePtr->f2193(arg0, paramCount);
+        return (nint)NativeMethods.TablePtr->f2194(arg0, paramCount);
     }
 
     public nint operator_index(string name)
@@ -34,13 +34,13 @@ public sealed unsafe partial class RuntimeCommand : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2194((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2195((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint operator_index(ulong idx)
     {
-        return (nint)NativeMethods.TablePtr->f2195((void*)_handle, idx);
+        return (nint)NativeMethods.TablePtr->f2196((void*)_handle, idx);
     }
 
 
@@ -48,7 +48,7 @@ public sealed unsafe partial class RuntimeCommand : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2190((void*)_handle);
+            NativeMethods.TablePtr->f2191((void*)_handle);
             _handle = 0;
         }
     }

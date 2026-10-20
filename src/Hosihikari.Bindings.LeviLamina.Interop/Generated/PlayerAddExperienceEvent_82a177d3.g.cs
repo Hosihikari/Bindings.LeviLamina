@@ -16,24 +16,24 @@ public sealed unsafe partial class PlayerAddExperienceEvent : global::System.IDi
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2524((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2527((void*)_handle, (void*)arg0);
     }
 
     public nint experience()
     {
-        return (nint)NativeMethods.TablePtr->f2525((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2528((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2526((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2529((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2523((void*)_handle);
+            NativeMethods.TablePtr->f2526((void*)_handle);
             _handle = 0;
         }
     }

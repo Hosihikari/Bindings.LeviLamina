@@ -13,11 +13,11 @@ public sealed unsafe partial class LevelEvent
 
     public nint level()
     {
-        return (nint)NativeMethods.TablePtr->f2509((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2512((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2510((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2513((void*)_handle, (void*)arg0);
     }
 }

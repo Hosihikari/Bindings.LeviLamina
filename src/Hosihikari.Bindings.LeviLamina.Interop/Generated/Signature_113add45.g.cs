@@ -13,7 +13,7 @@ public sealed unsafe partial class Signature : global::System.IDisposable
 
     public static Signature Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView view)
     {
-        var handle = NativeMethods.TablePtr->f2789((void*)view.Handle);
+        var handle = NativeMethods.TablePtr->f2793((void*)view.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class Signature : global::System.IDisposable
 
     public nint back()
     {
-        return (nint)NativeMethods.TablePtr->f2790((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2794((void*)_handle);
     }
 
     public nint begin() =>
@@ -35,17 +35,17 @@ public sealed unsafe partial class Signature : global::System.IDisposable
 
     public nint front()
     {
-        return (nint)NativeMethods.TablePtr->f2791((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2795((void*)_handle);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature other)
     {
-        return NativeMethods.TablePtr->f2792((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2796((void*)_handle, (void*)other.Handle);
     }
 
     public nint operator_index(ulong idx)
     {
-        return (nint)NativeMethods.TablePtr->f2793((void*)_handle, idx);
+        return (nint)NativeMethods.TablePtr->f2797((void*)_handle, idx);
     }
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature parse(string str)
@@ -53,25 +53,25 @@ public sealed unsafe partial class Signature : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(str);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature((nint)NativeMethods.TablePtr->f2794(__hs_stringData0, (nuint)__hs_stringBytes0.Length));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature((nint)NativeMethods.TablePtr->f2798(__hs_stringData0, (nuint)__hs_stringBytes0.Length));
         }
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2795((void*)_handle);
+        return NativeMethods.TablePtr->f2799((void*)_handle);
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView view()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView((nint)NativeMethods.TablePtr->f2796((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView((nint)NativeMethods.TablePtr->f2800((void*)_handle));
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2788((void*)_handle);
+            NativeMethods.TablePtr->f2792((void*)_handle);
             _handle = 0;
         }
     }

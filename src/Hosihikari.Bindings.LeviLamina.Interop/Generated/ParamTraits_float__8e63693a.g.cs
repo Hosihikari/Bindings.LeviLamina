@@ -13,14 +13,14 @@ public sealed unsafe partial class ParamTraits_float_ : global::System.IDisposab
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1956();
+        return NativeMethods.TablePtr->f1957();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1955((void*)_handle);
+            NativeMethods.TablePtr->f1956((void*)_handle);
             _handle = 0;
         }
     }

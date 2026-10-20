@@ -12,8 +12,11 @@
 #include <memory>
 #include <new>
 #include <optional>
+#include <stdexcept>
 #include <string>
 #include <string_view>
+#include <type_traits>
+#include <typeindex>
 #include <unordered_map>
 #include <utility>
 #include <variant>
@@ -206,8 +209,25 @@ inline std::vector<std::string> hs_make_string_vector(HosihikariStringView const
     for (std::size_t i = 0; i < count; ++i) { result.emplace_back(data[i].data, data[i].size); }
     return result;
 }
+struct hs_shared_holder_base
+{
+    virtual ~hs_shared_holder_base() = default;
+    virtual std::shared_ptr<const void> hs_share() const = 0;
+    virtual std::type_index hs_type() const = 0;
+};
+
 template <class T>
-struct hs_shared_holder { std::shared_ptr<T> value; };
+struct hs_shared_holder final : hs_shared_holder_base
+{
+    explicit hs_shared_holder(std::shared_ptr<T> value) : value(std::move(value)) {}
+    std::shared_ptr<T> value;
+    std::shared_ptr<const void> hs_share() const override
+    {
+        return std::shared_ptr<const void>(value, value.get());
+    }
+
+    std::type_index hs_type() const override { return std::type_index(typeid(T)); }
+};
 
 template <class T>
 void hs_release_shared_holder(void* holder)
@@ -219,8 +239,28 @@ template <class T>
 HosihikariSharedHandle hs_make_shared_handle(std::shared_ptr<T> value)
 {
     if (!value) { return HosihikariSharedHandle{nullptr, nullptr, nullptr}; }
-    auto* holder = new hs_shared_holder<T>{std::move(value)};
+    auto* holder = new hs_shared_holder<T>(std::move(value));
     return HosihikariSharedHandle{holder, const_cast<void*>(static_cast<void const*>(holder->value.get())), &hs_release_shared_holder<T>};
+}
+
+template <class T>
+std::shared_ptr<T> hs_shared_from_handle(HosihikariSharedHandle handle)
+{
+    if (handle.holder == nullptr) { return {}; }
+    auto* holder = static_cast<hs_shared_holder_base*>(handle.holder);
+    if (holder->hs_type() != std::type_index(typeid(T))) {
+        throw std::invalid_argument("shared handle type mismatch");
+    }
+    using Value = std::remove_const_t<T>;
+    auto shared = holder->hs_share();
+    auto* raw = const_cast<Value*>(static_cast<Value const*>(shared.get()));
+    return std::shared_ptr<T>(std::move(shared), raw);
+}
+
+template <class T>
+std::weak_ptr<T> hs_weak_from_handle(HosihikariSharedHandle handle)
+{
+    return std::weak_ptr<T>(hs_shared_from_handle<T>(handle));
 }
 
 template <class T>
@@ -28799,6 +28839,21 @@ catch (...)
     return HosihikariArrayView{nullptr, 0};
 }
 
+static void* hs_method_d854facb(void* hs_self, HosihikariSharedHandle mod) try
+{
+    return static_cast<void*>(new ll::command::RuntimeOverload(static_cast<ll::command::CommandHandle*>(hs_self)->runtimeOverload(hs_weak_from_handle<ll::mod::Mod>(mod))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static bool hs_method_7027890d(void* hs_self, const char* name_data, std::size_t name_size, std::uint16_t type, const HosihikariMapEntry* values_data, std::size_t values_count) try
 {
     std::vector<std::pair<std::basic_string<char>, unsigned long long>> hs_vec1;
@@ -37763,6 +37818,41 @@ catch (...)
     return;
 }
 
+using hs_cb_invoke_hs_create_28da94b8_cb0 = void (*)(void* userData, void* arg0);
+using hs_cb_release_hs_create_28da94b8_cb0 = void (*)(void*);
+struct hs_cb_state_hs_create_28da94b8_cb0
+{
+    hs_cb_invoke_hs_create_28da94b8_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_create_28da94b8_cb0 release;
+    hs_cb_state_hs_create_28da94b8_cb0(hs_cb_invoke_hs_create_28da94b8_cb0 invoke_, void* userData_, hs_cb_release_hs_create_28da94b8_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_create_28da94b8_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_create_28da94b8_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_create_28da94b8_cb0> state;
+    void operator()(CompoundTag & arg0) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)));
+    }
+};
+
+static void* hs_create_28da94b8(void* fn_invoke, void* fn_userData, void* fn_release, std::int32_t priority, HosihikariSharedHandle mod) try
+{
+    return new ll::event::DynamicListener(std::function<void (CompoundTag &)>(hs_cb_closure_hs_create_28da94b8_cb0{std::make_shared<hs_cb_state_hs_create_28da94b8_cb0>(reinterpret_cast<hs_cb_invoke_hs_create_28da94b8_cb0>(fn_invoke), fn_userData, reinterpret_cast<hs_cb_release_hs_create_28da94b8_cb0>(fn_release))}), static_cast<ll::event::EventPriority>(priority), hs_weak_from_handle<ll::mod::Mod>(mod));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void hs_method_3a89e15c(void* hs_self, void* event) try
 {
     static_cast<ll::event::DynamicListener*>(hs_self)->call(*static_cast<ll::event::Event*>(event));
@@ -37776,6 +37866,41 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+using hs_cb_invoke_hs_method_deeb082b_cb0 = void (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_deeb082b_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_deeb082b_cb0
+{
+    hs_cb_invoke_hs_method_deeb082b_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_deeb082b_cb0 release;
+    hs_cb_state_hs_method_deeb082b_cb0(hs_cb_invoke_hs_method_deeb082b_cb0 invoke_, void* userData_, hs_cb_release_hs_method_deeb082b_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_deeb082b_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_deeb082b_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_deeb082b_cb0> state;
+    void operator()(CompoundTag & arg0) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)));
+    }
+};
+
+static HosihikariSharedHandle hs_method_deeb082b(void* fn_invoke, void* fn_userData, void* fn_release, std::int32_t priority, HosihikariSharedHandle mod) try
+{
+    return hs_make_shared_handle(ll::event::DynamicListener::create(std::function<void (CompoundTag &)>(hs_cb_closure_hs_method_deeb082b_cb0{std::make_shared<hs_cb_state_hs_method_deeb082b_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_deeb082b_cb0>(fn_invoke), fn_userData, reinterpret_cast<hs_cb_release_hs_method_deeb082b_cb0>(fn_release))}), static_cast<ll::event::EventPriority>(priority), hs_weak_from_handle<ll::mod::Mod>(mod)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
 }
 
 static void hs_destroy_63211258(void* hs_self) try
@@ -37883,9 +38008,9 @@ catch (...)
     return;
 }
 
-static bool hs_method_056c47a7(void* hs_self, void* arg0, void* arg1) try
+static bool hs_method_056c47a7(void* hs_self, HosihikariSharedHandle arg0, void* arg1) try
 {
-    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->addListener(*static_cast<const std::shared_ptr<ll::event::ListenerBase>*>(arg0), *static_cast<const ll::event::EventIdView*>(arg1)));
+    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->addListener(hs_shared_from_handle<ll::event::ListenerBase>(arg0), *static_cast<const ll::event::EventIdView*>(arg1)));
 }
 catch (std::exception const& hs_error)
 {
@@ -37958,9 +38083,9 @@ catch (...)
     return false;
 }
 
-static bool hs_method_8d24ae3c(void* hs_self, void* listener) try
+static bool hs_method_8d24ae3c(void* hs_self, HosihikariSharedHandle listener) try
 {
-    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->hasListener(*static_cast<const std::shared_ptr<ll::event::ListenerBase>*>(listener)));
+    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->hasListener(hs_shared_from_handle<ll::event::ListenerBase>(listener)));
 }
 catch (std::exception const& hs_error)
 {
@@ -38033,9 +38158,9 @@ catch (...)
     return;
 }
 
-static bool hs_method_a0f1fc86(void* hs_self, void* listener) try
+static bool hs_method_a0f1fc86(void* hs_self, HosihikariSharedHandle listener) try
 {
-    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->removeListener(*static_cast<const std::shared_ptr<ll::event::ListenerBase>*>(listener)));
+    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->removeListener(hs_shared_from_handle<ll::event::ListenerBase>(listener)));
 }
 catch (std::exception const& hs_error)
 {
@@ -38048,9 +38173,9 @@ catch (...)
     return false;
 }
 
-static bool hs_method_e3d6e983(void* hs_self, void* arg0, void* arg1) try
+static bool hs_method_e3d6e983(void* hs_self, HosihikariSharedHandle arg0, void* arg1) try
 {
-    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->removeListener(*static_cast<const std::shared_ptr<ll::event::ListenerBase>*>(arg0), *static_cast<const ll::event::EventIdView*>(arg1)));
+    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->removeListener(hs_shared_from_handle<ll::event::ListenerBase>(arg0), *static_cast<const ll::event::EventIdView*>(arg1)));
 }
 catch (std::exception const& hs_error)
 {
@@ -41692,6 +41817,21 @@ catch (...)
     return;
 }
 
+static std::uint64_t hs_method_25fea586(void* hs_self, HosihikariSharedHandle sink) try
+{
+    return static_cast<std::uint64_t>(static_cast<ll::io::Logger*>(hs_self)->addSink(hs_shared_from_handle<ll::io::SinkBase>(sink)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static void hs_method_b51b18ca(void* hs_self) try
 {
     static_cast<ll::io::Logger*>(hs_self)->clearSink();
@@ -44245,9 +44385,9 @@ catch (...)
     return false;
 }
 
-static bool hs_method_9ff633c3(void* hs_self, void* manager) try
+static bool hs_method_9ff633c3(void* hs_self, HosihikariSharedHandle manager) try
 {
-    return static_cast<bool>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->addManager(*static_cast<const std::shared_ptr<ll::mod::ModManager>*>(manager)));
+    return static_cast<bool>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->addManager(hs_shared_from_handle<ll::mod::ModManager>(manager)));
 }
 catch (std::exception const& hs_error)
 {
@@ -44288,6 +44428,201 @@ catch (...)
 {
     setLastError("unknown native exception");
     return false;
+}
+
+static std::uint64_t hs_method_2e560fe8(void* hs_self, HosihikariSharedHandle mod, std::int32_t type) try
+{
+    return static_cast<std::uint64_t>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->eraseOnModCallback(hs_weak_from_handle<ll::mod::Mod>(mod), static_cast<ll::mod::ModManagerRegistry::ModCallbackType>(type)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
+using hs_cb_invoke_hs_method_5eeef485_cb1 = void (*)(void* userData, const char* arg0_data, std::size_t arg0_size);
+using hs_cb_release_hs_method_5eeef485_cb1 = void (*)(void*);
+struct hs_cb_state_hs_method_5eeef485_cb1
+{
+    hs_cb_invoke_hs_method_5eeef485_cb1 invoke;
+    void* userData;
+    hs_cb_release_hs_method_5eeef485_cb1 release;
+    hs_cb_state_hs_method_5eeef485_cb1(hs_cb_invoke_hs_method_5eeef485_cb1 invoke_, void* userData_, hs_cb_release_hs_method_5eeef485_cb1 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_5eeef485_cb1() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_5eeef485_cb1
+{
+    std::shared_ptr<hs_cb_state_hs_method_5eeef485_cb1> state;
+    void operator()(std::basic_string_view<char> arg0) const
+    {
+        HosihikariStringView hs_arg0{arg0.data(), arg0.size()};
+        state->invoke(state->userData, hs_arg0.data, hs_arg0.size);
+    }
+};
+
+static std::uint64_t hs_method_5eeef485(void* hs_self, std::int32_t type, void* fn_invoke, void* fn_userData, void* fn_release, HosihikariSharedHandle mod) try
+{
+    return static_cast<std::uint64_t>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->executeOnMod(static_cast<ll::mod::ModManagerRegistry::ModCallbackType>(type), std::function<void (std::basic_string_view<char>)>(hs_cb_closure_hs_method_5eeef485_cb1{std::make_shared<hs_cb_state_hs_method_5eeef485_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_5eeef485_cb1>(fn_invoke), fn_userData, reinterpret_cast<hs_cb_release_hs_method_5eeef485_cb1>(fn_release))}), hs_weak_from_handle<ll::mod::Mod>(mod)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
+using hs_cb_invoke_hs_method_47e2d849_cb0 = void (*)(void* userData, const char* arg0_data, std::size_t arg0_size);
+using hs_cb_release_hs_method_47e2d849_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_47e2d849_cb0
+{
+    hs_cb_invoke_hs_method_47e2d849_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_47e2d849_cb0 release;
+    hs_cb_state_hs_method_47e2d849_cb0(hs_cb_invoke_hs_method_47e2d849_cb0 invoke_, void* userData_, hs_cb_release_hs_method_47e2d849_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_47e2d849_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_47e2d849_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_47e2d849_cb0> state;
+    void operator()(std::basic_string_view<char> arg0) const
+    {
+        HosihikariStringView hs_arg0{arg0.data(), arg0.size()};
+        state->invoke(state->userData, hs_arg0.data, hs_arg0.size);
+    }
+};
+
+static std::uint64_t hs_method_47e2d849(void* hs_self, void* fn_invoke, void* fn_userData, void* fn_release, HosihikariSharedHandle mod) try
+{
+    return static_cast<std::uint64_t>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->executeOnModDisable(std::function<void (std::basic_string_view<char>)>(hs_cb_closure_hs_method_47e2d849_cb0{std::make_shared<hs_cb_state_hs_method_47e2d849_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_47e2d849_cb0>(fn_invoke), fn_userData, reinterpret_cast<hs_cb_release_hs_method_47e2d849_cb0>(fn_release))}), hs_weak_from_handle<ll::mod::Mod>(mod)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
+using hs_cb_invoke_hs_method_4618a626_cb0 = void (*)(void* userData, const char* arg0_data, std::size_t arg0_size);
+using hs_cb_release_hs_method_4618a626_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_4618a626_cb0
+{
+    hs_cb_invoke_hs_method_4618a626_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_4618a626_cb0 release;
+    hs_cb_state_hs_method_4618a626_cb0(hs_cb_invoke_hs_method_4618a626_cb0 invoke_, void* userData_, hs_cb_release_hs_method_4618a626_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_4618a626_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_4618a626_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_4618a626_cb0> state;
+    void operator()(std::basic_string_view<char> arg0) const
+    {
+        HosihikariStringView hs_arg0{arg0.data(), arg0.size()};
+        state->invoke(state->userData, hs_arg0.data, hs_arg0.size);
+    }
+};
+
+static std::uint64_t hs_method_4618a626(void* hs_self, void* fn_invoke, void* fn_userData, void* fn_release, HosihikariSharedHandle mod) try
+{
+    return static_cast<std::uint64_t>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->executeOnModEnable(std::function<void (std::basic_string_view<char>)>(hs_cb_closure_hs_method_4618a626_cb0{std::make_shared<hs_cb_state_hs_method_4618a626_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_4618a626_cb0>(fn_invoke), fn_userData, reinterpret_cast<hs_cb_release_hs_method_4618a626_cb0>(fn_release))}), hs_weak_from_handle<ll::mod::Mod>(mod)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
+using hs_cb_invoke_hs_method_d20e0d20_cb0 = void (*)(void* userData, const char* arg0_data, std::size_t arg0_size);
+using hs_cb_release_hs_method_d20e0d20_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_d20e0d20_cb0
+{
+    hs_cb_invoke_hs_method_d20e0d20_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_d20e0d20_cb0 release;
+    hs_cb_state_hs_method_d20e0d20_cb0(hs_cb_invoke_hs_method_d20e0d20_cb0 invoke_, void* userData_, hs_cb_release_hs_method_d20e0d20_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_d20e0d20_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_d20e0d20_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_d20e0d20_cb0> state;
+    void operator()(std::basic_string_view<char> arg0) const
+    {
+        HosihikariStringView hs_arg0{arg0.data(), arg0.size()};
+        state->invoke(state->userData, hs_arg0.data, hs_arg0.size);
+    }
+};
+
+static std::uint64_t hs_method_d20e0d20(void* hs_self, void* fn_invoke, void* fn_userData, void* fn_release, HosihikariSharedHandle mod) try
+{
+    return static_cast<std::uint64_t>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->executeOnModLoad(std::function<void (std::basic_string_view<char>)>(hs_cb_closure_hs_method_d20e0d20_cb0{std::make_shared<hs_cb_state_hs_method_d20e0d20_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_d20e0d20_cb0>(fn_invoke), fn_userData, reinterpret_cast<hs_cb_release_hs_method_d20e0d20_cb0>(fn_release))}), hs_weak_from_handle<ll::mod::Mod>(mod)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
+using hs_cb_invoke_hs_method_ea621a8b_cb0 = void (*)(void* userData, const char* arg0_data, std::size_t arg0_size);
+using hs_cb_release_hs_method_ea621a8b_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_ea621a8b_cb0
+{
+    hs_cb_invoke_hs_method_ea621a8b_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_ea621a8b_cb0 release;
+    hs_cb_state_hs_method_ea621a8b_cb0(hs_cb_invoke_hs_method_ea621a8b_cb0 invoke_, void* userData_, hs_cb_release_hs_method_ea621a8b_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_ea621a8b_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_ea621a8b_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_ea621a8b_cb0> state;
+    void operator()(std::basic_string_view<char> arg0) const
+    {
+        HosihikariStringView hs_arg0{arg0.data(), arg0.size()};
+        state->invoke(state->userData, hs_arg0.data, hs_arg0.size);
+    }
+};
+
+static std::uint64_t hs_method_ea621a8b(void* hs_self, void* fn_invoke, void* fn_userData, void* fn_release, HosihikariSharedHandle mod) try
+{
+    return static_cast<std::uint64_t>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->executeOnModUnload(std::function<void (std::basic_string_view<char>)>(hs_cb_closure_hs_method_ea621a8b_cb0{std::make_shared<hs_cb_state_hs_method_ea621a8b_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_ea621a8b_cb0>(fn_invoke), fn_userData, reinterpret_cast<hs_cb_release_hs_method_ea621a8b_cb0>(fn_release))}), hs_weak_from_handle<ll::mod::Mod>(mod)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static void* hs_method_35a0463e() try
@@ -45497,9 +45832,9 @@ catch (...)
     return HosihikariArrayView{nullptr, 0};
 }
 
-static bool hs_method_952e2d89(void* hs_self, void* service, void* mod) try
+static bool hs_method_952e2d89(void* hs_self, HosihikariSharedHandle service, HosihikariSharedHandle mod) try
 {
-    return static_cast<bool>(static_cast<ll::service::ServiceManager*>(hs_self)->registerService(*static_cast<const std::shared_ptr<ll::service::Service>*>(service), *static_cast<const std::shared_ptr<ll::mod::Mod>*>(mod)));
+    return static_cast<bool>(static_cast<ll::service::ServiceManager*>(hs_self)->registerService(hs_shared_from_handle<ll::service::Service>(service), hs_shared_from_handle<ll::mod::Mod>(mod)));
 }
 catch (std::exception const& hs_error)
 {
@@ -50310,6 +50645,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_e3b4b2ea,
     &hs_method_0f895032,
     &hs_method_51a27a86,
+    &hs_method_d854facb,
     &hs_method_7027890d,
     &hs_method_54e89d5e,
     &hs_method_0bf55812,
@@ -50891,7 +51227,9 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_f7c38fd3,
     &hs_method_39551779,
     &hs_destroy_c0b2d37b,
+    &hs_create_28da94b8,
     &hs_method_3a89e15c,
+    &hs_method_deeb082b,
     &hs_destroy_63211258,
     &hs_create_db6a15af,
     &hs_destroy_53dcf688,
@@ -51137,6 +51475,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_get_cac11fa3,
     &hs_set_cac11fa3,
     &hs_destroy_d237485f,
+    &hs_method_25fea586,
     &hs_method_b51b18ca,
     &hs_method_1460e901,
     &hs_method_970e1856,
@@ -51302,6 +51641,12 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_9ff633c3,
     &hs_method_1cc73cca,
     &hs_method_aa5a85fc,
+    &hs_method_2e560fe8,
+    &hs_method_5eeef485,
+    &hs_method_47e2d849,
+    &hs_method_4618a626,
+    &hs_method_d20e0d20,
+    &hs_method_ea621a8b,
     &hs_method_35a0463e,
     &hs_method_7ee89750,
     &hs_method_985f5308,

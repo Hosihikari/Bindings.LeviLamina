@@ -35,8 +35,10 @@ public sealed unsafe partial class CommandHandle
         return __hs_result;
     }
 
-    public nint runtimeOverload(nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload runtimeOverload(global::Hosihikari.Bindings.Abi.SharedHandle? mod)
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->f1887((void*)_handle, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData)));
+    }
 
     public void Destroy() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has no accessible destructor.");

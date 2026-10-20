@@ -37,7 +37,7 @@ public sealed unsafe partial class CommandRegistrar
             var __hs_vectorData = __hs_vectorEntries;
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->f1887((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, type, __hs_vectorData, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->f1888((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, type, __hs_vectorData, (nuint)(values?.Length ?? 0));
             }
         }
         finally
@@ -73,7 +73,7 @@ public sealed unsafe partial class CommandRegistrar
             var __hs_vectorData = __hs_vectorEntries;
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->f1888((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->f1889((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)(values?.Length ?? 0));
             }
         }
         finally
@@ -105,7 +105,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1889((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1890((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }
@@ -126,7 +126,7 @@ public sealed unsafe partial class CommandRegistrar
 
     public static nint getInstance(bool isClientSide)
     {
-        return (nint)NativeMethods.TablePtr->f1890(isClientSide);
+        return (nint)NativeMethods.TablePtr->f1891(isClientSide);
     }
 
     public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
@@ -134,7 +134,7 @@ public sealed unsafe partial class CommandRegistrar
 
     public static nint getServerInstance()
     {
-        return (nint)NativeMethods.TablePtr->f1891();
+        return (nint)NativeMethods.TablePtr->f1892();
     }
 
     public bool hasEnum(string name)
@@ -142,7 +142,7 @@ public sealed unsafe partial class CommandRegistrar
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f1892((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->f1893((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -151,7 +151,7 @@ public sealed unsafe partial class CommandRegistrar
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f1893((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->f1894((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -177,7 +177,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1894((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1895((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }
@@ -209,7 +209,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1895((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1896((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }
@@ -248,7 +248,7 @@ public sealed unsafe partial class CommandRegistrar
             var __hs_vectorData = __hs_vectorEntries;
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->f1896((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->f1897((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)(values?.Length ?? 0));
             }
         }
         finally
@@ -280,7 +280,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1897((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1898((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }

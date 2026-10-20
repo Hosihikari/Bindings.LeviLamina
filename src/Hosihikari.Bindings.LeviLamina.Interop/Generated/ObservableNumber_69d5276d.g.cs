@@ -15,7 +15,7 @@ public sealed unsafe partial class ObservableNumber : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3040((void*)_handle);
+            NativeMethods.TablePtr->f3050((void*)_handle);
             _handle = 0;
         }
     }

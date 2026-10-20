@@ -16,19 +16,19 @@ public sealed unsafe partial class FireSpreadEvent : global::System.IDisposable
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f2507((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2510((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2508((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2511((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2506((void*)_handle);
+            NativeMethods.TablePtr->f2509((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,18 +13,18 @@ public sealed unsafe partial class ParamTraitsBase_CommandIntegerRange_ : global
 
     public static int dataType()
     {
-        return NativeMethods.TablePtr->f1999();
+        return NativeMethods.TablePtr->f2000();
     }
 
     public static string enumNameOrPostfix()
     {
-        var __hs_view = NativeMethods.TablePtr->f2000();
+        var __hs_view = NativeMethods.TablePtr->f2001();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static byte options()
     {
-        return NativeMethods.TablePtr->f2001();
+        return NativeMethods.TablePtr->f2002();
     }
 
     public static nint parseFn() =>
@@ -32,30 +32,30 @@ public sealed unsafe partial class ParamTraitsBase_CommandIntegerRange_ : global
 
     public static nint parseRule()
     {
-        return (nint)NativeMethods.TablePtr->f2002();
+        return (nint)NativeMethods.TablePtr->f2003();
     }
 
     public static string subChain()
     {
-        var __hs_view = NativeMethods.TablePtr->f2003();
+        var __hs_view = NativeMethods.TablePtr->f2004();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static void transformData(nint arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar arg1)
     {
-        NativeMethods.TablePtr->f2004((void*)arg0, (void*)arg1.Handle);
+        NativeMethods.TablePtr->f2005((void*)arg0, (void*)arg1.Handle);
     }
 
     public static ushort typeId()
     {
-        return NativeMethods.TablePtr->f2005();
+        return NativeMethods.TablePtr->f2006();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1998((void*)_handle);
+            NativeMethods.TablePtr->f1999((void*)_handle);
             _handle = 0;
         }
     }

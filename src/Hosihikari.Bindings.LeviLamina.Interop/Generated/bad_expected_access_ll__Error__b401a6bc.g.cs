@@ -19,7 +19,7 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
 
     public nint error_cd83de93()
     {
-        return (nint)NativeMethods.TablePtr->f3114((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3124((void*)_handle);
     }
 
     public nint error_3eeff636() =>
@@ -27,19 +27,19 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
 
     public nint error_648678e4()
     {
-        return (nint)NativeMethods.TablePtr->f3115((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3125((void*)_handle);
     }
 
     public nint what()
     {
-        return (nint)NativeMethods.TablePtr->f3116((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3126((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3113((void*)_handle);
+            NativeMethods.TablePtr->f3123((void*)_handle);
             _handle = 0;
         }
     }

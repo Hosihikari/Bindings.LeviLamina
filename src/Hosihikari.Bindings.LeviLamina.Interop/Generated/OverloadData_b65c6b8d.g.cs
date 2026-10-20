@@ -13,7 +13,7 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
 
     public static OverloadData Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.OverloadData arg0)
     {
-        var handle = NativeMethods.TablePtr->f1919((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f1920((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -30,7 +30,7 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1918((void*)_handle);
+            NativeMethods.TablePtr->f1919((void*)_handle);
             _handle = 0;
         }
     }

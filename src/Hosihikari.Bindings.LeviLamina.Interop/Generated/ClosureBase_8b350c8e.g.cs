@@ -13,7 +13,7 @@ public sealed unsafe partial class ClosureBase : global::System.IDisposable
 
     public static ClosureBase Create(nint impl)
     {
-        var handle = NativeMethods.TablePtr->f2771((void*)impl);
+        var handle = NativeMethods.TablePtr->f2775((void*)impl);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,25 +24,25 @@ public sealed unsafe partial class ClosureBase : global::System.IDisposable
 
     public static nint getClosureData()
     {
-        return (nint)NativeMethods.TablePtr->f2772();
+        return (nint)NativeMethods.TablePtr->f2776();
     }
 
     public static ulong jitSize
     {
-        get => NativeMethods.TablePtr->f2773();
+        get => NativeMethods.TablePtr->f2777();
     }
 
     public nint storage
     {
-        get => (nint)NativeMethods.TablePtr->f2774((void*)_handle);
-        set => NativeMethods.TablePtr->f2775((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2778((void*)_handle);
+        set => NativeMethods.TablePtr->f2779((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2770((void*)_handle);
+            NativeMethods.TablePtr->f2774((void*)_handle);
             _handle = 0;
         }
     }

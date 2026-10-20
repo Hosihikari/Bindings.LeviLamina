@@ -13,7 +13,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public static AnyFunction Create()
     {
-        var handle = NativeMethods.TablePtr->f2260();
+        var handle = NativeMethods.TablePtr->f2261();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public static AnyFunction Create_3884d83f(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        var handle = NativeMethods.TablePtr->f2261((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2262((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,7 +35,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public static AnyFunction Create_5830bcea(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        var handle = NativeMethods.TablePtr->f2262((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2263((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -52,7 +52,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2263((void*)_handle);
+        return NativeMethods.TablePtr->f2264((void*)_handle);
     }
 
     public nint operator_assign_ab62667b(nint other) =>
@@ -63,7 +63,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public void swap(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        NativeMethods.TablePtr->f2264((void*)_handle, (void*)other.Handle);
+        NativeMethods.TablePtr->f2265((void*)_handle, (void*)other.Handle);
     }
 
 
@@ -71,7 +71,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2259((void*)_handle);
+            NativeMethods.TablePtr->f2260((void*)_handle);
             _handle = 0;
         }
     }

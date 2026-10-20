@@ -13,7 +13,7 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
 
     public static YieldAwaiter Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor? exec)
     {
-        var handle = NativeMethods.TablePtr->f2255((void*)(exec?.Handle ?? 0), exec is not null);
+        var handle = NativeMethods.TablePtr->f2256((void*)(exec?.Handle ?? 0), exec is not null);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,12 +24,12 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f2256((void*)_handle);
+        return NativeMethods.TablePtr->f2257((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f2257((void*)_handle);
+        NativeMethods.TablePtr->f2258((void*)_handle);
     }
 
     public void await_suspend(nint handle) =>
@@ -37,14 +37,14 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
 
     public void setExecutor(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor? ex)
     {
-        NativeMethods.TablePtr->f2258((void*)_handle, (void*)(ex?.Handle ?? 0), ex is not null);
+        NativeMethods.TablePtr->f2259((void*)_handle, (void*)(ex?.Handle ?? 0), ex is not null);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2254((void*)_handle);
+            NativeMethods.TablePtr->f2255((void*)_handle);
             _handle = 0;
         }
     }

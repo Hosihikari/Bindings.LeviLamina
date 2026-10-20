@@ -13,14 +13,14 @@ public sealed unsafe partial class ParamTraits_RelativeFloat_ : global::System.I
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1952();
+        return NativeMethods.TablePtr->f1953();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1951((void*)_handle);
+            NativeMethods.TablePtr->f1952((void*)_handle);
             _handle = 0;
         }
     }

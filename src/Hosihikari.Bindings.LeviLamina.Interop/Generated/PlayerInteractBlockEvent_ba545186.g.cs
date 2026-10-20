@@ -19,34 +19,34 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
 
     public nint blockPos()
     {
-        return (nint)NativeMethods.TablePtr->f2404((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2405((void*)_handle);
     }
 
     public nint clickPos()
     {
-        return (nint)NativeMethods.TablePtr->f2405((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2406((void*)_handle);
     }
 
     public nint face()
     {
-        return (nint)NativeMethods.TablePtr->f2406((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2407((void*)_handle);
     }
 
     public nint item()
     {
-        return (nint)NativeMethods.TablePtr->f2407((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2408((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2408((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2409((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2403((void*)_handle);
+            NativeMethods.TablePtr->f2404((void*)_handle);
             _handle = 0;
         }
     }

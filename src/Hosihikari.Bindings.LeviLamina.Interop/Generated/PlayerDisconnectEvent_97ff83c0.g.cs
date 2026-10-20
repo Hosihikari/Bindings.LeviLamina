@@ -18,7 +18,7 @@ public sealed unsafe partial class PlayerDisconnectEvent : global::System.IDispo
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2400((void*)_handle);
+            NativeMethods.TablePtr->f2401((void*)_handle);
             _handle = 0;
         }
     }

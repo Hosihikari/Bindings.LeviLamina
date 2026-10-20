@@ -33263,6 +33263,21 @@ catch (...)
     return nullptr;
 }
 
+static void* hs_create_bbf847ff(std::uint16_t mj, std::uint16_t mn, std::uint16_t pt, void* prt, const char* bu_data, std::size_t bu_size, bool prt_hasValue, bool bu_hasValue) try
+{
+    return new ll::data::Version(static_cast<unsigned short>(mj), static_cast<unsigned short>(mn), static_cast<unsigned short>(pt), (prt_hasValue ? std::optional<ll::data::PreRelease>{*static_cast<const ll::data::PreRelease*>(prt)} : std::nullopt), (bu_hasValue ? std::optional<std::basic_string<char>>{std::basic_string<char>(bu_data, bu_size)} : std::nullopt));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_get_0f6202d2(void* hs_self) try
 {
     return const_cast<void*>(static_cast<void const*>(&static_cast<ll::data::Version*>(hs_self)->build));
@@ -46260,6 +46275,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_destroy_c2f85c70,
     &hs_create_31e91982,
     &hs_create_03243ed9,
+    &hs_create_bbf847ff,
     &hs_get_0f6202d2,
     &hs_method_198ec7bd,
     &hs_method_604e1b43,

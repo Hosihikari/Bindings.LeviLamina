@@ -13,7 +13,7 @@ public sealed unsafe partial class PacketRegistrar
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet? createPacket(ulong runtimeId)
     {
-        var __hs_handle = NativeMethods.TablePtr->f2721((void*)_handle, runtimeId);
+        var __hs_handle = NativeMethods.TablePtr->f2722((void*)_handle, runtimeId);
         return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle) : null;
     }
 
@@ -22,7 +22,7 @@ public sealed unsafe partial class PacketRegistrar
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2722();
+        return (nint)NativeMethods.TablePtr->f2723();
     }
 
     public bool registerHandler(nint name, ulong id, nint handler) =>

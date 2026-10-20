@@ -16,7 +16,7 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f2793(__hs_stringData, (nuint)__hs_stringBytes.Length, nThreads);
+            var handle = NativeMethods.TablePtr->f2794(__hs_stringData, (nuint)__hs_stringBytes.Length, nThreads);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,12 +28,12 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
 
     public void destroy()
     {
-        NativeMethods.TablePtr->f2794((void*)_handle);
+        NativeMethods.TablePtr->f2795((void*)_handle);
     }
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f2795((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->f2796((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
     public nint executeAfter(nint arg0, nint arg1) =>
@@ -41,12 +41,12 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
 
     public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f2796();
+        return (nint)NativeMethods.TablePtr->f2797();
     }
 
     public void resize(ulong nThreads)
     {
-        NativeMethods.TablePtr->f2797((void*)_handle, nThreads);
+        NativeMethods.TablePtr->f2798((void*)_handle, nThreads);
     }
 
 
@@ -54,7 +54,7 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2792((void*)_handle);
+            NativeMethods.TablePtr->f2793((void*)_handle);
             _handle = 0;
         }
     }

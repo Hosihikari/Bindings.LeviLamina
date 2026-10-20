@@ -13,24 +13,24 @@ public sealed unsafe partial class ButtonOptions : global::System.IDisposable
 
     public nint disabled
     {
-        get => (nint)NativeMethods.TablePtr->f2799((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2800((void*)_handle);
     }
 
     public nint tooltip
     {
-        get => (nint)NativeMethods.TablePtr->f2800((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2801((void*)_handle);
     }
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f2801((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2802((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2798((void*)_handle);
+            NativeMethods.TablePtr->f2799((void*)_handle);
             _handle = 0;
         }
     }

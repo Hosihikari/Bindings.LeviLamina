@@ -13,7 +13,7 @@ public sealed unsafe partial class ServiceManager
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2760();
+        return (nint)NativeMethods.TablePtr->f2761();
     }
 
     public nint getService(nint id) =>
@@ -25,7 +25,7 @@ public sealed unsafe partial class ServiceManager
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_handle = NativeMethods.TablePtr->f2761((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            var __hs_handle = NativeMethods.TablePtr->f2762((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
             return __hs_hasValue && __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult((nint)__hs_handle) : null;
         }
     }
@@ -35,16 +35,16 @@ public sealed unsafe partial class ServiceManager
 
     public bool registerService(nint service, nint mod)
     {
-        return NativeMethods.TablePtr->f2762((void*)_handle, (void*)service, (void*)mod);
+        return NativeMethods.TablePtr->f2763((void*)_handle, (void*)service, (void*)mod);
     }
 
     public bool unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
     {
-        return NativeMethods.TablePtr->f2763((void*)_handle, (void*)id.Handle);
+        return NativeMethods.TablePtr->f2764((void*)_handle, (void*)id.Handle);
     }
 
     public void unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Mod mod)
     {
-        NativeMethods.TablePtr->f2764((void*)_handle, (void*)mod.Handle);
+        NativeMethods.TablePtr->f2765((void*)_handle, (void*)mod.Handle);
     }
 }

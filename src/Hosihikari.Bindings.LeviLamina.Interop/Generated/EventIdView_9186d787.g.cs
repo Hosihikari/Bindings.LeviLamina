@@ -21,7 +21,7 @@ public sealed unsafe partial class EventIdView : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2345((void*)_handle);
+            var view = NativeMethods.TablePtr->f2346((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -30,7 +30,7 @@ public sealed unsafe partial class EventIdView : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2344((void*)_handle);
+            NativeMethods.TablePtr->f2345((void*)_handle);
             _handle = 0;
         }
     }

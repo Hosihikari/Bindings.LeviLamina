@@ -13,7 +13,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
 
     public static I18n Create()
     {
-        var handle = NativeMethods.TablePtr->f2509();
+        var handle = NativeMethods.TablePtr->f2510();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
 
     public void clear()
     {
-        NativeMethods.TablePtr->f2510((void*)_handle);
+        NativeMethods.TablePtr->f2511((void*)_handle);
     }
 
     public nint get(nint key, nint localeCode) =>
@@ -41,7 +41,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2508((void*)_handle);
+            NativeMethods.TablePtr->f2509((void*)_handle);
             _handle = 0;
         }
     }

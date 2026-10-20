@@ -25,26 +25,26 @@ public sealed unsafe partial class LoggerRegistry
         return (nint)NativeMethods.TablePtr->f2582();
     }
 
-    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getOrCreate(string title)
+    public global::Hosihikari.Bindings.Abi.SharedHandle? getOrCreate(string title)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
             var __hs_shared = NativeMethods.TablePtr->f2583((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
-            return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+            return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
 
     public nint loggers() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::io::Logger &>' is not a known bindable declaration.");
 
-    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? tryGet(string title)
+    public global::Hosihikari.Bindings.Abi.SharedHandle? tryGet(string title)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
             var __hs_shared = NativeMethods.TablePtr->f2584((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
-            return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+            return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
 }

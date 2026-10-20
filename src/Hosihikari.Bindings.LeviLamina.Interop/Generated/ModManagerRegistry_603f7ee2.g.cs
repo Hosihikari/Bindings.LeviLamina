@@ -53,33 +53,33 @@ public sealed unsafe partial class ModManagerRegistry
         return (nint)NativeMethods.TablePtr->f2728();
     }
 
-    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getManager(string type)
+    public global::Hosihikari.Bindings.Abi.SharedHandle? getManager(string type)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(type);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
             var __hs_shared = NativeMethods.TablePtr->f2729((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
-            return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+            return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
 
-    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getManagerForMod(string name)
+    public global::Hosihikari.Bindings.Abi.SharedHandle? getManagerForMod(string name)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
             var __hs_shared = NativeMethods.TablePtr->f2730((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
-            return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+            return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
 
-    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getMod(string name)
+    public global::Hosihikari.Bindings.Abi.SharedHandle? getMod(string name)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
             var __hs_shared = NativeMethods.TablePtr->f2731((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
-            return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+            return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
 

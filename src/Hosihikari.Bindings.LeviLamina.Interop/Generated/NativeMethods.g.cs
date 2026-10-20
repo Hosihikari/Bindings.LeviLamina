@@ -7,28 +7,6 @@ namespace Hosihikari.Bindings.LeviLamina.Interop;
 public static unsafe class NativeMethods
 {
     [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    internal struct StringView
-    {
-        public byte* Data;
-        public nuint Size;
-    }
-
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    internal struct ArrayView
-    {
-        public void* Data;
-        public nuint Size;
-    }
-
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
-    internal struct SharedHandle
-    {
-        public void* Holder;
-        public void* Target;
-        public delegate* unmanaged[Cdecl]<void*, void> Release;
-    }
-
-    [global::System.Runtime.InteropServices.StructLayout(global::System.Runtime.InteropServices.LayoutKind.Sequential)]
     internal struct Table
     {
         public uint Version;
@@ -37,14 +15,14 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*> f1;
         public delegate* unmanaged[Cdecl]<void*, void*, int, void*> f2;
         public delegate* unmanaged[Cdecl]<void*, void*, byte*, nuint, int, void*> f3;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f4;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView> f5;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f4;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView> f5;
         public delegate* unmanaged[Cdecl]<void*, bool> f6;
         public delegate* unmanaged[Cdecl]<void*, void> f7;
         public delegate* unmanaged[Cdecl]<void*, void*> f8;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView> f9;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView> f9;
         public delegate* unmanaged[Cdecl]<void*, void> f10;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f11;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f11;
         public delegate* unmanaged[Cdecl]<void*, void> f12;
         public delegate* unmanaged[Cdecl]<void*, int> f13;
         public delegate* unmanaged[Cdecl]<void*, void*> f14;
@@ -58,7 +36,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*> f22;
         public delegate* unmanaged[Cdecl]<void*, int> f23;
         public delegate* unmanaged[Cdecl]<void*, int, void> f24;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f25;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f25;
         public delegate* unmanaged[Cdecl]<void*, void> f26;
         public delegate* unmanaged[Cdecl]<ulong, ulong, void*> f27;
         public delegate* unmanaged[Cdecl]<void*, bool> f28;
@@ -70,8 +48,8 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*> f34;
         public delegate* unmanaged[Cdecl]<void*, void> f35;
         public delegate* unmanaged[Cdecl]<byte*, nuint, void*> f36;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView> f37;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f38;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView> f37;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f38;
         public delegate* unmanaged[Cdecl]<void*, void*> f39;
         public delegate* unmanaged[Cdecl]<void*, void*> f40;
         public delegate* unmanaged[Cdecl]<void*, void*> f41;
@@ -1400,12 +1378,12 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*> f1364;
         public delegate* unmanaged[Cdecl]<void*, void> f1365;
         public delegate* unmanaged[Cdecl]<void*, void*> f1366;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f1367;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f1368;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f1369;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f1370;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f1371;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f1372;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f1367;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f1368;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f1369;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f1370;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f1371;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f1372;
         public delegate* unmanaged[Cdecl]<void*, void*> f1373;
         public delegate* unmanaged[Cdecl]<void*, void*> f1374;
         public delegate* unmanaged[Cdecl]<void*, void*> f1375;
@@ -1913,15 +1891,15 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> f1877;
         public delegate* unmanaged[Cdecl]<bool> f1878;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void*> f1879;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.ArrayView> f1880;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView*, nuint, bool> f1881;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.ArrayView> f1880;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView*, nuint, bool> f1881;
         public delegate* unmanaged[Cdecl]<bool, void*> f1882;
         public delegate* unmanaged[Cdecl]<void*> f1883;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool> f1884;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool> f1885;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView*, nuint, bool> f1886;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView*, nuint, bool> f1887;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView*, nuint, bool> f1888;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView*, nuint, bool> f1886;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView*, nuint, bool> f1887;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView*, nuint, bool> f1888;
         public delegate* unmanaged[Cdecl]<void*, void> f1889;
         public delegate* unmanaged[Cdecl]<void*, void> f1890;
         public delegate* unmanaged[Cdecl]<void*, void*> f1891;
@@ -1972,139 +1950,139 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*> f1936;
         public delegate* unmanaged[Cdecl]<void*, void> f1937;
         public delegate* unmanaged[Cdecl]<void*, void> f1938;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1939;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1939;
         public delegate* unmanaged[Cdecl]<void*> f1940;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1941;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1941;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1942;
         public delegate* unmanaged[Cdecl]<void*, void> f1943;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1944;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1944;
         public delegate* unmanaged[Cdecl]<void*> f1945;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1946;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1946;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1947;
         public delegate* unmanaged[Cdecl]<void*, void> f1948;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1949;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1949;
         public delegate* unmanaged[Cdecl]<void*> f1950;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1951;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1951;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1952;
         public delegate* unmanaged[Cdecl]<void*, void> f1953;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1954;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1954;
         public delegate* unmanaged[Cdecl]<void*> f1955;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1956;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1956;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1957;
         public delegate* unmanaged[Cdecl]<void*, void> f1958;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1959;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1959;
         public delegate* unmanaged[Cdecl]<void*> f1960;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1961;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1961;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1962;
         public delegate* unmanaged[Cdecl]<void*, void> f1963;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1964;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1964;
         public delegate* unmanaged[Cdecl]<void*> f1965;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1966;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1966;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1967;
         public delegate* unmanaged[Cdecl]<void*, void> f1968;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1969;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1969;
         public delegate* unmanaged[Cdecl]<void*> f1970;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1971;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1971;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1972;
         public delegate* unmanaged[Cdecl]<void*, void> f1973;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1974;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1974;
         public delegate* unmanaged[Cdecl]<void*> f1975;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1976;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1976;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1977;
         public delegate* unmanaged[Cdecl]<void*, void> f1978;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1979;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1979;
         public delegate* unmanaged[Cdecl]<void*> f1980;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1981;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1981;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1982;
         public delegate* unmanaged[Cdecl]<void*, void> f1983;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1984;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1984;
         public delegate* unmanaged[Cdecl]<void*> f1985;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1986;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1986;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1987;
         public delegate* unmanaged[Cdecl]<void*, void> f1988;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1989;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1989;
         public delegate* unmanaged[Cdecl]<void*> f1990;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1991;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1991;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1992;
         public delegate* unmanaged[Cdecl]<void*, void> f1993;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1994;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1994;
         public delegate* unmanaged[Cdecl]<void*> f1995;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1996;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1996;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f1997;
         public delegate* unmanaged[Cdecl]<void*, void> f1998;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f1999;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f1999;
         public delegate* unmanaged[Cdecl]<void*> f2000;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2001;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2001;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2002;
         public delegate* unmanaged[Cdecl]<void*, void> f2003;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2004;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2004;
         public delegate* unmanaged[Cdecl]<void*> f2005;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2006;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2006;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2007;
         public delegate* unmanaged[Cdecl]<void*, void> f2008;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2009;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2009;
         public delegate* unmanaged[Cdecl]<void*> f2010;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2011;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2011;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2012;
         public delegate* unmanaged[Cdecl]<void*, void> f2013;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2014;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2014;
         public delegate* unmanaged[Cdecl]<void*> f2015;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2016;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2016;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2017;
         public delegate* unmanaged[Cdecl]<void*, void> f2018;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2019;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2019;
         public delegate* unmanaged[Cdecl]<void*> f2020;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2021;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2021;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2022;
         public delegate* unmanaged[Cdecl]<void*, void> f2023;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2024;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2024;
         public delegate* unmanaged[Cdecl]<void*> f2025;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2026;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2026;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2027;
         public delegate* unmanaged[Cdecl]<void*, void> f2028;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2029;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2029;
         public delegate* unmanaged[Cdecl]<void*> f2030;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2031;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2031;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2032;
         public delegate* unmanaged[Cdecl]<void*, void> f2033;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2034;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2034;
         public delegate* unmanaged[Cdecl]<void*> f2035;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2036;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2036;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2037;
         public delegate* unmanaged[Cdecl]<void*, void> f2038;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2039;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2039;
         public delegate* unmanaged[Cdecl]<void*> f2040;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2041;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2041;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2042;
         public delegate* unmanaged[Cdecl]<void*, void> f2043;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2044;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2044;
         public delegate* unmanaged[Cdecl]<void*> f2045;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2046;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2046;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2047;
         public delegate* unmanaged[Cdecl]<void*, void> f2048;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2049;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2049;
         public delegate* unmanaged[Cdecl]<void*> f2050;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2051;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2051;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2052;
         public delegate* unmanaged[Cdecl]<void*, void> f2053;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2054;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2054;
         public delegate* unmanaged[Cdecl]<void*> f2055;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2056;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2056;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2057;
         public delegate* unmanaged[Cdecl]<void*, void> f2058;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2059;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2059;
         public delegate* unmanaged[Cdecl]<void*> f2060;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2061;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2061;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2062;
         public delegate* unmanaged[Cdecl]<void*, void> f2063;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2064;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2064;
         public delegate* unmanaged[Cdecl]<void*> f2065;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2066;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2066;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2067;
         public delegate* unmanaged[Cdecl]<void*, void> f2068;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2069;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2069;
         public delegate* unmanaged[Cdecl]<void*> f2070;
-        public delegate* unmanaged[Cdecl]<NativeMethods.StringView> f2071;
+        public delegate* unmanaged[Cdecl]<global::Hosihikari.Bindings.Abi.StringView> f2071;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2072;
         public delegate* unmanaged[Cdecl]<void*, void> f2073;
         public delegate* unmanaged[Cdecl]<void*, void> f2074;
@@ -2115,7 +2093,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> f2079;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2080;
         public delegate* unmanaged[Cdecl]<void*, ulong, void> f2081;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2082;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2082;
         public delegate* unmanaged[Cdecl]<void*, void> f2083;
         public delegate* unmanaged[Cdecl]<void*, void*, void*, void*, void> f2084;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, ulong, void*> f2085;
@@ -2143,7 +2121,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, bool> f2107;
         public delegate* unmanaged[Cdecl]<void*, void> f2108;
         public delegate* unmanaged[Cdecl]<void*, void> f2109;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2110;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2110;
         public delegate* unmanaged[Cdecl]<void*, void> f2111;
         public delegate* unmanaged[Cdecl]<void*, bool> f2112;
         public delegate* unmanaged[Cdecl]<void*, void*> f2113;
@@ -2197,7 +2175,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, bool, bool, int, void*> f2161;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool> f2162;
         public delegate* unmanaged[Cdecl]<void*, bool> f2163;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool*, NativeMethods.StringView> f2164;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool*, global::Hosihikari.Bindings.Abi.StringView> f2164;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool> f2165;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f2166;
         public delegate* unmanaged[Cdecl]<void*, void> f2167;
@@ -2216,7 +2194,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2180;
         public delegate* unmanaged[Cdecl]<void*, uint, bool> f2181;
         public delegate* unmanaged[Cdecl]<void*, void> f2182;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2183;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2183;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void> f2184;
         public delegate* unmanaged[Cdecl]<void*, uint, bool> f2185;
         public delegate* unmanaged[Cdecl]<void*, void> f2186;
@@ -2226,7 +2204,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void*> f2190;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void*> f2191;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f2192;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2193;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2193;
         public delegate* unmanaged[Cdecl]<void*, void*> f2194;
         public delegate* unmanaged[Cdecl]<void*, void*> f2195;
         public delegate* unmanaged[Cdecl]<void*, void*> f2196;
@@ -2252,7 +2230,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, ushort> f2216;
         public delegate* unmanaged[Cdecl]<void*, ushort, void> f2217;
         public delegate* unmanaged[Cdecl]<void*, void*> f2218;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2219;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2219;
         public delegate* unmanaged[Cdecl]<byte*, nuint, bool> f2220;
         public delegate* unmanaged[Cdecl]<void*, void> f2221;
         public delegate* unmanaged[Cdecl]<void*> f2222;
@@ -2263,7 +2241,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void*> f2227;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f2228;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f2229;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2230;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2230;
         public delegate* unmanaged[Cdecl]<byte*, nuint, bool> f2231;
         public delegate* unmanaged[Cdecl]<void*, void> f2232;
         public delegate* unmanaged[Cdecl]<void*, byte> f2233;
@@ -2360,11 +2338,11 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> f2324;
         public delegate* unmanaged[Cdecl]<byte*, nuint, bool, void*> f2325;
         public delegate* unmanaged[Cdecl]<void*, bool> f2326;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2327;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2327;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2328;
         public delegate* unmanaged[Cdecl]<void*, void> f2329;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2330;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2331;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2331;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2332;
         public delegate* unmanaged[Cdecl]<void*, void> f2333;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2334;
@@ -2377,7 +2355,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2341;
         public delegate* unmanaged[Cdecl]<void*, void*, void*, bool> f2342;
         public delegate* unmanaged[Cdecl]<void*> f2343;
-        public delegate* unmanaged[Cdecl]<void*, ulong, NativeMethods.SharedHandle> f2344;
+        public delegate* unmanaged[Cdecl]<void*, ulong, global::Hosihikari.Bindings.Abi.SharedHandleData> f2344;
         public delegate* unmanaged[Cdecl]<void*, void*, ulong> f2345;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f2346;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f2347;
@@ -2391,9 +2369,9 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> f2355;
         public delegate* unmanaged[Cdecl]<void*, void*> f2356;
         public delegate* unmanaged[Cdecl]<byte*, nuint, void*> f2357;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2358;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2358;
         public delegate* unmanaged[Cdecl]<void*, void> f2359;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2360;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2360;
         public delegate* unmanaged[Cdecl]<void*, void*> f2361;
         public delegate* unmanaged[Cdecl]<void*, void*> f2362;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2363;
@@ -2435,7 +2413,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2399;
         public delegate* unmanaged[Cdecl]<void*, void> f2400;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2401;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2402;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2402;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2403;
         public delegate* unmanaged[Cdecl]<void*, void> f2404;
         public delegate* unmanaged[Cdecl]<void*, void> f2405;
@@ -2525,7 +2503,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*> f2489;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void*> f2490;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void*> f2491;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2492;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2492;
         public delegate* unmanaged[Cdecl]<void*, void*, void*, void*, void*, void*> f2493;
         public delegate* unmanaged[Cdecl]<void*, void*, void*, void*, void*, void*> f2494;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void*> f2495;
@@ -2565,9 +2543,9 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*, bool*, void> f2529;
         public delegate* unmanaged[Cdecl]<void*, void> f2530;
         public delegate* unmanaged[Cdecl]<void*, void*> f2531;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2532;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2533;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView> f2534;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2532;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2533;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView> f2534;
         public delegate* unmanaged[Cdecl]<void*, void> f2535;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2536;
         public delegate* unmanaged[Cdecl]<void*, ulong, void> f2537;
@@ -2589,13 +2567,13 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> f2553;
         public delegate* unmanaged[Cdecl]<void*> f2554;
         public delegate* unmanaged[Cdecl]<void*, void*> f2555;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2556;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2557;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2556;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2557;
         public delegate* unmanaged[Cdecl]<void*, void> f2558;
         public delegate* unmanaged[Cdecl]<void*, int> f2559;
         public delegate* unmanaged[Cdecl]<void*, int, void> f2560;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2561;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2562;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2561;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2562;
         public delegate* unmanaged[Cdecl]<void*, void*> f2563;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2564;
         public delegate* unmanaged[Cdecl]<void*, void> f2565;
@@ -2605,8 +2583,8 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void> f2569;
         public delegate* unmanaged[Cdecl]<void*, void> f2570;
         public delegate* unmanaged[Cdecl]<void*, int> f2571;
-        public delegate* unmanaged[Cdecl]<void*, ulong, NativeMethods.SharedHandle> f2572;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2573;
+        public delegate* unmanaged[Cdecl]<void*, ulong, global::Hosihikari.Bindings.Abi.SharedHandleData> f2572;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2573;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void> f2574;
         public delegate* unmanaged[Cdecl]<void*, int, byte*, nuint, void> f2575;
         public delegate* unmanaged[Cdecl]<void*, int, void> f2576;
@@ -2616,14 +2594,14 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, void> f2580;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool> f2581;
         public delegate* unmanaged[Cdecl]<void*> f2582;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.SharedHandle> f2583;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.SharedHandle> f2584;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.SharedHandleData> f2583;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.SharedHandleData> f2584;
         public delegate* unmanaged[Cdecl]<void*, void> f2585;
         public delegate* unmanaged[Cdecl]<byte*, nuint, bool, void*, void*> f2586;
         public delegate* unmanaged[Cdecl]<void*, void*> f2587;
         public delegate* unmanaged[Cdecl]<void*, bool> f2588;
         public delegate* unmanaged[Cdecl]<void*, bool, void> f2589;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2590;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2590;
         public delegate* unmanaged[Cdecl]<void*, void*> f2591;
         public delegate* unmanaged[Cdecl]<void*, void> f2592;
         public delegate* unmanaged[Cdecl]<void*, bool> f2593;
@@ -2647,7 +2625,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> f2611;
         public delegate* unmanaged[Cdecl]<void*> f2612;
         public delegate* unmanaged[Cdecl]<void*, void*> f2613;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2614;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2614;
         public delegate* unmanaged[Cdecl]<void*> f2615;
         public delegate* unmanaged[Cdecl]<void*, void> f2616;
         public delegate* unmanaged[Cdecl]<void*, void> f2617;
@@ -2699,16 +2677,16 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, ulong, void*> f2663;
         public delegate* unmanaged[Cdecl]<void*, bool, void*> f2664;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2665;
-        public delegate* unmanaged[Cdecl]<void*, bool, bool, NativeMethods.StringView> f2666;
+        public delegate* unmanaged[Cdecl]<void*, bool, bool, global::Hosihikari.Bindings.Abi.StringView> f2666;
         public delegate* unmanaged[Cdecl]<void*, void> f2667;
         public delegate* unmanaged[Cdecl]<byte*, nuint, void*> f2668;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2669;
         public delegate* unmanaged[Cdecl]<void*, void*> f2670;
         public delegate* unmanaged[Cdecl]<void*, void> f2671;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2672;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2672;
         public delegate* unmanaged[Cdecl]<void*, bool, void*> f2673;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2674;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2675;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2675;
         public delegate* unmanaged[Cdecl]<void*, void> f2676;
         public delegate* unmanaged[Cdecl]<ulong> f2677;
         public delegate* unmanaged[Cdecl]<void*, void> f2678;
@@ -2718,7 +2696,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> f2682;
         public delegate* unmanaged[Cdecl]<ulong> f2683;
         public delegate* unmanaged[Cdecl]<void*, void> f2684;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2685;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2685;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f2686;
         public delegate* unmanaged[Cdecl]<void*, void*> f2687;
         public delegate* unmanaged[Cdecl]<void*, void> f2688;
@@ -2726,14 +2704,14 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*> f2690;
         public delegate* unmanaged[Cdecl]<void*, void*> f2691;
         public delegate* unmanaged[Cdecl]<void*, void*> f2692;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2693;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2693;
         public delegate* unmanaged[Cdecl]<void*, void*> f2694;
         public delegate* unmanaged[Cdecl]<void*, void*> f2695;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2696;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2696;
         public delegate* unmanaged[Cdecl]<void*, void*> f2697;
         public delegate* unmanaged[Cdecl]<void*, void*> f2698;
         public delegate* unmanaged[Cdecl]<void*, void*> f2699;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2700;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2700;
         public delegate* unmanaged[Cdecl]<void*, void*> f2701;
         public delegate* unmanaged[Cdecl]<void*, void> f2702;
         public delegate* unmanaged[Cdecl]<void*, void*> f2703;
@@ -2744,32 +2722,32 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*> f2708;
         public delegate* unmanaged[Cdecl]<void*, void*> f2709;
         public delegate* unmanaged[Cdecl]<void*, void*> f2710;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2711;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2711;
         public delegate* unmanaged[Cdecl]<void*, void*> f2712;
         public delegate* unmanaged[Cdecl]<void*, int> f2713;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2714;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2714;
         public delegate* unmanaged[Cdecl]<void*, bool> f2715;
         public delegate* unmanaged[Cdecl]<void*, bool> f2716;
         public delegate* unmanaged[Cdecl]<void*, void*, void*, void*, void> f2717;
         public delegate* unmanaged[Cdecl]<void*, void*, void*, void*, void> f2718;
         public delegate* unmanaged[Cdecl]<void*, void*, void*, void*, void> f2719;
         public delegate* unmanaged[Cdecl]<void*, void*, void*, void*, void> f2720;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.SharedHandle> f2721;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.SharedHandleData> f2721;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2722;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2723;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2723;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool> f2724;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f2725;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool> f2726;
         public delegate* unmanaged[Cdecl]<void*, ulong, bool> f2727;
         public delegate* unmanaged[Cdecl]<void*> f2728;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.SharedHandle> f2729;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.SharedHandle> f2730;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.SharedHandle> f2731;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView> f2732;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.SharedHandleData> f2729;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.SharedHandleData> f2730;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.SharedHandleData> f2731;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView> f2732;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool> f2733;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool> f2734;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.SharedHandle> f2735;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.SharedHandle> f2736;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.SharedHandleData> f2735;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.SharedHandleData> f2736;
         public delegate* unmanaged[Cdecl]<void*, void*> f2737;
         public delegate* unmanaged[Cdecl]<void*, void> f2738;
         public delegate* unmanaged[Cdecl]<void*, void> f2739;
@@ -2799,19 +2777,19 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<sbyte, ulong, void*> f2763;
         public delegate* unmanaged[Cdecl]<void*, sbyte> f2764;
         public delegate* unmanaged[Cdecl]<void*, sbyte, void> f2765;
-        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, NativeMethods.StringView> f2766;
+        public delegate* unmanaged[Cdecl]<void*, byte*, nuint, global::Hosihikari.Bindings.Abi.StringView> f2766;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2767;
         public delegate* unmanaged[Cdecl]<void*, ulong, void> f2768;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool*, void*> f2769;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool*, void*> f2770;
         public delegate* unmanaged[Cdecl]<void*> f2771;
         public delegate* unmanaged[Cdecl]<void*, void> f2772;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2773;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2773;
         public delegate* unmanaged[Cdecl]<void*, void*> f2774;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2775;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2775;
         public delegate* unmanaged[Cdecl]<void*, void> f2776;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2777;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2778;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2777;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2778;
         public delegate* unmanaged[Cdecl]<void*, void*> f2779;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2780;
         public delegate* unmanaged[Cdecl]<void*, ulong, void> f2781;
@@ -2821,24 +2799,24 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> f2785;
         public delegate* unmanaged[Cdecl]<void*, void*> f2786;
         public delegate* unmanaged[Cdecl]<byte*, nuint, ulong, void*> f2787;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2788;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2788;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2789;
         public delegate* unmanaged[Cdecl]<void*, ulong, void> f2790;
         public delegate* unmanaged[Cdecl]<void*, void> f2791;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2792;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2792;
         public delegate* unmanaged[Cdecl]<void*, ulong> f2793;
         public delegate* unmanaged[Cdecl]<void*, ulong, void> f2794;
         public delegate* unmanaged[Cdecl]<void*> f2795;
-        public delegate* unmanaged[Cdecl]<void*, void*, bool*, NativeMethods.SharedHandle> f2796;
+        public delegate* unmanaged[Cdecl]<void*, void*, bool*, global::Hosihikari.Bindings.Abi.SharedHandleData> f2796;
         public delegate* unmanaged[Cdecl]<void*, byte*, nuint, bool*, void*> f2797;
         public delegate* unmanaged[Cdecl]<void*, void*, void*, bool> f2798;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f2799;
         public delegate* unmanaged[Cdecl]<void*, void*, void> f2800;
         public delegate* unmanaged[Cdecl]<void*, void> f2801;
         public delegate* unmanaged[Cdecl]<void*, void*> f2802;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2803;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2803;
         public delegate* unmanaged[Cdecl]<void*, void*> f2804;
-        public delegate* unmanaged[Cdecl]<void*, NativeMethods.StringView> f2805;
+        public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.StringView> f2805;
         public delegate* unmanaged[Cdecl]<void*, void> f2806;
         public delegate* unmanaged[Cdecl]<void*> f2807;
         public delegate* unmanaged[Cdecl]<byte*, nuint, void*> f2808;
@@ -2950,7 +2928,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<byte*, nuint, void*> f2914;
         public delegate* unmanaged[Cdecl]<byte*, nuint, void*> f2915;
         public delegate* unmanaged[Cdecl]<byte*, nuint, void*, void*> f2916;
-        public delegate* unmanaged[Cdecl]<byte*, nuint, NativeMethods.StringView*, nuint, void*> f2917;
+        public delegate* unmanaged[Cdecl]<byte*, nuint, global::Hosihikari.Bindings.Abi.StringView*, nuint, void*> f2917;
         public delegate* unmanaged[Cdecl]<void*, void> f2918;
         public delegate* unmanaged[Cdecl]<void*> f2919;
         public delegate* unmanaged[Cdecl]<void*, void*> f2920;
@@ -2965,51 +2943,25 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> f2929;
     }
 
-    private static Table* s_table;
-    private static delegate* unmanaged[Cdecl]<byte*> s_getLastError;
+    private static global::Hosihikari.Bindings.Abi.ShimLibrary? s_library;
 
-    public static string? GetLastError()
-    {
-        if (s_getLastError == null)
-        {
-            return null;
-        }
-
-        var pointer = s_getLastError();
-        return pointer == null ? null : global::System.Runtime.InteropServices.Marshal.PtrToStringUTF8((nint)pointer);
-    }
+    public static string? GetLastError() => s_library?.GetLastError();
 
     internal static Table* TablePtr
     {
         get
         {
-            if (s_table == null)
+            if (s_library is null)
             {
                 throw new global::System.InvalidOperationException("BindingShim is not loaded. Call NativeMethods.Load(path) first.");
             }
 
-            return s_table;
+            return (Table*)s_library.Table;
         }
     }
 
     public static void Load(string nativeLibraryPath)
     {
-        var library = global::System.Runtime.InteropServices.NativeLibrary.Load(nativeLibraryPath);
-        var export = global::System.Runtime.InteropServices.NativeLibrary.GetExport(library, "hosihikari_get_binding_table_v1");
-        var errorExport = global::System.Runtime.InteropServices.NativeLibrary.GetExport(library, "hosihikari_get_last_error");
-        s_getLastError = (delegate* unmanaged[Cdecl]<byte*>)errorExport.ToPointer();
-        var getTable = (delegate* unmanaged[Cdecl]<Table*>)export.ToPointer();
-        var table = getTable();
-        if (table->Version != 1)
-        {
-            throw new global::System.InvalidOperationException($"Unsupported BindingShim table version {table->Version}.");
-        }
-
-        if (table->Size != (uint)sizeof(Table))
-        {
-            throw new global::System.InvalidOperationException($"BindingShim table size mismatch: native {table->Size}, managed {sizeof(Table)}.");
-        }
-
-        s_table = table;
+        s_library = global::Hosihikari.Bindings.Abi.ShimLibrary.Load(nativeLibraryPath, 1, (uint)sizeof(Table));
     }
 }

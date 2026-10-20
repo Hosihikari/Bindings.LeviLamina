@@ -23,6 +23,12 @@ jobs:
           repository: Hosihikari/Bindings.Generator
           path: Generator
 
+      - name: ABI contract
+        uses: actions/checkout@v4
+        with:
+          repository: Hosihikari/Bindings.Abi
+          path: Abi
+
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.0.x'

@@ -16,13 +16,13 @@ public sealed unsafe partial class ServiceManager
         return (nint)NativeMethods.TablePtr->f2795();
     }
 
-    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
+    public global::Hosihikari.Bindings.Abi.SharedHandle? getService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
     {
         var __hs_hasValue = false;
         var __hs_expectedResult = NativeMethods.TablePtr->f2796((void*)_handle, (void*)id.Handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
         var __hs_shared = __hs_expectedResult;
-        return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult? queryService(string name)

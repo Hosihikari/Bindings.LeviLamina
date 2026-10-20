@@ -27,7 +27,7 @@ The host calls `Hosihikari.Bindings.LeviLamina.Interop.NativeMethods.Load(path)`
 Regenerate after a new IR:
 
 ```shell
-powershell -File scripts/regenerate.ps1 -IrDirectory ..\Generator\artifacts\llapi-full-ir
+powershell -File scripts/regenerate.ps1 -IrDirectory ..\Generator\artifacts\llapi-full-ir -AbiRoot ..\Abi
 ```
 
 ## Runtime smoke

@@ -14,7 +14,7 @@
 
 Interop 与 Idiomatic 工程可构建。carrier 链接的生成 Interop、v1 BindingShim 函数表及其 `extern "C"` 实现、覆盖清单均已提交：
 
-- `src/Hosihikari.Bindings.LeviLamina.Interop/Generated/` 是生成的原生风格 C# 类与 `NativeMethods`。
+- `src/Hosihikari.Bindings.LeviLamina.Interop/Generated/` 是生成的原生风格 C# 类与 `NativeMethods`；ABI 值类型与 shim 加载器来自 `Hosihikari/Bindings.Abi`。
 - `native/BindingShim/generated/win-x64-server/levilamina/` 是 2,930 个函数的函数表与实现。
 - `coverage/` 包含覆盖清单、汇总、基线与 provenance。
 
@@ -27,7 +27,7 @@ Interop 与 Idiomatic 工程可构建。carrier 链接的生成 Interop、v1 Bin
 新 IR 之后重新生成：
 
 ```shell
-powershell -File scripts/regenerate.ps1 -IrDirectory ..\Generator\artifacts\llapi-full-ir
+powershell -File scripts/regenerate.ps1 -IrDirectory ..\Generator\artifacts\llapi-full-ir -AbiRoot ..\Abi
 ```
 
 ## 运行时 smoke

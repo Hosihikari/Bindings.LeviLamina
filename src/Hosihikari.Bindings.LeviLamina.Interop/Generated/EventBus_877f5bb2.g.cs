@@ -27,10 +27,10 @@ public sealed unsafe partial class EventBus
         return (nint)NativeMethods.TablePtr->f2343();
     }
 
-    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getListener(ulong id)
+    public global::Hosihikari.Bindings.Abi.SharedHandle? getListener(ulong id)
     {
         var __hs_shared = NativeMethods.TablePtr->f2344((void*)_handle, id);
-        return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public ulong getListenerCount(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg0)

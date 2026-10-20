@@ -25,12 +25,13 @@ dotnet build (Join-Path $RepoRoot "Hosihikari.Bindings.LeviLamina.slnx") -c Rele
 & (Join-Path $RepoRoot "native\BindingShim\build.ps1") -LlvmRoot $LlvmRoot -GeneratorRoot $GeneratorRoot
 
 $InteropDll = Join-Path $RepoRoot "src\Hosihikari.Bindings.LeviLamina.Interop\bin\Release\net10.0\Hosihikari.Bindings.LeviLamina.Interop.dll"
+$AbiDll = Join-Path (Split-Path $InteropDll -Parent) "Hosihikari.Bindings.Abi.dll"
 $ShimDll = Join-Path $RepoRoot "artifacts\native\Hosihikari.Bindings.LeviLamina.Shim.dll"
 $PluginSource = Join-Path $RepoRoot "tests\runtime-smoke"
 $PluginTarget = Join-Path $ServerRoot "plugins\shim-smoke"
 $DataTarget = Join-Path $ServerRoot "data\hosihikari\shim-smoke"
 
-foreach ($file in @($InteropDll, $ShimDll, (Join-Path $PluginSource "main.cs"), (Join-Path $PluginSource "manifest.json"))) {
+foreach ($file in @($InteropDll, $AbiDll, $ShimDll, (Join-Path $PluginSource "main.cs"), (Join-Path $PluginSource "manifest.json"))) {
     if (-not (Test-Path $file)) {
         throw "Runtime smoke input is missing: $file"
     }
@@ -43,6 +44,7 @@ New-Item -ItemType Directory -Force -Path $PluginTarget | Out-Null
 Copy-Item (Join-Path $PluginSource "main.cs") $PluginTarget -Force
 Copy-Item (Join-Path $PluginSource "manifest.json") $PluginTarget -Force
 Copy-Item $InteropDll $PluginTarget -Force
+Copy-Item $AbiDll $PluginTarget -Force
 Copy-Item $ShimDll $PluginTarget -Force
 
 if (Test-Path $DataTarget) {

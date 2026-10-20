@@ -21,7 +21,7 @@ public sealed unsafe partial class CommandRegistrar
     {
         var __hs_vectorItems = values ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
-        var __hs_vectorViews = new NativeMethods.StringView[__hs_vectorItems.Length];
+        var __hs_vectorViews = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems.Length];
         var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
         try
         {
@@ -32,9 +32,9 @@ public sealed unsafe partial class CommandRegistrar
                 var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
                 if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
                 __hs_vectorHandles[__hs_i] = __hs_ptr;
-                __hs_vectorViews[__hs_i] = new NativeMethods.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+                __hs_vectorViews[__hs_i] = new global::Hosihikari.Bindings.Abi.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
             }
-            fixed (NativeMethods.StringView* __hs_vectorData = __hs_vectorViews)
+            fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
                 var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
                 fixed (byte* __hs_stringData = __hs_stringBytes)
@@ -93,7 +93,7 @@ public sealed unsafe partial class CommandRegistrar
     {
         var __hs_vectorItems = values ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
-        var __hs_vectorViews = new NativeMethods.StringView[__hs_vectorItems.Length];
+        var __hs_vectorViews = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems.Length];
         var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
         try
         {
@@ -104,9 +104,9 @@ public sealed unsafe partial class CommandRegistrar
                 var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
                 if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
                 __hs_vectorHandles[__hs_i] = __hs_ptr;
-                __hs_vectorViews[__hs_i] = new NativeMethods.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+                __hs_vectorViews[__hs_i] = new global::Hosihikari.Bindings.Abi.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
             }
-            fixed (NativeMethods.StringView* __hs_vectorData = __hs_vectorViews)
+            fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
                 var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
                 fixed (byte* __hs_stringData = __hs_stringBytes)
@@ -125,7 +125,7 @@ public sealed unsafe partial class CommandRegistrar
     {
         var __hs_vectorItems = values ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
-        var __hs_vectorViews = new NativeMethods.StringView[__hs_vectorItems.Length];
+        var __hs_vectorViews = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems.Length];
         var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
         try
         {
@@ -136,9 +136,9 @@ public sealed unsafe partial class CommandRegistrar
                 var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
                 if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
                 __hs_vectorHandles[__hs_i] = __hs_ptr;
-                __hs_vectorViews[__hs_i] = new NativeMethods.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+                __hs_vectorViews[__hs_i] = new global::Hosihikari.Bindings.Abi.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
             }
-            fixed (NativeMethods.StringView* __hs_vectorData = __hs_vectorViews)
+            fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
                 var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
                 fixed (byte* __hs_stringData = __hs_stringBytes)
@@ -163,7 +163,7 @@ public sealed unsafe partial class CommandRegistrar
     {
         var __hs_vectorItems = values ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
-        var __hs_vectorViews = new NativeMethods.StringView[__hs_vectorItems.Length];
+        var __hs_vectorViews = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems.Length];
         var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
         try
         {
@@ -174,9 +174,9 @@ public sealed unsafe partial class CommandRegistrar
                 var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
                 if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
                 __hs_vectorHandles[__hs_i] = __hs_ptr;
-                __hs_vectorViews[__hs_i] = new NativeMethods.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+                __hs_vectorViews[__hs_i] = new global::Hosihikari.Bindings.Abi.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
             }
-            fixed (NativeMethods.StringView* __hs_vectorData = __hs_vectorViews)
+            fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
                 var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
                 fixed (byte* __hs_stringData = __hs_stringBytes)

@@ -59,10 +59,10 @@ public sealed unsafe partial class Logger : global::System.IDisposable
         return NativeMethods.TablePtr->f2571((void*)_handle);
     }
 
-    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getSink(ulong index)
+    public global::Hosihikari.Bindings.Abi.SharedHandle? getSink(ulong index)
     {
         var __hs_shared = NativeMethods.TablePtr->f2572((void*)_handle, index);
-        return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public string getTitle()

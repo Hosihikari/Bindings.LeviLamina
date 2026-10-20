@@ -14,16 +14,16 @@ public sealed unsafe partial class NativeMod
     public static NativeMod Create(nint manifest, nint handle) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
-    public static global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? current(nint handle)
+    public static global::Hosihikari.Bindings.Abi.SharedHandle? current(nint handle)
     {
         var __hs_shared = NativeMethods.TablePtr->f2735((void*)handle);
-        return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
-    public static global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getByHandle(nint handle)
+    public static global::Hosihikari.Bindings.Abi.SharedHandle? getByHandle(nint handle)
     {
         var __hs_shared = NativeMethods.TablePtr->f2736((void*)handle);
-        return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public nint getHandle()

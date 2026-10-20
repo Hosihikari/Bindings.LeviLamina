@@ -20,4 +20,8 @@
     <PackageTags>minecraft;bedrock;bds;levilamina;interop;hosihikari</PackageTags>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../../../Abi/src/Hosihikari.Bindings.Abi/Hosihikari.Bindings.Abi.csproj" />
+  </ItemGroup>
+
 </Project>

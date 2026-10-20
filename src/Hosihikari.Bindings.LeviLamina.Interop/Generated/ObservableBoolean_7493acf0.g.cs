@@ -15,7 +15,7 @@ public sealed unsafe partial class ObservableBoolean : global::System.IDisposabl
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3022((void*)_handle);
+            NativeMethods.TablePtr->f3025((void*)_handle);
             _handle = 0;
         }
     }

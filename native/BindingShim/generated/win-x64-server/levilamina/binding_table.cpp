@@ -27050,94 +27050,94 @@ catch (...)
     return nullptr;
 }
 
-static void* hs_method_9053b63c(void* hs_self) try
+static std::int64_t hs_method_9053b63c(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->get()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->get()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_8032dbf6(void* hs_self) try
+static std::int64_t hs_method_8032dbf6(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->get()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->get()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_86101aad(void* hs_self) try
+static std::int64_t hs_method_86101aad(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator const std::chrono::duration<long long, std::ratio<1, 1000000> > &()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator const std::chrono::duration<long long, std::ratio<1, 1000000> > &()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_509fed99(void* hs_self) try
+static std::int64_t hs_method_509fed99(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator std::chrono::duration<long long, std::ratio<1, 1000000> > &()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator std::chrono::duration<long long, std::ratio<1, 1000000> > &()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_b0da5bc1(void* hs_self) try
+static std::int64_t hs_method_b0da5bc1(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator*()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator*()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_f8a8930e(void* hs_self) try
+static std::int64_t hs_method_f8a8930e(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator*()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator*()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
 static void* hs_method_e690b31f(void* hs_self) try
@@ -27185,94 +27185,94 @@ catch (...)
     return nullptr;
 }
 
-static void* hs_method_4b280060(void* hs_self) try
+static std::int64_t hs_method_4b280060(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->get()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->get()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_e3f0ebab(void* hs_self) try
+static std::int64_t hs_method_e3f0ebab(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->get()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->get()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_b7a157d4(void* hs_self) try
+static std::int64_t hs_method_b7a157d4(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator const std::chrono::duration<long long, std::ratio<1, 1000> > &()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator const std::chrono::duration<long long, std::ratio<1, 1000> > &()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_11dbd041(void* hs_self) try
+static std::int64_t hs_method_11dbd041(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator std::chrono::duration<long long, std::ratio<1, 1000> > &()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator std::chrono::duration<long long, std::ratio<1, 1000> > &()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_f3232d15(void* hs_self) try
+static std::int64_t hs_method_f3232d15(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator*()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator*()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_314964e6(void* hs_self) try
+static std::int64_t hs_method_314964e6(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator*()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator*()).count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
 static void* hs_method_3cbc5da1(void* hs_self) try
@@ -27320,94 +27320,94 @@ catch (...)
     return nullptr;
 }
 
-static void* hs_method_4f64a053(void* hs_self) try
+static std::int64_t hs_method_4f64a053(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->get()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->get()).time_since_epoch().count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_0100609d(void* hs_self) try
+static std::int64_t hs_method_0100609d(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->get()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->get()).time_since_epoch().count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_c1074f13(void* hs_self) try
+static std::int64_t hs_method_c1074f13(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->operator const std::chrono::time_point<std::chrono::steady_clock> &()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->operator const std::chrono::time_point<std::chrono::steady_clock> &()).time_since_epoch().count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_0da4a23c(void* hs_self) try
+static std::int64_t hs_method_0da4a23c(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->operator std::chrono::time_point<std::chrono::steady_clock> &()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->operator std::chrono::time_point<std::chrono::steady_clock> &()).time_since_epoch().count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_6a5e0aeb(void* hs_self) try
+static std::int64_t hs_method_6a5e0aeb(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->operator*()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->operator*()).time_since_epoch().count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
-static void* hs_method_994ece3b(void* hs_self) try
+static std::int64_t hs_method_994ece3b(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->operator*()));
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::time_point<std::chrono::steady_clock>>*>(hs_self)->operator*()).time_since_epoch().count());
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return 0;
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return 0;
 }
 
 static void* hs_method_607dd204(void* hs_self) try
@@ -28784,6 +28784,54 @@ catch (...)
     return HosihikariArrayView{nullptr, 0};
 }
 
+static bool hs_method_7027890d(void* hs_self, const char* name_data, std::size_t name_size, std::uint16_t type, const HosihikariMapEntry* values_data, std::size_t values_count) try
+{
+    std::vector<std::pair<std::basic_string<char>, unsigned long long>> hs_vec1;
+    hs_vec1.reserve(values_count);
+    for (std::size_t hs_vec1Index = 0; hs_vec1Index < values_count; ++hs_vec1Index)
+    {
+        auto const& hs_entry = values_data[hs_vec1Index];
+        hs_vec1.emplace_back(
+            std::string(reinterpret_cast<char const*>(hs_entry.key), hs_entry.keySize),
+            static_cast<unsigned long long>(hs_entry.value));
+    }
+    return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->addEnumValues(std::basic_string<char>(name_data, name_size), std::move(hs_vec1), Bedrock::typeid_t<CommandRegistry>(type)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
+}
+
+static bool hs_method_54e89d5e(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariMapEntry* values_data, std::size_t values_count) try
+{
+    std::vector<std::pair<std::basic_string<char>, unsigned long long>> hs_vec1;
+    hs_vec1.reserve(values_count);
+    for (std::size_t hs_vec1Index = 0; hs_vec1Index < values_count; ++hs_vec1Index)
+    {
+        auto const& hs_entry = values_data[hs_vec1Index];
+        hs_vec1.emplace_back(
+            std::string(reinterpret_cast<char const*>(hs_entry.key), hs_entry.keySize),
+            static_cast<unsigned long long>(hs_entry.value));
+    }
+    return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->addRuntimeEnumValues(std::basic_string<char>(name_data, name_size), std::move(hs_vec1)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
+}
+
 static bool hs_method_0bf55812(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariStringView* values_data, std::size_t values_count) try
 {
     return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->addSoftEnumValues(std::basic_string<char>(name_data, name_size), hs_make_string_vector(values_data, values_count)));
@@ -28877,6 +28925,30 @@ catch (...)
 static bool hs_method_bd62379b(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariStringView* values_data, std::size_t values_count) try
 {
     return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->setSoftEnumValues(std::basic_string<char>(name_data, name_size), hs_make_string_vector(values_data, values_count)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
+}
+
+static bool hs_method_a1a34edb(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariMapEntry* values_data, std::size_t values_count) try
+{
+    std::vector<std::pair<std::basic_string<char>, unsigned long long>> hs_vec1;
+    hs_vec1.reserve(values_count);
+    for (std::size_t hs_vec1Index = 0; hs_vec1Index < values_count; ++hs_vec1Index)
+    {
+        auto const& hs_entry = values_data[hs_vec1Index];
+        hs_vec1.emplace_back(
+            std::string(reinterpret_cast<char const*>(hs_entry.key), hs_entry.keySize),
+            static_cast<unsigned long long>(hs_entry.value));
+    }
+    return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->tryRegisterRuntimeEnum(std::basic_string<char>(name_data, name_size), std::move(hs_vec1)));
 }
 catch (std::exception const& hs_error)
 {
@@ -43555,64 +43627,72 @@ catch (...)
     return nullptr;
 }
 
-static void* hs_method_675e8045(void* hs_self) try
+static HosihikariStringView hs_method_675e8045(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::mod::Mod*>(hs_self)->getBehaviorDir()));
+    auto result = static_cast<ll::mod::Mod*>(hs_self)->getBehaviorDir();
+    g_stringResult.assign(result.string());
+    return HosihikariStringView{g_stringResult.data(), g_stringResult.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 
-static void* hs_method_079d3c6d(void* hs_self) try
+static HosihikariStringView hs_method_079d3c6d(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::mod::Mod*>(hs_self)->getConfigDir()));
+    auto result = static_cast<ll::mod::Mod*>(hs_self)->getConfigDir();
+    g_stringResult.assign(result.string());
+    return HosihikariStringView{g_stringResult.data(), g_stringResult.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 
-static void* hs_method_e928da17(void* hs_self) try
+static HosihikariStringView hs_method_e928da17(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::mod::Mod*>(hs_self)->getDataDir()));
+    auto result = static_cast<ll::mod::Mod*>(hs_self)->getDataDir();
+    g_stringResult.assign(result.string());
+    return HosihikariStringView{g_stringResult.data(), g_stringResult.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 
-static void* hs_method_9d82ff37(void* hs_self) try
+static HosihikariStringView hs_method_9d82ff37(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::mod::Mod*>(hs_self)->getLangDir()));
+    auto result = static_cast<ll::mod::Mod*>(hs_self)->getLangDir();
+    g_stringResult.assign(result.string());
+    return HosihikariStringView{g_stringResult.data(), g_stringResult.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 
 static void* hs_method_c2f8203b(void* hs_self) try
@@ -43645,19 +43725,21 @@ catch (...)
     return nullptr;
 }
 
-static void* hs_method_830f9da6(void* hs_self) try
+static HosihikariStringView hs_method_830f9da6(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::mod::Mod*>(hs_self)->getModDir()));
+    auto result = static_cast<ll::mod::Mod*>(hs_self)->getModDir();
+    g_stringResult.assign(result.string());
+    return HosihikariStringView{g_stringResult.data(), g_stringResult.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 
 static HosihikariStringView hs_method_5ebbdfc4(void* hs_self) try
@@ -43677,19 +43759,21 @@ catch (...)
     return HosihikariStringView{nullptr, 0};
 }
 
-static void* hs_method_e5585fcd(void* hs_self) try
+static HosihikariStringView hs_method_e5585fcd(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::mod::Mod*>(hs_self)->getResourceDir()));
+    auto result = static_cast<ll::mod::Mod*>(hs_self)->getResourceDir();
+    g_stringResult.assign(result.string());
+    return HosihikariStringView{g_stringResult.data(), g_stringResult.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariStringView{nullptr, 0};
 }
 
 static std::int32_t hs_method_e5a11d67(void* hs_self) try
@@ -49940,6 +50024,8 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_e3b4b2ea,
     &hs_method_0f895032,
     &hs_method_51a27a86,
+    &hs_method_7027890d,
+    &hs_method_54e89d5e,
     &hs_method_0bf55812,
     &hs_method_c8f00dfd,
     &hs_method_0402fde1,
@@ -49947,6 +50033,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_5ed64b33,
     &hs_method_21c982c8,
     &hs_method_bd62379b,
+    &hs_method_a1a34edb,
     &hs_method_ec359fd0,
     &hs_destroy_65dd05e6,
     &hs_destroy_f92af424,

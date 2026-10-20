@@ -22,7 +22,7 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
 
     public double getData()
     {
-        return NativeMethods.TablePtr->f2294((void*)_handle);
+        return NativeMethods.TablePtr->f2297((void*)_handle);
     }
 
     public nint operator_assign_fd521800(nint arg0) =>
@@ -33,7 +33,7 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
 
     public void setData(double value)
     {
-        NativeMethods.TablePtr->f2295((void*)_handle, value);
+        NativeMethods.TablePtr->f2298((void*)_handle, value);
     }
 
     public uint subscribe(nint callback) =>
@@ -41,14 +41,14 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f2296((void*)_handle, id);
+        return NativeMethods.TablePtr->f2299((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2293((void*)_handle);
+            NativeMethods.TablePtr->f2296((void*)_handle);
             _handle = 0;
         }
     }

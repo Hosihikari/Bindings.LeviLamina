@@ -13,14 +13,14 @@ public sealed unsafe partial class ParamTraits_WildcardCommandSelector_Actor__ :
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1949();
+        return NativeMethods.TablePtr->f1952();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1948((void*)_handle);
+            NativeMethods.TablePtr->f1951((void*)_handle);
             _handle = 0;
         }
     }

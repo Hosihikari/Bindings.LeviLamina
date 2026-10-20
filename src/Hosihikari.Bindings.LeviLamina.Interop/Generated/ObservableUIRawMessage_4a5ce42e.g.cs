@@ -15,7 +15,7 @@ public sealed unsafe partial class ObservableUIRawMessage : global::System.IDisp
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3028((void*)_handle);
+            NativeMethods.TablePtr->f3031((void*)_handle);
             _handle = 0;
         }
     }

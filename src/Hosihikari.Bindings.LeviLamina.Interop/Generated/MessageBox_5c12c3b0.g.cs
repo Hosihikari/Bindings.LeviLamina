@@ -19,29 +19,29 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
 
     public nint body(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 value)
     {
-        return (nint)NativeMethods.TablePtr->f3011((void*)_handle, (void*)value.Handle);
+        return (nint)NativeMethods.TablePtr->f3014((void*)_handle, (void*)value.Handle);
     }
 
     public nint button1(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
     {
-        return (nint)NativeMethods.TablePtr->f3012((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
+        return (nint)NativeMethods.TablePtr->f3015((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
     }
 
     public nint button2(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
     {
-        return (nint)NativeMethods.TablePtr->f3013((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
+        return (nint)NativeMethods.TablePtr->f3016((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
     }
 
     public void close()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3014((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f3017((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f3015((void*)_handle);
+        return NativeMethods.TablePtr->f3018((void*)_handle);
     }
 
     public nint operator_assign(nint arg0) =>
@@ -58,7 +58,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3010((void*)_handle);
+            NativeMethods.TablePtr->f3013((void*)_handle);
             _handle = 0;
         }
     }

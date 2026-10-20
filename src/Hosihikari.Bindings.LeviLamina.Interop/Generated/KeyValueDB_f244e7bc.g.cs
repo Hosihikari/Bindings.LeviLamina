@@ -16,7 +16,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(path);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2277(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->f2280(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -31,7 +31,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(path);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2278(__hs_stringData0, (nuint)__hs_stringBytes0.Length, createIfMiss, fixIfError, bloomFilterBit);
+            var handle = NativeMethods.TablePtr->f2281(__hs_stringData0, (nuint)__hs_stringBytes0.Length, createIfMiss, fixIfError, bloomFilterBit);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -49,13 +49,13 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f2279((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->f2282((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public bool empty()
     {
-        return NativeMethods.TablePtr->f2280((void*)_handle);
+        return NativeMethods.TablePtr->f2283((void*)_handle);
     }
 
     public string? get(string key)
@@ -64,7 +64,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->f2281((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            var __hs_view = NativeMethods.TablePtr->f2284((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             return __hs_hasValue ? global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size)) : null;
         }
     }
@@ -74,7 +74,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f2282((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->f2285((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -92,14 +92,14 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                return NativeMethods.TablePtr->f2283((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+                return NativeMethods.TablePtr->f2286((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
             }
         }
     }
 
     public bool write(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch batch)
     {
-        return NativeMethods.TablePtr->f2284((void*)_handle, (void*)batch.Handle);
+        return NativeMethods.TablePtr->f2287((void*)_handle, (void*)batch.Handle);
     }
 
 
@@ -107,7 +107,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2276((void*)_handle);
+            NativeMethods.TablePtr->f2279((void*)_handle);
             _handle = 0;
         }
     }

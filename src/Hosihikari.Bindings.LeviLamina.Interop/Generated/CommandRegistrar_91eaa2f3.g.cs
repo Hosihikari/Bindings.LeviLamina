@@ -11,11 +11,77 @@ public sealed unsafe partial class CommandRegistrar
 
     public nint Handle => _handle;
 
-    public bool addEnumValues(nint name, nint values, nint type) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'std::pair<std::basic_string<char>, unsigned long long>' is not supported.");
+    public bool addEnumValues(string name, global::System.Collections.Generic.KeyValuePair<string, ulong>[] values, ushort type)
+    {
+        var __hs_vectorItems = values ?? global::System.Array.Empty<global::System.Collections.Generic.KeyValuePair<string, ulong>>();
+        var __hs_vectorCount = __hs_vectorItems.Length;
+        var __hs_vectorEntries = (global::Hosihikari.Bindings.Abi.MapEntry*)global::System.Runtime.InteropServices.Marshal.AllocHGlobal((__hs_vectorCount == 0 ? 1 : __hs_vectorCount) * sizeof(global::Hosihikari.Bindings.Abi.MapEntry));
+        var __hs_vectorStrings = new nint[__hs_vectorCount * 1];
+        var __hs_vectorStringCount = 0;
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        try
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorCount; __hs_i++)
+            {
+                var __hs_pair = __hs_vectorItems[__hs_i];
+                var __hs_entry = new global::Hosihikari.Bindings.Abi.MapEntry();
+                var __hs_KeyBytes = global::System.Text.Encoding.UTF8.GetBytes(__hs_pair.Key ?? string.Empty);
+                var __hs_KeyPtr = global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_KeyBytes.Length == 0 ? 1 : __hs_KeyBytes.Length);
+                if (__hs_KeyBytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_KeyBytes, 0, __hs_KeyPtr, __hs_KeyBytes.Length); }
+                __hs_vectorStrings[__hs_vectorStringCount++] = __hs_KeyPtr;
+                __hs_entry.Key = (ulong)__hs_KeyPtr;
+                __hs_entry.KeySize = (ulong)__hs_KeyBytes.Length;
+                __hs_entry.Value = unchecked((ulong)(__hs_pair.Value));
+                __hs_vectorEntries[__hs_i] = __hs_entry;
+            }
+            var __hs_vectorData = __hs_vectorEntries;
+            fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+            {
+                return NativeMethods.TablePtr->f1886((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, type, __hs_vectorData, (nuint)(values?.Length ?? 0));
+            }
+        }
+        finally
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorStringCount; __hs_i++) { if (__hs_vectorStrings[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal(__hs_vectorStrings[__hs_i]); } }
+            global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorEntries);
+        }
+    }
 
-    public bool addRuntimeEnumValues(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'std::pair<std::basic_string<char>, unsigned long long>' is not supported.");
+    public bool addRuntimeEnumValues(string name, global::System.Collections.Generic.KeyValuePair<string, ulong>[] values)
+    {
+        var __hs_vectorItems = values ?? global::System.Array.Empty<global::System.Collections.Generic.KeyValuePair<string, ulong>>();
+        var __hs_vectorCount = __hs_vectorItems.Length;
+        var __hs_vectorEntries = (global::Hosihikari.Bindings.Abi.MapEntry*)global::System.Runtime.InteropServices.Marshal.AllocHGlobal((__hs_vectorCount == 0 ? 1 : __hs_vectorCount) * sizeof(global::Hosihikari.Bindings.Abi.MapEntry));
+        var __hs_vectorStrings = new nint[__hs_vectorCount * 1];
+        var __hs_vectorStringCount = 0;
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        try
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorCount; __hs_i++)
+            {
+                var __hs_pair = __hs_vectorItems[__hs_i];
+                var __hs_entry = new global::Hosihikari.Bindings.Abi.MapEntry();
+                var __hs_KeyBytes = global::System.Text.Encoding.UTF8.GetBytes(__hs_pair.Key ?? string.Empty);
+                var __hs_KeyPtr = global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_KeyBytes.Length == 0 ? 1 : __hs_KeyBytes.Length);
+                if (__hs_KeyBytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_KeyBytes, 0, __hs_KeyPtr, __hs_KeyBytes.Length); }
+                __hs_vectorStrings[__hs_vectorStringCount++] = __hs_KeyPtr;
+                __hs_entry.Key = (ulong)__hs_KeyPtr;
+                __hs_entry.KeySize = (ulong)__hs_KeyBytes.Length;
+                __hs_entry.Value = unchecked((ulong)(__hs_pair.Value));
+                __hs_vectorEntries[__hs_i] = __hs_entry;
+            }
+            var __hs_vectorData = __hs_vectorEntries;
+            fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+            {
+                return NativeMethods.TablePtr->f1887((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)(values?.Length ?? 0));
+            }
+        }
+        finally
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorStringCount; __hs_i++) { if (__hs_vectorStrings[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal(__hs_vectorStrings[__hs_i]); } }
+            global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorEntries);
+        }
+    }
 
     public bool addSoftEnumValues(string name, string[] values)
     {
@@ -39,7 +105,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1886((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1888((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }
@@ -60,7 +126,7 @@ public sealed unsafe partial class CommandRegistrar
 
     public static nint getInstance(bool isClientSide)
     {
-        return (nint)NativeMethods.TablePtr->f1887(isClientSide);
+        return (nint)NativeMethods.TablePtr->f1889(isClientSide);
     }
 
     public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
@@ -68,7 +134,7 @@ public sealed unsafe partial class CommandRegistrar
 
     public static nint getServerInstance()
     {
-        return (nint)NativeMethods.TablePtr->f1888();
+        return (nint)NativeMethods.TablePtr->f1890();
     }
 
     public bool hasEnum(string name)
@@ -76,7 +142,7 @@ public sealed unsafe partial class CommandRegistrar
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f1889((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->f1891((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -85,7 +151,7 @@ public sealed unsafe partial class CommandRegistrar
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f1890((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->f1892((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -111,7 +177,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1891((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1893((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }
@@ -143,7 +209,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1892((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1894((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }
@@ -154,10 +220,43 @@ public sealed unsafe partial class CommandRegistrar
     }
 
     public bool tryRegisterEnum(nint name, nint values, nint type, nint parser) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'std::pair<std::basic_string<char>, unsigned long long>' is not supported.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'bool (CommandRegistry::*)(void *, const CommandRegistry::ParseToken &, const CommandOrigin &, int, std::basic_string<char> &, std::vector<std::basic_string<char>> &) const' is not supported.");
 
-    public bool tryRegisterRuntimeEnum(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'std::pair<std::basic_string<char>, unsigned long long>' is not supported.");
+    public bool tryRegisterRuntimeEnum(string name, global::System.Collections.Generic.KeyValuePair<string, ulong>[] values)
+    {
+        var __hs_vectorItems = values ?? global::System.Array.Empty<global::System.Collections.Generic.KeyValuePair<string, ulong>>();
+        var __hs_vectorCount = __hs_vectorItems.Length;
+        var __hs_vectorEntries = (global::Hosihikari.Bindings.Abi.MapEntry*)global::System.Runtime.InteropServices.Marshal.AllocHGlobal((__hs_vectorCount == 0 ? 1 : __hs_vectorCount) * sizeof(global::Hosihikari.Bindings.Abi.MapEntry));
+        var __hs_vectorStrings = new nint[__hs_vectorCount * 1];
+        var __hs_vectorStringCount = 0;
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        try
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorCount; __hs_i++)
+            {
+                var __hs_pair = __hs_vectorItems[__hs_i];
+                var __hs_entry = new global::Hosihikari.Bindings.Abi.MapEntry();
+                var __hs_KeyBytes = global::System.Text.Encoding.UTF8.GetBytes(__hs_pair.Key ?? string.Empty);
+                var __hs_KeyPtr = global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_KeyBytes.Length == 0 ? 1 : __hs_KeyBytes.Length);
+                if (__hs_KeyBytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_KeyBytes, 0, __hs_KeyPtr, __hs_KeyBytes.Length); }
+                __hs_vectorStrings[__hs_vectorStringCount++] = __hs_KeyPtr;
+                __hs_entry.Key = (ulong)__hs_KeyPtr;
+                __hs_entry.KeySize = (ulong)__hs_KeyBytes.Length;
+                __hs_entry.Value = unchecked((ulong)(__hs_pair.Value));
+                __hs_vectorEntries[__hs_i] = __hs_entry;
+            }
+            var __hs_vectorData = __hs_vectorEntries;
+            fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+            {
+                return NativeMethods.TablePtr->f1895((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)(values?.Length ?? 0));
+            }
+        }
+        finally
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorStringCount; __hs_i++) { if (__hs_vectorStrings[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal(__hs_vectorStrings[__hs_i]); } }
+            global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorEntries);
+        }
+    }
 
     public bool tryRegisterSoftEnum(string name, string[] values)
     {
@@ -181,7 +280,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1893((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1896((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }

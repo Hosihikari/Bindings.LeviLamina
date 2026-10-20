@@ -13,14 +13,14 @@ public sealed unsafe partial class ParamTraits_CommandCompareOperator_ : global:
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1921();
+        return NativeMethods.TablePtr->f1924();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1920((void*)_handle);
+            NativeMethods.TablePtr->f1923((void*)_handle);
             _handle = 0;
         }
     }

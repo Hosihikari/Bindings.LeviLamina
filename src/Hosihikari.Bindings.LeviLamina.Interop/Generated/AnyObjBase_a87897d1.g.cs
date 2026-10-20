@@ -28,7 +28,7 @@ public sealed unsafe partial class AnyObjBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2257((void*)_handle);
+            NativeMethods.TablePtr->f2260((void*)_handle);
             _handle = 0;
         }
     }

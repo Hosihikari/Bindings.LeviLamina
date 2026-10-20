@@ -13,14 +13,14 @@ public sealed unsafe partial class ParamTraits_CommandIntegerRange_ : global::Sy
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1925();
+        return NativeMethods.TablePtr->f1928();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1924((void*)_handle);
+            NativeMethods.TablePtr->f1927((void*)_handle);
             _handle = 0;
         }
     }

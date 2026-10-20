@@ -25,43 +25,43 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__dur
     public nint get_760834e8() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint get_9053b63c()
+    public long get_9053b63c()
     {
-        return (nint)NativeMethods.TablePtr->f1771((void*)_handle);
+        return NativeMethods.TablePtr->f1771((void*)_handle);
     }
 
     public nint get_1373d455() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint get_8032dbf6()
+    public long get_8032dbf6()
     {
-        return (nint)NativeMethods.TablePtr->f1772((void*)_handle);
+        return NativeMethods.TablePtr->f1772((void*)_handle);
     }
 
-    public nint operator_const_std__chrono__duration_long_long__std__ratio_1__1000000_86101aad()
+    public long operator_const_std__chrono__duration_long_long__std__ratio_1__1000000_86101aad()
     {
-        return (nint)NativeMethods.TablePtr->f1773((void*)_handle);
+        return NativeMethods.TablePtr->f1773((void*)_handle);
     }
 
-    public nint operator_std__chrono__duration_long_long__std__ratio_1__1000000_____()
+    public long operator_std__chrono__duration_long_long__std__ratio_1__1000000_____()
     {
-        return (nint)NativeMethods.TablePtr->f1774((void*)_handle);
+        return NativeMethods.TablePtr->f1774((void*)_handle);
     }
 
     public nint operator_multiply_42e8fd36() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_b0da5bc1()
+    public long operator_multiply_b0da5bc1()
     {
-        return (nint)NativeMethods.TablePtr->f1775((void*)_handle);
+        return NativeMethods.TablePtr->f1775((void*)_handle);
     }
 
     public nint operator_multiply_64913db5() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_f8a8930e()
+    public long operator_multiply_f8a8930e()
     {
-        return (nint)NativeMethods.TablePtr->f1776((void*)_handle);
+        return NativeMethods.TablePtr->f1776((void*)_handle);
     }
 
     public nint operator_operator___e690b31f()

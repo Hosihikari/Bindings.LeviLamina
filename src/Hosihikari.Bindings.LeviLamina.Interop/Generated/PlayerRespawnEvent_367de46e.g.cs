@@ -18,7 +18,7 @@ public sealed unsafe partial class PlayerRespawnEvent : global::System.IDisposab
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2568((void*)_handle);
+            NativeMethods.TablePtr->f2571((void*)_handle);
             _handle = 0;
         }
     }

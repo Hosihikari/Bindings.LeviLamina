@@ -13,44 +13,25 @@ public sealed unsafe partial class Manifest : global::System.IDisposable
 
     public nint author
     {
-        get => (nint)NativeMethods.TablePtr->f2824((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2827((void*)_handle);
     }
 
     public nint conflicts
     {
-        get => (nint)NativeMethods.TablePtr->f2825((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2828((void*)_handle);
     }
 
     public nint dependencies
     {
-        get => (nint)NativeMethods.TablePtr->f2826((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2829((void*)_handle);
     }
 
     public nint description
     {
-        get => (nint)NativeMethods.TablePtr->f2827((void*)_handle);
-    }
-
-    public string entry
-    {
-        get
-        {
-            var view = NativeMethods.TablePtr->f2828((void*)_handle);
-            return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
-        }
-    }
-
-    public nint extraInfo
-    {
-        get => (nint)NativeMethods.TablePtr->f2829((void*)_handle);
-    }
-
-    public nint loadBefore
-    {
         get => (nint)NativeMethods.TablePtr->f2830((void*)_handle);
     }
 
-    public string name
+    public string entry
     {
         get
         {
@@ -59,40 +40,59 @@ public sealed unsafe partial class Manifest : global::System.IDisposable
         }
     }
 
-    public nint optionalDependencies
+    public nint extraInfo
     {
         get => (nint)NativeMethods.TablePtr->f2832((void*)_handle);
     }
 
-    public nint passive
+    public nint loadBefore
     {
         get => (nint)NativeMethods.TablePtr->f2833((void*)_handle);
     }
 
+    public string name
+    {
+        get
+        {
+            var view = NativeMethods.TablePtr->f2834((void*)_handle);
+            return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
+        }
+    }
+
+    public nint optionalDependencies
+    {
+        get => (nint)NativeMethods.TablePtr->f2835((void*)_handle);
+    }
+
+    public nint passive
+    {
+        get => (nint)NativeMethods.TablePtr->f2836((void*)_handle);
+    }
+
     public nint platform
     {
-        get => (nint)NativeMethods.TablePtr->f2834((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2837((void*)_handle);
     }
 
     public string type
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2835((void*)_handle);
+            var view = NativeMethods.TablePtr->f2838((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint version
     {
-        get => (nint)NativeMethods.TablePtr->f2836((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2839((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2823((void*)_handle);
+            NativeMethods.TablePtr->f2826((void*)_handle);
             _handle = 0;
         }
     }

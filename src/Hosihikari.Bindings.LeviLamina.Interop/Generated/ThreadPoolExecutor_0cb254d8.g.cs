@@ -16,7 +16,7 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2976(__hs_stringData0, (nuint)__hs_stringBytes0.Length, nThreads);
+            var handle = NativeMethods.TablePtr->f2979(__hs_stringData0, (nuint)__hs_stringBytes0.Length, nThreads);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,28 +28,28 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
 
     public void destroy()
     {
-        NativeMethods.TablePtr->f2977((void*)_handle);
+        NativeMethods.TablePtr->f2980((void*)_handle);
     }
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f2978((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->f2981((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? executeAfter(nint arg0Invoke, nint arg0UserData, nint arg0Release, long arg1)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2979((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release, arg1);
+        var __hs_shared = NativeMethods.TablePtr->f2982((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release, arg1);
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f2980();
+        return (nint)NativeMethods.TablePtr->f2983();
     }
 
     public void resize(ulong nThreads)
     {
-        NativeMethods.TablePtr->f2981((void*)_handle, nThreads);
+        NativeMethods.TablePtr->f2984((void*)_handle, nThreads);
     }
 
 
@@ -57,7 +57,7 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2975((void*)_handle);
+            NativeMethods.TablePtr->f2978((void*)_handle);
             _handle = 0;
         }
     }

@@ -21,7 +21,7 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeEnum_ : globa
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1926((void*)_handle);
+            NativeMethods.TablePtr->f1927((void*)_handle);
             _handle = 0;
         }
     }

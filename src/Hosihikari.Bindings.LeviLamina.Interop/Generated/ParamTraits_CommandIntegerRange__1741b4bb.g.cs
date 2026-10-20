@@ -18,7 +18,7 @@ public sealed unsafe partial class ParamTraits_CommandIntegerRange_ : global::Sy
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1911((void*)_handle);
+            NativeMethods.TablePtr->f1912((void*)_handle);
             _handle = 0;
         }
     }

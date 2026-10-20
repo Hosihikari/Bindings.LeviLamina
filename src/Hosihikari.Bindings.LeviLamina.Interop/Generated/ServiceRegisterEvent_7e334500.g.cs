@@ -18,7 +18,7 @@ public sealed unsafe partial class ServiceRegisterEvent : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2450((void*)_handle);
+            NativeMethods.TablePtr->f2451((void*)_handle);
             _handle = 0;
         }
     }

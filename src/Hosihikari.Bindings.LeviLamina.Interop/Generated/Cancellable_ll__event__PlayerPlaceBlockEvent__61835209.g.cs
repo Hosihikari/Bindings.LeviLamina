@@ -13,34 +13,34 @@ public sealed unsafe partial class Cancellable_ll__event__PlayerPlaceBlockEvent_
 
     public void cancel()
     {
-        NativeMethods.TablePtr->f2278((void*)_handle);
+        NativeMethods.TablePtr->f2279((void*)_handle);
     }
 
     public void deserialize(nint nbt)
     {
-        NativeMethods.TablePtr->f2279((void*)_handle, (void*)nbt);
+        NativeMethods.TablePtr->f2280((void*)_handle, (void*)nbt);
     }
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->f2280((void*)_handle);
+        return NativeMethods.TablePtr->f2281((void*)_handle);
     }
 
     public void serialize(nint nbt)
     {
-        NativeMethods.TablePtr->f2281((void*)_handle, (void*)nbt);
+        NativeMethods.TablePtr->f2282((void*)_handle, (void*)nbt);
     }
 
     public void setCancelled(bool cancelled)
     {
-        NativeMethods.TablePtr->f2282((void*)_handle, cancelled);
+        NativeMethods.TablePtr->f2283((void*)_handle, cancelled);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2277((void*)_handle);
+            NativeMethods.TablePtr->f2278((void*)_handle);
             _handle = 0;
         }
     }

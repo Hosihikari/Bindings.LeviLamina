@@ -13,26 +13,26 @@ public sealed unsafe partial class Comparator : global::System.IDisposable
 
     public byte operation
     {
-        get => NativeMethods.TablePtr->f2218((void*)_handle);
-        set => NativeMethods.TablePtr->f2219((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2219((void*)_handle);
+        set => NativeMethods.TablePtr->f2220((void*)_handle, value);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.VersionRequirement_Nested.Comparator arg0)
     {
-        return NativeMethods.TablePtr->f2220((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->f2221((void*)_handle, (void*)arg0.Handle);
     }
 
     public nint version
     {
-        get => (nint)NativeMethods.TablePtr->f2221((void*)_handle);
-        set => NativeMethods.TablePtr->f2222((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2222((void*)_handle);
+        set => NativeMethods.TablePtr->f2223((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2217((void*)_handle);
+            NativeMethods.TablePtr->f2218((void*)_handle);
             _handle = 0;
         }
     }

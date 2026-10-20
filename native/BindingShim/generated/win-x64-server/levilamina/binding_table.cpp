@@ -11,6 +11,7 @@
 #include <optional>
 #include <string>
 #include <string_view>
+#include <vector>
 #include "ll/api/memory/Memory.h"
 #include "mc/deps/core/memory/IMemoryAllocator.h"
 #include "ll/api/Expected.h"
@@ -28413,6 +28414,30 @@ catch (...)
     return nullptr;
 }
 
+static HosihikariArrayView hs_method_51a27a86(void* hs_self) try
+{
+    thread_local std::vector<std::string> hs_arrayStrings;
+    thread_local std::vector<HosihikariStringView> hs_arrayViews;
+    auto result = static_cast<ll::command::CommandHandle*>(hs_self)->alias();
+    hs_arrayStrings.clear();
+    hs_arrayViews.clear();
+    hs_arrayStrings.reserve(result.size());
+    for (auto const& item : result) { hs_arrayStrings.emplace_back(item.data(), item.size()); }
+    hs_arrayViews.reserve(hs_arrayStrings.size());
+    for (auto const& item : hs_arrayStrings) { hs_arrayViews.push_back(HosihikariStringView{item.data(), item.size()}); }
+    return HosihikariArrayView{hs_arrayViews.data(), hs_arrayViews.size()};
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariArrayView{nullptr, 0};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariArrayView{nullptr, 0};
+}
+
 static void* hs_method_c8f00dfd(bool isClientSide) try
 {
     return const_cast<void*>(static_cast<void const*>(&ll::command::CommandRegistrar::getInstance(static_cast<bool>(isClientSide))));
@@ -45923,6 +45948,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_destroy_b9de8ea0,
     &hs_get_44d042e1,
     &hs_method_0f895032,
+    &hs_method_51a27a86,
     &hs_method_c8f00dfd,
     &hs_method_0402fde1,
     &hs_method_3f1d97ed,

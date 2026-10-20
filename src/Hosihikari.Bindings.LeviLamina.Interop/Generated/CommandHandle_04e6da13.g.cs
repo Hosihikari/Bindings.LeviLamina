@@ -23,8 +23,17 @@ public sealed unsafe partial class CommandHandle
         }
     }
 
-    public nint alias() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
+    public string[] alias()
+    {
+        var __hs_view = NativeMethods.TablePtr->f1880((void*)_handle);
+        var __hs_items = (NativeMethods.StringView*)__hs_view.Data;
+        var __hs_result = new string[checked((int)__hs_view.Size)];
+        for (var __hs_i = 0; __hs_i < __hs_result.Length; __hs_i++)
+        {
+            __hs_result[__hs_i] = global::System.Text.Encoding.UTF8.GetString(__hs_items[__hs_i].Data, checked((int)__hs_items[__hs_i].Size));
+        }
+        return __hs_result;
+    }
 
     public nint runtimeOverload(nint mod) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");

@@ -13,19 +13,19 @@ public sealed unsafe partial class FinalAwaiter : global::System.IDisposable
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f2096((void*)_handle);
+        return NativeMethods.TablePtr->f2097((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f2097((void*)_handle);
+        NativeMethods.TablePtr->f2098((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2095((void*)_handle);
+            NativeMethods.TablePtr->f2096((void*)_handle);
             _handle = 0;
         }
     }

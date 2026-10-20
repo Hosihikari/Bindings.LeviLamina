@@ -13,7 +13,7 @@ public sealed unsafe partial class AnyFunctionObjBase
 
     public static ulong anyFnSizeNumPtrs
     {
-        get => NativeMethods.TablePtr->f2124();
+        get => NativeMethods.TablePtr->f2125();
     }
 
     public nint copy(nint to) =>
@@ -27,7 +27,7 @@ public sealed unsafe partial class AnyFunctionObjBase
 
     public static ulong smallObjSize
     {
-        get => NativeMethods.TablePtr->f2125();
+        get => NativeMethods.TablePtr->f2126();
     }
 
     public void tidy() =>

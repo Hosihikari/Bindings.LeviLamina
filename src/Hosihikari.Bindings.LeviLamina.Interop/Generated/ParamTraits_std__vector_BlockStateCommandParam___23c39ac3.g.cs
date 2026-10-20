@@ -18,7 +18,7 @@ public sealed unsafe partial class ParamTraits_std__vector_BlockStateCommandPara
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1932((void*)_handle);
+            NativeMethods.TablePtr->f1933((void*)_handle);
             _handle = 0;
         }
     }

@@ -19,27 +19,27 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public ulong getRuntimeId()
     {
-        return NativeMethods.TablePtr->f2711((void*)_handle);
+        return NativeMethods.TablePtr->f2712((void*)_handle);
     }
 
     public nint mCompressible
     {
-        get => (nint)NativeMethods.TablePtr->f2712((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2713((void*)_handle);
     }
 
     public nint mPriority
     {
-        get => (nint)NativeMethods.TablePtr->f2713((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2714((void*)_handle);
     }
 
     public nint mReliability
     {
-        get => (nint)NativeMethods.TablePtr->f2714((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2715((void*)_handle);
     }
 
     public nint mSenderSubId
     {
-        get => (nint)NativeMethods.TablePtr->f2715((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2716((void*)_handle);
     }
 
     public nint read(nint arg0) =>
@@ -53,7 +53,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendTo(nint player)
     {
-        NativeMethods.TablePtr->f2716((void*)_handle, (void*)player);
+        NativeMethods.TablePtr->f2717((void*)_handle, (void*)player);
     }
 
     public void sendToClient(nint identifier, nint clientId) =>
@@ -61,12 +61,12 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendToClient(nint identifierWithSubId)
     {
-        NativeMethods.TablePtr->f2717((void*)_handle, (void*)identifierWithSubId);
+        NativeMethods.TablePtr->f2718((void*)_handle, (void*)identifierWithSubId);
     }
 
     public void sendToClients()
     {
-        NativeMethods.TablePtr->f2718((void*)_handle);
+        NativeMethods.TablePtr->f2719((void*)_handle);
     }
 
     public void sendToClients(nint exceptId, nint exceptSubid) =>
@@ -74,7 +74,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendToServer()
     {
-        NativeMethods.TablePtr->f2719((void*)_handle);
+        NativeMethods.TablePtr->f2720((void*)_handle);
     }
 
     public void write(nint arg0) =>
@@ -85,7 +85,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2710((void*)_handle);
+            NativeMethods.TablePtr->f2711((void*)_handle);
             _handle = 0;
         }
     }

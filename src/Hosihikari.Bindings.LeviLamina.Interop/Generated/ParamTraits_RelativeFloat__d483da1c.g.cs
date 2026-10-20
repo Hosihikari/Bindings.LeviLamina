@@ -18,7 +18,7 @@ public sealed unsafe partial class ParamTraits_RelativeFloat_ : global::System.I
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1922((void*)_handle);
+            NativeMethods.TablePtr->f1923((void*)_handle);
             _handle = 0;
         }
     }

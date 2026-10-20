@@ -16,7 +16,7 @@ public sealed unsafe partial class ConsoleOutputtedEvent : global::System.IDispo
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(message);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f2310(__hs_stringData, (nuint)__hs_stringBytes.Length, isCancelled);
+            var handle = NativeMethods.TablePtr->f2311(__hs_stringData, (nuint)__hs_stringBytes.Length, isCancelled);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,25 +28,25 @@ public sealed unsafe partial class ConsoleOutputtedEvent : global::System.IDispo
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->f2311((void*)_handle);
+        return NativeMethods.TablePtr->f2312((void*)_handle);
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f2312((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2313((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2313((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2314((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2309((void*)_handle);
+            NativeMethods.TablePtr->f2310((void*)_handle);
             _handle = 0;
         }
     }

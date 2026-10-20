@@ -18,7 +18,7 @@ public sealed unsafe partial class ParamTraits_CommandSelector_Player__ : global
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1919((void*)_handle);
+            NativeMethods.TablePtr->f1920((void*)_handle);
             _handle = 0;
         }
     }

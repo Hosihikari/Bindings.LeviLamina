@@ -18,7 +18,7 @@ public sealed unsafe partial class ParamTraits_std__basic_string_char__ : global
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1929((void*)_handle);
+            NativeMethods.TablePtr->f1930((void*)_handle);
             _handle = 0;
         }
     }

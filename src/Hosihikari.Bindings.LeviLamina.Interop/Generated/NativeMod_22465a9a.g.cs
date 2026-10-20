@@ -22,7 +22,7 @@ public sealed unsafe partial class NativeMod
 
     public nint getHandle()
     {
-        return (nint)NativeMethods.TablePtr->f2708((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2709((void*)_handle);
     }
 
     public void Destroy() =>

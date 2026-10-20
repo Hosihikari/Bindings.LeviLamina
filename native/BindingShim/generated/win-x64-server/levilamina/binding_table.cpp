@@ -41459,6 +41459,22 @@ catch (...)
     return;
 }
 
+static void* hs_method_441bd9bd(void* hs_self, std::uint64_t runtimeId) try
+{
+    auto hs_result = static_cast<ll::network::PacketRegistrar*>(hs_self)->createPacket(static_cast<unsigned long long>(runtimeId));
+    return static_cast<void*>(hs_result.release());
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_method_5ade0854() try
 {
     return const_cast<void*>(static_cast<void const*>(&ll::network::PacketRegistrar::getInstance()));
@@ -41547,6 +41563,22 @@ catch (...)
 {
     setLastError("unknown native exception");
     return false;
+}
+
+static void* hs_method_f39fa00d(void* hs_self) try
+{
+    auto hs_result = static_cast<ll::network::RuntimePacket*>(hs_self)->releasePacket();
+    return static_cast<void*>(hs_result.release());
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
 }
 
 static void hs_destroy_c5fe5a2d(void* hs_self) try
@@ -46651,12 +46683,14 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_b59de195,
     &hs_method_7de8df0e,
     &hs_method_67229f07,
+    &hs_method_441bd9bd,
     &hs_method_5ade0854,
     &hs_destroy_c68c9565,
     &hs_create_22100699,
     &hs_method_fe4f3177,
     &hs_method_c3929489,
     &hs_method_a6d85d09,
+    &hs_method_f39fa00d,
     &hs_destroy_c5fe5a2d,
     &hs_create_afbe474d,
     &hs_get_8f4ee20a,

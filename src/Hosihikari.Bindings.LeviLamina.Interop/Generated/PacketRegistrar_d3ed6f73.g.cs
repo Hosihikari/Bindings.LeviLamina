@@ -11,15 +11,18 @@ public sealed unsafe partial class PacketRegistrar
 
     public nint Handle => _handle;
 
-    public nint createPacket(ulong runtimeId) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::unique_ptr<ll::network::Packet>' is not a known bindable declaration.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet? createPacket(ulong runtimeId)
+    {
+        var __hs_handle = NativeMethods.TablePtr->f2719((void*)_handle, runtimeId);
+        return __hs_handle == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle);
+    }
 
     public nint getHandler(ulong runtimeId) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<ll::network::IPacketHandler>' is not a known bindable declaration.");
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2719();
+        return (nint)NativeMethods.TablePtr->f2720();
     }
 
     public bool registerHandler(nint name, ulong id, nint handler) =>

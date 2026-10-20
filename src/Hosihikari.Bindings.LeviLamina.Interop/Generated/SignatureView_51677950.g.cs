@@ -13,7 +13,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public static SignatureView Create()
     {
-        var handle = NativeMethods.TablePtr->f2756();
+        var handle = NativeMethods.TablePtr->f2759();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public static SignatureView Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature signature)
     {
-        var handle = NativeMethods.TablePtr->f2757((void*)signature.Handle);
+        var handle = NativeMethods.TablePtr->f2760((void*)signature.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,7 +35,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public static SignatureView Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView arg0)
     {
-        var handle = NativeMethods.TablePtr->f2758((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2761((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -52,7 +52,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public nint back()
     {
-        return (nint)NativeMethods.TablePtr->f2759((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2762((void*)_handle);
     }
 
     public nint begin() =>
@@ -63,7 +63,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public nint front()
     {
-        return (nint)NativeMethods.TablePtr->f2760((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2763((void*)_handle);
     }
 
     public nint operator_assign_55389e38(nint arg0) =>
@@ -74,17 +74,17 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView other)
     {
-        return NativeMethods.TablePtr->f2761((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2764((void*)_handle, (void*)other.Handle);
     }
 
     public nint operator_index(ulong idx)
     {
-        return (nint)NativeMethods.TablePtr->f2762((void*)_handle, idx);
+        return (nint)NativeMethods.TablePtr->f2765((void*)_handle, idx);
     }
 
     public nint resolve(bool disableErrorOutput)
     {
-        return (nint)NativeMethods.TablePtr->f2763((void*)_handle, disableErrorOutput);
+        return (nint)NativeMethods.TablePtr->f2766((void*)_handle, disableErrorOutput);
     }
 
     public nint resolve(nint range, bool disableErrorOutput) =>
@@ -92,12 +92,12 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2764((void*)_handle);
+        return NativeMethods.TablePtr->f2767((void*)_handle);
     }
 
     public string toString(bool alignWildcard, bool upperCase)
     {
-        var __hs_view = NativeMethods.TablePtr->f2765((void*)_handle, alignWildcard, upperCase);
+        var __hs_view = NativeMethods.TablePtr->f2768((void*)_handle, alignWildcard, upperCase);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -105,7 +105,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2755((void*)_handle);
+            NativeMethods.TablePtr->f2758((void*)_handle);
             _handle = 0;
         }
     }

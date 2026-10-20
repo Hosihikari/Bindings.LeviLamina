@@ -18,7 +18,7 @@ public sealed unsafe partial class EmptyParser : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1891((void*)_handle);
+            NativeMethods.TablePtr->f1894((void*)_handle);
             _handle = 0;
         }
     }

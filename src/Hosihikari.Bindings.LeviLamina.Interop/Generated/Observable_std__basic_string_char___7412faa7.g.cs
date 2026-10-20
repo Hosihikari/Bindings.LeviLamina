@@ -22,7 +22,7 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public string getData()
     {
-        var __hs_view = NativeMethods.TablePtr->f2270((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2273((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -37,7 +37,7 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2271((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->f2274((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -46,14 +46,14 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f2272((void*)_handle, id);
+        return NativeMethods.TablePtr->f2275((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2269((void*)_handle);
+            NativeMethods.TablePtr->f2272((void*)_handle);
             _handle = 0;
         }
     }

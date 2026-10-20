@@ -16,7 +16,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2923(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->f2926(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,15 +28,18 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f2924((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->f2927((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
-    public nint executeAfter(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::chrono::duration<long long, std::ratio<1, 1000000000>>' is not a known bindable declaration.");
+    public global::Hosihikari.Bindings.Abi.SharedHandle? executeAfter(nint arg0Invoke, nint arg0UserData, nint arg0Release, long arg1)
+    {
+        var __hs_shared = NativeMethods.TablePtr->f2928((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release, arg1);
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
+    }
 
     public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f2925();
+        return (nint)NativeMethods.TablePtr->f2929();
     }
 
 
@@ -44,7 +47,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2922((void*)_handle);
+            NativeMethods.TablePtr->f2925((void*)_handle);
             _handle = 0;
         }
     }

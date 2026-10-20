@@ -13,17 +13,19 @@ public sealed unsafe partial class ServerClock : global::System.IDisposable
 
     public static bool is_steady
     {
-        get => NativeMethods.TablePtr->f1880();
+        get => NativeMethods.TablePtr->f1882();
     }
 
-    public static nint now() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::chrono::time_point<ll::chrono::ServerClock>' is not a known bindable declaration.");
+    public static long now()
+    {
+        return NativeMethods.TablePtr->f1883();
+    }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1879((void*)_handle);
+            NativeMethods.TablePtr->f1881((void*)_handle);
             _handle = 0;
         }
     }

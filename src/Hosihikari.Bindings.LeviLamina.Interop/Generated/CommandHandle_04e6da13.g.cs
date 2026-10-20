@@ -19,13 +19,13 @@ public sealed unsafe partial class CommandHandle
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(alias);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f1881((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f1884((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public string[] alias()
     {
-        var __hs_view = NativeMethods.TablePtr->f1882((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1885((void*)_handle);
         var __hs_items = (global::Hosihikari.Bindings.Abi.StringView*)__hs_view.Data;
         var __hs_result = new string[checked((int)__hs_view.Size)];
         for (var __hs_i = 0; __hs_i < __hs_result.Length; __hs_i++)

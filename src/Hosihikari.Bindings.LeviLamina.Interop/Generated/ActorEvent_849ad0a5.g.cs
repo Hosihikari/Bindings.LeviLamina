@@ -13,11 +13,11 @@ public sealed unsafe partial class ActorEvent
 
     public nint self()
     {
-        return (nint)NativeMethods.TablePtr->f2337((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2340((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2338((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2341((void*)_handle, (void*)arg0);
     }
 }

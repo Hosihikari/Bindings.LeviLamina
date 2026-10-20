@@ -13,7 +13,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
 
     public static LogMessage Create()
     {
-        var handle = NativeMethods.TablePtr->f2652();
+        var handle = NativeMethods.TablePtr->f2655();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
 
     public static LogMessage Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessage other)
     {
-        var handle = NativeMethods.TablePtr->f2653((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2656((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -44,7 +44,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var handle = NativeMethods.TablePtr->f2654(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, lvl, (void*)tm.Handle);
+                var handle = NativeMethods.TablePtr->f2657(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, lvl, (void*)tm.Handle);
                 if (handle == null)
                 {
                     throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -59,7 +59,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2655((void*)_handle);
+            var view = NativeMethods.TablePtr->f2658((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -68,7 +68,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2656((void*)_handle);
+            var view = NativeMethods.TablePtr->f2659((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -77,7 +77,7 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2651((void*)_handle);
+            NativeMethods.TablePtr->f2654((void*)_handle);
             _handle = 0;
         }
     }

@@ -11,16 +11,20 @@ public sealed unsafe partial class GameTickClock : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static nint fromTick(nint tick) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::chrono::time_point<ll::chrono::GameTickClock>' is not a known bindable declaration.");
+    public static long fromTick(nint tick)
+    {
+        return NativeMethods.TablePtr->f1878((void*)tick);
+    }
 
     public static bool is_steady
     {
-        get => NativeMethods.TablePtr->f1878();
+        get => NativeMethods.TablePtr->f1879();
     }
 
-    public static nint now() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::chrono::time_point<ll::chrono::GameTickClock>' is not a known bindable declaration.");
+    public static long now()
+    {
+        return NativeMethods.TablePtr->f1880();
+    }
 
     public void Dispose()
     {

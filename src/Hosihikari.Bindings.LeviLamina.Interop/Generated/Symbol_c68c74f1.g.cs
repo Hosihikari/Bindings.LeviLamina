@@ -16,7 +16,7 @@ public sealed unsafe partial class Symbol : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(symbol);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2767(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->f2770(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,19 +28,19 @@ public sealed unsafe partial class Symbol : global::System.IDisposable
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2768((void*)_handle);
+        return NativeMethods.TablePtr->f2771((void*)_handle);
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView view()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView((nint)NativeMethods.TablePtr->f2769((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView((nint)NativeMethods.TablePtr->f2772((void*)_handle));
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2766((void*)_handle);
+            NativeMethods.TablePtr->f2769((void*)_handle);
             _handle = 0;
         }
     }

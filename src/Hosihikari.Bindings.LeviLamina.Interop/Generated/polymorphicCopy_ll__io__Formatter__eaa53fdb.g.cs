@@ -19,7 +19,7 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
 
     public nint operator_call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter t)
     {
-        return (nint)NativeMethods.TablePtr->f2334((void*)_handle, (void*)t.Handle);
+        return (nint)NativeMethods.TablePtr->f2337((void*)_handle, (void*)t.Handle);
     }
 
     public static polymorphicCopy_ll__io__Formatter_ Create() =>
@@ -29,7 +29,7 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2333((void*)_handle);
+            NativeMethods.TablePtr->f2336((void*)_handle);
             _handle = 0;
         }
     }

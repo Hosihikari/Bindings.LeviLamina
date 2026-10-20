@@ -13,15 +13,15 @@ public sealed unsafe partial class RuntimeEnum : global::System.IDisposable
 
     public ulong index
     {
-        get => NativeMethods.TablePtr->f2161((void*)_handle);
-        set => NativeMethods.TablePtr->f2162((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2164((void*)_handle);
+        set => NativeMethods.TablePtr->f2165((void*)_handle, value);
     }
 
     public string name
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2163((void*)_handle);
+            var view = NativeMethods.TablePtr->f2166((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -30,7 +30,7 @@ public sealed unsafe partial class RuntimeEnum : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2160((void*)_handle);
+            NativeMethods.TablePtr->f2163((void*)_handle);
             _handle = 0;
         }
     }

@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 
-public sealed partial class MessageBoxResult
+public sealed unsafe partial class MessageBoxResult : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,13 +13,20 @@ public sealed partial class MessageBoxResult
 
     public nint closeReason
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2798((void*)_handle);
     }
 
     public nint selection
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2799((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2797((void*)_handle);
+            _handle = 0;
+        }
     }
 }

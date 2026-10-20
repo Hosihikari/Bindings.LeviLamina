@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 
-public sealed partial class DividerOptions
+public sealed unsafe partial class DividerOptions : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,7 +13,15 @@ public sealed partial class DividerOptions
 
     public nint visible
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2785((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2784((void*)_handle);
+            _handle = 0;
+        }
     }
 }

@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.nonstd.expected_lite;
 
-public sealed partial class bad_expected_access_ll__Error_
+public sealed unsafe partial class bad_expected_access_ll__Error_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -17,15 +17,30 @@ public sealed partial class bad_expected_access_ll__Error_
     public nint error_5a2a67ef() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint error_cd83de93() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint error_cd83de93()
+    {
+        return (nint)NativeMethods.TablePtr->f2856((void*)_handle);
+    }
 
     public nint error_3eeff636() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint error_648678e4() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint error_648678e4()
+    {
+        return (nint)NativeMethods.TablePtr->f2857((void*)_handle);
+    }
 
-    public nint what() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint what()
+    {
+        return (nint)NativeMethods.TablePtr->f2858((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2855((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

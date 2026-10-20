@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg_
+public sealed unsafe partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,53 +11,76 @@ public sealed partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg_
 
     public nint Handle => _handle;
 
-    public static TypedStorageImpl_8ULL__88ULL__MolangScriptArg_ Create_3a4c9c26(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static TypedStorageImpl_8ULL__88ULL__MolangScriptArg_ Create_3a4c9c26(nint other)
+    {
+        var handle = NativeMethods.TablePtr->f1694((void*)other);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new TypedStorageImpl_8ULL__88ULL__MolangScriptArg_((nint)handle);
+    }
 
     public static TypedStorageImpl_8ULL__88ULL__MolangScriptArg_ Create_849435f8(nint other) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f1695((void*)_handle);
     }
 
     public nint get_ea7e819d() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_a9c44d85() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_a9c44d85()
+    {
+        return (nint)NativeMethods.TablePtr->f1696((void*)_handle);
+    }
 
     public nint get_fb157900() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_811c82fe() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_811c82fe()
+    {
+        return (nint)NativeMethods.TablePtr->f1697((void*)_handle);
+    }
 
-    public nint operator_MolangScriptArg__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_MolangScriptArg__()
+    {
+        return (nint)NativeMethods.TablePtr->f1698((void*)_handle);
+    }
 
-    public nint operator_const_MolangScriptArg__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_const_MolangScriptArg__()
+    {
+        return (nint)NativeMethods.TablePtr->f1699((void*)_handle);
+    }
 
     public nint operator_multiply_0a893c9e() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_7225b178() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_7225b178()
+    {
+        return (nint)NativeMethods.TablePtr->f1700((void*)_handle);
+    }
 
     public nint operator_multiply_d6f754e7() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_2c4c6145() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_2c4c6145()
+    {
+        return (nint)NativeMethods.TablePtr->f1701((void*)_handle);
+    }
 
-    public nint operator_operator___b47fbc35() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___b47fbc35()
+    {
+        return (nint)NativeMethods.TablePtr->f1702((void*)_handle);
+    }
 
-    public nint operator_operator___8165fe30() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___8165fe30()
+    {
+        return (nint)NativeMethods.TablePtr->f1703((void*)_handle);
+    }
 
     public nint operator_assign_559dff9d(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -65,6 +88,13 @@ public sealed partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg_
     public nint operator_assign_cb396e8b(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f1693((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

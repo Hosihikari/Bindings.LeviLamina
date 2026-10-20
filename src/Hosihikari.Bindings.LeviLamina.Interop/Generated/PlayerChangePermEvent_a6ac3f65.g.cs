@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class PlayerChangePermEvent
+public sealed unsafe partial class PlayerChangePermEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,14 +14,27 @@ public sealed unsafe partial class PlayerChangePermEvent
     public static PlayerChangePermEvent Create(nint player, nint newPerm) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void deserialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void deserialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2378((void*)_handle, (void*)arg0);
+    }
 
     public nint newPerm()
     {
-        return (nint)NativeMethods.TablePtr->f593((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2379((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2380((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2377((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

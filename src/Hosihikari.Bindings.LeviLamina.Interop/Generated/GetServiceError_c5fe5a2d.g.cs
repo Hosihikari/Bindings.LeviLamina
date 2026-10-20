@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.service;
 
-public sealed unsafe partial class GetServiceError
+public sealed unsafe partial class GetServiceError : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,13 +11,21 @@ public sealed unsafe partial class GetServiceError
 
     public nint Handle => _handle;
 
-    public static GetServiceError Create(nint code, ulong version) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint code
+    public static GetServiceError Create(sbyte code, ulong version)
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        var handle = NativeMethods.TablePtr->f2711(code, version);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new GetServiceError((nint)handle);
+    }
+
+    public sbyte code
+    {
+        get => NativeMethods.TablePtr->f2712((void*)_handle);
+        set => NativeMethods.TablePtr->f2713((void*)_handle, value);
     }
 
     public string message(string locale)
@@ -25,14 +33,23 @@ public sealed unsafe partial class GetServiceError
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_view = NativeMethods.TablePtr->f780((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            var __hs_view = NativeMethods.TablePtr->f2714((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f781((void*)_handle);
-        set => NativeMethods.TablePtr->f782((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2715((void*)_handle);
+        set => NativeMethods.TablePtr->f2716((void*)_handle, value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2710((void*)_handle);
+            _handle = 0;
+        }
     }
 }

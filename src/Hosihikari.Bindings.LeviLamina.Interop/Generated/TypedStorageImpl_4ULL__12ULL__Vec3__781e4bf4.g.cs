@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed partial class TypedStorageImpl_4ULL__12ULL__Vec3_
+public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__Vec3_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -19,45 +19,60 @@ public sealed partial class TypedStorageImpl_4ULL__12ULL__Vec3_
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f224((void*)_handle);
     }
 
     public nint get_7e623e92() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_d2667bd9() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_d2667bd9()
+    {
+        return (nint)NativeMethods.TablePtr->f225((void*)_handle);
+    }
 
     public nint get_1e6cd977() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_f2da1cd9() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_f2da1cd9()
+    {
+        return (nint)NativeMethods.TablePtr->f226((void*)_handle);
+    }
 
-    public nint operator_Vec3__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_Vec3__()
+    {
+        return (nint)NativeMethods.TablePtr->f227((void*)_handle);
+    }
 
-    public nint operator_const_Vec3__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_const_Vec3__()
+    {
+        return (nint)NativeMethods.TablePtr->f228((void*)_handle);
+    }
 
     public nint operator_multiply_c50c378d() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_44975da8() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_44975da8()
+    {
+        return (nint)NativeMethods.TablePtr->f229((void*)_handle);
+    }
 
     public nint operator_multiply_ba923d84() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_48ff48db() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_48ff48db()
+    {
+        return (nint)NativeMethods.TablePtr->f230((void*)_handle);
+    }
 
-    public nint operator_operator___f3a706d3() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___f3a706d3()
+    {
+        return (nint)NativeMethods.TablePtr->f231((void*)_handle);
+    }
 
-    public nint operator_operator___3de1cf91() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___3de1cf91()
+    {
+        return (nint)NativeMethods.TablePtr->f232((void*)_handle);
+    }
 
     public nint operator_assign_57c26dbe(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -65,6 +80,13 @@ public sealed partial class TypedStorageImpl_4ULL__12ULL__Vec3_
     public nint operator_assign_d94f2501(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f223((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

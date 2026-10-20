@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.coro;
 
-public sealed unsafe partial class SleepAwaiter
+public sealed unsafe partial class SleepAwaiter : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,12 +13,12 @@ public sealed unsafe partial class SleepAwaiter
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f411((void*)_handle);
+        return NativeMethods.TablePtr->f2107((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f412((void*)_handle);
+        NativeMethods.TablePtr->f2108((void*)_handle);
     }
 
     public void await_suspend(nint handle) =>
@@ -26,4 +26,13 @@ public sealed unsafe partial class SleepAwaiter
 
     public void setExecutor(nint ex) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2106((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

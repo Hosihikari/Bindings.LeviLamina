@@ -13,7 +13,7 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
 
     public static DualMapping Create()
     {
-        var handle = NativeMethods.TablePtr->f706();
+        var handle = NativeMethods.TablePtr->f2598();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
 
     public static DualMapping Create(ulong size)
     {
-        var handle = NativeMethods.TablePtr->f707(size);
+        var handle = NativeMethods.TablePtr->f2599(size);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,27 +35,27 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
 
     public void alloc(ulong size)
     {
-        NativeMethods.TablePtr->f708((void*)_handle, size);
+        NativeMethods.TablePtr->f2600((void*)_handle, size);
     }
 
     public nint executable()
     {
-        return (nint)NativeMethods.TablePtr->f709((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2601((void*)_handle);
     }
 
     public void free()
     {
-        NativeMethods.TablePtr->f710((void*)_handle);
+        NativeMethods.TablePtr->f2602((void*)_handle);
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f711((void*)_handle);
+        return NativeMethods.TablePtr->f2603((void*)_handle);
     }
 
     public nint writable()
     {
-        return (nint)NativeMethods.TablePtr->f712((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2604((void*)_handle);
     }
 
 
@@ -63,7 +63,7 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f705((void*)_handle);
+            NativeMethods.TablePtr->f2597((void*)_handle);
             _handle = 0;
         }
     }

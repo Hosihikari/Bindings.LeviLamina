@@ -11,13 +11,10 @@ public sealed unsafe partial class HashedIdBase
 
     public nint Handle => _handle;
 
-    public static HashedIdBase Create(ulong hash) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public ulong hash
     {
-        get => NativeMethods.TablePtr->f654((void*)_handle);
-        set => NativeMethods.TablePtr->f655((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2492((void*)_handle);
+        set => NativeMethods.TablePtr->f2493((void*)_handle, value);
     }
 
     public nint operator_compare(nint other) =>
@@ -25,6 +22,6 @@ public sealed unsafe partial class HashedIdBase
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
     {
-        return NativeMethods.TablePtr->f656((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2494((void*)_handle, (void*)other.Handle);
     }
 }

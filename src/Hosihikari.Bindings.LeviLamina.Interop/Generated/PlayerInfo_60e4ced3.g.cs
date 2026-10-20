@@ -26,8 +26,8 @@ public sealed unsafe partial class PlayerInfo
     public nint fromXuid(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getInstance()
+    public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f783((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2717();
     }
 }

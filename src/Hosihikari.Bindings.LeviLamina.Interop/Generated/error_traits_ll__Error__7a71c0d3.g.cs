@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.nonstd.expected_lite;
 
-public sealed unsafe partial class error_traits_ll__Error_
+public sealed unsafe partial class error_traits_ll__Error_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,8 +11,17 @@ public sealed unsafe partial class error_traits_ll__Error_
 
     public nint Handle => _handle;
 
-    public void rethrow(global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error e)
+    public static void rethrow(global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error e)
     {
-        NativeMethods.TablePtr->f863((void*)_handle, (void*)e.Handle);
+        NativeMethods.TablePtr->f2860((void*)e.Handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2859((void*)_handle);
+            _handle = 0;
+        }
     }
 }

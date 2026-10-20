@@ -11,34 +11,18 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
 
     public nint Handle => _handle;
 
-    public static Observable_double_ Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_double_ arg0)
-    {
-        var handle = NativeMethods.TablePtr->f458((void*)arg0.Handle);
-        if (handle == null)
-        {
-            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
-        }
+    public static Observable_double_ Create_d9747415(nint arg0) =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-        return new Observable_double_((nint)handle);
-    }
+    public static Observable_double_ Create(double initial) =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public static Observable_double_ Create(double initial)
-    {
-        var handle = NativeMethods.TablePtr->f459(initial);
-        if (handle == null)
-        {
-            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
-        }
-
-        return new Observable_double_((nint)handle);
-    }
-
-    public static Observable_double_ Create(nint arg0) =>
+    public static Observable_double_ Create_934cef8c(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public double getData()
     {
-        return NativeMethods.TablePtr->f460((void*)_handle);
+        return NativeMethods.TablePtr->f2158((void*)_handle);
     }
 
     public nint operator_assign_fd521800(nint arg0) =>
@@ -49,7 +33,7 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
 
     public void setData(double value)
     {
-        NativeMethods.TablePtr->f461((void*)_handle, value);
+        NativeMethods.TablePtr->f2159((void*)_handle, value);
     }
 
     public uint subscribe(nint callback) =>
@@ -57,14 +41,14 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f462((void*)_handle, id);
+        return NativeMethods.TablePtr->f2160((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f457((void*)_handle);
+            NativeMethods.TablePtr->f2157((void*)_handle);
             _handle = 0;
         }
     }

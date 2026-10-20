@@ -11,11 +11,8 @@ public sealed unsafe partial class ServerPlayerEvent
 
     public nint Handle => _handle;
 
-    public static ServerPlayerEvent Create(nint player) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint self()
     {
-        return (nint)NativeMethods.TablePtr->f614((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2439((void*)_handle);
     }
 }

@@ -11,14 +11,13 @@ public sealed unsafe partial class MobEvent
 
     public nint Handle => _handle;
 
-    public static MobEvent Create(nint mob) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint self()
     {
-        return (nint)NativeMethods.TablePtr->f587((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2366((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2367((void*)_handle, (void*)arg0);
+    }
 }

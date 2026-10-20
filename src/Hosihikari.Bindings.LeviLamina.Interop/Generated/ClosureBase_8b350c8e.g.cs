@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.memory;
 
-public sealed unsafe partial class ClosureBase
+public sealed unsafe partial class ClosureBase : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,23 +11,39 @@ public sealed unsafe partial class ClosureBase
 
     public nint Handle => _handle;
 
-    public static ClosureBase Create(nint impl) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint getClosureData()
+    public static ClosureBase Create(nint impl)
     {
-        return (nint)NativeMethods.TablePtr->f702((void*)_handle);
+        var handle = NativeMethods.TablePtr->f2588((void*)impl);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new ClosureBase((nint)handle);
     }
 
-    public static nint jitSize
+    public static nint getClosureData()
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        return (nint)NativeMethods.TablePtr->f2589();
+    }
+
+    public static ulong jitSize
+    {
+        get => NativeMethods.TablePtr->f2590();
     }
 
     public nint storage
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2591((void*)_handle);
+        set => NativeMethods.TablePtr->f2592((void*)_handle, (void*)value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2587((void*)_handle);
+            _handle = 0;
+        }
     }
 }

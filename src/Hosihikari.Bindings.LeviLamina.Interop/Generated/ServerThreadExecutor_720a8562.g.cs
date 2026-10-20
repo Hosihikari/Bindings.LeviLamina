@@ -20,9 +20,9 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
     public nint executeAfter(nint arg0, nint arg1) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getDefault()
+    public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f820((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2768();
     }
 
 
@@ -30,7 +30,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f819((void*)_handle);
+            NativeMethods.TablePtr->f2767((void*)_handle);
             _handle = 0;
         }
     }

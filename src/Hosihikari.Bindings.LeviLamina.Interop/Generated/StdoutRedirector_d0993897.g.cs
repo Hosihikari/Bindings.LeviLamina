@@ -11,15 +11,23 @@ public sealed unsafe partial class StdoutRedirector : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static StdoutRedirector Create(nint outputHandle, nint channels) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static StdoutRedirector Create(nint outputHandle, int channels)
+    {
+        var handle = NativeMethods.TablePtr->f2586((void*)outputHandle, channels);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new StdoutRedirector((nint)handle);
+    }
 
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f701((void*)_handle);
+            NativeMethods.TablePtr->f2585((void*)_handle);
             _handle = 0;
         }
     }

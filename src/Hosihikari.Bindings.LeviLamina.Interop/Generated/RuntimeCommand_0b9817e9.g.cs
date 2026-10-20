@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed partial class RuntimeCommand
+public sealed unsafe partial class RuntimeCommand : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,21 +14,42 @@ public sealed partial class RuntimeCommand
     public void execute(nint arg0, nint arg1) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void operator_delete(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static void operator_delete(nint arg0)
+    {
+        NativeMethods.TablePtr->f2069((void*)arg0);
+    }
 
-    public void operator_delete(nint arg0, uint paramCount) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static void operator_delete(nint arg0, uint paramCount)
+    {
+        NativeMethods.TablePtr->f2070((void*)arg0, paramCount);
+    }
 
-    public nint operator_new(ulong arg0, uint paramCount) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static nint operator_new(ulong arg0, uint paramCount)
+    {
+        return (nint)NativeMethods.TablePtr->f2071(arg0, paramCount);
+    }
 
-    public nint operator_index(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_index(string name)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return (nint)NativeMethods.TablePtr->f2072((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
 
-    public nint operator_index(ulong idx) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_index(ulong idx)
+    {
+        return (nint)NativeMethods.TablePtr->f2073((void*)_handle, idx);
+    }
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2068((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

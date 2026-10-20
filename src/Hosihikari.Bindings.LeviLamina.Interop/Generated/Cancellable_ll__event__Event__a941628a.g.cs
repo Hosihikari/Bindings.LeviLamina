@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class Cancellable_ll__event__Event_
+public sealed unsafe partial class Cancellable_ll__event__Event_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,22 +13,35 @@ public sealed unsafe partial class Cancellable_ll__event__Event_
 
     public void cancel()
     {
-        NativeMethods.TablePtr->f524((void*)_handle);
+        NativeMethods.TablePtr->f2251((void*)_handle);
     }
 
-    public void deserialize(nint nbt) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void deserialize(nint nbt)
+    {
+        NativeMethods.TablePtr->f2252((void*)_handle, (void*)nbt);
+    }
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->f525((void*)_handle);
+        return NativeMethods.TablePtr->f2253((void*)_handle);
     }
 
-    public void serialize(nint nbt) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint nbt)
+    {
+        NativeMethods.TablePtr->f2254((void*)_handle, (void*)nbt);
+    }
 
     public void setCancelled(bool cancelled)
     {
-        NativeMethods.TablePtr->f526((void*)_handle, cancelled);
+        NativeMethods.TablePtr->f2255((void*)_handle, cancelled);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2250((void*)_handle);
+            _handle = 0;
+        }
     }
 }

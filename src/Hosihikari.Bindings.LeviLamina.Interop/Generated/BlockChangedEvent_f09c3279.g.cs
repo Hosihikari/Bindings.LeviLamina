@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class BlockChangedEvent
+public sealed unsafe partial class BlockChangedEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -16,24 +16,35 @@ public sealed unsafe partial class BlockChangedEvent
 
     public nint layer()
     {
-        return (nint)NativeMethods.TablePtr->f517((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2239((void*)_handle);
     }
 
     public nint newBlock()
     {
-        return (nint)NativeMethods.TablePtr->f518((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2240((void*)_handle);
     }
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f519((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2241((void*)_handle);
     }
 
     public nint previousBlock()
     {
-        return (nint)NativeMethods.TablePtr->f520((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2242((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2243((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2238((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

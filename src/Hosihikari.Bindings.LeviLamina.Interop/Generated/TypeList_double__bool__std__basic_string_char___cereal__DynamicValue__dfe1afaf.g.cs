@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.meta;
 
-public sealed partial class TypeList_double__bool__std__basic_string_char___cereal__DynamicValue_
+public sealed unsafe partial class TypeList_double__bool__std__basic_string_char___cereal__DynamicValue_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,9 +11,17 @@ public sealed partial class TypeList_double__bool__std__basic_string_char___cere
 
     public nint Handle => _handle;
 
-    public static nint size
+    public static ulong size
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => NativeMethods.TablePtr->f2644();
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2643((void*)_handle);
+            _handle = 0;
+        }
     }
 }

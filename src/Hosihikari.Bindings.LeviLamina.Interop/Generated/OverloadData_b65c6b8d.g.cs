@@ -11,46 +11,10 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static OverloadData Create(nint handle, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public static OverloadData Create(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint addParamImpl(nint id, nint parser, nint name, nint type, nint enumNameOrPostfix, nint subChain, int offset, int flagOffset, bool optional, nint options, nint rule) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint addTextImpl(nint text, int offset) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint back() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint getFactory() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint getHandle() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint getMod() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint getParams() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint getRegistrar() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint @lock() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public void setFactory(nint fn) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint storeStr(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
 
@@ -58,7 +22,7 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f357((void*)_handle);
+            NativeMethods.TablePtr->f1904((void*)_handle);
             _handle = 0;
         }
     }

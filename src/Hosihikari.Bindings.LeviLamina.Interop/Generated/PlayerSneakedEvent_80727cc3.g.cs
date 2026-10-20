@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed partial class PlayerSneakedEvent
+public sealed unsafe partial class PlayerSneakedEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,4 +13,13 @@ public sealed partial class PlayerSneakedEvent
 
     public static PlayerSneakedEvent Create(nint player) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2427((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

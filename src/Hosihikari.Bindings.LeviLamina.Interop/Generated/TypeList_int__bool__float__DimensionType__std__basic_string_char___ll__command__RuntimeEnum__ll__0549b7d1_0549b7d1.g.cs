@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.meta;
 
-public sealed partial class TypeList_int__bool__float__DimensionType__std__basic_string_char___ll__command__RuntimeEnum__ll__0549b7d1
+public sealed unsafe partial class TypeList_int__bool__float__DimensionType__std__basic_string_char___ll__command__RuntimeEnum__ll__0549b7d1 : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,9 +11,17 @@ public sealed partial class TypeList_int__bool__float__DimensionType__std__basic
 
     public nint Handle => _handle;
 
-    public static nint size
+    public static ulong size
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => NativeMethods.TablePtr->f2646();
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2645((void*)_handle);
+            _handle = 0;
+        }
     }
 }

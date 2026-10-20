@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class ConsoleOutputtingEvent
+public sealed unsafe partial class ConsoleOutputtingEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,15 +14,28 @@ public sealed unsafe partial class ConsoleOutputtingEvent
     public static ConsoleOutputtingEvent Create(nint message) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void deserialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void deserialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2312((void*)_handle, (void*)arg0);
+    }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f556((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2313((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2314((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2311((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

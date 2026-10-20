@@ -14,9 +14,9 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
     public void format(nint view, nint buffer) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public bool supportColorLog()
+    public static bool supportColorLog()
     {
-        return NativeMethods.TablePtr->f667((void*)_handle);
+        return NativeMethods.TablePtr->f2520();
     }
 
 
@@ -24,7 +24,7 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f666((void*)_handle);
+            NativeMethods.TablePtr->f2519((void*)_handle);
             _handle = 0;
         }
     }

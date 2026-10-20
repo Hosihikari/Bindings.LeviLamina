@@ -13,21 +13,21 @@ public sealed unsafe partial class TightPair_ll__data__polymorphicCopy_ll__io__F
 
     public nint first_9d4d6093()
     {
-        return (nint)NativeMethods.TablePtr->f478((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2178((void*)_handle);
     }
 
     public nint first_9bccad5c()
     {
-        return (nint)NativeMethods.TablePtr->f479((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2179((void*)_handle);
     }
 
     public nint second_73c45094()
     {
-        return (nint)NativeMethods.TablePtr->f480((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2180((void*)_handle);
     }
 
     public nint second_85bab499()
     {
-        return (nint)NativeMethods.TablePtr->f481((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2181((void*)_handle);
     }
 }

@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.service;
 
-public sealed partial class Service
+public sealed unsafe partial class Service : global::System.IDisposable
 {
     private nint _handle;
 
@@ -16,16 +16,24 @@ public sealed partial class Service
 
     public static nint ServiceId
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2729();
     }
 
     public nint getServiceId() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void invalidate() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void invalidate()
+    {
+        NativeMethods.TablePtr->f2730((void*)_handle);
+    }
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2728((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

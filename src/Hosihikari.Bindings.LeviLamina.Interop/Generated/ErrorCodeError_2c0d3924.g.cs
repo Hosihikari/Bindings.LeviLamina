@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed unsafe partial class ErrorCodeError
+public sealed unsafe partial class ErrorCodeError : global::System.IDisposable
 {
     private nint _handle;
 
@@ -16,8 +16,7 @@ public sealed unsafe partial class ErrorCodeError
 
     public nint ec
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f8((void*)_handle);
     }
 
     public string message(string arg0)
@@ -25,8 +24,17 @@ public sealed unsafe partial class ErrorCodeError
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(arg0);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_view = NativeMethods.TablePtr->f5((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            var __hs_view = NativeMethods.TablePtr->f9((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
+        }
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f7((void*)_handle);
+            _handle = 0;
         }
     }
 }

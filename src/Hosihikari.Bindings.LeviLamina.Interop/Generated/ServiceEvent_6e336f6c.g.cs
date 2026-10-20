@@ -11,17 +11,8 @@ public sealed unsafe partial class ServiceEvent
 
     public nint Handle => _handle;
 
-    public static ServiceEvent Create(nint service) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint mService
-    {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-    }
-
     public nint service()
     {
-        return (nint)NativeMethods.TablePtr->f617((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2446((void*)_handle);
     }
 }

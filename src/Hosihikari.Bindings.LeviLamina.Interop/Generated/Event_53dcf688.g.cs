@@ -13,28 +13,30 @@ public sealed unsafe partial class Event : global::System.IDisposable
 
     public static nint CustomEventId
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2320();
     }
 
-    public static Event Create() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void deserialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2321((void*)_handle, (void*)arg0);
+    }
 
-    public void deserialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId getId()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId((nint)NativeMethods.TablePtr->f2322((void*)_handle));
+    }
 
-    public nint getId() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2323((void*)_handle, (void*)arg0);
+    }
 
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f561((void*)_handle);
+            NativeMethods.TablePtr->f2319((void*)_handle);
             _handle = 0;
         }
     }

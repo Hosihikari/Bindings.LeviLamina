@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed partial class SpawnedMobEvent
+public sealed unsafe partial class SpawnedMobEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -17,6 +17,17 @@ public sealed partial class SpawnedMobEvent
     public nint mob() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2456((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2455((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

@@ -13,7 +13,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public static UIRawMessage Create()
     {
-        var handle = NativeMethods.TablePtr->f855();
+        var handle = NativeMethods.TablePtr->f2844();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public static UIRawMessage Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
-        var handle = NativeMethods.TablePtr->f856((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2845((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -44,22 +44,40 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
-        return NativeMethods.TablePtr->f857((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->f2846((void*)_handle, (void*)arg0.Handle);
     }
 
-    public nint rawText(nint messages) =>
+    public static nint rawText(nint messages) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint text(nint value) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage text(string value)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(value);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2847(__hs_stringData, (nuint)__hs_stringBytes.Length));
+        }
+    }
 
-    public nint translate(nint key) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage translate(string key)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2848(__hs_stringData, (nuint)__hs_stringBytes.Length));
+        }
+    }
 
-    public nint translate_f7a82947(nint key, nint substitutions) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage translate(string key, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage substitutions)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2849(__hs_stringData, (nuint)__hs_stringBytes.Length, (void*)substitutions.Handle));
+        }
+    }
 
-    public nint translate_93e42ffe(nint key, nint substitutions) =>
+    public static nint translate(nint key, nint substitutions) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
 
@@ -67,7 +85,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f854((void*)_handle);
+            NativeMethods.TablePtr->f2843((void*)_handle);
             _handle = 0;
         }
     }

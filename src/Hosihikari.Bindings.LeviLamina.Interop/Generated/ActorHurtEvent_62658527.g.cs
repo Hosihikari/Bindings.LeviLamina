@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class ActorHurtEvent
+public sealed unsafe partial class ActorHurtEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -16,17 +16,30 @@ public sealed unsafe partial class ActorHurtEvent
 
     public nint damage()
     {
-        return (nint)NativeMethods.TablePtr->f515((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2234((void*)_handle);
     }
 
-    public void deserialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void deserialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2235((void*)_handle, (void*)arg0);
+    }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2236((void*)_handle, (void*)arg0);
+    }
 
     public nint source()
     {
-        return (nint)NativeMethods.TablePtr->f516((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2237((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2233((void*)_handle);
+            _handle = 0;
+        }
     }
 }

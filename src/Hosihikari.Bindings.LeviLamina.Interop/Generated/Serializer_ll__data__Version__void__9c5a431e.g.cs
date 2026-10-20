@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.reflection;
 
-public sealed unsafe partial class Serializer_ll__data__Version__void_
+public sealed partial class Serializer_ll__data__Version__void_
 {
     private nint _handle;
 
@@ -11,12 +11,9 @@ public sealed unsafe partial class Serializer_ll__data__Version__void_
 
     public nint Handle => _handle;
 
-    public nint from_string(nint s) =>
+    public static nint from_string(nint s) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public string to_string(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version t)
-    {
-        var __hs_view = NativeMethods.TablePtr->f778((void*)_handle, (void*)t.Handle);
-        return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
-    }
+    public static nint to_string(nint t) =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 }

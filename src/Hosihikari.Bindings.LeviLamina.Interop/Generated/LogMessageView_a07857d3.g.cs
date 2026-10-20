@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 
-public sealed unsafe partial class LogMessageView
+public sealed unsafe partial class LogMessageView : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,17 +14,17 @@ public sealed unsafe partial class LogMessageView
     public static LogMessageView Create(nint msg, nint tit, nint lvl, nint tm) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint lvl
+    public int lvl
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => NativeMethods.TablePtr->f2527((void*)_handle);
+        set => NativeMethods.TablePtr->f2528((void*)_handle, value);
     }
 
     public string msg
     {
         get
         {
-            var view = NativeMethods.TablePtr->f673((void*)_handle);
+            var view = NativeMethods.TablePtr->f2529((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -33,14 +33,23 @@ public sealed unsafe partial class LogMessageView
     {
         get
         {
-            var view = NativeMethods.TablePtr->f674((void*)_handle);
+            var view = NativeMethods.TablePtr->f2530((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint tm
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2531((void*)_handle);
+        set => NativeMethods.TablePtr->f2532((void*)_handle, (void*)value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2526((void*)_handle);
+            _handle = 0;
+        }
     }
 }

@@ -11,19 +11,30 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static PatternFormatter Create(nint pattern, bool colored, nint bracketed) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static PatternFormatter Create(string pattern, bool colored, nint bracketed)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(pattern);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            var handle = NativeMethods.TablePtr->f2551(__hs_stringData, (nuint)__hs_stringBytes.Length, colored, (void*)bracketed);
+            if (handle == null)
+            {
+                throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+            }
+
+            return new PatternFormatter((nint)handle);
+        }
+    }
 
     public nint bracketed
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2552((void*)_handle);
     }
 
     public bool colored
     {
-        get => NativeMethods.TablePtr->f678((void*)_handle);
-        set => NativeMethods.TablePtr->f679((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2553((void*)_handle);
+        set => NativeMethods.TablePtr->f2554((void*)_handle, value);
     }
 
     public void format(nint view, nint buffer) =>
@@ -33,15 +44,14 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f680((void*)_handle);
+            var view = NativeMethods.TablePtr->f2555((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint styles
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2556((void*)_handle);
     }
 
 
@@ -49,7 +59,7 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f677((void*)_handle);
+            NativeMethods.TablePtr->f2550((void*)_handle);
             _handle = 0;
         }
     }

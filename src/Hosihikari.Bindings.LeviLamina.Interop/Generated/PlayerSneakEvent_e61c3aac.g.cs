@@ -10,7 +10,4 @@ public sealed partial class PlayerSneakEvent
     public PlayerSneakEvent(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
-
-    public static PlayerSneakEvent Create(nint player) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 }

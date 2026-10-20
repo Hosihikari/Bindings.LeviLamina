@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class ServerCommandRegisterEvent
+public sealed unsafe partial class ServerCommandRegisterEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -16,9 +16,20 @@ public sealed unsafe partial class ServerCommandRegisterEvent
 
     public bool isClientHostedServer()
     {
-        return NativeMethods.TablePtr->f613((void*)_handle);
+        return NativeMethods.TablePtr->f2436((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2437((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2435((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

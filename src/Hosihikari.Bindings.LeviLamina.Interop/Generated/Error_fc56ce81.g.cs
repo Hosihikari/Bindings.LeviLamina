@@ -40,21 +40,29 @@ public sealed unsafe partial class Error : global::System.IDisposable
     public nint log_24ce3688(nint arg0, nint arg1) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint log_ecc40f03(nint arg0, nint locale, nint arg2) =>
+    public nint log(nint arg0, nint locale, nint arg2) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint log_4962dd8b(nint @out, nint locale) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint log_e159e652(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, int arg1)
+    {
+        return (nint)NativeMethods.TablePtr->f2((void*)_handle, (void*)arg0.Handle, arg1);
+    }
 
-    public nint log_909c5e3f(nint arg0, nint locale, nint arg2) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, string locale, int arg2)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(locale);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return (nint)NativeMethods.TablePtr->f3((void*)_handle, (void*)arg0.Handle, __hs_stringData, (nuint)__hs_stringBytes.Length, arg2);
+        }
+    }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f2((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f4((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -63,14 +71,14 @@ public sealed unsafe partial class Error : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_view = NativeMethods.TablePtr->f3((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            var __hs_view = NativeMethods.TablePtr->f5((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f4((void*)_handle);
+        return NativeMethods.TablePtr->f6((void*)_handle);
     }
 
     public nint operator_unexpected_type() =>

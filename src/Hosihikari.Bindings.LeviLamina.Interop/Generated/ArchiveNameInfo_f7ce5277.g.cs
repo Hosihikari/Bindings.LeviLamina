@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 
-public sealed unsafe partial class ArchiveNameInfo
+public sealed unsafe partial class ArchiveNameInfo : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,19 +13,28 @@ public sealed unsafe partial class ArchiveNameInfo
 
     public ulong index
     {
-        get => NativeMethods.TablePtr->f664((void*)_handle);
-        set => NativeMethods.TablePtr->f665((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2504((void*)_handle);
+        set => NativeMethods.TablePtr->f2505((void*)_handle, value);
     }
 
-    public nint interval
+    public int interval
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => NativeMethods.TablePtr->f2506((void*)_handle);
+        set => NativeMethods.TablePtr->f2507((void*)_handle, value);
     }
 
     public nint time
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2508((void*)_handle);
+        set => NativeMethods.TablePtr->f2509((void*)_handle, (void*)value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2503((void*)_handle);
+            _handle = 0;
+        }
     }
 }

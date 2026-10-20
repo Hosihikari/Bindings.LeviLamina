@@ -25,11 +25,13 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint closeButton()
     {
-        return (nint)NativeMethods.TablePtr->f828((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2780((void*)_handle);
     }
 
-    public nint divider(nint options) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint divider(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.DividerOptions options)
+    {
+        return (nint)NativeMethods.TablePtr->f2781((void*)_handle, (void*)options.Handle);
+    }
 
     public nint dropdown(nint label, nint value, nint items, nint options) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -39,7 +41,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f829((void*)_handle);
+        return NativeMethods.TablePtr->f2782((void*)_handle);
     }
 
     public nint label(nint text, nint options) =>
@@ -57,8 +59,10 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     public nint slider(nint label, nint value, nint min, nint max, nint options) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint spacer(nint options) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint spacer(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.SpacingOptions options)
+    {
+        return (nint)NativeMethods.TablePtr->f2783((void*)_handle, (void*)options.Handle);
+    }
 
     public nint textField(nint label, nint text, nint options) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -71,7 +75,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f827((void*)_handle);
+            NativeMethods.TablePtr->f2779((void*)_handle);
             _handle = 0;
         }
     }

@@ -11,16 +11,8 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
 
     public nint Handle => _handle;
 
-    public static Observable_ll__ui__UIRawMessage_ Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_ll__ui__UIRawMessage_ arg0)
-    {
-        var handle = NativeMethods.TablePtr->f464((void*)arg0.Handle);
-        if (handle == null)
-        {
-            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
-        }
-
-        return new Observable_ll__ui__UIRawMessage_((nint)handle);
-    }
+    public static Observable_ll__ui__UIRawMessage_ Create_355fb239(nint arg0) =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public static Observable_ll__ui__UIRawMessage_ Create_a2d09c48(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -28,8 +20,10 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
     public static Observable_ll__ui__UIRawMessage_ Create_e7f8498b(nint initial) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getData() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage getData()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2162((void*)_handle));
+    }
 
     public nint operator_assign_3295b9f8(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -37,22 +31,24 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
     public nint operator_assign_a165cd1b(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void setData(nint value) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void setData(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage value)
+    {
+        NativeMethods.TablePtr->f2163((void*)_handle, (void*)value.Handle);
+    }
 
     public uint subscribe(nint callback) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f465((void*)_handle, id);
+        return NativeMethods.TablePtr->f2164((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f463((void*)_handle);
+            NativeMethods.TablePtr->f2161((void*)_handle);
             _handle = 0;
         }
     }

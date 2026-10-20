@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed partial class ParamTraits_std__unique_ptr_Command__
+public sealed unsafe partial class ParamTraits_std__unique_ptr_Command__ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,9 +11,20 @@ public sealed partial class ParamTraits_std__unique_ptr_Command__
 
     public nint Handle => _handle;
 
-    public nint parseRule() =>
+    public static nint parseRule()
+    {
+        return (nint)NativeMethods.TablePtr->f1931();
+    }
+
+    public static nint parseRuleValue() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint parseRuleValue() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f1930((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

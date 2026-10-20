@@ -11,36 +11,23 @@ public sealed unsafe partial class ExecuteCommandEvent
 
     public nint Handle => _handle;
 
-    public static ExecuteCommandEvent Create(nint minecraftCommands, nint commandContext, nint suppressOutput) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint commandContext()
     {
-        return (nint)NativeMethods.TablePtr->f575((void*)_handle);
-    }
-
-    public nint mCommandContext
-    {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-    }
-
-    public nint mSuppressOutput
-    {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        return (nint)NativeMethods.TablePtr->f2342((void*)_handle);
     }
 
     public nint minecraftCommands()
     {
-        return (nint)NativeMethods.TablePtr->f576((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2343((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2344((void*)_handle, (void*)arg0);
+    }
 
     public nint suppressOutput()
     {
-        return (nint)NativeMethods.TablePtr->f577((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2345((void*)_handle);
     }
 }

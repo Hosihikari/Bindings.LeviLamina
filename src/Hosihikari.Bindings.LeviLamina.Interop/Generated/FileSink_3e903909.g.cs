@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 
-public sealed partial class FileSink
+public sealed unsafe partial class FileSink : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,24 +14,41 @@ public sealed partial class FileSink
     public static FileSink Create(nint path, nint formatter, nint policy) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void append(nint view) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void append(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessageView view)
+    {
+        NativeMethods.TablePtr->f2514((void*)_handle, (void*)view.Handle);
+    }
 
-    public void flush() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void flush()
+    {
+        NativeMethods.TablePtr->f2515((void*)_handle);
+    }
 
-    public void rotate() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void rotate()
+    {
+        NativeMethods.TablePtr->f2516((void*)_handle);
+    }
 
-    public void setFlushLevel(nint level) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void setFlushLevel(int level)
+    {
+        NativeMethods.TablePtr->f2517((void*)_handle, level);
+    }
 
     public void setFormatter(nint fmter) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void setPolicy(nint policy) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void setPolicy(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotatePolicy policy)
+    {
+        NativeMethods.TablePtr->f2518((void*)_handle, (void*)policy.Handle);
+    }
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2513((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

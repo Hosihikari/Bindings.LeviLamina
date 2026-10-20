@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 
-public sealed partial class Logger
+public sealed unsafe partial class Logger : global::System.IDisposable
 {
     private nint _handle;
 
@@ -17,57 +17,121 @@ public sealed partial class Logger
     public ulong addSink(nint sink) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void clearSink() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void clearSink()
+    {
+        NativeMethods.TablePtr->f2534((void*)_handle);
+    }
 
-    public void debug(nint msg) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void debug(string msg)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            NativeMethods.TablePtr->f2535((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
 
-    public void error(nint msg) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void error(string msg)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            NativeMethods.TablePtr->f2536((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
 
-    public void fatal(nint msg) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void fatal(string msg)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            NativeMethods.TablePtr->f2537((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
 
-    public void flush() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void flush()
+    {
+        NativeMethods.TablePtr->f2538((void*)_handle);
+    }
 
-    public nint getLevel() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public int getLevel()
+    {
+        return NativeMethods.TablePtr->f2539((void*)_handle);
+    }
 
     public nint getSink(ulong index) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getTitle() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public string getTitle()
+    {
+        var __hs_view = NativeMethods.TablePtr->f2540((void*)_handle);
+        return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
+    }
 
-    public void info(nint msg) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void info(string msg)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            NativeMethods.TablePtr->f2541((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
 
-    public void log(nint level, nint msg) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void log(int level, string msg)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            NativeMethods.TablePtr->f2542((void*)_handle, level, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
 
-    public void setFlushLevel(nint level) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void setFlushLevel(int level)
+    {
+        NativeMethods.TablePtr->f2543((void*)_handle, level);
+    }
 
     public void setFormatter(nint formatter) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void setLevel(nint level) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void setLevel(int level)
+    {
+        NativeMethods.TablePtr->f2544((void*)_handle, level);
+    }
 
-    public bool shouldLog(nint level) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool shouldLog(int level)
+    {
+        return NativeMethods.TablePtr->f2545((void*)_handle, level);
+    }
 
     public nint sinks() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void trace(nint msg) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void trace(string msg)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            NativeMethods.TablePtr->f2546((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
 
-    public void warn(nint msg) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void warn(string msg)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            NativeMethods.TablePtr->f2547((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2533((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

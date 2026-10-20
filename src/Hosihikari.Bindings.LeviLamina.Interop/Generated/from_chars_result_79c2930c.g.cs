@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail;
 
-public sealed partial class from_chars_result
+public sealed unsafe partial class from_chars_result : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,9 +11,22 @@ public sealed partial class from_chars_result
 
     public nint Handle => _handle;
 
-    public bool operator_bool() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool operator_bool()
+    {
+        return NativeMethods.TablePtr->f2225((void*)_handle);
+    }
 
-    public void value() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void value()
+    {
+        NativeMethods.TablePtr->f2226((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2224((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

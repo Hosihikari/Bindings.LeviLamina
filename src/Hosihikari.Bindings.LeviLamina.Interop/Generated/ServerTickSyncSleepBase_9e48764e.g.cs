@@ -14,24 +14,12 @@ public sealed unsafe partial class ServerTickSyncSleepBase : global::System.IDis
     public static ServerTickSyncSleepBase Create() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void check() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public void interruptImpl() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint @lock() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public void sleepImpl(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f821((void*)_handle);
+            NativeMethods.TablePtr->f2769((void*)_handle);
             _handle = 0;
         }
     }

@@ -11,73 +11,36 @@ public sealed unsafe partial class SpawnMobEvent
 
     public nint Handle => _handle;
 
-    public static SpawnMobEvent Create(nint blockSource, nint identifier, nint spawner, nint pos, nint naturalSpawn, nint surface, nint fromSpawner) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint fromSpawner()
     {
-        return (nint)NativeMethods.TablePtr->f618((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2449((void*)_handle);
     }
 
     public nint identifier()
     {
-        return (nint)NativeMethods.TablePtr->f619((void*)_handle);
-    }
-
-    public nint mFromSpawner
-    {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-    }
-
-    public nint mIdentifier
-    {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-    }
-
-    public nint mNaturalSpawn
-    {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-    }
-
-    public nint mPos
-    {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-    }
-
-    public nint mSpawner
-    {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-    }
-
-    public nint mSurface
-    {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        return (nint)NativeMethods.TablePtr->f2450((void*)_handle);
     }
 
     public nint naturalSpawn()
     {
-        return (nint)NativeMethods.TablePtr->f620((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2451((void*)_handle);
     }
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f621((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2452((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2453((void*)_handle, (void*)arg0);
+    }
 
     public nint spawner() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint surface()
     {
-        return (nint)NativeMethods.TablePtr->f622((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2454((void*)_handle);
     }
 }

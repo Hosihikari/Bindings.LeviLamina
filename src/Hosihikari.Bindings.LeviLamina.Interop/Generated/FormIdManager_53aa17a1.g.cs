@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.form;
 
-public sealed unsafe partial class FormIdManager
+public sealed unsafe partial class FormIdManager : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,8 +11,17 @@ public sealed unsafe partial class FormIdManager
 
     public nint Handle => _handle;
 
-    public uint genFormId()
+    public static uint genFormId()
     {
-        return NativeMethods.TablePtr->f636((void*)_handle);
+        return NativeMethods.TablePtr->f2474();
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2473((void*)_handle);
+            _handle = 0;
+        }
     }
 }

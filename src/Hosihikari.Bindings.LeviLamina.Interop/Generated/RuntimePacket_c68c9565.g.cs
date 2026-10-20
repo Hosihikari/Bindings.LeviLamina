@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.network;
 
-public sealed partial class RuntimePacket
+public sealed unsafe partial class RuntimePacket : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,8 +11,16 @@ public sealed partial class RuntimePacket
 
     public nint Handle => _handle;
 
-    public static RuntimePacket Create() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static RuntimePacket Create()
+    {
+        var handle = NativeMethods.TablePtr->f2706();
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new RuntimePacket((nint)handle);
+    }
 
     public static RuntimePacket Create_2484f5c9(nint packet) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -23,18 +31,33 @@ public sealed partial class RuntimePacket
     public nint getPacket() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public ulong getRuntimeId() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public ulong getRuntimeId()
+    {
+        return NativeMethods.TablePtr->f2707((void*)_handle);
+    }
 
-    public bool hasPacket() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool hasPacket()
+    {
+        return NativeMethods.TablePtr->f2708((void*)_handle);
+    }
 
-    public bool isOwned() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool isOwned()
+    {
+        return NativeMethods.TablePtr->f2709((void*)_handle);
+    }
 
     public void movePacket(nint newPacket) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint releasePacket() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2705((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

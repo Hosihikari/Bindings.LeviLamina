@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed unsafe partial class ParamStorageType
+public sealed unsafe partial class ParamStorageType : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,11 +13,20 @@ public sealed unsafe partial class ParamStorageType
 
     public bool hold(ulong kind)
     {
-        return NativeMethods.TablePtr->f358((void*)_handle, kind);
+        return NativeMethods.TablePtr->f1906((void*)_handle, kind);
     }
 
     public ulong index()
     {
-        return NativeMethods.TablePtr->f359((void*)_handle);
+        return NativeMethods.TablePtr->f1907((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f1905((void*)_handle);
+            _handle = 0;
+        }
     }
 }

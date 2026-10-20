@@ -11,14 +11,13 @@ public sealed unsafe partial class WorldEvent
 
     public nint Handle => _handle;
 
-    public static WorldEvent Create(nint blockSource) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint blockSource()
     {
-        return (nint)NativeMethods.TablePtr->f626((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2462((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2463((void*)_handle, (void*)arg0);
+    }
 }

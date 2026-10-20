@@ -13,7 +13,7 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
 
     public static PreRelease Create()
     {
-        var handle = NativeMethods.TablePtr->f473();
+        var handle = NativeMethods.TablePtr->f2170();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +27,7 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(str);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f474(__hs_stringData, (nuint)__hs_stringBytes.Length);
+            var handle = NativeMethods.TablePtr->f2171(__hs_stringData, (nuint)__hs_stringBytes.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -37,39 +37,46 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
         }
     }
 
-    public nint from_chars(nint first, nint last) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result from_chars(nint first, nint last)
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result((nint)NativeMethods.TablePtr->f2172((void*)_handle, (void*)first, (void*)last));
+    }
 
     public nint from_string(string str)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(str);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f475((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2173((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
-    public nint from_string_noexcept(nint str) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result from_string_noexcept(string str)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(str);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result((nint)NativeMethods.TablePtr->f2174((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length));
+        }
+    }
 
     public nint operator_compare(nint other) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.PreRelease other)
     {
-        return NativeMethods.TablePtr->f476((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2175((void*)_handle, (void*)other.Handle);
     }
 
     public string to_string()
     {
-        var __hs_view = NativeMethods.TablePtr->f477((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2176((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint values
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2177((void*)_handle);
     }
 
 
@@ -77,7 +84,7 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f472((void*)_handle);
+            NativeMethods.TablePtr->f2169((void*)_handle);
             _handle = 0;
         }
     }

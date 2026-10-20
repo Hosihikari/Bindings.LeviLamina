@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.memory;
 
-public sealed unsafe partial class Signature
+public sealed unsafe partial class Signature : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,12 +11,20 @@ public sealed unsafe partial class Signature
 
     public nint Handle => _handle;
 
-    public static Signature Create_246fa34b(nint view) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static Signature Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView view)
+    {
+        var handle = NativeMethods.TablePtr->f2606((void*)view.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new Signature((nint)handle);
+    }
 
     public nint back()
     {
-        return (nint)NativeMethods.TablePtr->f713((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2607((void*)_handle);
     }
 
     public nint begin() =>
@@ -27,27 +35,44 @@ public sealed unsafe partial class Signature
 
     public nint front()
     {
-        return (nint)NativeMethods.TablePtr->f714((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2608((void*)_handle);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature other)
     {
-        return NativeMethods.TablePtr->f715((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2609((void*)_handle, (void*)other.Handle);
     }
 
     public nint operator_index(ulong idx)
     {
-        return (nint)NativeMethods.TablePtr->f716((void*)_handle, idx);
+        return (nint)NativeMethods.TablePtr->f2610((void*)_handle, idx);
     }
 
-    public nint parse(nint str) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature parse(string str)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(str);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature((nint)NativeMethods.TablePtr->f2611(__hs_stringData, (nuint)__hs_stringBytes.Length));
+        }
+    }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f717((void*)_handle);
+        return NativeMethods.TablePtr->f2612((void*)_handle);
     }
 
-    public nint view() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView view()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView((nint)NativeMethods.TablePtr->f2613((void*)_handle));
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2605((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

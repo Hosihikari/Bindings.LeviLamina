@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.coro;
 
-public sealed unsafe partial class CoroPromise_void_ : global::System.IDisposable
+public sealed partial class CoroPromise_void_
 {
     private nint _handle;
 
@@ -11,16 +11,8 @@ public sealed unsafe partial class CoroPromise_void_ : global::System.IDisposabl
 
     public nint Handle => _handle;
 
-    public static CoroPromise_void_ Create()
-    {
-        var handle = NativeMethods.TablePtr->f389();
-        if (handle == null)
-        {
-            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
-        }
-
-        return new CoroPromise_void_((nint)handle);
-    }
+    public static CoroPromise_void_ Create() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint get_return_object() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -31,32 +23,15 @@ public sealed unsafe partial class CoroPromise_void_ : global::System.IDisposabl
         set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
     }
 
-    public nint result_1145ec13()
-    {
-        return (nint)NativeMethods.TablePtr->f390((void*)_handle);
-    }
+    public nint result_1145ec13() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint result_f0b52816()
-    {
-        return (nint)NativeMethods.TablePtr->f391((void*)_handle);
-    }
+    public nint result_f0b52816() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void return_void()
-    {
-        NativeMethods.TablePtr->f392((void*)_handle);
-    }
+    public void return_void() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void unhandled_exception()
-    {
-        NativeMethods.TablePtr->f393((void*)_handle);
-    }
-
-    public void Dispose()
-    {
-        if (_handle != 0)
-        {
-            NativeMethods.TablePtr->f388((void*)_handle);
-            _handle = 0;
-        }
-    }
+    public void unhandled_exception() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 }

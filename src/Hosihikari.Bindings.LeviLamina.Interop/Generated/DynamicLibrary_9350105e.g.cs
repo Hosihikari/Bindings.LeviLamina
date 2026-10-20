@@ -13,7 +13,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
 
     public static DynamicLibrary Create()
     {
-        var handle = NativeMethods.TablePtr->f808();
+        var handle = NativeMethods.TablePtr->f2754();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -22,8 +22,16 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
         return new DynamicLibrary((nint)handle);
     }
 
-    public static DynamicLibrary Create_0f3f9b13(nint path) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static DynamicLibrary Create_0f3f9b13(nint path)
+    {
+        var handle = NativeMethods.TablePtr->f2755((void*)path);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new DynamicLibrary((nint)handle);
+    }
 
     public static DynamicLibrary Create_7553eb45(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -31,12 +39,14 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
     public nint free() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getAddress(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint getAddress(nint name)
+    {
+        return (nint)NativeMethods.TablePtr->f2756((void*)_handle, (void*)name);
+    }
 
     public nint handle()
     {
-        return (nint)NativeMethods.TablePtr->f809((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2757((void*)_handle);
     }
 
     public nint load(nint path) =>
@@ -50,7 +60,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f807((void*)_handle);
+            NativeMethods.TablePtr->f2753((void*)_handle);
             _handle = 0;
         }
     }

@@ -29,17 +29,17 @@ public sealed unsafe partial class CommandRegistrar
     public nint executeCommand(nint commandStr, nint origin, nint outputType, nint version) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getInstance(bool isClientSide)
+    public static nint getInstance(bool isClientSide)
     {
-        return (nint)NativeMethods.TablePtr->f353((void*)_handle, isClientSide);
+        return (nint)NativeMethods.TablePtr->f1880(isClientSide);
     }
 
     public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getServerInstance()
+    public static nint getServerInstance()
     {
-        return (nint)NativeMethods.TablePtr->f354((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1881();
     }
 
     public bool hasEnum(string name)
@@ -47,7 +47,7 @@ public sealed unsafe partial class CommandRegistrar
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f355((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f1882((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -56,7 +56,7 @@ public sealed unsafe partial class CommandRegistrar
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f356((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f1883((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 

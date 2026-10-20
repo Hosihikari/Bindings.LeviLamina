@@ -35,7 +35,7 @@ public sealed class ShimSmokePlugin : IPlugin
             using var version = LlVersion.Create("1.2.3");
             log.AppendLine($"version.to_string={version.to_string()}");
             log.AppendLine($"version.fields={version.major}.{version.minor}.{version.patch}");
-            log.AppendLine($"version.valid={version.valid("1.2.3")}");
+            log.AppendLine($"version.valid={LlVersion.valid("1.2.3")}");
 
             using var error = Error.Create();
             log.AppendLine($"error.bool={error.operator_bool()}");

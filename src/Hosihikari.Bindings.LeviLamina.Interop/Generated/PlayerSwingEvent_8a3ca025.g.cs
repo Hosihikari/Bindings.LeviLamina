@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed partial class PlayerSwingEvent
+public sealed unsafe partial class PlayerSwingEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,4 +13,13 @@ public sealed partial class PlayerSwingEvent
 
     public static PlayerSwingEvent Create(nint player) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2431((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

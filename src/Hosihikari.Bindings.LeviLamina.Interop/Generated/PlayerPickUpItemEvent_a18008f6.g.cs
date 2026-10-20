@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class PlayerPickUpItemEvent
+public sealed unsafe partial class PlayerPickUpItemEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,24 +14,37 @@ public sealed unsafe partial class PlayerPickUpItemEvent
     public static PlayerPickUpItemEvent Create(nint player, nint itemActor, nint orgCount, nint favoredSlot) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void deserialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void deserialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2412((void*)_handle, (void*)arg0);
+    }
 
     public nint favoredSlot()
     {
-        return (nint)NativeMethods.TablePtr->f606((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2413((void*)_handle);
     }
 
     public nint itemActor()
     {
-        return (nint)NativeMethods.TablePtr->f607((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2414((void*)_handle);
     }
 
     public nint orgCount()
     {
-        return (nint)NativeMethods.TablePtr->f608((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2415((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2416((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2411((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

@@ -11,12 +11,9 @@ public sealed partial class Form
 
     public nint Handle => _handle;
 
-    public bool sendRawTo(nint player, nint formData, nint callback) =>
+    public static bool sendRawTo(nint player, nint formData, nint callback) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public bool sendRawUpdate(nint player, nint formData, nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public void Destroy() =>
+    public static bool sendRawUpdate(nint player, nint formData, nint callback) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 }

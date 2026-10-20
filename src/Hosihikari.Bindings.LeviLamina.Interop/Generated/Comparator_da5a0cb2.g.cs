@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data.VersionRequirement_Nested;
 
-public sealed unsafe partial class Comparator
+public sealed unsafe partial class Comparator : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,20 +11,29 @@ public sealed unsafe partial class Comparator
 
     public nint Handle => _handle;
 
-    public nint operation
+    public byte operation
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => NativeMethods.TablePtr->f2215((void*)_handle);
+        set => NativeMethods.TablePtr->f2216((void*)_handle, value);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.VersionRequirement_Nested.Comparator arg0)
     {
-        return NativeMethods.TablePtr->f507((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->f2217((void*)_handle, (void*)arg0.Handle);
     }
 
     public nint version
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2218((void*)_handle);
+        set => NativeMethods.TablePtr->f2219((void*)_handle, (void*)value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2214((void*)_handle);
+            _handle = 0;
+        }
     }
 }

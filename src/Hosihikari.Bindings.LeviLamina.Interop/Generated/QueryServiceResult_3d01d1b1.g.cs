@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.service;
 
-public sealed unsafe partial class QueryServiceResult
+public sealed unsafe partial class QueryServiceResult : global::System.IDisposable
 {
     private nint _handle;
 
@@ -15,7 +15,7 @@ public sealed unsafe partial class QueryServiceResult
     {
         get
         {
-            var view = NativeMethods.TablePtr->f786((void*)_handle);
+            var view = NativeMethods.TablePtr->f2723((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -24,20 +24,28 @@ public sealed unsafe partial class QueryServiceResult
     {
         get
         {
-            var view = NativeMethods.TablePtr->f787((void*)_handle);
+            var view = NativeMethods.TablePtr->f2724((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint service
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2725((void*)_handle);
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f788((void*)_handle);
-        set => NativeMethods.TablePtr->f789((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2726((void*)_handle);
+        set => NativeMethods.TablePtr->f2727((void*)_handle, value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2722((void*)_handle);
+            _handle = 0;
+        }
     }
 }

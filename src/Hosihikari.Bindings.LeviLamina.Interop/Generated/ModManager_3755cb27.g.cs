@@ -11,32 +11,17 @@ public sealed unsafe partial class ModManager
 
     public nint Handle => _handle;
 
-    public static ModManager Create(nint type) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public void addMod(nint name, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint disable(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint enable(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public void eraseMod(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint getMod(nint name) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public ulong getModCount()
     {
-        return NativeMethods.TablePtr->f761((void*)_handle);
+        return NativeMethods.TablePtr->f2682((void*)_handle);
     }
 
     public string getType()
     {
-        var __hs_view = NativeMethods.TablePtr->f762((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2683((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -45,22 +30,10 @@ public sealed unsafe partial class ModManager
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f763((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2684((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
-    public nint load(nint manifest) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint @lock() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint mods() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint unload(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public void Destroy() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 }

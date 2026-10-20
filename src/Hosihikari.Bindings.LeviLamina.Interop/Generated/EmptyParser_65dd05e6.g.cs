@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed partial class EmptyParser
+public sealed unsafe partial class EmptyParser : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,4 +13,13 @@ public sealed partial class EmptyParser
 
     public bool operator_call(nint arg0, nint arg1, nint arg2, nint arg3, int arg4, nint arg5, nint arg6) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f1884((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

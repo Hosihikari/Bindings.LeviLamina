@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed partial class TypedStorageImpl_8ULL__16ULL__Json__Value_
+public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__Json__Value_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -19,45 +19,60 @@ public sealed partial class TypedStorageImpl_8ULL__16ULL__Json__Value_
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f615((void*)_handle);
     }
 
     public nint get_fe740cc4() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_01161bff() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_01161bff()
+    {
+        return (nint)NativeMethods.TablePtr->f616((void*)_handle);
+    }
 
     public nint get_dfb8ac98() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_c929c60a() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_c929c60a()
+    {
+        return (nint)NativeMethods.TablePtr->f617((void*)_handle);
+    }
 
-    public nint operator_Json__Value__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_Json__Value__()
+    {
+        return (nint)NativeMethods.TablePtr->f618((void*)_handle);
+    }
 
-    public nint operator_const_Json__Value__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_const_Json__Value__()
+    {
+        return (nint)NativeMethods.TablePtr->f619((void*)_handle);
+    }
 
     public nint operator_multiply_48709b1e() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_6bc34dd4() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_6bc34dd4()
+    {
+        return (nint)NativeMethods.TablePtr->f620((void*)_handle);
+    }
 
     public nint operator_multiply_2e3f3f93() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_8b0a143c() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_8b0a143c()
+    {
+        return (nint)NativeMethods.TablePtr->f621((void*)_handle);
+    }
 
-    public nint operator_operator___6aafda47() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___6aafda47()
+    {
+        return (nint)NativeMethods.TablePtr->f622((void*)_handle);
+    }
 
-    public nint operator_operator___28f9826f() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___28f9826f()
+    {
+        return (nint)NativeMethods.TablePtr->f623((void*)_handle);
+    }
 
     public nint operator_assign_fe888a25(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -65,6 +80,13 @@ public sealed partial class TypedStorageImpl_8ULL__16ULL__Json__Value_
     public nint operator_assign_dfcc5db1(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f614((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

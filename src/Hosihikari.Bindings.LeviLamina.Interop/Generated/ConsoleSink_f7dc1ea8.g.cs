@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 
-public sealed partial class ConsoleSink
+public sealed unsafe partial class ConsoleSink : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,15 +11,32 @@ public sealed partial class ConsoleSink
 
     public nint Handle => _handle;
 
-    public static ConsoleSink Create() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static ConsoleSink Create()
+    {
+        var handle = NativeMethods.TablePtr->f2511();
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new ConsoleSink((nint)handle);
+    }
 
     public static ConsoleSink Create(nint formatter) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void append(nint view) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void append(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessageView view)
+    {
+        NativeMethods.TablePtr->f2512((void*)_handle, (void*)view.Handle);
+    }
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2510((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

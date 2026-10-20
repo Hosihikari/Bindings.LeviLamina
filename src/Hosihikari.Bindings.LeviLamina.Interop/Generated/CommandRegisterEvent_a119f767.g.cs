@@ -11,14 +11,13 @@ public sealed unsafe partial class CommandRegisterEvent
 
     public nint Handle => _handle;
 
-    public static CommandRegisterEvent Create(nint commandRegistry) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint commandRegistry()
     {
-        return (nint)NativeMethods.TablePtr->f551((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2304((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2305((void*)_handle, (void*)arg0);
+    }
 }

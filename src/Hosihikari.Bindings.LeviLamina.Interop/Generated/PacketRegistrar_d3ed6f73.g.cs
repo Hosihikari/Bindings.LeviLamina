@@ -17,9 +17,9 @@ public sealed unsafe partial class PacketRegistrar
     public nint getHandler(ulong runtimeId) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getInstance()
+    public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f776((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2704();
     }
 
     public bool registerHandler(nint name, ulong id, nint handler) =>

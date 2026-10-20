@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_ : global::System.IDisposable
+public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_
 {
     private nint _handle;
 
@@ -13,16 +13,9 @@ public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent
 
     public void call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event @event)
     {
-        NativeMethods.TablePtr->f589((void*)_handle, (void*)@event.Handle);
+        NativeMethods.TablePtr->f2368((void*)_handle, (void*)@event.Handle);
     }
 
-
-    public void Dispose()
-    {
-        if (_handle != 0)
-        {
-            NativeMethods.TablePtr->f588((void*)_handle);
-            _handle = 0;
-        }
-    }
+    public void Destroy() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 }

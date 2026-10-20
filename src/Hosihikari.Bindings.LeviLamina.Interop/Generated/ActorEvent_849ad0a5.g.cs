@@ -11,14 +11,13 @@ public sealed unsafe partial class ActorEvent
 
     public nint Handle => _handle;
 
-    public static ActorEvent Create(nint actor) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint self()
     {
-        return (nint)NativeMethods.TablePtr->f514((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2231((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2232((void*)_handle, (void*)arg0);
+    }
 }

@@ -11,14 +11,13 @@ public sealed unsafe partial class LevelEvent
 
     public nint Handle => _handle;
 
-    public static LevelEvent Create(nint level) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint level()
     {
-        return (nint)NativeMethods.TablePtr->f582((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2356((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2357((void*)_handle, (void*)arg0);
+    }
 }

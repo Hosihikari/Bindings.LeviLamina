@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 
-public sealed partial class SinkBase
+public sealed unsafe partial class SinkBase : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,15 +14,26 @@ public sealed partial class SinkBase
     public void append(nint view) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void flush() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void flush()
+    {
+        NativeMethods.TablePtr->f2583((void*)_handle);
+    }
 
-    public void setFlushLevel(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void setFlushLevel(int arg0)
+    {
+        NativeMethods.TablePtr->f2584((void*)_handle, arg0);
+    }
 
     public void setFormatter(nint fmter) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2582((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

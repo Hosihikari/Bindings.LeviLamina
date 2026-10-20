@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class SpawningMobEvent
+public sealed unsafe partial class SpawningMobEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,21 +14,32 @@ public sealed unsafe partial class SpawningMobEvent
     public static SpawningMobEvent Create(nint blockSource, nint identifier, nint spawner, nint pos, nint naturalSpawn, nint surface, nint fromSpawner) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void deserialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void deserialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2458((void*)_handle, (void*)arg0);
+    }
 
     public nint fromSpawner()
     {
-        return (nint)NativeMethods.TablePtr->f623((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2459((void*)_handle);
     }
 
     public nint naturalSpawn()
     {
-        return (nint)NativeMethods.TablePtr->f624((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2460((void*)_handle);
     }
 
     public nint surface()
     {
-        return (nint)NativeMethods.TablePtr->f625((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2461((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2457((void*)_handle);
+            _handle = 0;
+        }
     }
 }

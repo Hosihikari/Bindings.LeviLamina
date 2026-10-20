@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class EventIdView
+public sealed unsafe partial class EventIdView : global::System.IDisposable
 {
     private nint _handle;
 
@@ -21,8 +21,17 @@ public sealed unsafe partial class EventIdView
     {
         get
         {
-            var view = NativeMethods.TablePtr->f574((void*)_handle);
+            var view = NativeMethods.TablePtr->f2341((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
+        }
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2340((void*)_handle);
+            _handle = 0;
         }
     }
 }

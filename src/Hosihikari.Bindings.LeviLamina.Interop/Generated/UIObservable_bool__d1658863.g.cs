@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 
-public sealed unsafe partial class UIObservable_bool_
+public sealed unsafe partial class UIObservable_bool_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -16,6 +16,15 @@ public sealed unsafe partial class UIObservable_bool_
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->f850((void*)_handle);
+        return NativeMethods.TablePtr->f2836((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2835((void*)_handle);
+            _handle = 0;
+        }
     }
 }

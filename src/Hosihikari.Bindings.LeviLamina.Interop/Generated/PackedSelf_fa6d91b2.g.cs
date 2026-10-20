@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.memory.ClosureBase_Nested;
 
-public sealed unsafe partial class PackedSelf
+public sealed unsafe partial class PackedSelf : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,13 +13,21 @@ public sealed unsafe partial class PackedSelf
 
     public nint jitfn
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2594((void*)_handle);
     }
 
     public nint self
     {
-        get => (nint)NativeMethods.TablePtr->f703((void*)_handle);
-        set => NativeMethods.TablePtr->f704((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2595((void*)_handle);
+        set => NativeMethods.TablePtr->f2596((void*)_handle, (void*)value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2593((void*)_handle);
+            _handle = 0;
+        }
     }
 }

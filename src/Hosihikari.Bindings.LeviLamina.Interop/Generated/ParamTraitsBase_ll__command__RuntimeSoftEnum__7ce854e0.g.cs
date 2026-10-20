@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed unsafe partial class ParamTraitsBase_ll__command__RuntimeSoftEnum_
+public sealed unsafe partial class ParamTraitsBase_ll__command__RuntimeSoftEnum_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,35 +11,46 @@ public sealed unsafe partial class ParamTraitsBase_ll__command__RuntimeSoftEnum_
 
     public nint Handle => _handle;
 
-    public nint dataType() =>
+    public static nint dataType() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public string enumNameOrPostfix()
+    public static string enumNameOrPostfix()
     {
-        var __hs_view = NativeMethods.TablePtr->f372((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2049();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
-    public nint options() =>
+    public static nint options() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint parseFn() =>
+    public static nint parseFn() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint parseRule()
+    public static nint parseRule()
     {
-        return (nint)NativeMethods.TablePtr->f373((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2050();
     }
 
-    public string subChain()
+    public static string subChain()
     {
-        var __hs_view = NativeMethods.TablePtr->f374((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2051();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
-    public void transformData(nint arg0, nint arg1) =>
+    public static void transformData(nint arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar arg1)
+    {
+        NativeMethods.TablePtr->f2052((void*)arg0, (void*)arg1.Handle);
+    }
+
+    public static nint typeId() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint typeId() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2048((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

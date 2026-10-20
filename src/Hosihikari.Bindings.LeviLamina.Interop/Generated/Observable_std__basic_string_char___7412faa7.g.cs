@@ -11,38 +11,18 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public nint Handle => _handle;
 
-    public static Observable_std__basic_string_char__ Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_std__basic_string_char__ arg0)
-    {
-        var handle = NativeMethods.TablePtr->f467((void*)arg0.Handle);
-        if (handle == null)
-        {
-            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
-        }
-
-        return new Observable_std__basic_string_char__((nint)handle);
-    }
-
-    public static Observable_std__basic_string_char__ Create(nint arg0) =>
+    public static Observable_std__basic_string_char__ Create_eca58094(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public static Observable_std__basic_string_char__ Create(string initial)
-    {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(initial);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
-        {
-            var handle = NativeMethods.TablePtr->f468(__hs_stringData, (nuint)__hs_stringBytes.Length);
-            if (handle == null)
-            {
-                throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
-            }
+    public static Observable_std__basic_string_char__ Create_d9a2fa31(nint arg0) =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-            return new Observable_std__basic_string_char__((nint)handle);
-        }
-    }
+    public static Observable_std__basic_string_char__ Create_42eb507b(nint initial) =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public string getData()
     {
-        var __hs_view = NativeMethods.TablePtr->f469((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2166((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -57,7 +37,7 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(value);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            NativeMethods.TablePtr->f470((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            NativeMethods.TablePtr->f2167((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -66,14 +46,14 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f471((void*)_handle, id);
+        return NativeMethods.TablePtr->f2168((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f466((void*)_handle);
+            NativeMethods.TablePtr->f2165((void*)_handle);
             _handle = 0;
         }
     }

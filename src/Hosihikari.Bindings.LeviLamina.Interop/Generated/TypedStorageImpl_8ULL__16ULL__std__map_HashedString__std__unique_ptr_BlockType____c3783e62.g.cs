@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed partial class TypedStorageImpl_8ULL__16ULL__std__map_HashedString__std__unique_ptr_BlockType___
+public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__std__map_HashedString__std__unique_ptr_BlockType___
 {
     private nint _handle;
 
@@ -19,45 +19,60 @@ public sealed partial class TypedStorageImpl_8ULL__16ULL__std__map_HashedString_
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f679((void*)_handle);
     }
 
     public nint get_dc2a185c() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_03a2969e() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_03a2969e()
+    {
+        return (nint)NativeMethods.TablePtr->f680((void*)_handle);
+    }
 
     public nint get_da1302dd() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_eb7d5798() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_eb7d5798()
+    {
+        return (nint)NativeMethods.TablePtr->f681((void*)_handle);
+    }
 
-    public nint operator_const_std__map_HashedString__std__unique_ptr_BlockType_____() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_const_std__map_HashedString__std__unique_ptr_BlockType_____()
+    {
+        return (nint)NativeMethods.TablePtr->f682((void*)_handle);
+    }
 
-    public nint operator_std__map_HashedString__std__unique_ptr_BlockType_____() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_std__map_HashedString__std__unique_ptr_BlockType_____()
+    {
+        return (nint)NativeMethods.TablePtr->f683((void*)_handle);
+    }
 
     public nint operator_multiply_0de9d2a2() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_0b59fcf7() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_0b59fcf7()
+    {
+        return (nint)NativeMethods.TablePtr->f684((void*)_handle);
+    }
 
     public nint operator_multiply_a6fcc77c() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_e2a4eefe() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_e2a4eefe()
+    {
+        return (nint)NativeMethods.TablePtr->f685((void*)_handle);
+    }
 
-    public nint operator_operator___4ab65281() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___4ab65281()
+    {
+        return (nint)NativeMethods.TablePtr->f686((void*)_handle);
+    }
 
-    public nint operator_operator___5eb2aa87() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___5eb2aa87()
+    {
+        return (nint)NativeMethods.TablePtr->f687((void*)_handle);
+    }
 
     public nint operator_assign_f5c42275(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");

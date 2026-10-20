@@ -11,14 +11,13 @@ public sealed unsafe partial class PlayerPlaceBlockEvent
 
     public nint Handle => _handle;
 
-    public static PlayerPlaceBlockEvent Create(nint player, nint pos) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f609((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2417((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2418((void*)_handle, (void*)arg0);
+    }
 }

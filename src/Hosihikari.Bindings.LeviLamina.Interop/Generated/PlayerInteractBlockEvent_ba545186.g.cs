@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class PlayerInteractBlockEvent
+public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -19,24 +19,35 @@ public sealed unsafe partial class PlayerInteractBlockEvent
 
     public nint blockPos()
     {
-        return (nint)NativeMethods.TablePtr->f600((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2400((void*)_handle);
     }
 
     public nint clickPos()
     {
-        return (nint)NativeMethods.TablePtr->f601((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2401((void*)_handle);
     }
 
     public nint face()
     {
-        return (nint)NativeMethods.TablePtr->f602((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2402((void*)_handle);
     }
 
     public nint item()
     {
-        return (nint)NativeMethods.TablePtr->f603((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2403((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2404((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2399((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

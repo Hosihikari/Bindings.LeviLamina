@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed unsafe partial class TypedStorageImpl_8ULL__72ULL__std__condition_variable_ : global::System.IDisposable
+public sealed unsafe partial class TypedStorageImpl_8ULL__72ULL__std__condition_variable_
 {
     private nint _handle;
 
@@ -19,68 +19,59 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__72ULL__std__condition_
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f1665((void*)_handle);
     }
 
-    public nint get_59156a5a()
-    {
-        return (nint)NativeMethods.TablePtr->f275((void*)_handle);
-    }
+    public nint get_59156a5a() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint get_1ff74a5b()
     {
-        return (nint)NativeMethods.TablePtr->f276((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1666((void*)_handle);
     }
 
-    public nint get_5471bd85()
-    {
-        return (nint)NativeMethods.TablePtr->f277((void*)_handle);
-    }
+    public nint get_5471bd85() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint get_48de8abd()
     {
-        return (nint)NativeMethods.TablePtr->f278((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1667((void*)_handle);
     }
 
     public nint operator_const_std__condition_variable__()
     {
-        return (nint)NativeMethods.TablePtr->f279((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1668((void*)_handle);
     }
 
     public nint operator_std__condition_variable__()
     {
-        return (nint)NativeMethods.TablePtr->f280((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1669((void*)_handle);
     }
 
-    public nint operator_multiply_2a7f56e5()
-    {
-        return (nint)NativeMethods.TablePtr->f281((void*)_handle);
-    }
+    public nint operator_multiply_2a7f56e5() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint operator_multiply_2ce984a1()
     {
-        return (nint)NativeMethods.TablePtr->f282((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1670((void*)_handle);
     }
 
-    public nint operator_multiply_a3f8c0bd()
-    {
-        return (nint)NativeMethods.TablePtr->f283((void*)_handle);
-    }
+    public nint operator_multiply_a3f8c0bd() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint operator_multiply_33d1ec92()
     {
-        return (nint)NativeMethods.TablePtr->f284((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1671((void*)_handle);
     }
 
     public nint operator_operator___11e19798()
     {
-        return (nint)NativeMethods.TablePtr->f285((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1672((void*)_handle);
     }
 
     public nint operator_operator___250c9aa8()
     {
-        return (nint)NativeMethods.TablePtr->f286((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1673((void*)_handle);
     }
 
     public nint operator_assign_c3ddbc8f(nint u) =>
@@ -89,13 +80,6 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__72ULL__std__condition_
     public nint operator_assign_d29f13a5(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-
-    public void Dispose()
-    {
-        if (_handle != 0)
-        {
-            NativeMethods.TablePtr->f274((void*)_handle);
-            _handle = 0;
-        }
-    }
+    public void Destroy() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 }

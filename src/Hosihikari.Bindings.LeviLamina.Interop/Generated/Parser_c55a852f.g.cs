@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraits_ll__command__RuntimeEnum__Nested;
 
-public sealed partial class Parser
+public sealed unsafe partial class Parser : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,4 +13,13 @@ public sealed partial class Parser
 
     public bool operator_call(nint registry, nint storage, nint token, nint arg3, int arg4, nint arg5, nint arg6) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f1927((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

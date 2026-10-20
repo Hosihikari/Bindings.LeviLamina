@@ -22,7 +22,7 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
 
     public void release()
     {
-        NativeMethods.TablePtr->f414((void*)_handle);
+        NativeMethods.TablePtr->f2110((void*)_handle);
     }
 
 
@@ -30,7 +30,7 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f413((void*)_handle);
+            NativeMethods.TablePtr->f2109((void*)_handle);
             _handle = 0;
         }
     }

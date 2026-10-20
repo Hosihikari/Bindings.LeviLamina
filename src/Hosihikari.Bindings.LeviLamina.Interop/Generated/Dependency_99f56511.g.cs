@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.mod;
 
-public sealed unsafe partial class Dependency
+public sealed unsafe partial class Dependency : global::System.IDisposable
 {
     private nint _handle;
 
@@ -15,19 +15,27 @@ public sealed unsafe partial class Dependency
     {
         get
         {
-            var view = NativeMethods.TablePtr->f743((void*)_handle);
+            var view = NativeMethods.TablePtr->f2650((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Dependency other)
     {
-        return NativeMethods.TablePtr->f744((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2651((void*)_handle, (void*)other.Handle);
     }
 
     public nint version
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2652((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2649((void*)_handle);
+            _handle = 0;
+        }
     }
 }

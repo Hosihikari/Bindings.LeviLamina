@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.meta;
 
-public sealed partial class TypeList_EndTag__ByteTag__ShortTag__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringT_3432c82a
+public sealed unsafe partial class TypeList_EndTag__ByteTag__ShortTag__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringT_3432c82a : global::System.IDisposable
 {
     private nint _handle;
 
@@ -17,9 +17,17 @@ public sealed partial class TypeList_EndTag__ByteTag__ShortTag__IntTag__Int64Tag
         set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
     }
 
-    public static nint size
+    public static ulong size
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => NativeMethods.TablePtr->f2642();
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2641((void*)_handle);
+            _handle = 0;
+        }
     }
 }

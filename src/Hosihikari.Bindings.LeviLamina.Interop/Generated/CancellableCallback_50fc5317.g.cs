@@ -16,12 +16,12 @@ public sealed unsafe partial class CancellableCallback : global::System.IDisposa
 
     public bool call()
     {
-        return NativeMethods.TablePtr->f426((void*)_handle);
+        return NativeMethods.TablePtr->f2127((void*)_handle);
     }
 
     public bool cancel()
     {
-        return NativeMethods.TablePtr->f427((void*)_handle);
+        return NativeMethods.TablePtr->f2128((void*)_handle);
     }
 
 
@@ -29,7 +29,7 @@ public sealed unsafe partial class CancellableCallback : global::System.IDisposa
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f425((void*)_handle);
+            NativeMethods.TablePtr->f2126((void*)_handle);
             _handle = 0;
         }
     }

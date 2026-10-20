@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed partial class UntypedStorage_4ULL__4ULL_
+public sealed unsafe partial class UntypedStorage_4ULL__4ULL_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,7 +13,15 @@ public sealed partial class UntypedStorage_4ULL__4ULL_
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f1858((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f1857((void*)_handle);
+            _handle = 0;
+        }
     }
 }

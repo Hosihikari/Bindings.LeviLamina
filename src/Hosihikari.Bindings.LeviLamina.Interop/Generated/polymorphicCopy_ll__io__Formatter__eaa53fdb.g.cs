@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 
-public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_
+public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -19,9 +19,18 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_
 
     public nint operator_call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter t)
     {
-        return (nint)NativeMethods.TablePtr->f512((void*)_handle, (void*)t.Handle);
+        return (nint)NativeMethods.TablePtr->f2228((void*)_handle, (void*)t.Handle);
     }
 
     public static polymorphicCopy_ll__io__Formatter_ Create() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2227((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

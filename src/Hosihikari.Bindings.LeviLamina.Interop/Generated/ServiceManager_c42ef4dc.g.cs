@@ -11,9 +11,9 @@ public sealed unsafe partial class ServiceManager
 
     public nint Handle => _handle;
 
-    public nint getInstance()
+    public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f799((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2741();
     }
 
     public nint getService(nint id) =>
@@ -25,16 +25,18 @@ public sealed unsafe partial class ServiceManager
     public nint queryServices(nint name) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public bool registerService(nint service, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public bool registerService(nint service, nint mod)
+    {
+        return NativeMethods.TablePtr->f2742((void*)_handle, (void*)service, (void*)mod);
+    }
 
     public bool unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
     {
-        return NativeMethods.TablePtr->f800((void*)_handle, (void*)id.Handle);
+        return NativeMethods.TablePtr->f2743((void*)_handle, (void*)id.Handle);
     }
 
     public void unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Mod mod)
     {
-        NativeMethods.TablePtr->f801((void*)_handle, (void*)mod.Handle);
+        NativeMethods.TablePtr->f2744((void*)_handle, (void*)mod.Handle);
     }
 }

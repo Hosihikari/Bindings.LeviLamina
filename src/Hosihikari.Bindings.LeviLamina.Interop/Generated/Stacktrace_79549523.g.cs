@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed unsafe partial class Stacktrace
+public sealed unsafe partial class Stacktrace : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,29 +11,40 @@ public sealed unsafe partial class Stacktrace
 
     public nint Handle => _handle;
 
-    public nint current(ulong skip, ulong maxDepth) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.Stacktrace current(ulong skip, ulong maxDepth)
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Stacktrace((nint)NativeMethods.TablePtr->f27(skip, maxDepth));
+    }
 
     public bool empty()
     {
-        return NativeMethods.TablePtr->f18((void*)_handle);
+        return NativeMethods.TablePtr->f28((void*)_handle);
     }
 
-    public nint fromThread(nint id) =>
+    public static nint fromThread(nint id) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public ulong getHash()
     {
-        return NativeMethods.TablePtr->f19((void*)_handle);
+        return NativeMethods.TablePtr->f29((void*)_handle);
     }
 
     public nint operator_index(ulong index)
     {
-        return (nint)NativeMethods.TablePtr->f20((void*)_handle, index);
+        return (nint)NativeMethods.TablePtr->f30((void*)_handle, index);
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f21((void*)_handle);
+        return NativeMethods.TablePtr->f31((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f26((void*)_handle);
+            _handle = 0;
+        }
     }
 }

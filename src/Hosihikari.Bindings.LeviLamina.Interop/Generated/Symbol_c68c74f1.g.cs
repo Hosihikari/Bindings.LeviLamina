@@ -16,7 +16,7 @@ public sealed unsafe partial class Symbol : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(symbol);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f737(__hs_stringData, (nuint)__hs_stringBytes.Length);
+            var handle = NativeMethods.TablePtr->f2633(__hs_stringData, (nuint)__hs_stringBytes.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,17 +28,19 @@ public sealed unsafe partial class Symbol : global::System.IDisposable
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f738((void*)_handle);
+        return NativeMethods.TablePtr->f2634((void*)_handle);
     }
 
-    public nint view() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView view()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView((nint)NativeMethods.TablePtr->f2635((void*)_handle));
+    }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f736((void*)_handle);
+            NativeMethods.TablePtr->f2632((void*)_handle);
             _handle = 0;
         }
     }

@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class PlayerChatEvent
+public sealed unsafe partial class PlayerChatEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,15 +14,28 @@ public sealed unsafe partial class PlayerChatEvent
     public static PlayerChatEvent Create(nint player, nint message) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void deserialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void deserialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2382((void*)_handle, (void*)arg0);
+    }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f594((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2383((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2384((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2381((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

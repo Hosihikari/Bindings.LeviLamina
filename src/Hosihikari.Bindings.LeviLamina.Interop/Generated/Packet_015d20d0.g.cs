@@ -19,31 +19,27 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public ulong getRuntimeId()
     {
-        return NativeMethods.TablePtr->f773((void*)_handle);
+        return NativeMethods.TablePtr->f2695((void*)_handle);
     }
 
     public nint mCompressible
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2696((void*)_handle);
     }
 
     public nint mPriority
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2697((void*)_handle);
     }
 
     public nint mReliability
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2698((void*)_handle);
     }
 
     public nint mSenderSubId
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2699((void*)_handle);
     }
 
     public nint read(nint arg0) =>
@@ -55,18 +51,22 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     public void sendTo(nint pos, nint dimId, nint except) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void sendTo(nint player) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void sendTo(nint player)
+    {
+        NativeMethods.TablePtr->f2700((void*)_handle, (void*)player);
+    }
 
     public void sendToClient(nint identifier, nint clientId) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void sendToClient(nint identifierWithSubId) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void sendToClient(nint identifierWithSubId)
+    {
+        NativeMethods.TablePtr->f2701((void*)_handle, (void*)identifierWithSubId);
+    }
 
     public void sendToClients()
     {
-        NativeMethods.TablePtr->f774((void*)_handle);
+        NativeMethods.TablePtr->f2702((void*)_handle);
     }
 
     public void sendToClients(nint exceptId, nint exceptSubid) =>
@@ -74,7 +74,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendToServer()
     {
-        NativeMethods.TablePtr->f775((void*)_handle);
+        NativeMethods.TablePtr->f2703((void*)_handle);
     }
 
     public void write(nint arg0) =>
@@ -85,7 +85,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f772((void*)_handle);
+            NativeMethods.TablePtr->f2694((void*)_handle);
             _handle = 0;
         }
     }

@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__time_point_std__chrono__steady_clock__ : global::System.IDisposable
+public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__time_point_std__chrono__steady_clock__
 {
     private nint _handle;
 
@@ -19,68 +19,59 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__tim
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f1786((void*)_handle);
     }
 
-    public nint get_16593b83()
-    {
-        return (nint)NativeMethods.TablePtr->f340((void*)_handle);
-    }
+    public nint get_16593b83() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint get_4f64a053()
     {
-        return (nint)NativeMethods.TablePtr->f341((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1787((void*)_handle);
     }
 
-    public nint get_2e81f436()
-    {
-        return (nint)NativeMethods.TablePtr->f342((void*)_handle);
-    }
+    public nint get_2e81f436() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint get_0100609d()
     {
-        return (nint)NativeMethods.TablePtr->f343((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1788((void*)_handle);
     }
 
     public nint operator_const_std__chrono__time_point_std__chrono__steady_clock___()
     {
-        return (nint)NativeMethods.TablePtr->f344((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1789((void*)_handle);
     }
 
     public nint operator_std__chrono__time_point_std__chrono__steady_clock___()
     {
-        return (nint)NativeMethods.TablePtr->f345((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1790((void*)_handle);
     }
 
-    public nint operator_multiply_b64c409e()
-    {
-        return (nint)NativeMethods.TablePtr->f346((void*)_handle);
-    }
+    public nint operator_multiply_b64c409e() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint operator_multiply_6a5e0aeb()
     {
-        return (nint)NativeMethods.TablePtr->f347((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1791((void*)_handle);
     }
 
-    public nint operator_multiply_14f1cf5c()
-    {
-        return (nint)NativeMethods.TablePtr->f348((void*)_handle);
-    }
+    public nint operator_multiply_14f1cf5c() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint operator_multiply_994ece3b()
     {
-        return (nint)NativeMethods.TablePtr->f349((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1792((void*)_handle);
     }
 
     public nint operator_operator___607dd204()
     {
-        return (nint)NativeMethods.TablePtr->f350((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1793((void*)_handle);
     }
 
     public nint operator_operator___5543d14f()
     {
-        return (nint)NativeMethods.TablePtr->f351((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1794((void*)_handle);
     }
 
     public nint operator_assign_30f02361(nint u) =>
@@ -89,13 +80,6 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__tim
     public nint operator_assign_6e7ff98d(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-
-    public void Dispose()
-    {
-        if (_handle != 0)
-        {
-            NativeMethods.TablePtr->f339((void*)_handle);
-            _handle = 0;
-        }
-    }
+    public void Destroy() =>
+        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 }

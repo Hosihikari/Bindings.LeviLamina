@@ -16,10 +16,10 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
 
     public void call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event @event)
     {
-        NativeMethods.TablePtr->f558((void*)_handle, (void*)@event.Handle);
+        NativeMethods.TablePtr->f2316((void*)_handle, (void*)@event.Handle);
     }
 
-    public nint create(nint fn, nint priority, nint mod) =>
+    public static nint create(nint fn, nint priority, nint mod) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
 
@@ -27,7 +27,7 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f557((void*)_handle);
+            NativeMethods.TablePtr->f2315((void*)_handle);
             _handle = 0;
         }
     }

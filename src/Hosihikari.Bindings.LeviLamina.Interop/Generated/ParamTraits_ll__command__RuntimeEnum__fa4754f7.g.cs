@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed partial class ParamTraits_ll__command__RuntimeEnum_
+public sealed unsafe partial class ParamTraits_ll__command__RuntimeEnum_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,9 +11,18 @@ public sealed partial class ParamTraits_ll__command__RuntimeEnum_
 
     public nint Handle => _handle;
 
-    public nint dataType() =>
+    public static nint dataType() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint options() =>
+    public static nint options() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f1926((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

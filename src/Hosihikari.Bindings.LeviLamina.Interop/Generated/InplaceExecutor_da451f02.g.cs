@@ -16,7 +16,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f813(__hs_stringData, (nuint)__hs_stringBytes.Length);
+            var handle = NativeMethods.TablePtr->f2761(__hs_stringData, (nuint)__hs_stringBytes.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -32,9 +32,9 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
     public nint executeAfter(nint arg0, nint arg1) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getDefault()
+    public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f814((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2762();
     }
 
 
@@ -42,7 +42,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f812((void*)_handle);
+            NativeMethods.TablePtr->f2760((void*)_handle);
             _handle = 0;
         }
     }

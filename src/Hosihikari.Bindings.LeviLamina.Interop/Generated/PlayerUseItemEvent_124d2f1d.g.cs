@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class PlayerUseItemEvent
+public sealed unsafe partial class PlayerUseItemEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -16,9 +16,20 @@ public sealed unsafe partial class PlayerUseItemEvent
 
     public nint item()
     {
-        return (nint)NativeMethods.TablePtr->f612((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2433((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2434((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2432((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

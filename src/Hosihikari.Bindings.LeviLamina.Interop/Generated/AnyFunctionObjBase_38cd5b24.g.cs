@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 
-public sealed partial class AnyFunctionObjBase
+public sealed unsafe partial class AnyFunctionObjBase
 {
     private nint _handle;
 
@@ -11,10 +11,9 @@ public sealed partial class AnyFunctionObjBase
 
     public nint Handle => _handle;
 
-    public static nint anyFnSizeNumPtrs
+    public static ulong anyFnSizeNumPtrs
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => NativeMethods.TablePtr->f2123();
     }
 
     public nint copy(nint to) =>
@@ -26,10 +25,9 @@ public sealed partial class AnyFunctionObjBase
     public nint move(nint to) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public static nint smallObjSize
+    public static ulong smallObjSize
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => NativeMethods.TablePtr->f2124();
     }
 
     public void tidy() =>

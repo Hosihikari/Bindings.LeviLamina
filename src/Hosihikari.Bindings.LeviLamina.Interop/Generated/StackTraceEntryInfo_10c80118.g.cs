@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.stacktrace_utils;
 
-public sealed unsafe partial class StackTraceEntryInfo
+public sealed unsafe partial class StackTraceEntryInfo : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,31 +13,38 @@ public sealed unsafe partial class StackTraceEntryInfo
 
     public nint displacement
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2746((void*)_handle);
     }
 
     public string file
     {
         get
         {
-            var view = NativeMethods.TablePtr->f802((void*)_handle);
+            var view = NativeMethods.TablePtr->f2747((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint line
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2748((void*)_handle);
     }
 
     public string name
     {
         get
         {
-            var view = NativeMethods.TablePtr->f803((void*)_handle);
+            var view = NativeMethods.TablePtr->f2749((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
+        }
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2745((void*)_handle);
+            _handle = 0;
         }
     }
 }

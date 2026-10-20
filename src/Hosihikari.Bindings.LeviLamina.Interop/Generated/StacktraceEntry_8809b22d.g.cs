@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed unsafe partial class StacktraceEntry
+public sealed unsafe partial class StacktraceEntry : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,11 +11,28 @@ public sealed unsafe partial class StacktraceEntry
 
     public nint Handle => _handle;
 
-    public static StacktraceEntry Create(nint address) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static StacktraceEntry Create(nint address)
+    {
+        var handle = NativeMethods.TablePtr->f33((void*)address);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new StacktraceEntry((nint)handle);
+    }
 
     public nint native_handle()
     {
-        return (nint)NativeMethods.TablePtr->f22((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f34((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f32((void*)_handle);
+            _handle = 0;
+        }
     }
 }

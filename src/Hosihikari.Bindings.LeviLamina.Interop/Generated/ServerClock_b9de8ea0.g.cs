@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.chrono;
 
-public sealed partial class ServerClock
+public sealed unsafe partial class ServerClock : global::System.IDisposable
 {
     private nint _handle;
 
@@ -11,12 +11,20 @@ public sealed partial class ServerClock
 
     public nint Handle => _handle;
 
-    public static nint is_steady
+    public static bool is_steady
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => NativeMethods.TablePtr->f1878();
     }
 
-    public nint now() =>
+    public static nint now() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f1877((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

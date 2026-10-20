@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed partial class TypedStorageImpl_8ULL__16ULL__mce__UUID_
+public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__mce__UUID_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -19,45 +19,60 @@ public sealed partial class TypedStorageImpl_8ULL__16ULL__mce__UUID_
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f652((void*)_handle);
     }
 
     public nint get_07419bcd() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_91c6737a() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_91c6737a()
+    {
+        return (nint)NativeMethods.TablePtr->f653((void*)_handle);
+    }
 
     public nint get_3b30a53e() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_e9f36420() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_e9f36420()
+    {
+        return (nint)NativeMethods.TablePtr->f654((void*)_handle);
+    }
 
-    public nint operator_const_mce__UUID__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_const_mce__UUID__()
+    {
+        return (nint)NativeMethods.TablePtr->f655((void*)_handle);
+    }
 
-    public nint operator_mce__UUID__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_mce__UUID__()
+    {
+        return (nint)NativeMethods.TablePtr->f656((void*)_handle);
+    }
 
     public nint operator_multiply_662e9685() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_a9b74a19() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_a9b74a19()
+    {
+        return (nint)NativeMethods.TablePtr->f657((void*)_handle);
+    }
 
     public nint operator_multiply_ce586b30() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_e7e6f3ed() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_e7e6f3ed()
+    {
+        return (nint)NativeMethods.TablePtr->f658((void*)_handle);
+    }
 
-    public nint operator_operator___86228093() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___86228093()
+    {
+        return (nint)NativeMethods.TablePtr->f659((void*)_handle);
+    }
 
-    public nint operator_operator___743291d2() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___743291d2()
+    {
+        return (nint)NativeMethods.TablePtr->f660((void*)_handle);
+    }
 
     public nint operator_assign_2412081c(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -65,6 +80,13 @@ public sealed partial class TypedStorageImpl_8ULL__16ULL__mce__UUID_
     public nint operator_assign_2c860acb(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f651((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

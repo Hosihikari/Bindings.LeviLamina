@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed partial class ServiceUnregisterEvent
+public sealed unsafe partial class ServiceUnregisterEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,4 +13,13 @@ public sealed partial class ServiceUnregisterEvent
 
     public static ServiceUnregisterEvent Create(nint service) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2448((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

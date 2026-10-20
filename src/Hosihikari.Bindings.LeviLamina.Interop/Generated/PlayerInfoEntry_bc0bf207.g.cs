@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo_Nested;
 
-public sealed unsafe partial class PlayerInfoEntry
+public sealed unsafe partial class PlayerInfoEntry : global::System.IDisposable
 {
     private nint _handle;
 
@@ -15,23 +15,31 @@ public sealed unsafe partial class PlayerInfoEntry
     {
         get
         {
-            var view = NativeMethods.TablePtr->f784((void*)_handle);
+            var view = NativeMethods.TablePtr->f2719((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint uuid
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2720((void*)_handle);
     }
 
     public string xuid
     {
         get
         {
-            var view = NativeMethods.TablePtr->f785((void*)_handle);
+            var view = NativeMethods.TablePtr->f2721((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
+        }
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2718((void*)_handle);
+            _handle = 0;
         }
     }
 }

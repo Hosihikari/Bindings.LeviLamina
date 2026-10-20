@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.service;
 
-public sealed unsafe partial class ServiceIdView
+public sealed unsafe partial class ServiceIdView : global::System.IDisposable
 {
     private nint _handle;
 
@@ -21,14 +21,23 @@ public sealed unsafe partial class ServiceIdView
     {
         get
         {
-            var view = NativeMethods.TablePtr->f796((void*)_handle);
+            var view = NativeMethods.TablePtr->f2738((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f797((void*)_handle);
-        set => NativeMethods.TablePtr->f798((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2739((void*)_handle);
+        set => NativeMethods.TablePtr->f2740((void*)_handle, value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2737((void*)_handle);
+            _handle = 0;
+        }
     }
 }

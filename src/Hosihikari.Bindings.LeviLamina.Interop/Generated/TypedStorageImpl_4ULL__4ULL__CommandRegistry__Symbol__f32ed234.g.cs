@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed partial class TypedStorageImpl_4ULL__4ULL__CommandRegistry__Symbol_
+public sealed unsafe partial class TypedStorageImpl_4ULL__4ULL__CommandRegistry__Symbol_ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -19,45 +19,60 @@ public sealed partial class TypedStorageImpl_4ULL__4ULL__CommandRegistry__Symbol
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f306((void*)_handle);
     }
 
     public nint get_8602ad49() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_85367e2e() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_85367e2e()
+    {
+        return (nint)NativeMethods.TablePtr->f307((void*)_handle);
+    }
 
     public nint get_1d81e17c() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_17b6fd99() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_17b6fd99()
+    {
+        return (nint)NativeMethods.TablePtr->f308((void*)_handle);
+    }
 
-    public nint operator_CommandRegistry__Symbol__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_CommandRegistry__Symbol__()
+    {
+        return (nint)NativeMethods.TablePtr->f309((void*)_handle);
+    }
 
-    public nint operator_const_CommandRegistry__Symbol__() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_const_CommandRegistry__Symbol__()
+    {
+        return (nint)NativeMethods.TablePtr->f310((void*)_handle);
+    }
 
     public nint operator_multiply_184f0f43() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_c43c28fb() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_c43c28fb()
+    {
+        return (nint)NativeMethods.TablePtr->f311((void*)_handle);
+    }
 
     public nint operator_multiply_71151a36() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_72e7888c() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_72e7888c()
+    {
+        return (nint)NativeMethods.TablePtr->f312((void*)_handle);
+    }
 
-    public nint operator_operator___0cd5fce7() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___0cd5fce7()
+    {
+        return (nint)NativeMethods.TablePtr->f313((void*)_handle);
+    }
 
-    public nint operator_operator___5bdfbe8d() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___5bdfbe8d()
+    {
+        return (nint)NativeMethods.TablePtr->f314((void*)_handle);
+    }
 
     public nint operator_assign_439b1bc6(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -65,6 +80,13 @@ public sealed partial class TypedStorageImpl_4ULL__4ULL__CommandRegistry__Symbol
     public nint operator_assign_70d40761(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f305((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

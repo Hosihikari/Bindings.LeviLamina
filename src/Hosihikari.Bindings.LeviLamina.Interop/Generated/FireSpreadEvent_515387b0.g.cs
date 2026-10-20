@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed unsafe partial class FireSpreadEvent
+public sealed unsafe partial class FireSpreadEvent : global::System.IDisposable
 {
     private nint _handle;
 
@@ -16,9 +16,20 @@ public sealed unsafe partial class FireSpreadEvent
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f581((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2354((void*)_handle);
     }
 
-    public void serialize(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public void serialize(nint arg0)
+    {
+        NativeMethods.TablePtr->f2355((void*)_handle, (void*)arg0);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2353((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

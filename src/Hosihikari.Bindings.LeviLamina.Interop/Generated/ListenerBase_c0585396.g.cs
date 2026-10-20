@@ -11,24 +11,22 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static ListenerBase Create(nint priority, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
     public void call(nint @event) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public ulong getId()
     {
-        return NativeMethods.TablePtr->f584((void*)_handle);
+        return NativeMethods.TablePtr->f2359((void*)_handle);
     }
 
-    public nint getPriority() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public int getPriority()
+    {
+        return NativeMethods.TablePtr->f2360((void*)_handle);
+    }
 
     public nint modPtr
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2361((void*)_handle);
     }
 
     public nint operator_compare(nint other) =>
@@ -36,7 +34,7 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase other)
     {
-        return NativeMethods.TablePtr->f585((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2362((void*)_handle, (void*)other.Handle);
     }
 
 
@@ -44,7 +42,7 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f583((void*)_handle);
+            NativeMethods.TablePtr->f2358((void*)_handle);
             _handle = 0;
         }
     }

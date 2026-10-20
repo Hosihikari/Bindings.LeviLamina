@@ -14,18 +14,15 @@ public sealed unsafe partial class NativeMod
     public static NativeMod Create(nint manifest, nint handle) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint current(nint handle) =>
+    public static nint current(nint handle) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint getByHandle(nint handle) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-
-    public nint getDynamicLibrary() =>
+    public static nint getByHandle(nint handle) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public nint getHandle()
     {
-        return (nint)NativeMethods.TablePtr->f770((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2692((void*)_handle);
     }
 
     public void Destroy() =>

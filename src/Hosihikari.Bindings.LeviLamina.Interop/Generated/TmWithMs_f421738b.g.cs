@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 
-public sealed unsafe partial class TmWithMs
+public sealed unsafe partial class TmWithMs : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,7 +13,16 @@ public sealed unsafe partial class TmWithMs
 
     public ushort ms
     {
-        get => NativeMethods.TablePtr->f482((void*)_handle);
-        set => NativeMethods.TablePtr->f483((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2183((void*)_handle);
+        set => NativeMethods.TablePtr->f2184((void*)_handle, value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2182((void*)_handle);
+            _handle = 0;
+        }
     }
 }

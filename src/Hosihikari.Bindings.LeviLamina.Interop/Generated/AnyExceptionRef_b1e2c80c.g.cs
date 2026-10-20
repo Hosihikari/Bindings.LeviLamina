@@ -11,15 +11,23 @@ public sealed unsafe partial class AnyExceptionRef : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static AnyExceptionRef Create(nint ptr) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public static AnyExceptionRef Create(nint ptr)
+    {
+        var handle = NativeMethods.TablePtr->f2230((void*)ptr);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new AnyExceptionRef((nint)handle);
+    }
 
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f513((void*)_handle);
+            NativeMethods.TablePtr->f2229((void*)_handle);
             _handle = 0;
         }
     }

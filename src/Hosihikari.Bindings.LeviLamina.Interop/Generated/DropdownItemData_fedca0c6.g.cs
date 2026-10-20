@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 
-public sealed unsafe partial class DropdownItemData
+public sealed unsafe partial class DropdownItemData : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,19 +13,26 @@ public sealed unsafe partial class DropdownItemData
 
     public nint description
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2787((void*)_handle);
     }
 
     public nint label
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f2788((void*)_handle);
     }
 
     public double value
     {
-        get => NativeMethods.TablePtr->f830((void*)_handle);
-        set => NativeMethods.TablePtr->f831((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2789((void*)_handle);
+        set => NativeMethods.TablePtr->f2790((void*)_handle, value);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2786((void*)_handle);
+            _handle = 0;
+        }
     }
 }

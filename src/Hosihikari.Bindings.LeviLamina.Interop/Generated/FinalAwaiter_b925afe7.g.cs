@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.coro.CoroPromiseBase_Nested;
 
-public sealed unsafe partial class FinalAwaiter
+public sealed unsafe partial class FinalAwaiter : global::System.IDisposable
 {
     private nint _handle;
 
@@ -13,11 +13,20 @@ public sealed unsafe partial class FinalAwaiter
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f396((void*)_handle);
+        return NativeMethods.TablePtr->f2095((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f397((void*)_handle);
+        NativeMethods.TablePtr->f2096((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2094((void*)_handle);
+            _handle = 0;
+        }
     }
 }

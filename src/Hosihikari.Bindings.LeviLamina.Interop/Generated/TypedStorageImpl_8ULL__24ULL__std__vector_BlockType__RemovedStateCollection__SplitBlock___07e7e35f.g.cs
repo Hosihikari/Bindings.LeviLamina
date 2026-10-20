@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 
-public sealed partial class TypedStorageImpl_8ULL__24ULL__std__vector_BlockType__RemovedStateCollection__SplitBlock__
+public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__vector_BlockType__RemovedStateCollection__SplitBlock__ : global::System.IDisposable
 {
     private nint _handle;
 
@@ -19,45 +19,60 @@ public sealed partial class TypedStorageImpl_8ULL__24ULL__std__vector_BlockType_
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => (nint)NativeMethods.TablePtr->f1028((void*)_handle);
     }
 
     public nint get_65dc84cc() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_af0393d7() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_af0393d7()
+    {
+        return (nint)NativeMethods.TablePtr->f1029((void*)_handle);
+    }
 
     public nint get_8badf1ca() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_1bb3b472() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint get_1bb3b472()
+    {
+        return (nint)NativeMethods.TablePtr->f1030((void*)_handle);
+    }
 
-    public nint operator_const_std__vector_BlockType__RemovedStateCollection__SplitBl_d85d42b3() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_const_std__vector_BlockType__RemovedStateCollection__SplitBl_d85d42b3()
+    {
+        return (nint)NativeMethods.TablePtr->f1031((void*)_handle);
+    }
 
-    public nint operator_std__vector_BlockType__RemovedStateCollection__SplitBlock___() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_std__vector_BlockType__RemovedStateCollection__SplitBlock___()
+    {
+        return (nint)NativeMethods.TablePtr->f1032((void*)_handle);
+    }
 
     public nint operator_multiply_2552327a() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_23d046bd() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_23d046bd()
+    {
+        return (nint)NativeMethods.TablePtr->f1033((void*)_handle);
+    }
 
     public nint operator_multiply_1803b956() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint operator_multiply_c6e8f4f4() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_multiply_c6e8f4f4()
+    {
+        return (nint)NativeMethods.TablePtr->f1034((void*)_handle);
+    }
 
-    public nint operator_operator___9672ab5c() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___9672ab5c()
+    {
+        return (nint)NativeMethods.TablePtr->f1035((void*)_handle);
+    }
 
-    public nint operator_operator___6dcefb16() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public nint operator_operator___6dcefb16()
+    {
+        return (nint)NativeMethods.TablePtr->f1036((void*)_handle);
+    }
 
     public nint operator_assign_2bbab20b(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
@@ -65,6 +80,13 @@ public sealed partial class TypedStorageImpl_8ULL__24ULL__std__vector_BlockType_
     public nint operator_assign_264221b5(nint u) =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f1027((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

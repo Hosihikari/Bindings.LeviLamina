@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation_Nested;
 
-public sealed unsafe partial class promise_type
+public sealed unsafe partial class promise_type : global::System.IDisposable
 {
     private nint _handle;
 
@@ -14,19 +14,30 @@ public sealed unsafe partial class promise_type
     public nint final_suspend() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
-    public nint get_return_object() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation get_return_object()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation((nint)NativeMethods.TablePtr->f2112((void*)_handle));
+    }
 
     public nint initial_suspend() =>
         throw new global::System.NotSupportedException("BindingShim does not expose this member.");
 
     public void return_void()
     {
-        NativeMethods.TablePtr->f415((void*)_handle);
+        NativeMethods.TablePtr->f2113((void*)_handle);
     }
 
     public void unhandled_exception()
     {
-        NativeMethods.TablePtr->f416((void*)_handle);
+        NativeMethods.TablePtr->f2114((void*)_handle);
+    }
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2111((void*)_handle);
+            _handle = 0;
+        }
     }
 }

@@ -16,13 +16,13 @@ public sealed unsafe partial class LoggerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f675((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2548((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
-    public nint getInstance()
+    public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f676((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2549();
     }
 
     public nint getOrCreate(nint title) =>

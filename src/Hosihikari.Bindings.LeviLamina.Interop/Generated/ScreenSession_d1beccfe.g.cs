@@ -13,7 +13,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create()
     {
-        var handle = NativeMethods.TablePtr->f2830();
+        var handle = NativeMethods.TablePtr->f2832();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,7 +33,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
     {
-        var handle = NativeMethods.TablePtr->f2831((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2833((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -57,20 +57,28 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     public nint createProperty_d9361dd5(nint datastore, nint property, nint json) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<ll::ui::Property, ll::Error>' is not a known bindable declaration.");
 
-    public nint getFormId() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<unsigned int>' is not a known bindable declaration.");
+    public uint? getFormId()
+    {
+        var __hs_hasValue = false;
+        var __hs_value = NativeMethods.TablePtr->f2834((void*)_handle, &__hs_hasValue);
+        return __hs_hasValue ? __hs_value : (uint?)null;
+    }
 
-    public nint getInstanceId() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<unsigned int>' is not a known bindable declaration.");
+    public uint? getInstanceId()
+    {
+        var __hs_hasValue = false;
+        var __hs_value = NativeMethods.TablePtr->f2835((void*)_handle, &__hs_hasValue);
+        return __hs_hasValue ? __hs_value : (uint?)null;
+    }
 
     public byte getState()
     {
-        return NativeMethods.TablePtr->f2832((void*)_handle);
+        return NativeMethods.TablePtr->f2836((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2833((void*)_handle);
+        return NativeMethods.TablePtr->f2837((void*)_handle);
     }
 
     public nint operator_assign_e92563b0(nint arg0) =>
@@ -90,7 +98,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2829((void*)_handle);
+            NativeMethods.TablePtr->f2831((void*)_handle);
             _handle = 0;
         }
     }

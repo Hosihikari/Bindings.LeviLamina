@@ -19,14 +19,14 @@ public sealed unsafe partial class SpawnedMobEvent : global::System.IDisposable
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2458((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2459((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2457((void*)_handle);
+            NativeMethods.TablePtr->f2458((void*)_handle);
             _handle = 0;
         }
     }

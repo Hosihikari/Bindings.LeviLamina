@@ -8,6 +8,7 @@
 #include <functional>
 #include <memory>
 #include <new>
+#include <optional>
 #include <string>
 #include <string_view>
 #include "ll/api/memory/Memory.h"
@@ -32613,6 +32614,26 @@ catch (...)
     return false;
 }
 
+static HosihikariStringView hs_method_137780a7(void* hs_self, const char* key_data, std::size_t key_size, bool* hs_hasValue) try
+{
+    auto result = static_cast<ll::data::KeyValueDB*>(hs_self)->get(std::basic_string_view<char>(key_data, key_size));
+    *hs_hasValue = result.has_value();
+    g_stringResult.assign(result ? result->data() : "", result ? result->size() : 0);
+    return HosihikariStringView{g_stringResult.data(), g_stringResult.size()};
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return HosihikariStringView{nullptr, 0};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return HosihikariStringView{nullptr, 0};
+}
+
 static bool hs_method_48d48e3e(void* hs_self, const char* key_data, std::size_t key_size) try
 {
     return static_cast<bool>(static_cast<ll::data::KeyValueDB*>(hs_self)->has(std::basic_string_view<char>(key_data, key_size)));
@@ -42069,6 +42090,26 @@ catch (...)
     return nullptr;
 }
 
+static void* hs_method_8164fb4d(void* hs_self, const char* name_data, std::size_t name_size, bool* hs_hasValue) try
+{
+    auto result = static_cast<ll::service::ServiceManager*>(hs_self)->queryService(std::basic_string_view<char>(name_data, name_size));
+    *hs_hasValue = result.has_value();
+    if (!result) { return nullptr; }
+    return static_cast<void*>(new ll::service::QueryServiceResult(std::move(*result)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return nullptr;
+}
+
 static bool hs_method_952e2d89(void* hs_self, void* service, void* mod) try
 {
     return static_cast<bool>(static_cast<ll::service::ServiceManager*>(hs_self)->registerService(*static_cast<const std::shared_ptr<ll::service::Service>*>(service), *static_cast<const std::shared_ptr<ll::mod::Mod>*>(mod)));
@@ -43224,6 +43265,44 @@ catch (...)
 {
     setLastError("unknown native exception");
     return nullptr;
+}
+
+static std::uint32_t hs_method_9e1806c3(void* hs_self, bool* hs_hasValue) try
+{
+    auto result = static_cast<ll::ui::ScreenSession*>(hs_self)->getFormId();
+    *hs_hasValue = result.has_value();
+    return result ? static_cast<std::uint32_t>(*result) : std::uint32_t{};
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return 0;
+}
+
+static std::uint32_t hs_method_45ce26ba(void* hs_self, bool* hs_hasValue) try
+{
+    auto result = static_cast<ll::ui::ScreenSession*>(hs_self)->getInstanceId();
+    *hs_hasValue = result.has_value();
+    return result ? static_cast<std::uint32_t>(*result) : std::uint32_t{};
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return 0;
 }
 
 static std::uint8_t hs_method_5a28bc2c(void* hs_self) try
@@ -46114,6 +46193,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_create_bb79597a,
     &hs_method_48307b42,
     &hs_method_5c7dbf54,
+    &hs_method_137780a7,
     &hs_method_48d48e3e,
     &hs_method_7d81ee9b,
     &hs_destroy_fc3689a5,
@@ -46723,6 +46803,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_get_889068b1,
     &hs_set_889068b1,
     &hs_method_240c2935,
+    &hs_method_8164fb4d,
     &hs_method_952e2d89,
     &hs_method_b9950e80,
     &hs_method_e639a940,
@@ -46796,6 +46877,8 @@ const HosihikariBindingTableV1 kTable{
     &hs_destroy_d1beccfe,
     &hs_create_9511ed84,
     &hs_create_dd7804f0,
+    &hs_method_9e1806c3,
+    &hs_method_45ce26ba,
     &hs_method_5a28bc2c,
     &hs_method_6bbf78c7,
     &hs_destroy_65044de5,

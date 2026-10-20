@@ -16,12 +16,12 @@ public sealed unsafe partial class ModManager
 
     public ulong getModCount()
     {
-        return NativeMethods.TablePtr->f2697((void*)_handle);
+        return NativeMethods.TablePtr->f2698((void*)_handle);
     }
 
     public string getType()
     {
-        var __hs_view = NativeMethods.TablePtr->f2698((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2699((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -30,7 +30,7 @@ public sealed unsafe partial class ModManager
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2699((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2700((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 

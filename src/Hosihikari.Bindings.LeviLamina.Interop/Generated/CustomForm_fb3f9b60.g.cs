@@ -25,12 +25,12 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint closeButton()
     {
-        return (nint)NativeMethods.TablePtr->f2800((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2802((void*)_handle);
     }
 
     public nint divider(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.DividerOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f2801((void*)_handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f2803((void*)_handle, (void*)options.Handle);
     }
 
     public nint dropdown(nint label, nint value, nint items, nint options) =>
@@ -41,7 +41,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f2802((void*)_handle);
+        return NativeMethods.TablePtr->f2804((void*)_handle);
     }
 
     public nint label(nint text, nint options) =>
@@ -61,7 +61,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint spacer(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.SpacingOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f2803((void*)_handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f2805((void*)_handle, (void*)options.Handle);
     }
 
     public nint textField(nint label, nint text, nint options) =>
@@ -75,7 +75,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2799((void*)_handle);
+            NativeMethods.TablePtr->f2801((void*)_handle);
             _handle = 0;
         }
     }

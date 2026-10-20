@@ -13,7 +13,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
 
     public static SimpleForm Create()
     {
-        var handle = NativeMethods.TablePtr->f2490();
+        var handle = NativeMethods.TablePtr->f2491();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,25 +33,16 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2491((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return (nint)NativeMethods.TablePtr->f2492((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 
     public nint appendDivider()
     {
-        return (nint)NativeMethods.TablePtr->f2492((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2493((void*)_handle);
     }
 
     public nint appendHeader(string text)
-    {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
-        {
-            return (nint)NativeMethods.TablePtr->f2493((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
-        }
-    }
-
-    public nint appendLabel(string text)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData = __hs_stringBytes)
@@ -60,14 +51,23 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         }
     }
 
+    public nint appendLabel(string text)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return (nint)NativeMethods.TablePtr->f2495((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
+
     public nint sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->f2495((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return (nint)NativeMethods.TablePtr->f2496((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->f2496((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return (nint)NativeMethods.TablePtr->f2497((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint setContent(string content)
@@ -75,7 +75,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(content);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2497((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2498((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -84,7 +84,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2498((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2499((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -93,7 +93,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2489((void*)_handle);
+            NativeMethods.TablePtr->f2490((void*)_handle);
             _handle = 0;
         }
     }

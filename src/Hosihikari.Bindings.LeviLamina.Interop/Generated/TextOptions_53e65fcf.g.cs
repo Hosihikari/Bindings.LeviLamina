@@ -13,14 +13,14 @@ public sealed unsafe partial class TextOptions : global::System.IDisposable
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f2850((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2854((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2849((void*)_handle);
+            NativeMethods.TablePtr->f2853((void*)_handle);
             _handle = 0;
         }
     }

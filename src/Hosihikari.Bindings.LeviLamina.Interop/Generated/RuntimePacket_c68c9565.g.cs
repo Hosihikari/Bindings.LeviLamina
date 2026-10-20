@@ -13,7 +13,7 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
 
     public static RuntimePacket Create()
     {
-        var handle = NativeMethods.TablePtr->f2722();
+        var handle = NativeMethods.TablePtr->f2723();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,17 +33,17 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
 
     public ulong getRuntimeId()
     {
-        return NativeMethods.TablePtr->f2723((void*)_handle);
+        return NativeMethods.TablePtr->f2724((void*)_handle);
     }
 
     public bool hasPacket()
     {
-        return NativeMethods.TablePtr->f2724((void*)_handle);
+        return NativeMethods.TablePtr->f2725((void*)_handle);
     }
 
     public bool isOwned()
     {
-        return NativeMethods.TablePtr->f2725((void*)_handle);
+        return NativeMethods.TablePtr->f2726((void*)_handle);
     }
 
     public void movePacket(nint newPacket) =>
@@ -51,15 +51,15 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet? releasePacket()
     {
-        var __hs_handle = NativeMethods.TablePtr->f2726((void*)_handle);
-        return __hs_handle == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle);
+        var __hs_handle = NativeMethods.TablePtr->f2727((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle) : null;
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2721((void*)_handle);
+            NativeMethods.TablePtr->f2722((void*)_handle);
             _handle = 0;
         }
     }

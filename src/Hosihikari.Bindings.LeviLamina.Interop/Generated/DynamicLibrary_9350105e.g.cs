@@ -13,7 +13,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
 
     public static DynamicLibrary Create()
     {
-        var handle = NativeMethods.TablePtr->f2771();
+        var handle = NativeMethods.TablePtr->f2773();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
 
     public static DynamicLibrary Create_0f3f9b13(nint path)
     {
-        var handle = NativeMethods.TablePtr->f2772((void*)path);
+        var handle = NativeMethods.TablePtr->f2774((void*)path);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -37,20 +37,20 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint free() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<std::system_error>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: optional return type 'std::system_error' is not a known bindable declaration.");
 
     public nint getAddress(nint name)
     {
-        return (nint)NativeMethods.TablePtr->f2773((void*)_handle, (void*)name);
+        return (nint)NativeMethods.TablePtr->f2775((void*)_handle, (void*)name);
     }
 
     public nint handle()
     {
-        return (nint)NativeMethods.TablePtr->f2774((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2776((void*)_handle);
     }
 
     public nint load(nint path) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<std::system_error>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: optional return type 'std::system_error' is not a known bindable declaration.");
 
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
@@ -60,7 +60,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2770((void*)_handle);
+            NativeMethods.TablePtr->f2772((void*)_handle);
             _handle = 0;
         }
     }

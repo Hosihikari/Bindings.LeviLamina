@@ -50,15 +50,23 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         return NativeMethods.TablePtr->f2149((void*)_handle);
     }
 
-    public nint get(nint key) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<std::basic_string<char>>' is not a known bindable declaration.");
+    public string? get(string key)
+    {
+        var __hs_hasValue = false;
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            var __hs_view = NativeMethods.TablePtr->f2150((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            return __hs_hasValue ? global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size)) : null;
+        }
+    }
 
     public bool has(string key)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2150((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2151((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -73,7 +81,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
 
     public bool write(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch batch)
     {
-        return NativeMethods.TablePtr->f2151((void*)_handle, (void*)batch.Handle);
+        return NativeMethods.TablePtr->f2152((void*)_handle, (void*)batch.Handle);
     }
 
 

@@ -16,19 +16,19 @@ public sealed unsafe partial class ServerStoppingEvent : global::System.IDisposa
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2590((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2599((void*)_handle, (void*)arg0);
     }
 
     public nint server()
     {
-        return (nint)NativeMethods.TablePtr->f2591((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2600((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2589((void*)_handle);
+            NativeMethods.TablePtr->f2598((void*)_handle);
             _handle = 0;
         }
     }

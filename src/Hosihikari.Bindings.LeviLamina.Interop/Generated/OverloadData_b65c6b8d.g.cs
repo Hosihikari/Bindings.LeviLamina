@@ -11,8 +11,16 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static OverloadData Create(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
+    public static OverloadData Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.OverloadData arg0)
+    {
+        var handle = NativeMethods.TablePtr->f1919((void*)arg0.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new OverloadData((nint)handle);
+    }
 
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
@@ -22,7 +30,7 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1917((void*)_handle);
+            NativeMethods.TablePtr->f1918((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,7 +13,7 @@ public sealed unsafe partial class EventBus
 
     public bool addListener(nint arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
     {
-        return NativeMethods.TablePtr->f2467((void*)_handle, (void*)arg0, (void*)arg1.Handle);
+        return NativeMethods.TablePtr->f2476((void*)_handle, (void*)arg0, (void*)arg1.Handle);
     }
 
     public nint events(nint modName) =>
@@ -24,43 +24,43 @@ public sealed unsafe partial class EventBus
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2468();
+        return (nint)NativeMethods.TablePtr->f2477();
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getListener(ulong id)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2469((void*)_handle, id);
+        var __hs_shared = NativeMethods.TablePtr->f2478((void*)_handle, id);
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public ulong getListenerCount(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg0)
     {
-        return NativeMethods.TablePtr->f2470((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->f2479((void*)_handle, (void*)arg0.Handle);
     }
 
     public bool hasEvent(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView eventId)
     {
-        return NativeMethods.TablePtr->f2471((void*)_handle, (void*)eventId.Handle);
+        return NativeMethods.TablePtr->f2480((void*)_handle, (void*)eventId.Handle);
     }
 
     public bool hasListener(nint listener)
     {
-        return NativeMethods.TablePtr->f2472((void*)_handle, (void*)listener);
+        return NativeMethods.TablePtr->f2481((void*)_handle, (void*)listener);
     }
 
     public bool hasListener(ulong id)
     {
-        return NativeMethods.TablePtr->f2473((void*)_handle, id);
+        return NativeMethods.TablePtr->f2482((void*)_handle, id);
     }
 
     public bool hasListener(ulong arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
     {
-        return NativeMethods.TablePtr->f2474((void*)_handle, arg0, (void*)arg1.Handle);
+        return NativeMethods.TablePtr->f2483((void*)_handle, arg0, (void*)arg1.Handle);
     }
 
     public void publish(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
     {
-        NativeMethods.TablePtr->f2475((void*)_handle, (void*)arg0.Handle, (void*)arg1.Handle);
+        NativeMethods.TablePtr->f2484((void*)_handle, (void*)arg0.Handle, (void*)arg1.Handle);
     }
 
     public void publish(string modName, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event arg1, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg2)
@@ -68,23 +68,23 @@ public sealed unsafe partial class EventBus
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(modName);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2476((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, (void*)arg1.Handle, (void*)arg2.Handle);
+            NativeMethods.TablePtr->f2485((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, (void*)arg1.Handle, (void*)arg2.Handle);
         }
     }
 
     public bool removeListener(nint listener)
     {
-        return NativeMethods.TablePtr->f2477((void*)_handle, (void*)listener);
+        return NativeMethods.TablePtr->f2486((void*)_handle, (void*)listener);
     }
 
     public bool removeListener(nint arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
     {
-        return NativeMethods.TablePtr->f2478((void*)_handle, (void*)arg0, (void*)arg1.Handle);
+        return NativeMethods.TablePtr->f2487((void*)_handle, (void*)arg0, (void*)arg1.Handle);
     }
 
     public bool removeListener(ulong id)
     {
-        return NativeMethods.TablePtr->f2479((void*)_handle, id);
+        return NativeMethods.TablePtr->f2488((void*)_handle, id);
     }
 
     public bool setEventEmitter(nint fn, nint eventId, nint mod) =>

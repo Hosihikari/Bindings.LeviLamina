@@ -13,7 +13,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public static AnyFunction Create()
     {
-        var handle = NativeMethods.TablePtr->f2254();
+        var handle = NativeMethods.TablePtr->f2260();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -22,9 +22,9 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
         return new AnyFunction((nint)handle);
     }
 
-    public static AnyFunction Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
+    public static AnyFunction Create_3884d83f(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        var handle = NativeMethods.TablePtr->f2255((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2261((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,10 +33,18 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
         return new AnyFunction((nint)handle);
     }
 
-    public static AnyFunction Create_5830bcea(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
+    public static AnyFunction Create_5830bcea(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
+    {
+        var handle = NativeMethods.TablePtr->f2262((void*)other.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
 
-    public static AnyFunction Create_abc535ac(nint arg0) =>
+        return new AnyFunction((nint)handle);
+    }
+
+    public static AnyFunction Create(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::nullptr_t' is not a known bindable declaration.");
 
     public nint invoke(nint args) =>
@@ -44,7 +52,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2256((void*)_handle);
+        return NativeMethods.TablePtr->f2263((void*)_handle);
     }
 
     public nint operator_assign_ab62667b(nint other) =>
@@ -55,7 +63,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public void swap(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        NativeMethods.TablePtr->f2257((void*)_handle, (void*)other.Handle);
+        NativeMethods.TablePtr->f2264((void*)_handle, (void*)other.Handle);
     }
 
 
@@ -63,7 +71,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2253((void*)_handle);
+            NativeMethods.TablePtr->f2259((void*)_handle);
             _handle = 0;
         }
     }

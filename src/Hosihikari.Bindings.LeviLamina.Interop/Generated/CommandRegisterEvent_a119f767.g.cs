@@ -13,11 +13,11 @@ public sealed unsafe partial class CommandRegisterEvent
 
     public nint commandRegistry()
     {
-        return (nint)NativeMethods.TablePtr->f2447((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2456((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2448((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2457((void*)_handle, (void*)arg0);
     }
 }

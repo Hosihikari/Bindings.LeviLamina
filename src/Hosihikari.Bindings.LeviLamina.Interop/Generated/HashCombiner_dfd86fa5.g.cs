@@ -13,7 +13,7 @@ public sealed unsafe partial class HashCombiner : global::System.IDisposable
 
     public static HashCombiner Create(ulong seed)
     {
-        var handle = NativeMethods.TablePtr->f2654(seed);
+        var handle = NativeMethods.TablePtr->f2663(seed);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,19 +24,19 @@ public sealed unsafe partial class HashCombiner : global::System.IDisposable
 
     public ulong hash()
     {
-        return NativeMethods.TablePtr->f2655((void*)_handle);
+        return NativeMethods.TablePtr->f2664((void*)_handle);
     }
 
     public ulong operator_unsigned_long_long()
     {
-        return NativeMethods.TablePtr->f2656((void*)_handle);
+        return NativeMethods.TablePtr->f2665((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2653((void*)_handle);
+            NativeMethods.TablePtr->f2662((void*)_handle);
             _handle = 0;
         }
     }

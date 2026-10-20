@@ -13,7 +13,7 @@ public sealed unsafe partial class EventId : global::System.IDisposable
 
     public static EventId Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView id)
     {
-        var handle = NativeMethods.TablePtr->f2481((void*)id.Handle);
+        var handle = NativeMethods.TablePtr->f2490((void*)id.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +27,7 @@ public sealed unsafe partial class EventId : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(id);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2482(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->f2491(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -41,7 +41,7 @@ public sealed unsafe partial class EventId : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2483((void*)_handle);
+            var view = NativeMethods.TablePtr->f2492((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -50,7 +50,7 @@ public sealed unsafe partial class EventId : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2480((void*)_handle);
+            NativeMethods.TablePtr->f2489((void*)_handle);
             _handle = 0;
         }
     }

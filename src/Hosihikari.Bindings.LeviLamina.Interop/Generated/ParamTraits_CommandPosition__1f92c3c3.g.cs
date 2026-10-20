@@ -13,14 +13,14 @@ public sealed unsafe partial class ParamTraits_CommandPosition_ : global::System
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1936();
+        return NativeMethods.TablePtr->f1938();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1935((void*)_handle);
+            NativeMethods.TablePtr->f1937((void*)_handle);
             _handle = 0;
         }
     }

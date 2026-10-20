@@ -19,7 +19,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__32ULL__std__basic_stri
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f1368((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f1369((void*)_handle);
     }
 
     public nint get_750577a9() =>
@@ -27,7 +27,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__32ULL__std__basic_stri
 
     public string get_101e9c9a()
     {
-        var __hs_view = NativeMethods.TablePtr->f1369((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1370((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -36,19 +36,19 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__32ULL__std__basic_stri
 
     public string get_4ecc1e38()
     {
-        var __hs_view = NativeMethods.TablePtr->f1370((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1371((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string operator_const_std__basic_string_char___()
     {
-        var __hs_view = NativeMethods.TablePtr->f1371((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1372((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string operator_std__basic_string_char___()
     {
-        var __hs_view = NativeMethods.TablePtr->f1372((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1373((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -57,7 +57,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__32ULL__std__basic_stri
 
     public string operator_multiply_05bd26fc()
     {
-        var __hs_view = NativeMethods.TablePtr->f1373((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1374((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -66,18 +66,18 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__32ULL__std__basic_stri
 
     public string operator_multiply_f8cfb9e4()
     {
-        var __hs_view = NativeMethods.TablePtr->f1374((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1375((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint operator_operator___8edfad34()
     {
-        return (nint)NativeMethods.TablePtr->f1375((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1376((void*)_handle);
     }
 
     public nint operator_operator___52937c63()
     {
-        return (nint)NativeMethods.TablePtr->f1376((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1377((void*)_handle);
     }
 
     public nint operator_assign_1256f922(nint u) =>
@@ -91,7 +91,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__32ULL__std__basic_stri
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1367((void*)_handle);
+            NativeMethods.TablePtr->f1368((void*)_handle);
             _handle = 0;
         }
     }

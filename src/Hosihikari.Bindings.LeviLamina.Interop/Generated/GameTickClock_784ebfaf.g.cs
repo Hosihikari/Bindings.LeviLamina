@@ -13,24 +13,24 @@ public sealed unsafe partial class GameTickClock : global::System.IDisposable
 
     public static long fromTick(nint tick)
     {
-        return NativeMethods.TablePtr->f1878((void*)tick);
+        return NativeMethods.TablePtr->f1879((void*)tick);
     }
 
     public static bool is_steady
     {
-        get => NativeMethods.TablePtr->f1879();
+        get => NativeMethods.TablePtr->f1880();
     }
 
     public static long now()
     {
-        return NativeMethods.TablePtr->f1880();
+        return NativeMethods.TablePtr->f1881();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1877((void*)_handle);
+            NativeMethods.TablePtr->f1878((void*)_handle);
             _handle = 0;
         }
     }

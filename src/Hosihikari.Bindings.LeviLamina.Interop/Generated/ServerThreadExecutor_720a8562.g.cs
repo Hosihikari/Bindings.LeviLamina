@@ -16,7 +16,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2973(__hs_stringData0, (nuint)__hs_stringBytes0.Length, maxOnceDuration, checkPack);
+            var handle = NativeMethods.TablePtr->f2985(__hs_stringData0, (nuint)__hs_stringBytes0.Length, maxOnceDuration, checkPack);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,18 +28,18 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f2974((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->f2986((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? executeAfter(nint arg0Invoke, nint arg0UserData, nint arg0Release, long arg1)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2975((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release, arg1);
+        var __hs_shared = NativeMethods.TablePtr->f2987((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release, arg1);
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f2976();
+        return (nint)NativeMethods.TablePtr->f2988();
     }
 
 
@@ -47,7 +47,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2972((void*)_handle);
+            NativeMethods.TablePtr->f2984((void*)_handle);
             _handle = 0;
         }
     }

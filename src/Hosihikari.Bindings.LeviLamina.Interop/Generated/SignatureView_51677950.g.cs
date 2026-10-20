@@ -13,7 +13,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public static SignatureView Create()
     {
-        var handle = NativeMethods.TablePtr->f2795();
+        var handle = NativeMethods.TablePtr->f2805();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public static SignatureView Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature signature)
     {
-        var handle = NativeMethods.TablePtr->f2796((void*)signature.Handle);
+        var handle = NativeMethods.TablePtr->f2806((void*)signature.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,9 +33,9 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
         return new SignatureView((nint)handle);
     }
 
-    public static SignatureView Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView arg0)
+    public static SignatureView Create_70e00a55(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView arg0)
     {
-        var handle = NativeMethods.TablePtr->f2797((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2807((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -44,15 +44,23 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
         return new SignatureView((nint)handle);
     }
 
-    public static SignatureView Create_0ef1ff8a(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
+    public static SignatureView Create_0ef1ff8a(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView arg0)
+    {
+        var handle = NativeMethods.TablePtr->f2808((void*)arg0.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
 
-    public static SignatureView Create_5f331b0c(nint span) =>
+        return new SignatureView((nint)handle);
+    }
+
+    public static SignatureView Create(nint span) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::span<const ll::memory::SignatureElement>' is not a known bindable declaration.");
 
     public nint back()
     {
-        return (nint)NativeMethods.TablePtr->f2798((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2809((void*)_handle);
     }
 
     public nint begin() =>
@@ -63,7 +71,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public nint front()
     {
-        return (nint)NativeMethods.TablePtr->f2799((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2810((void*)_handle);
     }
 
     public nint operator_assign_55389e38(nint arg0) =>
@@ -74,17 +82,17 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView other)
     {
-        return NativeMethods.TablePtr->f2800((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2811((void*)_handle, (void*)other.Handle);
     }
 
     public nint operator_index(ulong idx)
     {
-        return (nint)NativeMethods.TablePtr->f2801((void*)_handle, idx);
+        return (nint)NativeMethods.TablePtr->f2812((void*)_handle, idx);
     }
 
     public nint resolve(bool disableErrorOutput)
     {
-        return (nint)NativeMethods.TablePtr->f2802((void*)_handle, disableErrorOutput);
+        return (nint)NativeMethods.TablePtr->f2813((void*)_handle, disableErrorOutput);
     }
 
     public nint resolve(nint range, bool disableErrorOutput) =>
@@ -92,12 +100,12 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2803((void*)_handle);
+        return NativeMethods.TablePtr->f2814((void*)_handle);
     }
 
     public string toString(bool alignWildcard, bool upperCase)
     {
-        var __hs_view = NativeMethods.TablePtr->f2804((void*)_handle, alignWildcard, upperCase);
+        var __hs_view = NativeMethods.TablePtr->f2815((void*)_handle, alignWildcard, upperCase);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -105,7 +113,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2794((void*)_handle);
+            NativeMethods.TablePtr->f2804((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,7 +13,7 @@ public sealed unsafe partial class NoInstanceIdTag : global::System.IDisposable
 
     public static NoInstanceIdTag Create()
     {
-        var handle = NativeMethods.TablePtr->f3024();
+        var handle = NativeMethods.TablePtr->f3038();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -26,7 +26,7 @@ public sealed unsafe partial class NoInstanceIdTag : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3023((void*)_handle);
+            NativeMethods.TablePtr->f3037((void*)_handle);
             _handle = 0;
         }
     }

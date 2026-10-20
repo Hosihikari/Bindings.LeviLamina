@@ -13,7 +13,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
 
     public static ModalForm Create()
     {
-        var handle = NativeMethods.TablePtr->f2633();
+        var handle = NativeMethods.TablePtr->f2642();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,7 +36,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
                 {
                     fixed (byte* __hs_stringData3 = __hs_stringBytes3)
                     {
-                        var handle = NativeMethods.TablePtr->f2634(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length);
+                        var handle = NativeMethods.TablePtr->f2643(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length);
                         if (handle == null)
                         {
                             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -51,12 +51,12 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
 
     public bool sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return NativeMethods.TablePtr->f2635((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return NativeMethods.TablePtr->f2644((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public bool sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return NativeMethods.TablePtr->f2636((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return NativeMethods.TablePtr->f2645((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint setContent(string content)
@@ -64,7 +64,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(content);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2637((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2646((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -73,7 +73,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(lowerButton);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2638((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2647((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -82,7 +82,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2639((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2648((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -91,7 +91,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(upperButton);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2640((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2649((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -100,7 +100,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2632((void*)_handle);
+            NativeMethods.TablePtr->f2641((void*)_handle);
             _handle = 0;
         }
     }

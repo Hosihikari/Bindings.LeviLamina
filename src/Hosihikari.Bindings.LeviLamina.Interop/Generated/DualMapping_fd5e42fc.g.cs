@@ -13,7 +13,7 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
 
     public static DualMapping Create()
     {
-        var handle = NativeMethods.TablePtr->f2771();
+        var handle = NativeMethods.TablePtr->f2781();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
 
     public static DualMapping Create(ulong size)
     {
-        var handle = NativeMethods.TablePtr->f2772(size);
+        var handle = NativeMethods.TablePtr->f2782(size);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,27 +35,27 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
 
     public void alloc(ulong size)
     {
-        NativeMethods.TablePtr->f2773((void*)_handle, size);
+        NativeMethods.TablePtr->f2783((void*)_handle, size);
     }
 
     public nint executable()
     {
-        return (nint)NativeMethods.TablePtr->f2774((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2784((void*)_handle);
     }
 
     public void free()
     {
-        NativeMethods.TablePtr->f2775((void*)_handle);
+        NativeMethods.TablePtr->f2785((void*)_handle);
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2776((void*)_handle);
+        return NativeMethods.TablePtr->f2786((void*)_handle);
     }
 
     public nint writable()
     {
-        return (nint)NativeMethods.TablePtr->f2777((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2787((void*)_handle);
     }
 
 
@@ -63,7 +63,7 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2770((void*)_handle);
+            NativeMethods.TablePtr->f2780((void*)_handle);
             _handle = 0;
         }
     }

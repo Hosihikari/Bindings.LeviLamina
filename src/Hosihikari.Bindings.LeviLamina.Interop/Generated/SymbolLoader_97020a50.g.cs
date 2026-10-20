@@ -13,7 +13,7 @@ public sealed unsafe partial class SymbolLoader : global::System.IDisposable
 
     public static SymbolLoader Create()
     {
-        var handle = NativeMethods.TablePtr->f2954();
+        var handle = NativeMethods.TablePtr->f2965();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +27,7 @@ public sealed unsafe partial class SymbolLoader : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(arg0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2955(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->f2966(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -42,7 +42,7 @@ public sealed unsafe partial class SymbolLoader : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2953((void*)_handle);
+            NativeMethods.TablePtr->f2964((void*)_handle);
             _handle = 0;
         }
     }

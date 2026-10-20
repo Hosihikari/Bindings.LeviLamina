@@ -19,7 +19,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__440ULL__PlayerUIContai
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f1431((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f1432((void*)_handle);
     }
 
     public nint get_0724ee6c() =>
@@ -27,7 +27,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__440ULL__PlayerUIContai
 
     public nint get_11d5b2b6()
     {
-        return (nint)NativeMethods.TablePtr->f1432((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1433((void*)_handle);
     }
 
     public nint get_33dd7fd2() =>
@@ -35,17 +35,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__440ULL__PlayerUIContai
 
     public nint get_f400526a()
     {
-        return (nint)NativeMethods.TablePtr->f1433((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1434((void*)_handle);
     }
 
     public nint operator_PlayerUIContainer__()
     {
-        return (nint)NativeMethods.TablePtr->f1434((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1435((void*)_handle);
     }
 
     public nint operator_const_PlayerUIContainer__()
     {
-        return (nint)NativeMethods.TablePtr->f1435((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1436((void*)_handle);
     }
 
     public nint operator_multiply_1a98af47() =>
@@ -53,7 +53,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__440ULL__PlayerUIContai
 
     public nint operator_multiply_f59d4767()
     {
-        return (nint)NativeMethods.TablePtr->f1436((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1437((void*)_handle);
     }
 
     public nint operator_multiply_7d2f59ff() =>
@@ -61,17 +61,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__440ULL__PlayerUIContai
 
     public nint operator_multiply_dc736468()
     {
-        return (nint)NativeMethods.TablePtr->f1437((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1438((void*)_handle);
     }
 
     public nint operator_operator___69f374a9()
     {
-        return (nint)NativeMethods.TablePtr->f1438((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1439((void*)_handle);
     }
 
     public nint operator_operator___87fcec49()
     {
-        return (nint)NativeMethods.TablePtr->f1439((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1440((void*)_handle);
     }
 
     public nint operator_assign_5fdc1040(nint u) =>

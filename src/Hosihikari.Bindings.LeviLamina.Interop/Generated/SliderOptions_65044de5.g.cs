@@ -13,29 +13,29 @@ public sealed unsafe partial class SliderOptions : global::System.IDisposable
 
     public nint description
     {
-        get => (nint)NativeMethods.TablePtr->f3051((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3067((void*)_handle);
     }
 
     public nint disabled
     {
-        get => (nint)NativeMethods.TablePtr->f3052((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3068((void*)_handle);
     }
 
     public nint step
     {
-        get => (nint)NativeMethods.TablePtr->f3053((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3069((void*)_handle);
     }
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f3054((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3070((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3050((void*)_handle);
+            NativeMethods.TablePtr->f3066((void*)_handle);
             _handle = 0;
         }
     }

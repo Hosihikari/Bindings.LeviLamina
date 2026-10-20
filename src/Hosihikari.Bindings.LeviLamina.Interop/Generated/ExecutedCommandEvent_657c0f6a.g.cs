@@ -16,19 +16,19 @@ public sealed unsafe partial class ExecutedCommandEvent : global::System.IDispos
 
     public nint result()
     {
-        return (nint)NativeMethods.TablePtr->f2491((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2500((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2492((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2501((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2490((void*)_handle);
+            NativeMethods.TablePtr->f2499((void*)_handle);
             _handle = 0;
         }
     }

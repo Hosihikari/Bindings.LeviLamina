@@ -13,7 +13,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
 
     public static SimpleForm Create()
     {
-        var handle = NativeMethods.TablePtr->f2642();
+        var handle = NativeMethods.TablePtr->f2651();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -30,7 +30,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var handle = NativeMethods.TablePtr->f2643(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+                var handle = NativeMethods.TablePtr->f2652(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
                 if (handle == null)
                 {
                     throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -52,7 +52,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
             {
                 fixed (byte* __hs_stringData2 = __hs_stringBytes2)
                 {
-                    return (nint)NativeMethods.TablePtr->f2644((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+                    return (nint)NativeMethods.TablePtr->f2653((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
                 }
             }
         }
@@ -63,13 +63,13 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2645((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return (nint)NativeMethods.TablePtr->f2654((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 
     public nint appendDivider()
     {
-        return (nint)NativeMethods.TablePtr->f2646((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2655((void*)_handle);
     }
 
     public nint appendHeader(string text)
@@ -77,7 +77,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2647((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2656((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -86,18 +86,18 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2648((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2657((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->f2649((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return (nint)NativeMethods.TablePtr->f2658((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->f2650((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return (nint)NativeMethods.TablePtr->f2659((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint setContent(string content)
@@ -105,7 +105,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(content);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2651((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2660((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -114,7 +114,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2652((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2661((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -123,7 +123,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2641((void*)_handle);
+            NativeMethods.TablePtr->f2650((void*)_handle);
             _handle = 0;
         }
     }

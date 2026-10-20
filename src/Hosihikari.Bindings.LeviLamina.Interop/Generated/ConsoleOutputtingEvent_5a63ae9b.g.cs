@@ -16,25 +16,25 @@ public sealed unsafe partial class ConsoleOutputtingEvent : global::System.IDisp
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2455((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2464((void*)_handle, (void*)arg0);
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f2456((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2465((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2457((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2466((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2454((void*)_handle);
+            NativeMethods.TablePtr->f2463((void*)_handle);
             _handle = 0;
         }
     }

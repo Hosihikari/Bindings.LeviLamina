@@ -13,7 +13,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
 
     public static DynamicLibrary Create()
     {
-        var handle = NativeMethods.TablePtr->f2957();
+        var handle = NativeMethods.TablePtr->f2968();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +27,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(path);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2958(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->f2969(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -37,20 +37,28 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
         }
     }
 
-    public static DynamicLibrary Create(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
+    public static DynamicLibrary Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.sys_utils.DynamicLibrary arg0)
+    {
+        var handle = NativeMethods.TablePtr->f2970((void*)arg0.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new DynamicLibrary((nint)handle);
+    }
 
     public nint free() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: optional return type 'std::system_error' is not a known bindable declaration.");
 
     public nint getAddress(nint name)
     {
-        return (nint)NativeMethods.TablePtr->f2959((void*)_handle, (void*)name);
+        return (nint)NativeMethods.TablePtr->f2971((void*)_handle, (void*)name);
     }
 
     public nint handle()
     {
-        return (nint)NativeMethods.TablePtr->f2960((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2972((void*)_handle);
     }
 
     public nint load(nint path) =>
@@ -64,7 +72,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2956((void*)_handle);
+            NativeMethods.TablePtr->f2967((void*)_handle);
             _handle = 0;
         }
     }

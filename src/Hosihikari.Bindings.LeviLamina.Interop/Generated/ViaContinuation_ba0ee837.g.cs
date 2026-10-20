@@ -11,10 +11,18 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static ViaContinuation Create_15b2ea8e(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
+    public static ViaContinuation Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation other)
+    {
+        var handle = NativeMethods.TablePtr->f2248((void*)other.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
 
-    public static ViaContinuation Create_2ded596c(nint h) =>
+        return new ViaContinuation((nint)handle);
+    }
+
+    public static ViaContinuation Create(nint h) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<ll::coro::ViaContinuation::promise_type>' is not a known bindable declaration.");
 
     public nint get() =>
@@ -22,7 +30,7 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
 
     public void release()
     {
-        NativeMethods.TablePtr->f2243((void*)_handle);
+        NativeMethods.TablePtr->f2249((void*)_handle);
     }
 
 
@@ -30,7 +38,7 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2242((void*)_handle);
+            NativeMethods.TablePtr->f2247((void*)_handle);
             _handle = 0;
         }
     }

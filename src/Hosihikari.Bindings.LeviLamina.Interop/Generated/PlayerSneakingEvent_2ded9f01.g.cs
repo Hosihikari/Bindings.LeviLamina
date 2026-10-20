@@ -18,7 +18,7 @@ public sealed unsafe partial class PlayerSneakingEvent : global::System.IDisposa
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2574((void*)_handle);
+            NativeMethods.TablePtr->f2583((void*)_handle);
             _handle = 0;
         }
     }

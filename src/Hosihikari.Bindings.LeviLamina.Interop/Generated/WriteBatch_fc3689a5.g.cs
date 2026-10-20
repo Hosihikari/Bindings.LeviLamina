@@ -13,7 +13,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
 
     public static WriteBatch Create()
     {
-        var handle = NativeMethods.TablePtr->f2289();
+        var handle = NativeMethods.TablePtr->f2297();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -22,15 +22,23 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
         return new WriteBatch((nint)handle);
     }
 
-    public static WriteBatch Create(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
+    public static WriteBatch Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch arg0)
+    {
+        var handle = NativeMethods.TablePtr->f2298((void*)arg0.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new WriteBatch((nint)handle);
+    }
 
     public nint del(string key)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2290((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2299((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -45,7 +53,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                return (nint)NativeMethods.TablePtr->f2291((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+                return (nint)NativeMethods.TablePtr->f2300((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
             }
         }
     }
@@ -55,7 +63,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2288((void*)_handle);
+            NativeMethods.TablePtr->f2296((void*)_handle);
             _handle = 0;
         }
     }

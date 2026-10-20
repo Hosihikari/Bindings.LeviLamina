@@ -11,8 +11,16 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static Decompressor Create(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
+    public static Decompressor Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.compress_utils.Decompressor arg0)
+    {
+        var handle = NativeMethods.TablePtr->f2218((void*)arg0.Handle);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new Decompressor((nint)handle);
+    }
 
     public static Decompressor Create(nint sink, nint format) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'nonstd::expected_lite::expected<void, ll::Error>' is not supported.");
@@ -20,7 +28,7 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
     public void finish()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2214((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2219((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -30,7 +38,7 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
     public void status()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2215((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2220((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -40,7 +48,7 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(data);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2216((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            NativeMethods.TablePtr->f2221((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
         }
     }
@@ -50,7 +58,7 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2213((void*)_handle);
+            NativeMethods.TablePtr->f2217((void*)_handle);
             _handle = 0;
         }
     }

@@ -10,6 +10,7 @@ using Hosihikari.Bindings.LeviLamina.Interop;
 using Hosihikari.Bindings.LeviLamina.Interop.ll;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.io;
+using Hosihikari.Bindings.LeviLamina.Interop.ll.mod;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.thread;
 using LlEventId = Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId;
 using LlVersion = Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version;
@@ -22,8 +23,16 @@ public sealed class ShimSmokePlugin : IPlugin
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate void CallbackRelease(nint userData);
 
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate void ModCallbackInvoke(nint userData, nint data, nuint size);
+
     private static readonly CallbackInvoke Callback = OnCallback;
     private static readonly CallbackRelease Release = OnRelease;
+    private static readonly ModCallbackInvoke ModCallback = OnModCallback;
+
+    private static void OnModCallback(nint userData, nint data, nuint size)
+    {
+    }
     private static int _callbackCount;
     private static bool _callbackReleased;
 
@@ -124,6 +133,15 @@ public sealed class ShimSmokePlugin : IPlugin
                 "hosihikari_smoke_enum",
                 new[] { new KeyValuePair<string, ulong>("three", 3) });
             log.AppendLine($"command_enum.pairs={(registered && added ? "ok" : "failed")}");
+
+            var modRegistry = new ModManagerRegistry(ModManagerRegistry.getInstance());
+            using (var mod = modRegistry.getMod("hosihikari"))
+            {
+                var callbackId = modRegistry.executeOnModLoad(
+                    (nint)Marshal.GetFunctionPointerForDelegate(ModCallback), 0, 0, mod);
+                var erased = callbackId != 0 && modRegistry.eraseOnModCallback(callbackId);
+                log.AppendLine($"weak_ptr.mod={(mod is not null && erased ? "ok" : "failed")}");
+            }
 
             var playerInfoHandle = Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo.getInstance();
             if (playerInfoHandle != 0)

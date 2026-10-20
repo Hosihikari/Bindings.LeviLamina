@@ -29,6 +29,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `std::function` callback projection: `InplaceExecutor.execute` invokes a managed C callback and its release callback exactly once.
 - `std::shared_ptr<T>` projection: `LoggerRegistry::getOrCreate`/`tryGet` return a `SharedHandle`; both lookups alias the same target, the target serves `Logger::getTitle`, and the shared references release cleanly.
 - `vector<pair<string, uint64>>` parameters surface as `KeyValuePair<string, ulong>[]`; `CommandRegistrar.tryRegisterRuntimeEnum` and `addRuntimeEnumValues` register and extend a runtime enum.
+- `std::weak_ptr<ll::mod::Mod>` parameters accept a `SharedHandle`; `ModManagerRegistry.executeOnModLoad` registers a callback for the mod obtained from `getMod`, and the registration is removed by id.
 - `optional_ref<T>` projection: `PlayerInfo::fromName`/`fromXuid` return `nint?`; lookups for absent players report an empty reference.
 - `nonstd::expected_lite::expected<T, ll::Error>` projection: `Property::setJson` reports the native error through `InvalidOperationException` with the `ll::Error` message.
 - Native exception capture: `Version.Create("not-a-version")` must surface as a managed `InvalidOperationException` with the native message.
@@ -58,6 +59,7 @@ shared.same=ok
 shared.title=hosihikari-smoke
 shared.dispose=ok
 command_enum.pairs=ok
+weak_ptr.mod=ok
 optional_ref.missing=ok
 expected.error=caught
 invalid=caught:invalid argument

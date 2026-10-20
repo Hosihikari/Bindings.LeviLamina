@@ -4,6 +4,7 @@
 #pragma once
 
 #include <cstddef>
+#include <cstdint>
 #include <string>
 
 #if defined(_WIN32)
@@ -30,6 +31,13 @@ struct HosihikariSharedHandle {
     void* holder;
     void* target;
     HosihikariSharedRelease release;
+};
+
+struct HosihikariMapEntry {
+    std::uint64_t key;
+    std::uint64_t keySize;
+    std::uint64_t value;
+    std::uint64_t valueSize;
 };
 
 }  // extern "C"

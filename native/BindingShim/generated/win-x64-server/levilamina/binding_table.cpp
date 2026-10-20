@@ -11,6 +11,7 @@
 #include <optional>
 #include <string>
 #include <string_view>
+#include <utility>
 #include <vector>
 #include "ll/api/memory/Memory.h"
 #include "mc/deps/core/memory/IMemoryAllocator.h"
@@ -204,6 +205,23 @@ inline std::vector<std::string> hs_make_string_vector(HosihikariStringView const
     for (std::size_t i = 0; i < count; ++i) { result.emplace_back(data[i].data, data[i].size); }
     return result;
 }
+template <class T>
+struct hs_shared_holder { std::shared_ptr<T> value; };
+
+template <class T>
+void hs_release_shared_holder(void* holder)
+{
+    delete static_cast<hs_shared_holder<T>*>(holder);
+}
+
+template <class T>
+HosihikariSharedHandle hs_make_shared_handle(std::shared_ptr<T> value)
+{
+    if (!value) { return HosihikariSharedHandle{nullptr, nullptr, nullptr}; }
+    auto* holder = new hs_shared_holder<T>{std::move(value)};
+    return HosihikariSharedHandle{holder, const_cast<void*>(static_cast<void const*>(holder->value.get())), &hs_release_shared_holder<T>};
+}
+
 inline std::vector<std::basic_string_view<char>> hs_make_string_view_vector(HosihikariStringView const* data, std::size_t count)
 {
     std::vector<std::basic_string_view<char>> result;
@@ -35439,6 +35457,21 @@ catch (...)
     return nullptr;
 }
 
+static HosihikariSharedHandle hs_method_38785725(void* hs_self, std::uint64_t id) try
+{
+    return hs_make_shared_handle(static_cast<ll::event::EventBus*>(hs_self)->getListener(static_cast<unsigned long long>(id)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
 static std::uint64_t hs_method_eb2d7b6c(void* hs_self, void* arg0) try
 {
     return static_cast<std::uint64_t>(static_cast<ll::event::EventBus*>(hs_self)->getListenerCount(*static_cast<const ll::event::EventIdView*>(arg0)));
@@ -38980,6 +39013,21 @@ catch (...)
     return 0;
 }
 
+static HosihikariSharedHandle hs_method_b3caca9c(void* hs_self, std::uint64_t index) try
+{
+    return hs_make_shared_handle(static_cast<ll::io::Logger*>(hs_self)->getSink(static_cast<unsigned long long>(index)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
 static HosihikariStringView hs_method_1a48a16c(void* hs_self) try
 {
     auto result = static_cast<ll::io::Logger*>(hs_self)->getTitle();
@@ -39130,6 +39178,36 @@ catch (...)
 {
     setLastError("unknown native exception");
     return nullptr;
+}
+
+static HosihikariSharedHandle hs_method_52af8b2f(void* hs_self, const char* title_data, std::size_t title_size) try
+{
+    return hs_make_shared_handle(static_cast<ll::io::LoggerRegistry*>(hs_self)->getOrCreate(std::basic_string_view<char>(title_data, title_size)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
+static HosihikariSharedHandle hs_method_41aba55e(void* hs_self, const char* title_data, std::size_t title_size) try
+{
+    return hs_make_shared_handle(static_cast<ll::io::LoggerRegistry*>(hs_self)->tryGet(std::basic_string_view<char>(title_data, title_size)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
 }
 
 static void hs_destroy_31b6b894(void* hs_self) try
@@ -41269,6 +41347,21 @@ catch (...)
     return;
 }
 
+static HosihikariSharedHandle hs_method_72114394(void* hs_self, const char* name_data, std::size_t name_size) try
+{
+    return hs_make_shared_handle(static_cast<ll::mod::ModManager*>(hs_self)->getMod(std::basic_string_view<char>(name_data, name_size)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
 static std::uint64_t hs_method_2e586d9c(void* hs_self) try
 {
     return static_cast<std::uint64_t>(static_cast<ll::mod::ModManager*>(hs_self)->getModCount());
@@ -41376,6 +41469,51 @@ catch (...)
     return nullptr;
 }
 
+static HosihikariSharedHandle hs_method_7ee89750(void* hs_self, const char* type_data, std::size_t type_size) try
+{
+    return hs_make_shared_handle(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->getManager(std::basic_string_view<char>(type_data, type_size)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
+static HosihikariSharedHandle hs_method_985f5308(void* hs_self, const char* name_data, std::size_t name_size) try
+{
+    return hs_make_shared_handle(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->getManagerForMod(std::basic_string_view<char>(name_data, name_size)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
+static HosihikariSharedHandle hs_method_89d1efb9(void* hs_self, const char* name_data, std::size_t name_size) try
+{
+    return hs_make_shared_handle(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->getMod(std::basic_string_view<char>(name_data, name_size)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
 static HosihikariStringView hs_method_f60f18e7(void* hs_self, const char* name_data, std::size_t name_size) try
 {
     auto result = static_cast<ll::mod::ModManagerRegistry*>(hs_self)->getModType(std::basic_string_view<char>(name_data, name_size));
@@ -41421,6 +41559,36 @@ catch (...)
 {
     setLastError("unknown native exception");
     return false;
+}
+
+static HosihikariSharedHandle hs_method_4bba2848(void* handle) try
+{
+    return hs_make_shared_handle(ll::mod::NativeMod::current(static_cast<void*>(handle)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
+static HosihikariSharedHandle hs_method_e62bf0c9(void* handle) try
+{
+    return hs_make_shared_handle(ll::mod::NativeMod::getByHandle(static_cast<void*>(handle)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
 }
 
 static void* hs_method_b9381af9(void* hs_self) try
@@ -46516,6 +46684,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_415cf2dd,
     &hs_method_056c47a7,
     &hs_method_cd83bdb3,
+    &hs_method_38785725,
     &hs_method_eb2d7b6c,
     &hs_method_8d9cf8af,
     &hs_method_8d24ae3c,
@@ -46739,6 +46908,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_4b5a9d04,
     &hs_method_48c2de3c,
     &hs_method_fc6ffbb3,
+    &hs_method_b3caca9c,
     &hs_method_1a48a16c,
     &hs_method_d664da2b,
     &hs_method_c1d191b1,
@@ -46749,6 +46919,8 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_f53cdadb,
     &hs_method_693d71d8,
     &hs_method_95e32837,
+    &hs_method_52af8b2f,
+    &hs_method_41aba55e,
     &hs_destroy_31b6b894,
     &hs_create_103fbc3e,
     &hs_get_23b0f6aa,
@@ -46885,6 +47057,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_1bd94c1a,
     &hs_method_d463a139,
     &hs_method_c9532442,
+    &hs_method_72114394,
     &hs_method_2e586d9c,
     &hs_method_ee4df28c,
     &hs_method_f65db5e6,
@@ -46892,9 +47065,14 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_1cc73cca,
     &hs_method_aa5a85fc,
     &hs_method_35a0463e,
+    &hs_method_7ee89750,
+    &hs_method_985f5308,
+    &hs_method_89d1efb9,
     &hs_method_f60f18e7,
     &hs_method_e0f37ca6,
     &hs_method_baf347a9,
+    &hs_method_4bba2848,
+    &hs_method_e62bf0c9,
     &hs_method_b9381af9,
     &hs_destroy_268b95ee,
     &hs_destroy_015d20d0,

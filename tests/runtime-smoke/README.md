@@ -26,6 +26,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - Out-of-line `ll::Error` construction, `operator bool`, `message()` (string result), and destruction.
 - Out-of-line virtual-destructor and allocator-backed lifecycle: `GlobalThreadPauser`, `ConsoleSink`, and `InplaceExecutor` creation and destruction.
 - `std::function` callback projection: `InplaceExecutor.execute` invokes a managed C callback and its release callback exactly once.
+- `std::shared_ptr<T>` projection: `LoggerRegistry::getOrCreate`/`tryGet` return a `SharedHandle`; both lookups alias the same target, the target serves `Logger::getTitle`, and the shared references release cleanly.
 - Native exception capture: `Version.Create("not-a-version")` must surface as a managed `InvalidOperationException` with the native message.
 
 Expected result:
@@ -47,6 +48,10 @@ sink.dispose=ok
 callback.count=1
 callback.release=True
 executor.dispose=ok
+shared.target=ok
+shared.same=ok
+shared.title=hosihikari-smoke
+shared.dispose=ok
 invalid=caught:invalid argument
 result=OK
 ```

@@ -14,15 +14,21 @@ public sealed unsafe partial class NativeMod
     public static NativeMod Create(nint manifest, nint handle) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
-    public static nint current(nint handle) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::NativeMod>' is not a known bindable declaration.");
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? current(nint handle)
+    {
+        var __hs_shared = NativeMethods.TablePtr->f2722((void*)handle);
+        return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+    }
 
-    public static nint getByHandle(nint handle) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::NativeMod>' is not a known bindable declaration.");
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getByHandle(nint handle)
+    {
+        var __hs_shared = NativeMethods.TablePtr->f2723((void*)handle);
+        return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+    }
 
     public nint getHandle()
     {
-        return (nint)NativeMethods.TablePtr->f2714((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2724((void*)_handle);
     }
 
     public void Destroy() =>

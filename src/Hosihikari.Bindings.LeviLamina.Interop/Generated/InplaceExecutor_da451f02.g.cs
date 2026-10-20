@@ -16,7 +16,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f2786(__hs_stringData, (nuint)__hs_stringBytes.Length);
+            var handle = NativeMethods.TablePtr->f2796(__hs_stringData, (nuint)__hs_stringBytes.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,15 +28,15 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f2787((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->f2797((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
     public nint executeAfter(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::data::CancellableCallback>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::chrono::duration<long long, std::ratio<1, 1000000000>>' is not a known bindable declaration.");
 
     public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f2788();
+        return (nint)NativeMethods.TablePtr->f2798();
     }
 
 
@@ -44,7 +44,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2785((void*)_handle);
+            NativeMethods.TablePtr->f2795((void*)_handle);
             _handle = 0;
         }
     }

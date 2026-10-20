@@ -90,6 +90,21 @@ public sealed class ShimSmokePlugin : IPlugin
             executor.Dispose();
             log.AppendLine("executor.dispose=ok");
 
+            var registry = new LoggerRegistry(LoggerRegistry.getInstance());
+            using (var logger = registry.getOrCreate("hosihikari-smoke"))
+            {
+                log.AppendLine($"shared.target={(logger is not null && logger.Target != 0 ? "ok" : "failed")}");
+                using (var sameLogger = registry.tryGet("hosihikari-smoke"))
+                {
+                    log.AppendLine($"shared.same={(sameLogger is not null && logger is not null && sameLogger.Target == logger.Target ? "ok" : "failed")}");
+                }
+
+                var title = logger is null ? "<null>" : new Logger(logger.Target).getTitle();
+                log.AppendLine($"shared.title={title}");
+            }
+
+            log.AppendLine("shared.dispose=ok");
+
             try
             {
                 using var invalid = LlVersion.Create("not-a-version");

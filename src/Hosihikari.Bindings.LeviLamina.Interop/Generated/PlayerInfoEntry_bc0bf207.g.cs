@@ -15,21 +15,21 @@ public sealed unsafe partial class PlayerInfoEntry : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2743((void*)_handle);
+            var view = NativeMethods.TablePtr->f2753((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint uuid
     {
-        get => (nint)NativeMethods.TablePtr->f2744((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2754((void*)_handle);
     }
 
     public string xuid
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2745((void*)_handle);
+            var view = NativeMethods.TablePtr->f2755((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -38,7 +38,7 @@ public sealed unsafe partial class PlayerInfoEntry : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2742((void*)_handle);
+            NativeMethods.TablePtr->f2752((void*)_handle);
             _handle = 0;
         }
     }

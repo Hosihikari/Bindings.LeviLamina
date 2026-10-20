@@ -13,25 +13,25 @@ public sealed unsafe partial class DropdownItemData : global::System.IDisposable
 
     public nint description
     {
-        get => (nint)NativeMethods.TablePtr->f2815((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2825((void*)_handle);
     }
 
     public nint label
     {
-        get => (nint)NativeMethods.TablePtr->f2816((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2826((void*)_handle);
     }
 
     public double value
     {
-        get => NativeMethods.TablePtr->f2817((void*)_handle);
-        set => NativeMethods.TablePtr->f2818((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2827((void*)_handle);
+        set => NativeMethods.TablePtr->f2828((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2814((void*)_handle);
+            NativeMethods.TablePtr->f2824((void*)_handle);
             _handle = 0;
         }
     }

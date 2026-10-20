@@ -16,19 +16,19 @@ public sealed unsafe partial class PlayerUseItemEvent : global::System.IDisposab
 
     public nint item()
     {
-        return (nint)NativeMethods.TablePtr->f2442((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2443((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2443((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2444((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2441((void*)_handle);
+            NativeMethods.TablePtr->f2442((void*)_handle);
             _handle = 0;
         }
     }

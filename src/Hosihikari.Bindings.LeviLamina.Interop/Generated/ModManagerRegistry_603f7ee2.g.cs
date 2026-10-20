@@ -13,7 +13,7 @@ public sealed unsafe partial class ModManagerRegistry
 
     public bool addManager(nint manager)
     {
-        return NativeMethods.TablePtr->f2707((void*)_handle, (void*)manager);
+        return NativeMethods.TablePtr->f2712((void*)_handle, (void*)manager);
     }
 
     public bool eraseManager(string type)
@@ -21,13 +21,13 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(type);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2708((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2713((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
     public bool eraseOnModCallback(ulong id)
     {
-        return NativeMethods.TablePtr->f2709((void*)_handle, id);
+        return NativeMethods.TablePtr->f2714((void*)_handle, id);
     }
 
     public ulong eraseOnModCallback(nint mod, nint type) =>
@@ -50,24 +50,45 @@ public sealed unsafe partial class ModManagerRegistry
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2710();
+        return (nint)NativeMethods.TablePtr->f2715();
     }
 
-    public nint getManager(nint type) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::ModManager>' is not a known bindable declaration.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getManager(string type)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(type);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            var __hs_shared = NativeMethods.TablePtr->f2716((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+        }
+    }
 
-    public nint getManagerForMod(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::ModManager>' is not a known bindable declaration.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getManagerForMod(string name)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            var __hs_shared = NativeMethods.TablePtr->f2717((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+        }
+    }
 
-    public nint getMod(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::Mod>' is not a known bindable declaration.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getMod(string name)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            var __hs_shared = NativeMethods.TablePtr->f2718((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
+        }
+    }
 
     public string getModType(string name)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_view = NativeMethods.TablePtr->f2711((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            var __hs_view = NativeMethods.TablePtr->f2719((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
@@ -77,7 +98,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(type);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2712((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2720((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -86,7 +107,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2713((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2721((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 

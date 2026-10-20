@@ -13,7 +13,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
 
     public static DynamicLibrary Create()
     {
-        var handle = NativeMethods.TablePtr->f2779();
+        var handle = NativeMethods.TablePtr->f2789();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
 
     public static DynamicLibrary Create_0f3f9b13(nint path)
     {
-        var handle = NativeMethods.TablePtr->f2780((void*)path);
+        var handle = NativeMethods.TablePtr->f2790((void*)path);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -41,12 +41,12 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
 
     public nint getAddress(nint name)
     {
-        return (nint)NativeMethods.TablePtr->f2781((void*)_handle, (void*)name);
+        return (nint)NativeMethods.TablePtr->f2791((void*)_handle, (void*)name);
     }
 
     public nint handle()
     {
-        return (nint)NativeMethods.TablePtr->f2782((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2792((void*)_handle);
     }
 
     public nint load(nint path) =>
@@ -60,7 +60,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2778((void*)_handle);
+            NativeMethods.TablePtr->f2788((void*)_handle);
             _handle = 0;
         }
     }

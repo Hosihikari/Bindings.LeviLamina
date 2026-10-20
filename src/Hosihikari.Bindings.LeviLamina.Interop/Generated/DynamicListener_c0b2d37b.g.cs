@@ -20,7 +20,7 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
     }
 
     public static nint create(nint fn, nint priority, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::event::DynamicListener>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
 
     public void Dispose()

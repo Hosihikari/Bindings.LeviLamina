@@ -13,27 +13,27 @@ public sealed unsafe partial class SpawnMobEvent
 
     public nint fromSpawner()
     {
-        return (nint)NativeMethods.TablePtr->f2458((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2459((void*)_handle);
     }
 
     public nint identifier()
     {
-        return (nint)NativeMethods.TablePtr->f2459((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2460((void*)_handle);
     }
 
     public nint naturalSpawn()
     {
-        return (nint)NativeMethods.TablePtr->f2460((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2461((void*)_handle);
     }
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f2461((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2462((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2462((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2463((void*)_handle, (void*)arg0);
     }
 
     public nint spawner() =>
@@ -41,6 +41,6 @@ public sealed unsafe partial class SpawnMobEvent
 
     public nint surface()
     {
-        return (nint)NativeMethods.TablePtr->f2463((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2464((void*)_handle);
     }
 }

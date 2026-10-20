@@ -3042,22 +3042,23 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*> f3028;
         public delegate* unmanaged[Cdecl]<void*, void*> f3029;
         public delegate* unmanaged[Cdecl]<void*, void*, bool> f3030;
-        public delegate* unmanaged[Cdecl]<byte*, nuint, void*> f3031;
+        public delegate* unmanaged[Cdecl]<void**, nuint, void*> f3031;
         public delegate* unmanaged[Cdecl]<byte*, nuint, void*> f3032;
-        public delegate* unmanaged[Cdecl]<byte*, nuint, void*, void*> f3033;
-        public delegate* unmanaged[Cdecl]<byte*, nuint, global::Hosihikari.Bindings.Abi.StringView*, nuint, void*> f3034;
-        public delegate* unmanaged[Cdecl]<void*, void> f3035;
-        public delegate* unmanaged[Cdecl]<void*> f3036;
-        public delegate* unmanaged[Cdecl]<void*, void*> f3037;
-        public delegate* unmanaged[Cdecl]<void*, bool> f3038;
+        public delegate* unmanaged[Cdecl]<byte*, nuint, void*> f3033;
+        public delegate* unmanaged[Cdecl]<byte*, nuint, void*, void*> f3034;
+        public delegate* unmanaged[Cdecl]<byte*, nuint, global::Hosihikari.Bindings.Abi.StringView*, nuint, void*> f3035;
+        public delegate* unmanaged[Cdecl]<void*, void> f3036;
+        public delegate* unmanaged[Cdecl]<void*> f3037;
+        public delegate* unmanaged[Cdecl]<void*, void*> f3038;
         public delegate* unmanaged[Cdecl]<void*, bool> f3039;
-        public delegate* unmanaged[Cdecl]<void*, bool, bool*, void> f3040;
-        public delegate* unmanaged[Cdecl]<void*, void> f3041;
-        public delegate* unmanaged[Cdecl]<void*, void*> f3042;
+        public delegate* unmanaged[Cdecl]<void*, bool> f3040;
+        public delegate* unmanaged[Cdecl]<void*, bool, bool*, void> f3041;
+        public delegate* unmanaged[Cdecl]<void*, void> f3042;
         public delegate* unmanaged[Cdecl]<void*, void*> f3043;
         public delegate* unmanaged[Cdecl]<void*, void*> f3044;
-        public delegate* unmanaged[Cdecl]<void*, void> f3045;
+        public delegate* unmanaged[Cdecl]<void*, void*> f3045;
         public delegate* unmanaged[Cdecl]<void*, void> f3046;
+        public delegate* unmanaged[Cdecl]<void*, void> f3047;
     }
 
     private static global::Hosihikari.Bindings.Abi.ShimLibrary? s_library;

@@ -220,6 +220,31 @@ HosihikariSharedHandle hs_make_shared_handle(std::shared_ptr<T> value)
     return HosihikariSharedHandle{holder, const_cast<void*>(static_cast<void const*>(holder->value.get())), &hs_release_shared_holder<T>};
 }
 
+template <class T>
+std::vector<T> hs_make_record_vector(void const* const* data, std::size_t count)
+{
+    std::vector<T> result;
+    result.reserve(count);
+    for (std::size_t i = 0; i < count; ++i) { result.push_back(*static_cast<T const*>(data[i])); }
+    return result;
+}
+template <class T>
+std::vector<std::optional<T>> hs_make_optional_record_vector(void const* const* data, std::size_t count)
+{
+    std::vector<std::optional<T>> result;
+    result.reserve(count);
+    for (std::size_t i = 0; i < count; ++i) { result.push_back(data[i] ? std::optional<T>(*static_cast<T const*>(data[i])) : std::nullopt); }
+    return result;
+}
+template <class V>
+std::vector<V> hs_make_variant_vector(void const* const* data, std::size_t count)
+{
+    std::vector<V> result;
+    result.reserve(count);
+    for (std::size_t i = 0; i < count; ++i) { result.push_back(*static_cast<V const*>(data[i])); }
+    return result;
+}
+
 inline std::vector<std::basic_string_view<char>> hs_make_string_view_vector(HosihikariStringView const* data, std::size_t count)
 {
     std::vector<std::basic_string_view<char>> result;
@@ -46555,6 +46580,21 @@ catch (...)
     return false;
 }
 
+static void* hs_method_2f050d6f(const void** messages_data, std::size_t messages_count) try
+{
+    return static_cast<void*>(new ll::ui::UIRawMessage(ll::ui::UIRawMessage::rawText(hs_make_record_vector<ll::ui::UIRawMessage>(messages_data, messages_count))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_method_9c2a5b19(const char* value_data, std::size_t value_size) try
 {
     return static_cast<void*>(new ll::ui::UIRawMessage(ll::ui::UIRawMessage::text(std::basic_string<char>(value_data, value_size))));
@@ -49838,6 +49878,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_create_ac42d1ce,
     &hs_create_3a8703de,
     &hs_method_42613d84,
+    &hs_method_2f050d6f,
     &hs_method_9c2a5b19,
     &hs_method_1715a593,
     &hs_method_f7a82947,

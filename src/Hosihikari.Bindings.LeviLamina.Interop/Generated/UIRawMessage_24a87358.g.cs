@@ -47,15 +47,27 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         return NativeMethods.TablePtr->f3030((void*)_handle, (void*)arg0.Handle);
     }
 
-    public static nint rawText(nint messages) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'll::ui::UIRawMessage' is not supported.");
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage rawText(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage[] messages)
+    {
+        var __hs_vectorItems = messages;
+        var __hs_vectorHandles = new nint[__hs_vectorItems?.Length ?? 0];
+        for (var __hs_i = 0; __hs_i < __hs_vectorHandles.Length; __hs_i++)
+        {
+            __hs_vectorHandles[__hs_i] = __hs_vectorItems![__hs_i]?.Handle ?? 0;
+        }
+        fixed (nint* __hs_vectorHandleData = __hs_vectorHandles)
+        {
+            var __hs_vectorData = (void**)__hs_vectorHandleData;
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f3031(__hs_vectorData, (nuint)(messages?.Length ?? 0)));
+        }
+    }
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage text(string value)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f3031(__hs_stringData0, (nuint)__hs_stringBytes0.Length));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f3032(__hs_stringData0, (nuint)__hs_stringBytes0.Length));
         }
     }
 
@@ -64,7 +76,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f3032(__hs_stringData0, (nuint)__hs_stringBytes0.Length));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f3033(__hs_stringData0, (nuint)__hs_stringBytes0.Length));
         }
     }
 
@@ -73,7 +85,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f3033(__hs_stringData0, (nuint)__hs_stringBytes0.Length, (void*)substitutions.Handle));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f3034(__hs_stringData0, (nuint)__hs_stringBytes0.Length, (void*)substitutions.Handle));
         }
     }
 
@@ -99,7 +111,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f3034(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length));
+                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f3035(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length));
                 }
             }
         }

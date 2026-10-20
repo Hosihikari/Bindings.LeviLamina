@@ -44,9 +44,11 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
         return new AnyFunction((nint)handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::nullptr_t' is not a known bindable declaration.", false)]
     public static AnyFunction Create(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::nullptr_t' is not a known bindable declaration.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::any' is not a known bindable declaration.", false)]
     public nint invoke(nint args) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::any' is not a known bindable declaration.");
 
@@ -55,9 +57,11 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
         return NativeMethods.TablePtr->f2264((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_ab62667b(nint other) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_e043fab8(nint other) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 

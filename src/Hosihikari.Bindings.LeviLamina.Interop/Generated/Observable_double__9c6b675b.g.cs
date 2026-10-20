@@ -11,12 +11,15 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static Observable_double_ Create_d9747415(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static Observable_double_ Create(double initial) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static Observable_double_ Create_934cef8c(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
@@ -25,9 +28,11 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
         return NativeMethods.TablePtr->f2307((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_fd521800(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_77bfafad(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
@@ -36,6 +41,7 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
         NativeMethods.TablePtr->f2308((void*)_handle, value);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (const double &)>' is not supported.", false)]
     public uint subscribe(nint callback) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (const double &)>' is not supported.");
 

@@ -22,6 +22,7 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
         return new Compressor((nint)handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: callback return type 'nonstd::expected_lite::expected<void, ll::Error>' is not supported.", false)]
     public static Compressor Create(nint sink, nint format, nint level) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'nonstd::expected_lite::expected<void, ll::Error>' is not supported.");
 
@@ -32,6 +33,7 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 

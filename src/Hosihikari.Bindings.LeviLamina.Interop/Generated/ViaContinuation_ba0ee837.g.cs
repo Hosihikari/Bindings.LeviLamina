@@ -22,9 +22,11 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
         return new ViaContinuation((nint)handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<ll::coro::ViaContinuation::promise_type>' is not a known bindable declaration.", false)]
     public static ViaContinuation Create(nint h) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<ll::coro::ViaContinuation::promise_type>' is not a known bindable declaration.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::coroutine_handle<void>' is not a known bindable declaration.", false)]
     public nint get() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::coroutine_handle<void>' is not a known bindable declaration.");
 

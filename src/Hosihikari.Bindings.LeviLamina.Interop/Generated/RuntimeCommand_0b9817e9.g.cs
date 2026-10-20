@@ -11,6 +11,7 @@ public sealed unsafe partial class RuntimeCommand : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public void execute(nint arg0, nint arg1) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 

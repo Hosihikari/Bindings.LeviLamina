@@ -41,6 +41,7 @@ public sealed unsafe partial class ModManager
         }
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::mod::Mod &>' is not a known bindable declaration.", false)]
     public nint mods() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::mod::Mod &>' is not a known bindable declaration.");
 }

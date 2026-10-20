@@ -11,6 +11,7 @@ public sealed unsafe partial class ServiceRegisterEvent : global::System.IDispos
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the constructor is not exported by the carrier.", false)]
     public static ServiceRegisterEvent Create(nint service) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 

@@ -44,6 +44,7 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotatePolicy((nint)NativeMethods.TablePtr->f2767());
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: field type 'std::function<std::basic_string<char> (const ll::io::ArchiveNameInfo &)>' is not supported.", false)]
     public nint namer
     {
         get => throw new global::System.NotSupportedException("BindingShim cannot project this member: field type 'std::function<std::basic_string<char> (const ll::io::ArchiveNameInfo &)>' is not supported.");

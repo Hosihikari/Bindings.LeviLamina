@@ -11,6 +11,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: consteval constructors cannot be called at runtime.", false)]
     public static SourceLocation Create(nint file, nint function, nint funcsig, int line, int column) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: consteval constructors cannot be called at runtime.");
 
@@ -19,6 +20,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
         return NativeMethods.TablePtr->f16((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: consteval methods cannot be called at runtime.", false)]
     public static nint current(nint file, nint function, nint funcsig, int line, int column) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: consteval methods cannot be called at runtime.");
 
@@ -75,6 +77,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: consteval methods cannot be called at runtime.", false)]
     public static nint unknown() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: consteval methods cannot be called at runtime.");
 

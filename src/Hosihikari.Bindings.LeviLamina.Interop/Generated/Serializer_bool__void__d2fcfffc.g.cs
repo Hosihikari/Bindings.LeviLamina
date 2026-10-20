@@ -11,9 +11,11 @@ public sealed partial class Serializer_bool__void_
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.", false)]
     public static nint from_string(nint s) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.", false)]
     public static nint to_string(bool t) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 }

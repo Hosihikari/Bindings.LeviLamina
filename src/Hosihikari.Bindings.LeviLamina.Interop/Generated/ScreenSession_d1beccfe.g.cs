@@ -22,12 +22,15 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         return new ScreenSession((nint)handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static ScreenSession Create(nint player, nint screenId) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static ScreenSession Create(nint player, nint screenId, nint arg2) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static ScreenSession Create(nint player, nint screenId, uint instanceId) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
@@ -136,15 +139,19 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         return NativeMethods.TablePtr->f3075((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_e92563b0(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_6af6b491(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>)>' is not supported.", false)]
     public nint show(nint callback) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>)>' is not supported.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::CoroTask<nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>>' is not a known bindable declaration.", false)]
     public nint showAsync() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::CoroTask<nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>>' is not a known bindable declaration.");
 

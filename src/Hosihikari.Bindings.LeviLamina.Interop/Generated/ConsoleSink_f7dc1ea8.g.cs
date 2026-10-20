@@ -22,6 +22,7 @@ public sealed unsafe partial class ConsoleSink : global::System.IDisposable
         return new ConsoleSink((nint)handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.", false)]
     public static ConsoleSink Create(nint formatter) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.");
 

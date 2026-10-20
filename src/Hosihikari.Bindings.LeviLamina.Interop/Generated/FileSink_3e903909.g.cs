@@ -11,6 +11,7 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.", false)]
     public static FileSink Create(nint path, nint formatter, nint policy) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.");
 
@@ -34,6 +35,7 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
         NativeMethods.TablePtr->f2698((void*)_handle, level);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.", false)]
     public void setFormatter(nint fmter) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.");
 

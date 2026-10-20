@@ -22,6 +22,7 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
         return new OverloadData((nint)handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 

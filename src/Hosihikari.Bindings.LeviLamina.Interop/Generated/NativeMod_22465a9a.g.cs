@@ -11,6 +11,7 @@ public sealed unsafe partial class NativeMod
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the constructor is not exported by the carrier.", false)]
     public static NativeMod Create(nint manifest, nint handle) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
@@ -31,6 +32,7 @@ public sealed unsafe partial class NativeMod
         return (nint)NativeMethods.TablePtr->f2898((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: the class has no accessible destructor.", false)]
     public void Destroy() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has no accessible destructor.");
 }

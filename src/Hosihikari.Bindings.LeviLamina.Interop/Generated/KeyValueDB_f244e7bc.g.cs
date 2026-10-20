@@ -86,9 +86,11 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         }
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<std::pair<std::basic_string_view<char>, std::basic_string_view<char>>>' is not a known bindable declaration.", false)]
     public nint iter() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<std::pair<std::basic_string_view<char>, std::basic_string_view<char>>>' is not a known bindable declaration.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 

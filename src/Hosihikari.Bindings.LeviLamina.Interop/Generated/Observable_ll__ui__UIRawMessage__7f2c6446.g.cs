@@ -11,12 +11,15 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static Observable_ll__ui__UIRawMessage_ Create_355fb239(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static Observable_ll__ui__UIRawMessage_ Create_a2d09c48(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static Observable_ll__ui__UIRawMessage_ Create_e7f8498b(nint initial) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
@@ -25,9 +28,11 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2311((void*)_handle));
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_3295b9f8(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_a165cd1b(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
@@ -36,6 +41,7 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
         NativeMethods.TablePtr->f2312((void*)_handle, (void*)value.Handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (const ll::ui::UIRawMessage &)>' is not supported.", false)]
     public uint subscribe(nint callback) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (const ll::ui::UIRawMessage &)>' is not supported.");
 

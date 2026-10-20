@@ -27,6 +27,7 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
         return NativeMethods.TablePtr->f2243((void*)_handle, inplace);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::InterruptableSleep::EtnAwaiter' is not a known bindable declaration.", false)]
     public nint sleep() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::InterruptableSleep::EtnAwaiter' is not a known bindable declaration.");
 

@@ -11,6 +11,7 @@ public sealed unsafe partial class SpawnedMobEvent : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static SpawnedMobEvent Create(nint mob, nint blockSource, nint identifier, nint spawner, nint pos, nint naturalSpawn, nint surface, nint fromSpawner) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 

@@ -11,6 +11,7 @@ public sealed unsafe partial class ErrorInfoBase : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the class is abstract.", false)]
     public static ErrorInfoBase Create() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
@@ -20,6 +21,7 @@ public sealed unsafe partial class ErrorInfoBase : global::System.IDisposable
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public nint message(nint locale) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 

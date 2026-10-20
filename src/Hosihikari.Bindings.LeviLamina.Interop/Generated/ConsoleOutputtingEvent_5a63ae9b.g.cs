@@ -11,6 +11,7 @@ public sealed unsafe partial class ConsoleOutputtingEvent : global::System.IDisp
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: constructors do not accept mutable string references.", false)]
     public static ConsoleOutputtingEvent Create(nint message) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors do not accept mutable string references.");
 

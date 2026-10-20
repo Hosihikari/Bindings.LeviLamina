@@ -38,6 +38,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
         return NativeMethods.TablePtr->f3086((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 

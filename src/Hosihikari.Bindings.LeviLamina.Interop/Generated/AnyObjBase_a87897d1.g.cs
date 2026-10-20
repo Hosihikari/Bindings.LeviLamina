@@ -11,15 +11,19 @@ public sealed unsafe partial class AnyObjBase : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the class is abstract.", false)]
     public static AnyObjBase Create() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public nint copy(nint to) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public nint move(nint to) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public void tidy() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 

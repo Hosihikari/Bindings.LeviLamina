@@ -38,9 +38,11 @@ public sealed unsafe partial class PacketRegistrar
         }
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::network::Packet>' is not supported.", false)]
     public bool registerPacket(nint name, ulong id, nint factory) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::network::Packet>' is not supported.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::network::Packet>' is not supported.", false)]
     public bool registerPacket(nint name, ulong id, nint factory, nint handler) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::network::Packet>' is not supported.");
 }

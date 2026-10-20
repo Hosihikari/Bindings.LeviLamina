@@ -32,6 +32,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         NativeMethods.TablePtr->f2204((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::function_ref<void (CommandParameterData &)>' is not supported.", false)]
     public nint modify(nint fn) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::function_ref<void (CommandParameterData &)>' is not supported.");
 

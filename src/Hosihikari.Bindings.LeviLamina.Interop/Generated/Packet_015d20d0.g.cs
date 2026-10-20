@@ -11,9 +11,11 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the class is abstract.", false)]
     public static Packet Create(nint priority, nint reliability, nint clientSubId, bool compress) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public nint getName() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
@@ -46,6 +48,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
         set => NativeMethods.TablePtr->f2909((void*)_handle, value);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public nint read(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
@@ -54,6 +57,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
         NativeMethods.TablePtr->f2910((void*)_handle, (void*)actor, (void*)(except ?? 0), except is not null);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'DimensionType' is not a known bindable declaration.", false)]
     public void sendTo(nint pos, nint dimId, nint except) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'DimensionType' is not a known bindable declaration.");
 
@@ -87,6 +91,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
         NativeMethods.TablePtr->f2916((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public void write(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 

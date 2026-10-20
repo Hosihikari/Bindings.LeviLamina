@@ -16,9 +16,11 @@ public sealed unsafe partial class EventBus
         return NativeMethods.TablePtr->f2479((void*)_handle, arg0?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), (void*)arg1.Handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::event::EventIdView>' is not a known bindable declaration.", false)]
     public nint events(nint modName) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::event::EventIdView>' is not a known bindable declaration.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<std::pair<std::basic_string_view<char>, ll::event::EventIdView>>' is not a known bindable declaration.", false)]
     public nint events() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<std::pair<std::basic_string_view<char>, ll::event::EventIdView>>' is not a known bindable declaration.");
 
@@ -87,6 +89,7 @@ public sealed unsafe partial class EventBus
         return NativeMethods.TablePtr->f2491((void*)_handle, id);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::event::EmitterBase>' is not supported.", false)]
     public bool setEventEmitter(nint fn, nint eventId, nint mod) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::event::EmitterBase>' is not supported.");
 }

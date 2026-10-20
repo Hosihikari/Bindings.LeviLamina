@@ -55,6 +55,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
         return new SignatureView((nint)handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::span<const ll::memory::SignatureElement>' is not a known bindable declaration.", false)]
     public static SignatureView Create(nint span) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::span<const ll::memory::SignatureElement>' is not a known bindable declaration.");
 
@@ -63,9 +64,11 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
         return (nint)NativeMethods.TablePtr->f2813((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::_Span_iterator<const ll::memory::SignatureElement>' is not a known bindable declaration.", false)]
     public nint begin() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::_Span_iterator<const ll::memory::SignatureElement>' is not a known bindable declaration.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::_Span_iterator<const ll::memory::SignatureElement>' is not a known bindable declaration.", false)]
     public nint end() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::_Span_iterator<const ll::memory::SignatureElement>' is not a known bindable declaration.");
 
@@ -74,9 +77,11 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
         return (nint)NativeMethods.TablePtr->f2814((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_55389e38(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign_37ae7e00(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
@@ -95,6 +100,7 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
         return (nint)NativeMethods.TablePtr->f2817((void*)_handle, disableErrorOutput);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::span<std::byte>' is not a known bindable declaration.", false)]
     public nint resolve(nint range, bool disableErrorOutput) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::span<std::byte>' is not a known bindable declaration.");
 

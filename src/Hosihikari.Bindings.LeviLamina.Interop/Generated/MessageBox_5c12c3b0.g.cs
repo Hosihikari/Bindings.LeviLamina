@@ -11,6 +11,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static MessageBox Create(nint player, nint title) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
@@ -52,12 +53,15 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
         return NativeMethods.TablePtr->f3042((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>)>' is not supported.", false)]
     public nint show(nint callback) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>)>' is not supported.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::CoroTask<nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>>' is not a known bindable declaration.", false)]
     public nint showAsync() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::CoroTask<nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>>' is not a known bindable declaration.");
 

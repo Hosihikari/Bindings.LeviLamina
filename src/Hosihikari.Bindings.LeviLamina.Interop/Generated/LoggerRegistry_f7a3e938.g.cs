@@ -35,6 +35,7 @@ public sealed unsafe partial class LoggerRegistry
         }
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::io::Logger &>' is not a known bindable declaration.", false)]
     public nint loggers() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::io::Logger &>' is not a known bindable declaration.");
 

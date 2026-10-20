@@ -32,6 +32,7 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
         NativeMethods.TablePtr->f2258((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.", false)]
     public void await_suspend(nint handle) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.");
 

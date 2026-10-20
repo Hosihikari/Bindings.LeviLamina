@@ -21,6 +21,7 @@ public sealed unsafe partial class Stacktrace : global::System.IDisposable
         return NativeMethods.TablePtr->f31((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::thread::id' is not a known bindable declaration.", false)]
     public static nint fromThread(nint id) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::thread::id' is not a known bindable declaration.");
 

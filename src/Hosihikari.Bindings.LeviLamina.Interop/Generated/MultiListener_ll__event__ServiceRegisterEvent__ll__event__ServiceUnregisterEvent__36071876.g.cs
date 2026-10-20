@@ -16,6 +16,7 @@ public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent
         NativeMethods.TablePtr->f2525((void*)_handle, (void*)@event.Handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: the class has no accessible destructor.", false)]
     public void Destroy() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has no accessible destructor.");
 }

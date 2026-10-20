@@ -11,6 +11,7 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: field type 'void *(*)(const void *)' is not supported.", false)]
     public nint ctor
     {
         get => throw new global::System.NotSupportedException("BindingShim cannot project this member: field type 'void *(*)(const void *)' is not supported.");
@@ -22,6 +23,7 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
         return (nint)NativeMethods.TablePtr->f2381((void*)_handle, (void*)t.Handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static polymorphicCopy_ll__io__Formatter_ Create() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 

@@ -11,6 +11,7 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the class has an abstract template argument.", false)]
     public static ForwardAwaiter_const_ll__coro__Executor___ Create(nint val) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has an abstract template argument.");
 
@@ -24,6 +25,7 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
         return (nint)NativeMethods.TablePtr->f2239((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.", false)]
     public void await_suspend(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.");
 

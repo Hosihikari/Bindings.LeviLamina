@@ -11,6 +11,7 @@ public sealed unsafe partial class UIObservable_ll__ui__UIRawMessage_ : global::
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static UIObservable_ll__ui__UIRawMessage_ Create(nint initial, nint options) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 

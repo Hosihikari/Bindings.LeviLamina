@@ -115,12 +115,15 @@ public sealed unsafe partial class CommandRegistrar
         }
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public void clear() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: expected value type 'std::unique_ptr<Command>': unique_ptr return type 'Command' is not a known bindable declaration.", false)]
     public nint compileCommand(nint commandStr, nint origin, nint version) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: expected value type 'std::unique_ptr<Command>': unique_ptr return type 'Command' is not a known bindable declaration.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'CommandOutput' is not a known bindable declaration.", false)]
     public nint executeCommand(nint commandStr, nint origin, nint outputType, nint version) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandOutput' is not a known bindable declaration.");
 
@@ -129,6 +132,7 @@ public sealed unsafe partial class CommandRegistrar
         return (nint)NativeMethods.TablePtr->f1891(isClientSide);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'CommandFlag' is not a known bindable declaration.", false)]
     public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandFlag' is not a known bindable declaration.");
 
@@ -219,6 +223,7 @@ public sealed unsafe partial class CommandRegistrar
         }
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'bool (CommandRegistry::*)(void *, const CommandRegistry::ParseToken &, const CommandOrigin &, int, std::basic_string<char> &, std::vector<std::basic_string<char>> &) const' is not supported.", false)]
     public bool tryRegisterEnum(nint name, nint values, nint type, nint parser) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'bool (CommandRegistry::*)(void *, const CommandRegistry::ParseToken &, const CommandOrigin &, int, std::basic_string<char> &, std::vector<std::basic_string<char>> &) const' is not supported.");
 

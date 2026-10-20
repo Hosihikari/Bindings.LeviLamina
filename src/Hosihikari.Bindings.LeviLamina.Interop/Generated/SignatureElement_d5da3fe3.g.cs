@@ -22,9 +22,11 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
         return new SignatureElement((nint)handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::byte' is not a known bindable declaration.", false)]
     public static SignatureElement Create_cedf0afa(nint @byte) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::byte' is not a known bindable declaration.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::nullptr_t' is not a known bindable declaration.", false)]
     public static SignatureElement Create_9758b616(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::nullptr_t' is not a known bindable declaration.");
 
@@ -49,6 +51,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
         return NativeMethods.TablePtr->f2805((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::byte' is not a known bindable declaration.", false)]
     public nint operator_multiply() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::byte' is not a known bindable declaration.");
 
@@ -57,6 +60,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
         return NativeMethods.TablePtr->f2806((void*)_handle, (void*)other.Handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::byte' is not a known bindable declaration.", false)]
     public bool operator_equal(nint other) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::byte' is not a known bindable declaration.");
 

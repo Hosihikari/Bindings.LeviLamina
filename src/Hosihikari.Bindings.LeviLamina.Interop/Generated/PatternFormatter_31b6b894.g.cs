@@ -37,6 +37,7 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
         set => NativeMethods.TablePtr->f2741((void*)_handle, value);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: methods do not accept mutable string references.", false)]
     public void format(nint view, nint buffer) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: methods do not accept mutable string references.");
 

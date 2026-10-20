@@ -11,6 +11,7 @@ public sealed unsafe partial class Logger : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the constructor is not exported by the carrier.", false)]
     public static Logger Create(nint arg0, nint arg1) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
@@ -96,6 +97,7 @@ public sealed unsafe partial class Logger : global::System.IDisposable
         NativeMethods.TablePtr->f2728((void*)_handle, level);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.", false)]
     public void setFormatter(nint formatter) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.");
 
@@ -109,6 +111,7 @@ public sealed unsafe partial class Logger : global::System.IDisposable
         return NativeMethods.TablePtr->f2730((void*)_handle, level);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::io::SinkBase &>' is not a known bindable declaration.", false)]
     public nint sinks() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::io::SinkBase &>' is not a known bindable declaration.");
 

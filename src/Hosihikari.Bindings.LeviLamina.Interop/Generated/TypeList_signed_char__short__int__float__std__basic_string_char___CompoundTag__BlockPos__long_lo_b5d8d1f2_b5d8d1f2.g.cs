@@ -11,12 +11,14 @@ public sealed unsafe partial class TypeList_signed_char__short__int__float__std_
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: static variable templates are not projected.", false)]
     public static nint contains
     {
         get => throw new global::System.NotSupportedException("BindingShim cannot project this member: static variable templates are not projected.");
         set => throw new global::System.NotSupportedException("BindingShim cannot project this member: static variable templates are not projected.");
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: static variable templates are not projected.", false)]
     public static nint index
     {
         get => throw new global::System.NotSupportedException("BindingShim cannot project this member: static variable templates are not projected.");

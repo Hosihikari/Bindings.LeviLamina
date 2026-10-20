@@ -11,9 +11,11 @@ public sealed unsafe partial class PlayerInfo
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<const ll::service::PlayerInfo::PlayerInfoEntry &>' is not a known bindable declaration.", false)]
     public nint entries() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<const ll::service::PlayerInfo::PlayerInfoEntry &>' is not a known bindable declaration.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.", false)]
     public bool erase(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.");
 
@@ -28,6 +30,7 @@ public sealed unsafe partial class PlayerInfo
         }
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.", false)]
     public nint fromUuid(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.");
 

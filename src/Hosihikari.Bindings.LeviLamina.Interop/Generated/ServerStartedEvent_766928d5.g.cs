@@ -11,6 +11,7 @@ public sealed unsafe partial class ServerStartedEvent : global::System.IDisposab
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static ServerStartedEvent Create(nint server) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 

@@ -48,6 +48,7 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
         return new DynamicLibrary((nint)handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: optional return type 'std::system_error' is not a known bindable declaration.", false)]
     public nint free() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: optional return type 'std::system_error' is not a known bindable declaration.");
 
@@ -61,9 +62,11 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
         return (nint)NativeMethods.TablePtr->f2982((void*)_handle);
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: optional return type 'std::system_error' is not a known bindable declaration.", false)]
     public nint load(nint path) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: optional return type 'std::system_error' is not a known bindable declaration.");
 
+    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 

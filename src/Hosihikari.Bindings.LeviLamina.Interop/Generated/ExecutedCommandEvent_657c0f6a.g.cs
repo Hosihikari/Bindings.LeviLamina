@@ -11,6 +11,7 @@ public sealed unsafe partial class ExecutedCommandEvent : global::System.IDispos
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static ExecutedCommandEvent Create(nint result, nint minecraftCommands, nint commandContext, nint suppressOutput) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 

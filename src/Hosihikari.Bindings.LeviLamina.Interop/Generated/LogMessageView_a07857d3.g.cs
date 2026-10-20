@@ -11,6 +11,7 @@ public sealed unsafe partial class LogMessageView : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the class owns a borrowed string field.", false)]
     public static LogMessageView Create(nint msg, nint tit, nint lvl, nint tm) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
 

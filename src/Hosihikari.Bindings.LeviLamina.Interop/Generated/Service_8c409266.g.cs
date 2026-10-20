@@ -11,6 +11,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the class is abstract.", false)]
     public static Service Create() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
@@ -19,6 +20,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
         get => (nint)NativeMethods.TablePtr->f2950();
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public nint getServiceId() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 

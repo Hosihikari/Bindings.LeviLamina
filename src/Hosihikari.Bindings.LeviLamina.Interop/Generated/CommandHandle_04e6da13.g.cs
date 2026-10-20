@@ -11,6 +11,7 @@ public sealed unsafe partial class CommandHandle
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: the constructor is not exported by the carrier.", false)]
     public static CommandHandle Create(nint registrar, nint signature, bool owned) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
@@ -40,6 +41,7 @@ public sealed unsafe partial class CommandHandle
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->f1887((void*)_handle, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData)));
     }
 
+    [global::System.Obsolete("BindingShim cannot project this member: the class has no accessible destructor.", false)]
     public void Destroy() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has no accessible destructor.");
 }

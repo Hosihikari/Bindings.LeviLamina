@@ -11,6 +11,7 @@ public sealed unsafe partial class PlayerPlacingBlockEvent : global::System.IDis
 
     public nint Handle => _handle;
 
+    [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static PlayerPlacingBlockEvent Create(nint player, nint pos, nint face) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 

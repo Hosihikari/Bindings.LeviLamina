@@ -16,12 +16,12 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f2102((void*)_handle);
+        return NativeMethods.TablePtr->f2106((void*)_handle);
     }
 
     public nint await_resume()
     {
-        return (nint)NativeMethods.TablePtr->f2103((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2107((void*)_handle);
     }
 
     public void await_suspend(nint arg0) =>
@@ -29,14 +29,14 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
 
     public nint t
     {
-        get => (nint)NativeMethods.TablePtr->f2104((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2108((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2101((void*)_handle);
+            NativeMethods.TablePtr->f2105((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,19 +13,19 @@ public sealed unsafe partial class MessageBoxResult : global::System.IDisposable
 
     public nint closeReason
     {
-        get => (nint)NativeMethods.TablePtr->f2822((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2826((void*)_handle);
     }
 
     public nint selection
     {
-        get => (nint)NativeMethods.TablePtr->f2823((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2827((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2821((void*)_handle);
+            NativeMethods.TablePtr->f2825((void*)_handle);
             _handle = 0;
         }
     }

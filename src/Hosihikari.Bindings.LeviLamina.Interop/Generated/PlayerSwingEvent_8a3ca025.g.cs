@@ -18,7 +18,7 @@ public sealed unsafe partial class PlayerSwingEvent : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2436((void*)_handle);
+            NativeMethods.TablePtr->f2440((void*)_handle);
             _handle = 0;
         }
     }

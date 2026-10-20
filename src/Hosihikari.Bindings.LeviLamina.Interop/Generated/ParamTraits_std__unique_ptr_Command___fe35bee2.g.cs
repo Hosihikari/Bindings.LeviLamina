@@ -13,7 +13,7 @@ public sealed unsafe partial class ParamTraits_std__unique_ptr_Command__ : globa
 
     public static nint parseRule()
     {
-        return (nint)NativeMethods.TablePtr->f1932();
+        return (nint)NativeMethods.TablePtr->f1936();
     }
 
     public static nint parseRuleValue() =>
@@ -23,7 +23,7 @@ public sealed unsafe partial class ParamTraits_std__unique_ptr_Command__ : globa
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1931((void*)_handle);
+            NativeMethods.TablePtr->f1935((void*)_handle);
             _handle = 0;
         }
     }

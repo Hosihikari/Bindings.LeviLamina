@@ -13,20 +13,20 @@ public sealed unsafe partial class PackedSelf : global::System.IDisposable
 
     public nint jitfn
     {
-        get => (nint)NativeMethods.TablePtr->f2608((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2612((void*)_handle);
     }
 
     public nint self
     {
-        get => (nint)NativeMethods.TablePtr->f2609((void*)_handle);
-        set => NativeMethods.TablePtr->f2610((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2613((void*)_handle);
+        set => NativeMethods.TablePtr->f2614((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2607((void*)_handle);
+            NativeMethods.TablePtr->f2611((void*)_handle);
             _handle = 0;
         }
     }

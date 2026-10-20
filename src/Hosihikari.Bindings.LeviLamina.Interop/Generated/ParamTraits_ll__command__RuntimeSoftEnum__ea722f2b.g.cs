@@ -27,7 +27,7 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeSoftEnum_ : g
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1929((void*)_handle);
+            NativeMethods.TablePtr->f1933((void*)_handle);
             _handle = 0;
         }
     }

@@ -28,6 +28,6 @@ public sealed unsafe partial class PlayerInfo
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2737();
+        return (nint)NativeMethods.TablePtr->f2741();
     }
 }

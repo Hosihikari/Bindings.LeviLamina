@@ -18,7 +18,7 @@ public sealed unsafe partial class ParamTraits_Json__Value_ : global::System.IDi
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1922((void*)_handle);
+            NativeMethods.TablePtr->f1926((void*)_handle);
             _handle = 0;
         }
     }

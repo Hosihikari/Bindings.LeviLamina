@@ -12,13 +12,42 @@ public sealed unsafe partial class CommandRegistrar
     public nint Handle => _handle;
 
     public bool addEnumValues(nint name, nint values, nint type) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::pair<std::basic_string<char>, unsigned long long>>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'std::pair<std::basic_string<char>, unsigned long long>' is not supported.");
 
     public bool addRuntimeEnumValues(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::pair<std::basic_string<char>, unsigned long long>>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'std::pair<std::basic_string<char>, unsigned long long>' is not supported.");
 
-    public bool addSoftEnumValues(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
+    public bool addSoftEnumValues(string name, string[] values)
+    {
+        var __hs_vectorItems = values ?? global::System.Array.Empty<string>();
+        var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
+        var __hs_vectorViews = new NativeMethods.StringView[__hs_vectorItems.Length];
+        var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
+        try
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorItems.Length; __hs_i++)
+            {
+                __hs_vectorBytes[__hs_i] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems[__hs_i] ?? string.Empty);
+                var __hs_bytes = __hs_vectorBytes[__hs_i];
+                var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
+                if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
+                __hs_vectorHandles[__hs_i] = __hs_ptr;
+                __hs_vectorViews[__hs_i] = new NativeMethods.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+            }
+            fixed (NativeMethods.StringView* __hs_vectorData = __hs_vectorViews)
+            {
+                var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
+                fixed (byte* __hs_stringData = __hs_stringBytes)
+                {
+                    return NativeMethods.TablePtr->f1881((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                }
+            }
+        }
+        finally
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorHandles.Length; __hs_i++) { if (__hs_vectorHandles[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles[__hs_i]); } }
+        }
+    }
 
     public void clear() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
@@ -31,7 +60,7 @@ public sealed unsafe partial class CommandRegistrar
 
     public static nint getInstance(bool isClientSide)
     {
-        return (nint)NativeMethods.TablePtr->f1881(isClientSide);
+        return (nint)NativeMethods.TablePtr->f1882(isClientSide);
     }
 
     public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
@@ -39,19 +68,10 @@ public sealed unsafe partial class CommandRegistrar
 
     public static nint getServerInstance()
     {
-        return (nint)NativeMethods.TablePtr->f1882();
+        return (nint)NativeMethods.TablePtr->f1883();
     }
 
     public bool hasEnum(string name)
-    {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
-        {
-            return NativeMethods.TablePtr->f1883((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
-        }
-    }
-
-    public bool hasSoftEnum(string name)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
@@ -60,18 +80,114 @@ public sealed unsafe partial class CommandRegistrar
         }
     }
 
-    public bool removeSoftEnumValues(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
+    public bool hasSoftEnum(string name)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return NativeMethods.TablePtr->f1885((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+        }
+    }
 
-    public bool setSoftEnumValues(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
+    public bool removeSoftEnumValues(string name, string[] values)
+    {
+        var __hs_vectorItems = values ?? global::System.Array.Empty<string>();
+        var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
+        var __hs_vectorViews = new NativeMethods.StringView[__hs_vectorItems.Length];
+        var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
+        try
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorItems.Length; __hs_i++)
+            {
+                __hs_vectorBytes[__hs_i] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems[__hs_i] ?? string.Empty);
+                var __hs_bytes = __hs_vectorBytes[__hs_i];
+                var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
+                if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
+                __hs_vectorHandles[__hs_i] = __hs_ptr;
+                __hs_vectorViews[__hs_i] = new NativeMethods.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+            }
+            fixed (NativeMethods.StringView* __hs_vectorData = __hs_vectorViews)
+            {
+                var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
+                fixed (byte* __hs_stringData = __hs_stringBytes)
+                {
+                    return NativeMethods.TablePtr->f1886((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                }
+            }
+        }
+        finally
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorHandles.Length; __hs_i++) { if (__hs_vectorHandles[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles[__hs_i]); } }
+        }
+    }
+
+    public bool setSoftEnumValues(string name, string[] values)
+    {
+        var __hs_vectorItems = values ?? global::System.Array.Empty<string>();
+        var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
+        var __hs_vectorViews = new NativeMethods.StringView[__hs_vectorItems.Length];
+        var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
+        try
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorItems.Length; __hs_i++)
+            {
+                __hs_vectorBytes[__hs_i] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems[__hs_i] ?? string.Empty);
+                var __hs_bytes = __hs_vectorBytes[__hs_i];
+                var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
+                if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
+                __hs_vectorHandles[__hs_i] = __hs_ptr;
+                __hs_vectorViews[__hs_i] = new NativeMethods.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+            }
+            fixed (NativeMethods.StringView* __hs_vectorData = __hs_vectorViews)
+            {
+                var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
+                fixed (byte* __hs_stringData = __hs_stringBytes)
+                {
+                    return NativeMethods.TablePtr->f1887((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                }
+            }
+        }
+        finally
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorHandles.Length; __hs_i++) { if (__hs_vectorHandles[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles[__hs_i]); } }
+        }
+    }
 
     public bool tryRegisterEnum(nint name, nint values, nint type, nint parser) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::pair<std::basic_string<char>, unsigned long long>>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'std::pair<std::basic_string<char>, unsigned long long>' is not supported.");
 
     public bool tryRegisterRuntimeEnum(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::pair<std::basic_string<char>, unsigned long long>>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'std::pair<std::basic_string<char>, unsigned long long>' is not supported.");
 
-    public bool tryRegisterSoftEnum(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
+    public bool tryRegisterSoftEnum(string name, string[] values)
+    {
+        var __hs_vectorItems = values ?? global::System.Array.Empty<string>();
+        var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
+        var __hs_vectorViews = new NativeMethods.StringView[__hs_vectorItems.Length];
+        var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
+        try
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorItems.Length; __hs_i++)
+            {
+                __hs_vectorBytes[__hs_i] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems[__hs_i] ?? string.Empty);
+                var __hs_bytes = __hs_vectorBytes[__hs_i];
+                var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
+                if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
+                __hs_vectorHandles[__hs_i] = __hs_ptr;
+                __hs_vectorViews[__hs_i] = new NativeMethods.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+            }
+            fixed (NativeMethods.StringView* __hs_vectorData = __hs_vectorViews)
+            {
+                var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
+                fixed (byte* __hs_stringData = __hs_stringBytes)
+                {
+                    return NativeMethods.TablePtr->f1888((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                }
+            }
+        }
+        finally
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorHandles.Length; __hs_i++) { if (__hs_vectorHandles[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles[__hs_i]); } }
+        }
+    }
 }

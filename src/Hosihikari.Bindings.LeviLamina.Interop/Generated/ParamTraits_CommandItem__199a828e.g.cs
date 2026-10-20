@@ -18,7 +18,7 @@ public sealed unsafe partial class ParamTraits_CommandItem_ : global::System.IDi
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1913((void*)_handle);
+            NativeMethods.TablePtr->f1917((void*)_handle);
             _handle = 0;
         }
     }

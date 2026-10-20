@@ -19,7 +19,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f2080((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->f2084((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
     public nint modify(nint fn) =>
@@ -33,7 +33,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2081((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
+            return (nint)NativeMethods.TablePtr->f2085((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
         }
     }
 
@@ -45,7 +45,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(postfix);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2082((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2086((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -54,7 +54,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2083((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
+            return (nint)NativeMethods.TablePtr->f2087((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
         }
     }
 
@@ -66,7 +66,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return (nint)NativeMethods.TablePtr->f2084((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2088((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -75,7 +75,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2079((void*)_handle);
+            NativeMethods.TablePtr->f2083((void*)_handle);
             _handle = 0;
         }
     }

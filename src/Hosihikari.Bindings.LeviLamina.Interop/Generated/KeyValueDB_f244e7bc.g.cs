@@ -13,7 +13,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
 
     public static KeyValueDB Create_95636f1d(nint path)
     {
-        var handle = NativeMethods.TablePtr->f2147((void*)path);
+        var handle = NativeMethods.TablePtr->f2151((void*)path);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
 
     public static KeyValueDB Create(nint path, bool createIfMiss, bool fixIfError, int bloomFilterBit)
     {
-        var handle = NativeMethods.TablePtr->f2148((void*)path, createIfMiss, fixIfError, bloomFilterBit);
+        var handle = NativeMethods.TablePtr->f2152((void*)path, createIfMiss, fixIfError, bloomFilterBit);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -41,13 +41,13 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2149((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2153((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
     public bool empty()
     {
-        return NativeMethods.TablePtr->f2150((void*)_handle);
+        return NativeMethods.TablePtr->f2154((void*)_handle);
     }
 
     public string? get(string key)
@@ -56,7 +56,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_view = NativeMethods.TablePtr->f2151((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            var __hs_view = NativeMethods.TablePtr->f2155((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
             return __hs_hasValue ? global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size)) : null;
         }
     }
@@ -66,7 +66,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2152((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2156((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
@@ -81,7 +81,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
 
     public bool write(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch batch)
     {
-        return NativeMethods.TablePtr->f2153((void*)_handle, (void*)batch.Handle);
+        return NativeMethods.TablePtr->f2157((void*)_handle, (void*)batch.Handle);
     }
 
 
@@ -89,7 +89,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2146((void*)_handle);
+            NativeMethods.TablePtr->f2150((void*)_handle);
             _handle = 0;
         }
     }

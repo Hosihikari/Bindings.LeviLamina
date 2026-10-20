@@ -13,7 +13,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public static UIRawMessage Create()
     {
-        var handle = NativeMethods.TablePtr->f2870();
+        var handle = NativeMethods.TablePtr->f2874();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public static UIRawMessage Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
-        var handle = NativeMethods.TablePtr->f2871((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2875((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -44,18 +44,18 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
-        return NativeMethods.TablePtr->f2872((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->f2876((void*)_handle, (void*)arg0.Handle);
     }
 
     public static nint rawText(nint messages) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<ll::ui::UIRawMessage>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: vector parameter type 'll::ui::UIRawMessage' is not supported.");
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage text(string value)
     {
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(value);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2873(__hs_stringData, (nuint)__hs_stringBytes.Length));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2877(__hs_stringData, (nuint)__hs_stringBytes.Length));
         }
     }
 
@@ -64,7 +64,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2874(__hs_stringData, (nuint)__hs_stringBytes.Length));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2878(__hs_stringData, (nuint)__hs_stringBytes.Length));
         }
     }
 
@@ -73,19 +73,48 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2875(__hs_stringData, (nuint)__hs_stringBytes.Length, (void*)substitutions.Handle));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2879(__hs_stringData, (nuint)__hs_stringBytes.Length, (void*)substitutions.Handle));
         }
     }
 
-    public static nint translate(nint key, nint substitutions) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage translate(string key, string[] substitutions)
+    {
+        var __hs_vectorItems = substitutions ?? global::System.Array.Empty<string>();
+        var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
+        var __hs_vectorViews = new NativeMethods.StringView[__hs_vectorItems.Length];
+        var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
+        try
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorItems.Length; __hs_i++)
+            {
+                __hs_vectorBytes[__hs_i] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems[__hs_i] ?? string.Empty);
+                var __hs_bytes = __hs_vectorBytes[__hs_i];
+                var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
+                if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
+                __hs_vectorHandles[__hs_i] = __hs_ptr;
+                __hs_vectorViews[__hs_i] = new NativeMethods.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+            }
+            fixed (NativeMethods.StringView* __hs_vectorData = __hs_vectorViews)
+            {
+                var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
+                fixed (byte* __hs_stringData = __hs_stringBytes)
+                {
+                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2880(__hs_stringData, (nuint)__hs_stringBytes.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length));
+                }
+            }
+        }
+        finally
+        {
+            for (var __hs_i = 0; __hs_i < __hs_vectorHandles.Length; __hs_i++) { if (__hs_vectorHandles[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles[__hs_i]); } }
+        }
+    }
 
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2869((void*)_handle);
+            NativeMethods.TablePtr->f2873((void*)_handle);
             _handle = 0;
         }
     }

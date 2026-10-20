@@ -18,7 +18,7 @@ public sealed unsafe partial class ParamTraits_CommandCompareOperator_ : global:
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1910((void*)_handle);
+            NativeMethods.TablePtr->f1914((void*)_handle);
             _handle = 0;
         }
     }

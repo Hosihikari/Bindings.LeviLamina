@@ -13,7 +13,7 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
 
     public static InterruptableSleep Create()
     {
-        var handle = NativeMethods.TablePtr->f2106();
+        var handle = NativeMethods.TablePtr->f2110();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
 
     public bool interrupt(bool inplace)
     {
-        return NativeMethods.TablePtr->f2107((void*)_handle, inplace);
+        return NativeMethods.TablePtr->f2111((void*)_handle, inplace);
     }
 
     public nint sleep() =>
@@ -35,7 +35,7 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2105((void*)_handle);
+            NativeMethods.TablePtr->f2109((void*)_handle);
             _handle = 0;
         }
     }

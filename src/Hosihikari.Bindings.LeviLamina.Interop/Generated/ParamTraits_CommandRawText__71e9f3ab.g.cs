@@ -18,7 +18,7 @@ public sealed unsafe partial class ParamTraits_CommandRawText_ : global::System.
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1918((void*)_handle);
+            NativeMethods.TablePtr->f1922((void*)_handle);
             _handle = 0;
         }
     }

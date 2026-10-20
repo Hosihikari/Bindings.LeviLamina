@@ -13,7 +13,7 @@ public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent
 
     public void call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event @event)
     {
-        NativeMethods.TablePtr->f2373((void*)_handle, (void*)@event.Handle);
+        NativeMethods.TablePtr->f2377((void*)_handle, (void*)@event.Handle);
     }
 
     public void Destroy() =>

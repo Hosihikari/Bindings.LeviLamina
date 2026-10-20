@@ -189,6 +189,29 @@ void setLastError(char const* message) noexcept
     try { g_lastError = message ? message : "unknown native error"; } catch (...) {}
 }
 
+template <class T, class U>
+std::vector<T> hs_make_vector(U const* data, std::size_t count)
+{
+    std::vector<T> result;
+    result.reserve(count);
+    for (std::size_t i = 0; i < count; ++i) { result.push_back(static_cast<T>(data[i])); }
+    return result;
+}
+inline std::vector<std::string> hs_make_string_vector(HosihikariStringView const* data, std::size_t count)
+{
+    std::vector<std::string> result;
+    result.reserve(count);
+    for (std::size_t i = 0; i < count; ++i) { result.emplace_back(data[i].data, data[i].size); }
+    return result;
+}
+inline std::vector<std::basic_string_view<char>> hs_make_string_view_vector(HosihikariStringView const* data, std::size_t count)
+{
+    std::vector<std::basic_string_view<char>> result;
+    result.reserve(count);
+    for (std::size_t i = 0; i < count; ++i) { result.emplace_back(data[i].data, data[i].size); }
+    return result;
+}
+
 static void hs_destroy_fc56ce81(void* hs_self) try
 {
     delete static_cast<ll::Error*>(hs_self);
@@ -28438,6 +28461,21 @@ catch (...)
     return HosihikariArrayView{nullptr, 0};
 }
 
+static bool hs_method_0bf55812(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariStringView* values_data, std::size_t values_count) try
+{
+    return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->addSoftEnumValues(std::basic_string<char>(name_data, name_size), hs_make_string_vector(values_data, values_count)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
+}
+
 static void* hs_method_c8f00dfd(bool isClientSide) try
 {
     return const_cast<void*>(static_cast<void const*>(&ll::command::CommandRegistrar::getInstance(static_cast<bool>(isClientSide))));
@@ -28486,6 +28524,51 @@ catch (...)
 static bool hs_method_5ed64b33(void* hs_self, const char* name_data, std::size_t name_size) try
 {
     return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->hasSoftEnum(std::basic_string<char>(name_data, name_size)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
+}
+
+static bool hs_method_21c982c8(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariStringView* values_data, std::size_t values_count) try
+{
+    return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->removeSoftEnumValues(std::basic_string<char>(name_data, name_size), hs_make_string_vector(values_data, values_count)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
+}
+
+static bool hs_method_bd62379b(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariStringView* values_data, std::size_t values_count) try
+{
+    return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->setSoftEnumValues(std::basic_string<char>(name_data, name_size), hs_make_string_vector(values_data, values_count)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return false;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return false;
+}
+
+static bool hs_method_ec359fd0(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariStringView* values_data, std::size_t values_count) try
+{
+    return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->tryRegisterSoftEnum(std::basic_string<char>(name_data, name_size), hs_make_string_vector(values_data, values_count)));
 }
 catch (std::exception const& hs_error)
 {
@@ -43915,6 +43998,21 @@ catch (...)
     return nullptr;
 }
 
+static void* hs_method_93e42ffe(const char* key_data, std::size_t key_size, const HosihikariStringView* substitutions_data, std::size_t substitutions_count) try
+{
+    return static_cast<void*>(new ll::ui::UIRawMessage(ll::ui::UIRawMessage::translate(std::basic_string<char>(key_data, key_size), hs_make_string_vector(substitutions_data, substitutions_count))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void hs_destroy_40ae0e9c(void* hs_self) try
 {
     delete static_cast<ll::ui::detail::BindingHandle*>(hs_self);
@@ -45964,10 +46062,14 @@ const HosihikariBindingTableV1 kTable{
     &hs_get_44d042e1,
     &hs_method_0f895032,
     &hs_method_51a27a86,
+    &hs_method_0bf55812,
     &hs_method_c8f00dfd,
     &hs_method_0402fde1,
     &hs_method_3f1d97ed,
     &hs_method_5ed64b33,
+    &hs_method_21c982c8,
+    &hs_method_bd62379b,
+    &hs_method_ec359fd0,
     &hs_destroy_65dd05e6,
     &hs_destroy_f92af424,
     &hs_method_28074207,
@@ -46959,6 +47061,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_9c2a5b19,
     &hs_method_1715a593,
     &hs_method_f7a82947,
+    &hs_method_93e42ffe,
     &hs_destroy_40ae0e9c,
     &hs_create_5268f1f9,
     &hs_create_d43627b6,

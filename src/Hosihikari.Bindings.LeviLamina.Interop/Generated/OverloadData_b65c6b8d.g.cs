@@ -22,7 +22,7 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1905((void*)_handle);
+            NativeMethods.TablePtr->f1909((void*)_handle);
             _handle = 0;
         }
     }

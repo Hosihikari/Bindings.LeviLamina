@@ -13,12 +13,12 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeSoftEnum_ : g
 
     public static int dataType()
     {
-        return NativeMethods.TablePtr->f1954();
+        return NativeMethods.TablePtr->f1956();
     }
 
     public static byte options()
     {
-        return NativeMethods.TablePtr->f1955();
+        return NativeMethods.TablePtr->f1957();
     }
 
     public static nint parseFn() =>
@@ -31,7 +31,7 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeSoftEnum_ : g
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1953((void*)_handle);
+            NativeMethods.TablePtr->f1955((void*)_handle);
             _handle = 0;
         }
     }

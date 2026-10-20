@@ -13,7 +13,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg
 
     public static TypedStorageImpl_8ULL__88ULL__MolangScriptArg_ Create_3a4c9c26(nint other)
     {
-        var handle = NativeMethods.TablePtr->f1694((void*)other);
+        var handle = NativeMethods.TablePtr->f1696((void*)other);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +27,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f1695((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f1697((void*)_handle);
     }
 
     public nint get_ea7e819d() =>
@@ -35,7 +35,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg
 
     public nint get_a9c44d85()
     {
-        return (nint)NativeMethods.TablePtr->f1696((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1698((void*)_handle);
     }
 
     public nint get_fb157900() =>
@@ -43,17 +43,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg
 
     public nint get_811c82fe()
     {
-        return (nint)NativeMethods.TablePtr->f1697((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1699((void*)_handle);
     }
 
     public nint operator_MolangScriptArg__()
     {
-        return (nint)NativeMethods.TablePtr->f1698((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1700((void*)_handle);
     }
 
     public nint operator_const_MolangScriptArg__()
     {
-        return (nint)NativeMethods.TablePtr->f1699((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1701((void*)_handle);
     }
 
     public nint operator_multiply_0a893c9e() =>
@@ -61,7 +61,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg
 
     public nint operator_multiply_7225b178()
     {
-        return (nint)NativeMethods.TablePtr->f1700((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1702((void*)_handle);
     }
 
     public nint operator_multiply_d6f754e7() =>
@@ -69,17 +69,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg
 
     public nint operator_multiply_2c4c6145()
     {
-        return (nint)NativeMethods.TablePtr->f1701((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1703((void*)_handle);
     }
 
     public nint operator_operator___b47fbc35()
     {
-        return (nint)NativeMethods.TablePtr->f1702((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1704((void*)_handle);
     }
 
     public nint operator_operator___8165fe30()
     {
-        return (nint)NativeMethods.TablePtr->f1703((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1705((void*)_handle);
     }
 
     public nint operator_assign_559dff9d(nint u) =>
@@ -93,7 +93,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__88ULL__MolangScriptArg
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1693((void*)_handle);
+            NativeMethods.TablePtr->f1695((void*)_handle);
             _handle = 0;
         }
     }

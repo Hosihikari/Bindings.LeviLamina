@@ -19,7 +19,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f879((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f881((void*)_handle);
     }
 
     public nint get_35ef664b() =>
@@ -27,7 +27,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint get_1f529948()
     {
-        return (nint)NativeMethods.TablePtr->f880((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f882((void*)_handle);
     }
 
     public nint get_d86e8da1() =>
@@ -35,17 +35,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint get_61fb3015()
     {
-        return (nint)NativeMethods.TablePtr->f881((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f883((void*)_handle);
     }
 
     public nint operator_const_std__variant_TypedServerNetId_ItemStackNetIdTag__int___8f95d542()
     {
-        return (nint)NativeMethods.TablePtr->f882((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f884((void*)_handle);
     }
 
     public nint operator_std__variant_TypedServerNetId_ItemStackNetIdTag__int___Typed_b4b36c8e()
     {
-        return (nint)NativeMethods.TablePtr->f883((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f885((void*)_handle);
     }
 
     public nint operator_multiply_9a87a04b() =>
@@ -53,7 +53,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint operator_multiply_3edb5473()
     {
-        return (nint)NativeMethods.TablePtr->f884((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f886((void*)_handle);
     }
 
     public nint operator_multiply_bf641359() =>
@@ -61,17 +61,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint operator_multiply_b6bec3ce()
     {
-        return (nint)NativeMethods.TablePtr->f885((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f887((void*)_handle);
     }
 
     public nint operator_operator___e89b4b36()
     {
-        return (nint)NativeMethods.TablePtr->f886((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f888((void*)_handle);
     }
 
     public nint operator_operator___efc80e1e()
     {
-        return (nint)NativeMethods.TablePtr->f887((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f889((void*)_handle);
     }
 
     public nint operator_assign_b12ed80f(nint u) =>
@@ -85,7 +85,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f878((void*)_handle);
+            NativeMethods.TablePtr->f880((void*)_handle);
             _handle = 0;
         }
     }

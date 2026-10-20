@@ -13,7 +13,7 @@ public sealed unsafe partial class StacktraceEntry : global::System.IDisposable
 
     public static StacktraceEntry Create(nint address)
     {
-        var handle = NativeMethods.TablePtr->f33((void*)address);
+        var handle = NativeMethods.TablePtr->f35((void*)address);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,14 +24,14 @@ public sealed unsafe partial class StacktraceEntry : global::System.IDisposable
 
     public nint native_handle()
     {
-        return (nint)NativeMethods.TablePtr->f34((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f36((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f32((void*)_handle);
+            NativeMethods.TablePtr->f34((void*)_handle);
             _handle = 0;
         }
     }

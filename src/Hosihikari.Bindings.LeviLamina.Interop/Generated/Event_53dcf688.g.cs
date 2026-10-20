@@ -13,22 +13,22 @@ public sealed unsafe partial class Event : global::System.IDisposable
 
     public static nint CustomEventId
     {
-        get => (nint)NativeMethods.TablePtr->f2424();
+        get => (nint)NativeMethods.TablePtr->f2426();
     }
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2425((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2427((void*)_handle, (void*)arg0);
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId getId()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId((nint)NativeMethods.TablePtr->f2426((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId((nint)NativeMethods.TablePtr->f2428((void*)_handle));
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2427((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2429((void*)_handle, (void*)arg0);
     }
 
 
@@ -36,7 +36,7 @@ public sealed unsafe partial class Event : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2423((void*)_handle);
+            NativeMethods.TablePtr->f2425((void*)_handle);
             _handle = 0;
         }
     }

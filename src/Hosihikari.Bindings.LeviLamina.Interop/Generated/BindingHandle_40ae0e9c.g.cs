@@ -13,7 +13,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public static BindingHandle Create()
     {
-        var handle = NativeMethods.TablePtr->f3019();
+        var handle = NativeMethods.TablePtr->f3028();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public static BindingHandle Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
     {
-        var handle = NativeMethods.TablePtr->f3020((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f3029((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -38,12 +38,12 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->f3021((void*)_handle);
+        return NativeMethods.TablePtr->f3030((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f3022((void*)_handle);
+        return NativeMethods.TablePtr->f3031((void*)_handle);
     }
 
     public nint operator_assign_91e7b69b(nint arg0) =>
@@ -55,7 +55,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
     public void setClientWritable(bool writable)
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3023((void*)_handle, writable, &__hs_hasValue);
+        NativeMethods.TablePtr->f3032((void*)_handle, writable, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -64,7 +64,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3018((void*)_handle);
+            NativeMethods.TablePtr->f3027((void*)_handle);
             _handle = 0;
         }
     }

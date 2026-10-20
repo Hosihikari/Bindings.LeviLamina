@@ -15,7 +15,7 @@ public sealed unsafe partial class QueryServiceResult : global::System.IDisposab
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2874((void*)_handle);
+            var view = NativeMethods.TablePtr->f2882((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -24,27 +24,27 @@ public sealed unsafe partial class QueryServiceResult : global::System.IDisposab
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2875((void*)_handle);
+            var view = NativeMethods.TablePtr->f2883((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint service
     {
-        get => (nint)NativeMethods.TablePtr->f2876((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2884((void*)_handle);
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f2877((void*)_handle);
-        set => NativeMethods.TablePtr->f2878((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2885((void*)_handle);
+        set => NativeMethods.TablePtr->f2886((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2873((void*)_handle);
+            NativeMethods.TablePtr->f2881((void*)_handle);
             _handle = 0;
         }
     }

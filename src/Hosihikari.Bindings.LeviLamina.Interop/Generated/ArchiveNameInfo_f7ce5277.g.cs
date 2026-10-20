@@ -13,27 +13,27 @@ public sealed unsafe partial class ArchiveNameInfo : global::System.IDisposable
 
     public ulong index
     {
-        get => NativeMethods.TablePtr->f2632((void*)_handle);
-        set => NativeMethods.TablePtr->f2633((void*)_handle, value);
-    }
-
-    public int interval
-    {
         get => NativeMethods.TablePtr->f2634((void*)_handle);
         set => NativeMethods.TablePtr->f2635((void*)_handle, value);
     }
 
+    public int interval
+    {
+        get => NativeMethods.TablePtr->f2636((void*)_handle);
+        set => NativeMethods.TablePtr->f2637((void*)_handle, value);
+    }
+
     public nint time
     {
-        get => (nint)NativeMethods.TablePtr->f2636((void*)_handle);
-        set => NativeMethods.TablePtr->f2637((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2638((void*)_handle);
+        set => NativeMethods.TablePtr->f2639((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2631((void*)_handle);
+            NativeMethods.TablePtr->f2633((void*)_handle);
             _handle = 0;
         }
     }

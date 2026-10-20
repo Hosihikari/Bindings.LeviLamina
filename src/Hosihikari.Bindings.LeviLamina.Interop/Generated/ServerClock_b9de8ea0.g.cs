@@ -13,7 +13,7 @@ public sealed unsafe partial class ServerClock : global::System.IDisposable
 
     public static bool is_steady
     {
-        get => NativeMethods.TablePtr->f1878();
+        get => NativeMethods.TablePtr->f1880();
     }
 
     public static nint now() =>
@@ -23,7 +23,7 @@ public sealed unsafe partial class ServerClock : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1877((void*)_handle);
+            NativeMethods.TablePtr->f1879((void*)_handle);
             _handle = 0;
         }
     }

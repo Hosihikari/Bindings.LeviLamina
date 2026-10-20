@@ -16,7 +16,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
 
     public int column()
     {
-        return NativeMethods.TablePtr->f13((void*)_handle);
+        return NativeMethods.TablePtr->f15((void*)_handle);
     }
 
     public static nint current(nint file, nint function, nint funcsig, int line, int column) =>
@@ -24,54 +24,54 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
 
     public nint file()
     {
-        return (nint)NativeMethods.TablePtr->f14((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f16((void*)_handle);
     }
 
     public nint funcsig()
     {
-        return (nint)NativeMethods.TablePtr->f15((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f17((void*)_handle);
     }
 
     public nint function()
     {
-        return (nint)NativeMethods.TablePtr->f16((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f18((void*)_handle);
     }
 
     public int line()
     {
-        return NativeMethods.TablePtr->f17((void*)_handle);
+        return NativeMethods.TablePtr->f19((void*)_handle);
     }
 
     public int mColumn
     {
-        get => NativeMethods.TablePtr->f18((void*)_handle);
-        set => NativeMethods.TablePtr->f19((void*)_handle, value);
+        get => NativeMethods.TablePtr->f20((void*)_handle);
+        set => NativeMethods.TablePtr->f21((void*)_handle, value);
     }
 
     public nint mFile
     {
-        get => (nint)NativeMethods.TablePtr->f20((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f22((void*)_handle);
     }
 
     public nint mFuncsig
     {
-        get => (nint)NativeMethods.TablePtr->f21((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f23((void*)_handle);
     }
 
     public nint mFunction
     {
-        get => (nint)NativeMethods.TablePtr->f22((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f24((void*)_handle);
     }
 
     public int mLine
     {
-        get => NativeMethods.TablePtr->f23((void*)_handle);
-        set => NativeMethods.TablePtr->f24((void*)_handle, value);
+        get => NativeMethods.TablePtr->f25((void*)_handle);
+        set => NativeMethods.TablePtr->f26((void*)_handle, value);
     }
 
     public string toString()
     {
-        var __hs_view = NativeMethods.TablePtr->f25((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f27((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -82,7 +82,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f12((void*)_handle);
+            NativeMethods.TablePtr->f14((void*)_handle);
             _handle = 0;
         }
     }

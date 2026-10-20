@@ -37,18 +37,26 @@ public sealed unsafe partial class Error : global::System.IDisposable
     public nint join_377137a4(nint err) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.");
 
-    public nint log_24ce3688(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandOutputMessageType' is not a known bindable declaration.");
+    public nint log(nint arg0, int arg1)
+    {
+        return (nint)NativeMethods.TablePtr->f2((void*)_handle, (void*)arg0, arg1);
+    }
 
-    public nint log(nint arg0, nint locale, nint arg2) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandOutputMessageType' is not a known bindable declaration.");
+    public nint log(nint arg0, string locale, int arg2)
+    {
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
+        fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+        {
+            return (nint)NativeMethods.TablePtr->f3((void*)_handle, (void*)arg0, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
+        }
+    }
 
-    public nint log_4962dd8b(nint @out, nint locale) =>
+    public nint log(nint @out, nint locale) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::function_ref<void (std::basic_string_view<char>)>' is not supported.");
 
     public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, int arg1)
     {
-        return (nint)NativeMethods.TablePtr->f2((void*)_handle, (void*)arg0.Handle, arg1);
+        return (nint)NativeMethods.TablePtr->f4((void*)_handle, (void*)arg0.Handle, arg1);
     }
 
     public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, string locale, int arg2)
@@ -56,13 +64,13 @@ public sealed unsafe partial class Error : global::System.IDisposable
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return (nint)NativeMethods.TablePtr->f3((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
+            return (nint)NativeMethods.TablePtr->f5((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
         }
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f4((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f6((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -71,14 +79,14 @@ public sealed unsafe partial class Error : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->f5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->f7((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f6((void*)_handle);
+        return NativeMethods.TablePtr->f8((void*)_handle);
     }
 
     public nint operator_unexpected_type() =>

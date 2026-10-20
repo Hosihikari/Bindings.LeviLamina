@@ -16,12 +16,12 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
 
     public nint deoption(byte option)
     {
-        return (nint)NativeMethods.TablePtr->f2163((void*)_handle, option);
+        return (nint)NativeMethods.TablePtr->f2165((void*)_handle, option);
     }
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f2164((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->f2166((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
     public nint modify(nint fn) =>
@@ -29,7 +29,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
 
     public nint option(byte option)
     {
-        return (nint)NativeMethods.TablePtr->f2165((void*)_handle, option);
+        return (nint)NativeMethods.TablePtr->f2167((void*)_handle, option);
     }
 
     public nint optional(string name, ulong kind)
@@ -37,7 +37,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2166((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, kind);
+            return (nint)NativeMethods.TablePtr->f2168((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, kind);
         }
     }
 
@@ -49,7 +49,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         {
             fixed (byte* __hs_stringData2 = __hs_stringBytes2)
             {
-                return (nint)NativeMethods.TablePtr->f2167((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
+                return (nint)NativeMethods.TablePtr->f2169((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
             }
         }
     }
@@ -59,7 +59,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(postfix);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2168((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2170((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -68,7 +68,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2169((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, kind);
+            return (nint)NativeMethods.TablePtr->f2171((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, kind);
         }
     }
 
@@ -80,7 +80,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         {
             fixed (byte* __hs_stringData2 = __hs_stringBytes2)
             {
-                return (nint)NativeMethods.TablePtr->f2170((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
+                return (nint)NativeMethods.TablePtr->f2172((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
             }
         }
     }
@@ -90,7 +90,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2171((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2173((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -99,7 +99,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2162((void*)_handle);
+            NativeMethods.TablePtr->f2164((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,15 +13,15 @@ public sealed unsafe partial class TmWithMs : global::System.IDisposable
 
     public ushort ms
     {
-        get => NativeMethods.TablePtr->f2285((void*)_handle);
-        set => NativeMethods.TablePtr->f2286((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2287((void*)_handle);
+        set => NativeMethods.TablePtr->f2288((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2284((void*)_handle);
+            NativeMethods.TablePtr->f2286((void*)_handle);
             _handle = 0;
         }
     }

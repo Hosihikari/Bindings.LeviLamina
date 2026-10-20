@@ -12,21 +12,25 @@ public sealed unsafe partial class SpawnedMobEvent : global::System.IDisposable
     public nint Handle => _handle;
 
     public static SpawnedMobEvent Create(nint mob, nint blockSource, nint identifier, nint spawner, nint pos, nint naturalSpawn, nint surface, nint fromSpawner) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'optional_ref<Mob>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
-    public nint mob() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<Mob>' is not a known bindable declaration.");
+    public nint? mob()
+    {
+        var __hs_hasValue = false;
+        var __hs_handle = NativeMethods.TablePtr->f2471((void*)_handle, &__hs_hasValue);
+        return __hs_hasValue ? (nint)__hs_handle : null;
+    }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2466((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2472((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2465((void*)_handle);
+            NativeMethods.TablePtr->f2470((void*)_handle);
             _handle = 0;
         }
     }

@@ -17,17 +17,33 @@ public sealed unsafe partial class PlayerInfo
     public bool erase(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.");
 
-    public nint fromName(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<const ll::service::PlayerInfo::PlayerInfoEntry>' is not a known bindable declaration.");
+    public nint? fromName(string arg0)
+    {
+        var __hs_hasValue = false;
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(arg0);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            var __hs_handle = NativeMethods.TablePtr->f2762((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            return __hs_hasValue ? (nint)__hs_handle : null;
+        }
+    }
 
     public nint fromUuid(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<const ll::service::PlayerInfo::PlayerInfoEntry>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.");
 
-    public nint fromXuid(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<const ll::service::PlayerInfo::PlayerInfoEntry>' is not a known bindable declaration.");
+    public nint? fromXuid(string arg0)
+    {
+        var __hs_hasValue = false;
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(arg0);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            var __hs_handle = NativeMethods.TablePtr->f2763((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            return __hs_hasValue ? (nint)__hs_handle : null;
+        }
+    }
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2751();
+        return (nint)NativeMethods.TablePtr->f2764();
     }
 }

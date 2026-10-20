@@ -13,20 +13,30 @@ public sealed unsafe partial class PacketRegistrar
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet? createPacket(ulong runtimeId)
     {
-        var __hs_handle = NativeMethods.TablePtr->f2736((void*)_handle, runtimeId);
+        var __hs_handle = NativeMethods.TablePtr->f2743((void*)_handle, runtimeId);
         return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle) : null;
     }
 
-    public nint getHandler(ulong runtimeId) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<ll::network::IPacketHandler>' is not a known bindable declaration.");
+    public nint? getHandler(ulong runtimeId)
+    {
+        var __hs_hasValue = false;
+        var __hs_handle = NativeMethods.TablePtr->f2744((void*)_handle, runtimeId, &__hs_hasValue);
+        return __hs_hasValue ? (nint)__hs_handle : null;
+    }
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2737();
+        return (nint)NativeMethods.TablePtr->f2745();
     }
 
-    public bool registerHandler(nint name, ulong id, nint handler) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'optional_ref<ll::network::IPacketHandler>' is not a known bindable declaration.");
+    public bool registerHandler(string name, ulong id, global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.IPacketHandler? handler)
+    {
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            return NativeMethods.TablePtr->f2746((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, id, (void*)(handler?.Handle ?? 0), handler is not null);
+        }
+    }
 
     public bool registerPacket(nint name, ulong id, nint factory) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::network::Packet>' is not supported.");

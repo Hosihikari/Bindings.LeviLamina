@@ -16,19 +16,19 @@ public sealed unsafe partial class ModManager
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_shared = NativeMethods.TablePtr->f2708((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            var __hs_shared = NativeMethods.TablePtr->f2714((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
             return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
         }
     }
 
     public ulong getModCount()
     {
-        return NativeMethods.TablePtr->f2709((void*)_handle);
+        return NativeMethods.TablePtr->f2715((void*)_handle);
     }
 
     public string getType()
     {
-        var __hs_view = NativeMethods.TablePtr->f2710((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2716((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -37,7 +37,7 @@ public sealed unsafe partial class ModManager
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2711((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2717((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 

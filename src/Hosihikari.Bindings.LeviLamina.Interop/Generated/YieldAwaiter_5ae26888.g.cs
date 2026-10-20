@@ -11,30 +11,40 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
 
     public nint Handle => _handle;
 
-    public static YieldAwaiter Create(nint exec) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'optional_ref<const ll::coro::Executor>' is not a known bindable declaration.");
+    public static YieldAwaiter Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor? exec)
+    {
+        var handle = NativeMethods.TablePtr->f2123((void*)(exec?.Handle ?? 0), exec is not null);
+        if (handle == null)
+        {
+            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+        }
+
+        return new YieldAwaiter((nint)handle);
+    }
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f2122((void*)_handle);
+        return NativeMethods.TablePtr->f2124((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f2123((void*)_handle);
+        NativeMethods.TablePtr->f2125((void*)_handle);
     }
 
     public void await_suspend(nint handle) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.");
 
-    public void setExecutor(nint ex) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'optional_ref<const ll::coro::Executor>' is not a known bindable declaration.");
+    public void setExecutor(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor? ex)
+    {
+        NativeMethods.TablePtr->f2126((void*)_handle, (void*)(ex?.Handle ?? 0), ex is not null);
+    }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2121((void*)_handle);
+            NativeMethods.TablePtr->f2122((void*)_handle);
             _handle = 0;
         }
     }

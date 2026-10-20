@@ -13,7 +13,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create()
     {
-        var handle = NativeMethods.TablePtr->f2848();
+        var handle = NativeMethods.TablePtr->f2861();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,7 +33,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
     {
-        var handle = NativeMethods.TablePtr->f2849((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2862((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -60,25 +60,25 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     public uint? getFormId()
     {
         var __hs_hasValue = false;
-        var __hs_value = NativeMethods.TablePtr->f2850((void*)_handle, &__hs_hasValue);
+        var __hs_value = NativeMethods.TablePtr->f2863((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? __hs_value : (uint?)null;
     }
 
     public uint? getInstanceId()
     {
         var __hs_hasValue = false;
-        var __hs_value = NativeMethods.TablePtr->f2851((void*)_handle, &__hs_hasValue);
+        var __hs_value = NativeMethods.TablePtr->f2864((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? __hs_value : (uint?)null;
     }
 
     public byte getState()
     {
-        return NativeMethods.TablePtr->f2852((void*)_handle);
+        return NativeMethods.TablePtr->f2865((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2853((void*)_handle);
+        return NativeMethods.TablePtr->f2866((void*)_handle);
     }
 
     public nint operator_assign_e92563b0(nint arg0) =>
@@ -98,7 +98,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2847((void*)_handle);
+            NativeMethods.TablePtr->f2860((void*)_handle);
             _handle = 0;
         }
     }

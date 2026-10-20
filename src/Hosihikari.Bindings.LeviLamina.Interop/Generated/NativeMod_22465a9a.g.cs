@@ -16,19 +16,19 @@ public sealed unsafe partial class NativeMod
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? current(nint handle)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2722((void*)handle);
+        var __hs_shared = NativeMethods.TablePtr->f2728((void*)handle);
         return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
     }
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getByHandle(nint handle)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2723((void*)handle);
+        var __hs_shared = NativeMethods.TablePtr->f2729((void*)handle);
         return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
     }
 
     public nint getHandle()
     {
-        return (nint)NativeMethods.TablePtr->f2724((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2730((void*)_handle);
     }
 
     public void Destroy() =>

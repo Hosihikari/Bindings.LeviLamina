@@ -105,6 +105,19 @@ public sealed class ShimSmokePlugin : IPlugin
 
             log.AppendLine("shared.dispose=ok");
 
+            var playerInfoHandle = Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo.getInstance();
+            if (playerInfoHandle != 0)
+            {
+                var playerInfo = new Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo(playerInfoHandle);
+                var missingByName = playerInfo.fromName("hosihikari-missing-player");
+                var missingByXuid = playerInfo.fromXuid("0");
+                log.AppendLine($"optional_ref.missing={(missingByName is null && missingByXuid is null ? "ok" : "unexpected")}");
+            }
+            else
+            {
+                log.AppendLine("optional_ref.missing=failed:no-service");
+            }
+
             try
             {
                 using var invalid = LlVersion.Create("not-a-version");

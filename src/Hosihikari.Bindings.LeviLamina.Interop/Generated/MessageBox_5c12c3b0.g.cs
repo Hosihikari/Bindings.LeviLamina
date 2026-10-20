@@ -31,7 +31,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f2834((void*)_handle);
+        return NativeMethods.TablePtr->f2847((void*)_handle);
     }
 
     public nint operator_assign(nint arg0) =>
@@ -48,7 +48,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2833((void*)_handle);
+            NativeMethods.TablePtr->f2846((void*)_handle);
             _handle = 0;
         }
     }

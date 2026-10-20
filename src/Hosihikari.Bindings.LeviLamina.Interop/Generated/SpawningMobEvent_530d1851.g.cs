@@ -16,29 +16,29 @@ public sealed unsafe partial class SpawningMobEvent : global::System.IDisposable
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2468((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2474((void*)_handle, (void*)arg0);
     }
 
     public nint fromSpawner()
     {
-        return (nint)NativeMethods.TablePtr->f2469((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2475((void*)_handle);
     }
 
     public nint naturalSpawn()
     {
-        return (nint)NativeMethods.TablePtr->f2470((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2476((void*)_handle);
     }
 
     public nint surface()
     {
-        return (nint)NativeMethods.TablePtr->f2471((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2477((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2467((void*)_handle);
+            NativeMethods.TablePtr->f2473((void*)_handle);
             _handle = 0;
         }
     }

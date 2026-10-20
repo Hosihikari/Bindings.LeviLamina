@@ -20,17 +20,21 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     public nint button(nint label, nint callback, nint options) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>' is not a known bindable declaration.");
 
-    public nint close() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void close()
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f2839((void*)_handle, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
     public nint closeButton()
     {
-        return (nint)NativeMethods.TablePtr->f2831((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2840((void*)_handle);
     }
 
     public nint divider(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.DividerOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f2832((void*)_handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f2841((void*)_handle, (void*)options.Handle);
     }
 
     public nint dropdown(nint label, nint value, nint items, nint options) =>
@@ -41,7 +45,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f2833((void*)_handle);
+        return NativeMethods.TablePtr->f2842((void*)_handle);
     }
 
     public nint label(nint text, nint options) =>
@@ -51,7 +55,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint show(nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>)>' is not supported.");
 
     public nint showAsync() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::CoroTask<nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>>' is not a known bindable declaration.");
@@ -61,7 +65,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint spacer(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.SpacingOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f2834((void*)_handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f2843((void*)_handle, (void*)options.Handle);
     }
 
     public nint textField(nint label, nint text, nint options) =>
@@ -75,7 +79,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2830((void*)_handle);
+            NativeMethods.TablePtr->f2838((void*)_handle);
             _handle = 0;
         }
     }

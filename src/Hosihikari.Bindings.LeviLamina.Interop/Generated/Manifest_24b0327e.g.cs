@@ -13,68 +13,25 @@ public sealed unsafe partial class Manifest : global::System.IDisposable
 
     public nint author
     {
-        get => (nint)NativeMethods.TablePtr->f2682((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2689((void*)_handle);
     }
 
     public nint conflicts
     {
-        get => (nint)NativeMethods.TablePtr->f2683((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2690((void*)_handle);
     }
 
     public nint dependencies
     {
-        get => (nint)NativeMethods.TablePtr->f2684((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2691((void*)_handle);
     }
 
     public nint description
     {
-        get => (nint)NativeMethods.TablePtr->f2685((void*)_handle);
-    }
-
-    public string entry
-    {
-        get
-        {
-            var view = NativeMethods.TablePtr->f2686((void*)_handle);
-            return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
-        }
-    }
-
-    public nint extraInfo
-    {
-        get => (nint)NativeMethods.TablePtr->f2687((void*)_handle);
-    }
-
-    public nint loadBefore
-    {
-        get => (nint)NativeMethods.TablePtr->f2688((void*)_handle);
-    }
-
-    public string name
-    {
-        get
-        {
-            var view = NativeMethods.TablePtr->f2689((void*)_handle);
-            return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
-        }
-    }
-
-    public nint optionalDependencies
-    {
-        get => (nint)NativeMethods.TablePtr->f2690((void*)_handle);
-    }
-
-    public nint passive
-    {
-        get => (nint)NativeMethods.TablePtr->f2691((void*)_handle);
-    }
-
-    public nint platform
-    {
         get => (nint)NativeMethods.TablePtr->f2692((void*)_handle);
     }
 
-    public string type
+    public string entry
     {
         get
         {
@@ -83,16 +40,59 @@ public sealed unsafe partial class Manifest : global::System.IDisposable
         }
     }
 
-    public nint version
+    public nint extraInfo
     {
         get => (nint)NativeMethods.TablePtr->f2694((void*)_handle);
+    }
+
+    public nint loadBefore
+    {
+        get => (nint)NativeMethods.TablePtr->f2695((void*)_handle);
+    }
+
+    public string name
+    {
+        get
+        {
+            var view = NativeMethods.TablePtr->f2696((void*)_handle);
+            return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
+        }
+    }
+
+    public nint optionalDependencies
+    {
+        get => (nint)NativeMethods.TablePtr->f2697((void*)_handle);
+    }
+
+    public nint passive
+    {
+        get => (nint)NativeMethods.TablePtr->f2698((void*)_handle);
+    }
+
+    public nint platform
+    {
+        get => (nint)NativeMethods.TablePtr->f2699((void*)_handle);
+    }
+
+    public string type
+    {
+        get
+        {
+            var view = NativeMethods.TablePtr->f2700((void*)_handle);
+            return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
+        }
+    }
+
+    public nint version
+    {
+        get => (nint)NativeMethods.TablePtr->f2701((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2681((void*)_handle);
+            NativeMethods.TablePtr->f2688((void*)_handle);
             _handle = 0;
         }
     }

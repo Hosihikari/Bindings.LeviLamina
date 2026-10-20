@@ -16,7 +16,7 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(pattern);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f2579(__hs_stringData, (nuint)__hs_stringBytes.Length, colored, (void*)bracketed);
+            var handle = NativeMethods.TablePtr->f2586(__hs_stringData, (nuint)__hs_stringBytes.Length, colored, (void*)bracketed);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,13 +28,13 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
 
     public nint bracketed
     {
-        get => (nint)NativeMethods.TablePtr->f2580((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2587((void*)_handle);
     }
 
     public bool colored
     {
-        get => NativeMethods.TablePtr->f2581((void*)_handle);
-        set => NativeMethods.TablePtr->f2582((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2588((void*)_handle);
+        set => NativeMethods.TablePtr->f2589((void*)_handle, value);
     }
 
     public void format(nint view, nint buffer) =>
@@ -44,14 +44,14 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2583((void*)_handle);
+            var view = NativeMethods.TablePtr->f2590((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint styles
     {
-        get => (nint)NativeMethods.TablePtr->f2584((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2591((void*)_handle);
     }
 
 
@@ -59,7 +59,7 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2578((void*)_handle);
+            NativeMethods.TablePtr->f2585((void*)_handle);
             _handle = 0;
         }
     }

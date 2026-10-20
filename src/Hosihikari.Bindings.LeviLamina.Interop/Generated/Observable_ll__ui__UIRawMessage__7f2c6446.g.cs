@@ -22,7 +22,7 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage getData()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2173((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2179((void*)_handle));
     }
 
     public nint operator_assign_3295b9f8(nint arg0) =>
@@ -33,7 +33,7 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
 
     public void setData(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage value)
     {
-        NativeMethods.TablePtr->f2174((void*)_handle, (void*)value.Handle);
+        NativeMethods.TablePtr->f2180((void*)_handle, (void*)value.Handle);
     }
 
     public uint subscribe(nint callback) =>
@@ -41,14 +41,14 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f2175((void*)_handle, id);
+        return NativeMethods.TablePtr->f2181((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2172((void*)_handle);
+            NativeMethods.TablePtr->f2178((void*)_handle);
             _handle = 0;
         }
     }

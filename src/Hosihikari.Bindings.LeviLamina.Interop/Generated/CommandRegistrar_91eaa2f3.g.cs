@@ -53,7 +53,7 @@ public sealed unsafe partial class CommandRegistrar
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public nint compileCommand(nint commandStr, nint origin, nint version) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<std::unique_ptr<Command>, ll::Error>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: expected value type 'std::unique_ptr<Command>': unique_ptr return type 'Command' is not a known bindable declaration.");
 
     public nint executeCommand(nint commandStr, nint origin, nint outputType, nint version) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandOutput' is not a known bindable declaration.");

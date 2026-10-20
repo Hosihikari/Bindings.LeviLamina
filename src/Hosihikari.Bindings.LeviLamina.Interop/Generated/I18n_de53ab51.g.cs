@@ -13,7 +13,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
 
     public static I18n Create()
     {
-        var handle = NativeMethods.TablePtr->f2521();
+        var handle = NativeMethods.TablePtr->f2527();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,14 +24,18 @@ public sealed unsafe partial class I18n : global::System.IDisposable
 
     public void clear()
     {
-        NativeMethods.TablePtr->f2522((void*)_handle);
+        NativeMethods.TablePtr->f2528((void*)_handle);
     }
 
     public nint get(nint key, nint localeCode) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
-    public nint load(nint path) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void load(nint path)
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f2529((void*)_handle, (void*)path, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
     public void set(nint localeCode, nint key, nint value) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
@@ -41,7 +45,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2520((void*)_handle);
+            NativeMethods.TablePtr->f2526((void*)_handle);
             _handle = 0;
         }
     }

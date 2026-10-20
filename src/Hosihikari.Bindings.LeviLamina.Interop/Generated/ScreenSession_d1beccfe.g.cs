@@ -13,7 +13,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create()
     {
-        var handle = NativeMethods.TablePtr->f2861();
+        var handle = NativeMethods.TablePtr->f2874();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,7 +33,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
     {
-        var handle = NativeMethods.TablePtr->f2862((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2875((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -46,39 +46,43 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint borrowProperty(nint datastore, nint property) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<ll::ui::Property, ll::Error>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
-    public nint close() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void close()
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f2876((void*)_handle, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
     public nint createProperty_8d590c2a(nint datastore, nint property, nint value) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<ll::ui::Property, ll::Error>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public nint createProperty_d9361dd5(nint datastore, nint property, nint json) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<ll::ui::Property, ll::Error>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public uint? getFormId()
     {
         var __hs_hasValue = false;
-        var __hs_value = NativeMethods.TablePtr->f2863((void*)_handle, &__hs_hasValue);
+        var __hs_value = NativeMethods.TablePtr->f2877((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? __hs_value : (uint?)null;
     }
 
     public uint? getInstanceId()
     {
         var __hs_hasValue = false;
-        var __hs_value = NativeMethods.TablePtr->f2864((void*)_handle, &__hs_hasValue);
+        var __hs_value = NativeMethods.TablePtr->f2878((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? __hs_value : (uint?)null;
     }
 
     public byte getState()
     {
-        return NativeMethods.TablePtr->f2865((void*)_handle);
+        return NativeMethods.TablePtr->f2879((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2866((void*)_handle);
+        return NativeMethods.TablePtr->f2880((void*)_handle);
     }
 
     public nint operator_assign_e92563b0(nint arg0) =>
@@ -88,7 +92,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint show(nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>)>' is not supported.");
 
     public nint showAsync() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::CoroTask<nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>>' is not a known bindable declaration.");
@@ -98,7 +102,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2860((void*)_handle);
+            NativeMethods.TablePtr->f2873((void*)_handle);
             _handle = 0;
         }
     }

@@ -17,17 +17,33 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
     public static Compressor Create(nint sink, nint format, nint level) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'nonstd::expected_lite::expected<void, ll::Error>' is not supported.");
 
-    public nint finish() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void finish()
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f2090((void*)_handle, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
-    public nint status() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void status()
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f2091((void*)_handle, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
-    public nint write(nint data) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void write(string data)
+    {
+        var __hs_hasValue = false;
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(data);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            NativeMethods.TablePtr->f2092((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+        }
+    }
 
 
     public void Dispose()

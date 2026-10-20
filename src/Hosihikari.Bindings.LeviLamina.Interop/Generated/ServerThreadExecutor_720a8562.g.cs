@@ -16,7 +16,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f2817((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->f2825((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
     public nint executeAfter(nint arg0, nint arg1) =>
@@ -24,7 +24,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
 
     public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f2818();
+        return (nint)NativeMethods.TablePtr->f2826();
     }
 
 
@@ -32,7 +32,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2816((void*)_handle);
+            NativeMethods.TablePtr->f2824((void*)_handle);
             _handle = 0;
         }
     }

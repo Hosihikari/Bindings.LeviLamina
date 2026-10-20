@@ -118,6 +118,26 @@ public sealed class ShimSmokePlugin : IPlugin
                 log.AppendLine("optional_ref.missing=failed:no-service");
             }
 
+            using (var property = Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property.Create())
+            {
+                var expectedError = false;
+                try
+                {
+                    property.setJson("{}");
+                }
+                catch (InvalidOperationException exception)
+                {
+                    expectedError = !string.IsNullOrEmpty(exception.Message);
+                }
+
+                if (!expectedError)
+                {
+                    throw new InvalidOperationException("expected setJson to report a native error.");
+                }
+
+                log.AppendLine("expected.error=caught");
+            }
+
             try
             {
                 using var invalid = LlVersion.Create("not-a-version");

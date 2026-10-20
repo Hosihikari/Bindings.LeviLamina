@@ -26,19 +26,23 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     public nint button2(nint label, nint tooltip) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>' is not a known bindable declaration.");
 
-    public nint close() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void close()
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f2856((void*)_handle, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f2847((void*)_handle);
+        return NativeMethods.TablePtr->f2857((void*)_handle);
     }
 
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint show(nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>)>' is not supported.");
 
     public nint showAsync() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::CoroTask<nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>>' is not a known bindable declaration.");
@@ -48,7 +52,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2846((void*)_handle);
+            NativeMethods.TablePtr->f2855((void*)_handle);
             _handle = 0;
         }
     }

@@ -18,7 +18,7 @@ public sealed unsafe partial class ServerLevelTickEvent : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2452((void*)_handle);
+            NativeMethods.TablePtr->f2458((void*)_handle);
             _handle = 0;
         }
     }

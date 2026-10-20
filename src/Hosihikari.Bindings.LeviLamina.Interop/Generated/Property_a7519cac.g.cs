@@ -13,7 +13,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
 
     public static Property Create()
     {
-        var handle = NativeMethods.TablePtr->f2857();
+        var handle = NativeMethods.TablePtr->f2867();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
 
     public static Property Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
     {
-        var handle = NativeMethods.TablePtr->f2858((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2868((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,12 +36,16 @@ public sealed unsafe partial class Property : global::System.IDisposable
     public static Property Create_917bf7ba(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
-    public nint erase() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void erase()
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f2869((void*)_handle, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2859((void*)_handle);
+        return NativeMethods.TablePtr->f2870((void*)_handle);
     }
 
     public nint operator_assign_bfa12fa4(nint arg0) =>
@@ -50,18 +54,30 @@ public sealed unsafe partial class Property : global::System.IDisposable
     public nint operator_assign_a1807e9e(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
-    public nint set(nint value) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void set(nint value)
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f2871((void*)_handle, (void*)value, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
-    public nint setJson(nint json) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
+    public void setJson(string json)
+    {
+        var __hs_hasValue = false;
+        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(json);
+        fixed (byte* __hs_stringData = __hs_stringBytes)
+        {
+            NativeMethods.TablePtr->f2872((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+        }
+    }
 
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2856((void*)_handle);
+            NativeMethods.TablePtr->f2866((void*)_handle);
             _handle = 0;
         }
     }

@@ -16,13 +16,13 @@ public sealed unsafe partial class LoggerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            return NativeMethods.TablePtr->f2574((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f2581((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
         }
     }
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2575();
+        return (nint)NativeMethods.TablePtr->f2582();
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle? getOrCreate(string title)
@@ -30,7 +30,7 @@ public sealed unsafe partial class LoggerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_shared = NativeMethods.TablePtr->f2576((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            var __hs_shared = NativeMethods.TablePtr->f2583((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
             return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
         }
     }
@@ -43,7 +43,7 @@ public sealed unsafe partial class LoggerRegistry
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var __hs_shared = NativeMethods.TablePtr->f2577((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            var __hs_shared = NativeMethods.TablePtr->f2584((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
             return __hs_shared.Holder == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.SharedHandle((nint)__hs_shared.Holder, (nint)__hs_shared.Target, __hs_shared.Release);
         }
     }

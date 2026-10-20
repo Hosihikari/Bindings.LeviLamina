@@ -16,7 +16,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f2809(__hs_stringData, (nuint)__hs_stringBytes.Length);
+            var handle = NativeMethods.TablePtr->f2817(__hs_stringData, (nuint)__hs_stringBytes.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,7 +28,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f2810((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->f2818((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
     public nint executeAfter(nint arg0, nint arg1) =>
@@ -36,7 +36,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
 
     public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f2811();
+        return (nint)NativeMethods.TablePtr->f2819();
     }
 
 
@@ -44,7 +44,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2808((void*)_handle);
+            NativeMethods.TablePtr->f2816((void*)_handle);
             _handle = 0;
         }
     }

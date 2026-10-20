@@ -64,7 +64,7 @@ public sealed unsafe partial class CommandRegistrar
     }
 
     public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandPermissionLevel' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandFlag' is not a known bindable declaration.");
 
     public static nint getServerInstance()
     {

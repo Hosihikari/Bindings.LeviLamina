@@ -13,7 +13,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public static SignatureElement Create()
     {
-        var handle = NativeMethods.TablePtr->f2666();
+        var handle = NativeMethods.TablePtr->f2747();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -30,7 +30,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public static SignatureElement Create(byte @byte)
     {
-        var handle = NativeMethods.TablePtr->f2667(@byte);
+        var handle = NativeMethods.TablePtr->f2748(@byte);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -41,12 +41,12 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public ulong hash()
     {
-        return NativeMethods.TablePtr->f2668((void*)_handle);
+        return NativeMethods.TablePtr->f2749((void*)_handle);
     }
 
     public bool isWildcard()
     {
-        return NativeMethods.TablePtr->f2669((void*)_handle);
+        return NativeMethods.TablePtr->f2750((void*)_handle);
     }
 
     public nint operator_multiply() =>
@@ -54,7 +54,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureElement other)
     {
-        return NativeMethods.TablePtr->f2670((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2751((void*)_handle, (void*)other.Handle);
     }
 
     public bool operator_equal(nint other) =>
@@ -62,14 +62,14 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public bool operator_equal(byte other)
     {
-        return NativeMethods.TablePtr->f2671((void*)_handle, other);
+        return NativeMethods.TablePtr->f2752((void*)_handle, other);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2665((void*)_handle);
+            NativeMethods.TablePtr->f2746((void*)_handle);
             _handle = 0;
         }
     }

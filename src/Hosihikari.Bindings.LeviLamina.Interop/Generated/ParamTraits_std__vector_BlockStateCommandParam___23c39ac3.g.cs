@@ -11,14 +11,16 @@ public sealed unsafe partial class ParamTraits_std__vector_BlockStateCommandPara
 
     public nint Handle => _handle;
 
-    public static nint parseRuleValue() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandRegistry::HardNonTerminal' is not a known bindable declaration.");
+    public static int parseRuleValue()
+    {
+        return NativeMethods.TablePtr->f1962();
+    }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1937((void*)_handle);
+            NativeMethods.TablePtr->f1961((void*)_handle);
             _handle = 0;
         }
     }

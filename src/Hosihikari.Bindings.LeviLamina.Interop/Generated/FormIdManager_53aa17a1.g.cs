@@ -13,14 +13,14 @@ public sealed unsafe partial class FormIdManager : global::System.IDisposable
 
     public static uint genFormId()
     {
-        return NativeMethods.TablePtr->f2510();
+        return NativeMethods.TablePtr->f2591();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2509((void*)_handle);
+            NativeMethods.TablePtr->f2590((void*)_handle);
             _handle = 0;
         }
     }

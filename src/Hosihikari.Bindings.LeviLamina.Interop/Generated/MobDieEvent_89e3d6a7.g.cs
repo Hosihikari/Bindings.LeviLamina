@@ -16,19 +16,19 @@ public sealed unsafe partial class MobDieEvent : global::System.IDisposable
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2388((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2469((void*)_handle, (void*)arg0);
     }
 
     public nint source()
     {
-        return (nint)NativeMethods.TablePtr->f2389((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2470((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2387((void*)_handle);
+            NativeMethods.TablePtr->f2468((void*)_handle);
             _handle = 0;
         }
     }

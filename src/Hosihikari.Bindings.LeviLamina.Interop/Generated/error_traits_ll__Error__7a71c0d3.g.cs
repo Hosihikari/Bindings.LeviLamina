@@ -13,14 +13,14 @@ public sealed unsafe partial class error_traits_ll__Error_ : global::System.IDis
 
     public static void rethrow(global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error e)
     {
-        NativeMethods.TablePtr->f2948((void*)e.Handle);
+        NativeMethods.TablePtr->f3029((void*)e.Handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2947((void*)_handle);
+            NativeMethods.TablePtr->f3028((void*)_handle);
             _handle = 0;
         }
     }

@@ -23,4 +23,4 @@ Generated sources are produced by `Hosihikari/Bindings.Generator` with `--native
 
 ## Status
 
-The committed carrier-linked v1 table has 2,949 functions. `build.ps1` compiles it with clang-cl against `LeviLamina.lib`, fmt, and the prelinked Bedrock runtime import library. The generator's smoke tests exercise string construction, string results, field access, opaque parameters, out-of-line methods, and lifecycle calls. `scripts/run-runtime-smoke.ps1` loads the shim inside BDS 1.26.51.1 with LeviLamina 26.51.7 and validates out-of-line `ll::Error` calls plus the exception boundary. Director emission is a subsequent layer.
+The committed carrier-linked v1 table has 3,030 functions. `build.ps1` compiles it with clang-cl against `LeviLamina.lib`, fmt, and the prelinked Bedrock runtime import library. The generator's smoke tests exercise string construction, string results, field access, opaque parameters, out-of-line methods, and lifecycle calls. `scripts/run-runtime-smoke.ps1` loads the shim inside BDS 1.26.51.1 with LeviLamina 26.51.7 and validates out-of-line `ll::Error` calls plus the exception boundary. Director emission is a subsequent layer.

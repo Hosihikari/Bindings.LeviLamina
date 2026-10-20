@@ -16,14 +16,14 @@ public sealed unsafe partial class UIObservable_std__basic_string_char__ : globa
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->f2928((void*)_handle);
+        return NativeMethods.TablePtr->f3009((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2927((void*)_handle);
+            NativeMethods.TablePtr->f3008((void*)_handle);
             _handle = 0;
         }
     }

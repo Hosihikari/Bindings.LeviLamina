@@ -11,35 +11,39 @@ public sealed unsafe partial class ParamTraitsBase_Json__Value_ : global::System
 
     public nint Handle => _handle;
 
-    public static nint dataType() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandParameterDataType' is not a known bindable declaration.");
+    public static int dataType()
+    {
+        return NativeMethods.TablePtr->f2062();
+    }
 
     public static string enumNameOrPostfix()
     {
-        var __hs_view = NativeMethods.TablePtr->f2009();
+        var __hs_view = NativeMethods.TablePtr->f2063();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
-    public static nint options() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandParameterOption' is not a known bindable declaration.");
+    public static byte options()
+    {
+        return NativeMethods.TablePtr->f2064();
+    }
 
     public static nint parseFn() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: return type 'bool (CommandRegistry::*)(void *, const CommandRegistry::ParseToken &, const CommandOrigin &, int, std::basic_string<char> &, std::vector<std::basic_string<char>> &) const' is not supported.");
 
     public static nint parseRule()
     {
-        return (nint)NativeMethods.TablePtr->f2010();
+        return (nint)NativeMethods.TablePtr->f2065();
     }
 
     public static string subChain()
     {
-        var __hs_view = NativeMethods.TablePtr->f2011();
+        var __hs_view = NativeMethods.TablePtr->f2066();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static void transformData(nint arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar arg1)
     {
-        NativeMethods.TablePtr->f2012((void*)arg0, (void*)arg1.Handle);
+        NativeMethods.TablePtr->f2067((void*)arg0, (void*)arg1.Handle);
     }
 
     public static nint typeId() =>
@@ -49,7 +53,7 @@ public sealed unsafe partial class ParamTraitsBase_Json__Value_ : global::System
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2008((void*)_handle);
+            NativeMethods.TablePtr->f2061((void*)_handle);
             _handle = 0;
         }
     }

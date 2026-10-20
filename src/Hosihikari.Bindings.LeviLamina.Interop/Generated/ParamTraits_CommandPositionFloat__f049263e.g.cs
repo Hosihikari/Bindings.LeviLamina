@@ -11,14 +11,16 @@ public sealed unsafe partial class ParamTraits_CommandPositionFloat_ : global::S
 
     public nint Handle => _handle;
 
-    public static nint parseRuleValue() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandRegistry::HardNonTerminal' is not a known bindable declaration.");
+    public static int parseRuleValue()
+    {
+        return NativeMethods.TablePtr->f1930();
+    }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1921((void*)_handle);
+            NativeMethods.TablePtr->f1929((void*)_handle);
             _handle = 0;
         }
     }

@@ -19,27 +19,27 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public ulong getRuntimeId()
     {
-        return NativeMethods.TablePtr->f2756((void*)_handle);
+        return NativeMethods.TablePtr->f2837((void*)_handle);
     }
 
     public nint mCompressible
     {
-        get => (nint)NativeMethods.TablePtr->f2757((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2838((void*)_handle);
     }
 
     public nint mPriority
     {
-        get => (nint)NativeMethods.TablePtr->f2758((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2839((void*)_handle);
     }
 
     public nint mReliability
     {
-        get => (nint)NativeMethods.TablePtr->f2759((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2840((void*)_handle);
     }
 
     public nint mSenderSubId
     {
-        get => (nint)NativeMethods.TablePtr->f2760((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2841((void*)_handle);
     }
 
     public nint read(nint arg0) =>
@@ -47,7 +47,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendTo(nint actor, nint? except)
     {
-        NativeMethods.TablePtr->f2761((void*)_handle, (void*)actor, (void*)(except ?? 0), except is not null);
+        NativeMethods.TablePtr->f2842((void*)_handle, (void*)actor, (void*)(except ?? 0), except is not null);
     }
 
     public void sendTo(nint pos, nint dimId, nint except) =>
@@ -55,7 +55,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendTo(nint player)
     {
-        NativeMethods.TablePtr->f2762((void*)_handle, (void*)player);
+        NativeMethods.TablePtr->f2843((void*)_handle, (void*)player);
     }
 
     public void sendToClient(nint identifier, nint clientId) =>
@@ -63,12 +63,12 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendToClient(nint identifierWithSubId)
     {
-        NativeMethods.TablePtr->f2763((void*)_handle, (void*)identifierWithSubId);
+        NativeMethods.TablePtr->f2844((void*)_handle, (void*)identifierWithSubId);
     }
 
     public void sendToClients()
     {
-        NativeMethods.TablePtr->f2764((void*)_handle);
+        NativeMethods.TablePtr->f2845((void*)_handle);
     }
 
     public void sendToClients(nint exceptId, nint exceptSubid) =>
@@ -76,7 +76,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendToServer()
     {
-        NativeMethods.TablePtr->f2765((void*)_handle);
+        NativeMethods.TablePtr->f2846((void*)_handle);
     }
 
     public void write(nint arg0) =>
@@ -87,7 +87,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2755((void*)_handle);
+            NativeMethods.TablePtr->f2836((void*)_handle);
             _handle = 0;
         }
     }

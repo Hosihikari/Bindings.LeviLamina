@@ -23,18 +23,18 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     public void close()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2855((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2936((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
     public nint closeButton()
     {
-        return (nint)NativeMethods.TablePtr->f2856((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2937((void*)_handle);
     }
 
     public nint divider(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.DividerOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f2857((void*)_handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f2938((void*)_handle, (void*)options.Handle);
     }
 
     public nint dropdown(nint label, nint value, nint items, nint options) =>
@@ -45,7 +45,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f2858((void*)_handle);
+        return NativeMethods.TablePtr->f2939((void*)_handle);
     }
 
     public nint label(nint text, nint options) =>
@@ -65,7 +65,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint spacer(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.SpacingOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f2859((void*)_handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f2940((void*)_handle, (void*)options.Handle);
     }
 
     public nint textField(nint label, nint text, nint options) =>
@@ -79,7 +79,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2854((void*)_handle);
+            NativeMethods.TablePtr->f2935((void*)_handle);
             _handle = 0;
         }
     }

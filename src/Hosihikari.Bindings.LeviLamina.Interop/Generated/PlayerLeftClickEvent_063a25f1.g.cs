@@ -18,7 +18,7 @@ public sealed unsafe partial class PlayerLeftClickEvent : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2435((void*)_handle);
+            NativeMethods.TablePtr->f2516((void*)_handle);
             _handle = 0;
         }
     }

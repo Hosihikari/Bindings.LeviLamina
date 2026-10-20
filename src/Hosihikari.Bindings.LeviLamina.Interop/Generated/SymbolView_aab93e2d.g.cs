@@ -34,23 +34,23 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
 
     public string raw()
     {
-        var __hs_view = NativeMethods.TablePtr->f2688((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2769((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint resolve(bool disableErrorOutput)
     {
-        return (nint)NativeMethods.TablePtr->f2689((void*)_handle, disableErrorOutput);
+        return (nint)NativeMethods.TablePtr->f2770((void*)_handle, disableErrorOutput);
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2690((void*)_handle);
+        return NativeMethods.TablePtr->f2771((void*)_handle);
     }
 
     public string toString()
     {
-        var __hs_view = NativeMethods.TablePtr->f2691((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2772((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -58,7 +58,7 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2687((void*)_handle);
+            NativeMethods.TablePtr->f2768((void*)_handle);
             _handle = 0;
         }
     }

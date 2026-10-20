@@ -11,14 +11,16 @@ public sealed unsafe partial class ParamTraits_CommandItem_ : global::System.IDi
 
     public nint Handle => _handle;
 
-    public static nint options() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandParameterOption' is not a known bindable declaration.");
+    public static byte options()
+    {
+        return NativeMethods.TablePtr->f1922();
+    }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1917((void*)_handle);
+            NativeMethods.TablePtr->f1921((void*)_handle);
             _handle = 0;
         }
     }

@@ -11,17 +11,21 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeEnum_ : globa
 
     public nint Handle => _handle;
 
-    public static nint dataType() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandParameterDataType' is not a known bindable declaration.");
+    public static int dataType()
+    {
+        return NativeMethods.TablePtr->f1950();
+    }
 
-    public static nint options() =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandParameterOption' is not a known bindable declaration.");
+    public static byte options()
+    {
+        return NativeMethods.TablePtr->f1951();
+    }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1931((void*)_handle);
+            NativeMethods.TablePtr->f1949((void*)_handle);
             _handle = 0;
         }
     }

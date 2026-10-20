@@ -40,9 +40,9 @@ public sealed unsafe partial class Version : global::System.IDisposable
     public static Version Create(ushort mj, ushort mn, ushort pt, string prt, string? bu)
     {
         var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(prt);
+        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(bu ?? string.Empty);
         fixed (byte* __hs_stringData3 = __hs_stringBytes3)
         {
-            var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(bu ?? string.Empty);
             fixed (byte* __hs_stringData4 = __hs_stringBytes4)
             {
                 var handle = NativeMethods.TablePtr->f2209(mj, mn, pt, __hs_stringData3, (nuint)__hs_stringBytes3.Length, __hs_stringData4, (nuint)__hs_stringBytes4.Length, bu is not null);

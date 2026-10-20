@@ -25,15 +25,15 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
     public static ModalForm Create(string title, string content, string upperButton, string lowerButton)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(content);
+        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(upperButton);
+        var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(lowerButton);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(content);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(upperButton);
                 fixed (byte* __hs_stringData2 = __hs_stringBytes2)
                 {
-                    var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(lowerButton);
                     fixed (byte* __hs_stringData3 = __hs_stringBytes3)
                     {
                         var handle = NativeMethods.TablePtr->f2513(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length);

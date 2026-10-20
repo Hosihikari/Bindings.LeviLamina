@@ -49,9 +49,9 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         var __hs_hasValue = false;
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
                 var __hs_expectedResult = NativeMethods.TablePtr->f2892((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, &__hs_hasValue);
@@ -72,9 +72,9 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         var __hs_hasValue = false;
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
                 var __hs_expectedResult = NativeMethods.TablePtr->f2894((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)value, &__hs_hasValue);
@@ -88,12 +88,12 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         var __hs_hasValue = false;
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
+        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(json);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(json);
                 fixed (byte* __hs_stringData2 = __hs_stringBytes2)
                 {
                     var __hs_expectedResult = NativeMethods.TablePtr->f2895((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, &__hs_hasValue);

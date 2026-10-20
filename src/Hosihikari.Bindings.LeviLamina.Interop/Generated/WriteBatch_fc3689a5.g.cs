@@ -40,9 +40,9 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
     public nint set(string key, string val)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(val);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(val);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
                 return (nint)NativeMethods.TablePtr->f2173((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);

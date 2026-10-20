@@ -39,9 +39,9 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
     public static LogMessage Create(string msg, string tit, int lvl, global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.TmWithMs tm)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(tit);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(tit);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
                 var handle = NativeMethods.TablePtr->f2571(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, lvl, (void*)tm.Handle);

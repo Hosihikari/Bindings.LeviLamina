@@ -48,6 +48,9 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
         var __hs_vectorViews = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems.Length];
         var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
         try
         {
             for (var __hs_i = 0; __hs_i < __hs_vectorItems.Length; __hs_i++)
@@ -61,13 +64,10 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
             }
             fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
-                var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
                     fixed (byte* __hs_stringData1 = __hs_stringBytes1)
                     {
-                        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
                             return (nint)NativeMethods.TablePtr->f2495((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
@@ -94,18 +94,18 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     public nint appendInput(string name, string text, string placeholder, string defaultVal, string tooltip)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(placeholder);
+        var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(defaultVal);
+        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(placeholder);
                 fixed (byte* __hs_stringData2 = __hs_stringBytes2)
                 {
-                    var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(defaultVal);
                     fixed (byte* __hs_stringData3 = __hs_stringBytes3)
                     {
-                        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
                             return (nint)NativeMethods.TablePtr->f2497((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length, __hs_stringData4, (nuint)__hs_stringBytes4.Length);
@@ -128,12 +128,12 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     public nint appendSlider(string name, string text, double min, double max, double step, double defaultVal, string tooltip)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringBytes6 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_stringBytes6 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
                 fixed (byte* __hs_stringData6 = __hs_stringBytes6)
                 {
                     return (nint)NativeMethods.TablePtr->f2499((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, min, max, step, defaultVal, __hs_stringData6, (nuint)__hs_stringBytes6.Length);
@@ -148,6 +148,9 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
         var __hs_vectorViews = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems.Length];
         var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
         try
         {
             for (var __hs_i = 0; __hs_i < __hs_vectorItems.Length; __hs_i++)
@@ -161,13 +164,10 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
             }
             fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
-                var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
                     fixed (byte* __hs_stringData1 = __hs_stringBytes1)
                     {
-                        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
                             return (nint)NativeMethods.TablePtr->f2500((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
@@ -185,12 +185,12 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     public nint appendToggle(string name, string text, bool defaultVal, string tooltip)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
                 fixed (byte* __hs_stringData3 = __hs_stringBytes3)
                 {
                     return (nint)NativeMethods.TablePtr->f2501((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData3, (nuint)__hs_stringBytes3.Length);

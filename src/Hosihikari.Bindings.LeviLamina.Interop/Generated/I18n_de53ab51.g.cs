@@ -30,9 +30,9 @@ public sealed unsafe partial class I18n : global::System.IDisposable
     public string get(string key, string localeCode)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(localeCode);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(localeCode);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
                 var __hs_view = NativeMethods.TablePtr->f2542((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
@@ -51,12 +51,12 @@ public sealed unsafe partial class I18n : global::System.IDisposable
     public void set(string localeCode, string key, string value)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(localeCode);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(key);
+        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(value);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(key);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(value);
                 fixed (byte* __hs_stringData2 = __hs_stringBytes2)
                 {
                     NativeMethods.TablePtr->f2544((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length);

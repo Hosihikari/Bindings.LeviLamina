@@ -40,9 +40,9 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
     public nint optional(string name, ulong enumKind, string enumName)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(enumName);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(enumName);
             fixed (byte* __hs_stringData2 = __hs_stringBytes2)
             {
                 return (nint)NativeMethods.TablePtr->f2086((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
@@ -71,9 +71,9 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
     public nint required(string name, ulong enumKind, string enumName)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(enumName);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(enumName);
             fixed (byte* __hs_stringData2 = __hs_stringBytes2)
             {
                 return (nint)NativeMethods.TablePtr->f2089((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length);

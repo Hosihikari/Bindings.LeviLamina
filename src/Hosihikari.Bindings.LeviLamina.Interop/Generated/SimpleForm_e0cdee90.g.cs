@@ -25,9 +25,9 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
     public static SimpleForm Create(string title, string content)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(content);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(content);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
                 var handle = NativeMethods.TablePtr->f2522(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
@@ -44,12 +44,12 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
     public nint appendButton(string text, string imageData, string imageType, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(imageData);
+        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(imageType);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(imageData);
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(imageType);
                 fixed (byte* __hs_stringData2 = __hs_stringBytes2)
                 {
                     return (nint)NativeMethods.TablePtr->f2523((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);

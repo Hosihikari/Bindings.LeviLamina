@@ -13,11 +13,11 @@ public sealed unsafe partial class PlayerEvent
 
     public nint self()
     {
-        return (nint)NativeMethods.TablePtr->f2538((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2539((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2539((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2540((void*)_handle, (void*)arg0);
     }
 }

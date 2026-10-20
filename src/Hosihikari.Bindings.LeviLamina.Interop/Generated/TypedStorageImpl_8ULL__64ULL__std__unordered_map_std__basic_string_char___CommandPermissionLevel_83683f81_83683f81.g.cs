@@ -25,43 +25,103 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
     public nint get_12465134() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint get_1e919a1c()
+    public global::System.Collections.Generic.Dictionary<string, byte> get_1e919a1c()
     {
-        return (nint)NativeMethods.TablePtr->f1569((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1569((void*)_handle);
+        var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
+        var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
+        for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
+        {
+            var __hs_entry = __hs_items[__hs_i];
+            var __hs_key = global::System.Runtime.InteropServices.Marshal.PtrToStringUTF8((nint)__hs_entry.Key, checked((int)__hs_entry.KeySize))!;
+            var __hs_value = unchecked((byte)__hs_entry.Value);
+            __hs_result[__hs_key] = __hs_value;
+        }
+        return __hs_result;
     }
 
     public nint get_304be7fe() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint get_014c49ff()
+    public global::System.Collections.Generic.Dictionary<string, byte> get_014c49ff()
     {
-        return (nint)NativeMethods.TablePtr->f1570((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1570((void*)_handle);
+        var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
+        var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
+        for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
+        {
+            var __hs_entry = __hs_items[__hs_i];
+            var __hs_key = global::System.Runtime.InteropServices.Marshal.PtrToStringUTF8((nint)__hs_entry.Key, checked((int)__hs_entry.KeySize))!;
+            var __hs_value = unchecked((byte)__hs_entry.Value);
+            __hs_result[__hs_key] = __hs_value;
+        }
+        return __hs_result;
     }
 
-    public nint operator_const_std__unordered_map_std__basic_string_char___CommandPer_a39888ac()
+    public global::System.Collections.Generic.Dictionary<string, byte> operator_const_std__unordered_map_std__basic_string_char___CommandPer_a39888ac()
     {
-        return (nint)NativeMethods.TablePtr->f1571((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1571((void*)_handle);
+        var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
+        var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
+        for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
+        {
+            var __hs_entry = __hs_items[__hs_i];
+            var __hs_key = global::System.Runtime.InteropServices.Marshal.PtrToStringUTF8((nint)__hs_entry.Key, checked((int)__hs_entry.KeySize))!;
+            var __hs_value = unchecked((byte)__hs_entry.Value);
+            __hs_result[__hs_key] = __hs_value;
+        }
+        return __hs_result;
     }
 
-    public nint operator_std__unordered_map_std__basic_string_char___CommandPermissio_3ca0101a()
+    public global::System.Collections.Generic.Dictionary<string, byte> operator_std__unordered_map_std__basic_string_char___CommandPermissio_3ca0101a()
     {
-        return (nint)NativeMethods.TablePtr->f1572((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1572((void*)_handle);
+        var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
+        var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
+        for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
+        {
+            var __hs_entry = __hs_items[__hs_i];
+            var __hs_key = global::System.Runtime.InteropServices.Marshal.PtrToStringUTF8((nint)__hs_entry.Key, checked((int)__hs_entry.KeySize))!;
+            var __hs_value = unchecked((byte)__hs_entry.Value);
+            __hs_result[__hs_key] = __hs_value;
+        }
+        return __hs_result;
     }
 
     public nint operator_multiply_a972834b() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_54a76fd4()
+    public global::System.Collections.Generic.Dictionary<string, byte> operator_multiply_54a76fd4()
     {
-        return (nint)NativeMethods.TablePtr->f1573((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1573((void*)_handle);
+        var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
+        var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
+        for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
+        {
+            var __hs_entry = __hs_items[__hs_i];
+            var __hs_key = global::System.Runtime.InteropServices.Marshal.PtrToStringUTF8((nint)__hs_entry.Key, checked((int)__hs_entry.KeySize))!;
+            var __hs_value = unchecked((byte)__hs_entry.Value);
+            __hs_result[__hs_key] = __hs_value;
+        }
+        return __hs_result;
     }
 
     public nint operator_multiply_4921328c() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_d2172a18()
+    public global::System.Collections.Generic.Dictionary<string, byte> operator_multiply_d2172a18()
     {
-        return (nint)NativeMethods.TablePtr->f1574((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f1574((void*)_handle);
+        var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
+        var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
+        for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
+        {
+            var __hs_entry = __hs_items[__hs_i];
+            var __hs_key = global::System.Runtime.InteropServices.Marshal.PtrToStringUTF8((nint)__hs_entry.Key, checked((int)__hs_entry.KeySize))!;
+            var __hs_value = unchecked((byte)__hs_entry.Value);
+            __hs_result[__hs_key] = __hs_value;
+        }
+        return __hs_result;
     }
 
     public nint operator_operator___ccf33e78()

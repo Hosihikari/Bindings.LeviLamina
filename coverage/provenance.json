@@ -7,6 +7,6 @@
     "configuration":  "win-x64-server",
     "mode":  "link-carrier",
     "tableVersion":  1,
-    "functions":  3082,
-    "coverageManifestSha256":  "sha256:9554c1214cbcd068b3051ea356683c82202d2b412908eaee583f8aead210843d"
+    "functions":  3113,
+    "coverageManifestSha256":  "sha256:edac6cb6b634e2247bcb959d98481b1adb76cec81aa3ee6ad38ef74c19660dad"
 }

@@ -2,6 +2,7 @@
 // ir-manifest-sha256: sha256:28bc78e389f15fef4ec1000fe41bb1394579d92dc8b8c0db4d3cb04a107507b5
 #include "binding_table.h"
 
+#include <bit>
 #include <chrono>
 #include <cstddef>
 #include <cstdint>
@@ -13,6 +14,7 @@
 #include <optional>
 #include <string>
 #include <string_view>
+#include <unordered_map>
 #include <utility>
 #include <variant>
 #include <vector>
@@ -23814,94 +23816,196 @@ catch (...)
     return nullptr;
 }
 
-static void* hs_method_1e919a1c(void* hs_self) try
+static HosihikariArrayView hs_method_1e919a1c(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->get()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->get();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_014c49ff(void* hs_self) try
+static HosihikariArrayView hs_method_014c49ff(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->get()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->get();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_a39888ac(void* hs_self) try
+static HosihikariArrayView hs_method_a39888ac(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->operator const std::unordered_map<std::basic_string<char>, CommandPermissionLevel> &()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->operator const std::unordered_map<std::basic_string<char>, CommandPermissionLevel> &();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_3ca0101a(void* hs_self) try
+static HosihikariArrayView hs_method_3ca0101a(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->operator std::unordered_map<std::basic_string<char>, CommandPermissionLevel> &()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->operator std::unordered_map<std::basic_string<char>, CommandPermissionLevel> &();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_54a76fd4(void* hs_self) try
+static HosihikariArrayView hs_method_54a76fd4(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->operator*()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->operator*();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_d2172a18(void* hs_self) try
+static HosihikariArrayView hs_method_d2172a18(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->operator*()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, CommandPermissionLevel>>*>(hs_self)->operator*();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
 static void* hs_method_ccf33e78(void* hs_self) try
@@ -24084,94 +24188,196 @@ catch (...)
     return nullptr;
 }
 
-static void* hs_method_d1af69ce(void* hs_self) try
+static HosihikariArrayView hs_method_d1af69ce(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->get()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->get();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_6c8fa615(void* hs_self) try
+static HosihikariArrayView hs_method_6c8fa615(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->get()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->get();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_6aa1f254(void* hs_self) try
+static HosihikariArrayView hs_method_6aa1f254(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->operator const std::unordered_map<std::basic_string<char>, unsigned int> &()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->operator const std::unordered_map<std::basic_string<char>, unsigned int> &();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_7ecaa838(void* hs_self) try
+static HosihikariArrayView hs_method_7ecaa838(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->operator std::unordered_map<std::basic_string<char>, unsigned int> &()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->operator std::unordered_map<std::basic_string<char>, unsigned int> &();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_4af8b8b8(void* hs_self) try
+static HosihikariArrayView hs_method_4af8b8b8(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->operator*()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->operator*();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
-static void* hs_method_be5136ae(void* hs_self) try
+static HosihikariArrayView hs_method_be5136ae(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->operator*()));
+    thread_local std::vector<HosihikariMapEntry> hs_mapEntries;
+    thread_local std::vector<std::string> hs_mapStrings;
+    auto result = static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<std::basic_string<char>, unsigned int>>*>(hs_self)->operator*();
+    hs_mapEntries.clear();
+    hs_mapEntries.reserve(result.size());
+    hs_mapStrings.clear();
+    hs_mapStrings.reserve(result.size() * 2);
+    for (auto const& item : result)
+    {
+        HosihikariMapEntry entry{};
+        hs_mapStrings.emplace_back(item.first.data(), item.first.size());
+        auto const& hs_stored = hs_mapStrings.back();
+        entry.key = reinterpret_cast<std::uint64_t>(hs_stored.data());
+        entry.keySize = static_cast<std::uint64_t>(hs_stored.size());
+        entry.value = static_cast<std::uint64_t>(item.second);
+        hs_mapEntries.push_back(entry);
+    }
+    return HosihikariArrayView{hs_mapEntries.data(), hs_mapEntries.size()};
 }
 catch (std::exception const& hs_error)
 {
     setLastError(hs_error.what());
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 catch (...)
 {
     setLastError("unknown native exception");
-    return nullptr;
+    return HosihikariArrayView{nullptr, 0};
 }
 
 static void* hs_method_da3cef0b(void* hs_self) try
@@ -33490,6 +33696,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return nullptr;
+}
+
+static void hs_destroy_62470329(void* hs_self) try
+{
+    delete static_cast<ll::command::RuntimeSoftEnum*>(hs_self);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
 }
 
 static void hs_destroy_6277e111(void* hs_self) try
@@ -45878,6 +46099,36 @@ catch (...)
     return nullptr;
 }
 
+static void* hs_method_4850d8c2(void* hs_self, void* label, void* value, void* options, const void** items_data, std::size_t items_count) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::CustomForm*>(hs_self)->dropdown(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(label), *static_cast<const ll::ui::ObservableNumber*>(value), hs_make_record_vector<ll::ui::DropdownItemData>(items_data, items_count), *static_cast<const ll::ui::DropdownOptions*>(options))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_method_8d2a1d7f(void* hs_self, void* text, void* options) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::CustomForm*>(hs_self)->header(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(text), *static_cast<const ll::ui::TextOptions*>(options))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static bool hs_method_fe218c64(void* hs_self) try
 {
     return static_cast<bool>(static_cast<ll::ui::CustomForm*>(hs_self)->isShowing());
@@ -45893,9 +46144,69 @@ catch (...)
     return false;
 }
 
+static void* hs_method_18a698b9(void* hs_self, void* text, void* options) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::CustomForm*>(hs_self)->label(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(text), *static_cast<const ll::ui::TextOptions*>(options))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_method_c910e915(void* hs_self, void* label, void* value, void* min, void* max, void* options) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::CustomForm*>(hs_self)->slider(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(label), *static_cast<const ll::ui::ObservableNumber*>(value), *static_cast<const std::variant<double, ll::ui::ObservableNumber>*>(min), *static_cast<const std::variant<double, ll::ui::ObservableNumber>*>(max), *static_cast<const ll::ui::SliderOptions*>(options))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_method_cbdfe00a(void* hs_self, void* options) try
 {
     return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::CustomForm*>(hs_self)->spacer(*static_cast<const ll::ui::SpacingOptions*>(options))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_method_046e7188(void* hs_self, void* label, void* text, void* options) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::CustomForm*>(hs_self)->textField(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(label), *static_cast<const ll::ui::ObservableString*>(text), *static_cast<const ll::ui::TextFieldOptions*>(options))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_method_903dc091(void* hs_self, void* label, void* toggled, void* options) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::CustomForm*>(hs_self)->toggle(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(label), *static_cast<const ll::ui::ObservableBoolean*>(toggled), *static_cast<const ll::ui::ToggleOptions*>(options))));
 }
 catch (std::exception const& hs_error)
 {
@@ -45981,6 +46292,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return nullptr;
+}
+
+static void hs_set_47236392(void* hs_self, void* value) try
+{
+    static_cast<ll::ui::DropdownItemData*>(hs_self)->label = static_cast<std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>>(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(value));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
 }
 
 static double hs_get_db760430(void* hs_self) try
@@ -46086,6 +46412,51 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static void* hs_method_44cf2213(void* hs_self, void* value) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::MessageBox*>(hs_self)->body(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(value))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_method_4e575dd6(void* hs_self, void* label, void* tooltip, bool tooltip_hasValue) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::MessageBox*>(hs_self)->button1(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(label), (tooltip_hasValue ? std::optional<std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>>{*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(tooltip)} : std::nullopt))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_method_6167cdee(void* hs_self, void* label, void* tooltip, bool tooltip_hasValue) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::MessageBox*>(hs_self)->button2(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(label), (tooltip_hasValue ? std::optional<std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>>{*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(tooltip)} : std::nullopt))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
 }
 
 static void hs_method_bbc3a137(void* hs_self, bool* hs_hasValue) try
@@ -46217,6 +46588,36 @@ catch (...)
     return nullptr;
 }
 
+static void hs_destroy_7493acf0(void* hs_self) try
+{
+    delete static_cast<ll::ui::ObservableBoolean*>(hs_self);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
+static void hs_destroy_69d5276d(void* hs_self) try
+{
+    delete static_cast<ll::ui::ObservableNumber*>(hs_self);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
 static void hs_destroy_176f9a86(void* hs_self) try
 {
     delete static_cast<ll::ui::ObservableOptions*>(hs_self);
@@ -46250,6 +46651,36 @@ catch (...)
 static void hs_set_e3b4abac(void* hs_self, bool value) try
 {
     static_cast<ll::ui::ObservableOptions*>(hs_self)->clientWritable = static_cast<bool>(static_cast<bool>(value));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
+static void hs_destroy_d9140cc2(void* hs_self) try
+{
+    delete static_cast<ll::ui::ObservableString*>(hs_self);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
+static void hs_destroy_4a5ce42e(void* hs_self) try
+{
+    delete static_cast<ll::ui::ObservableUIRawMessage*>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -47363,6 +47794,261 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static void* hs_variant_57217b04_create_0(double value) try
+{
+    return static_cast<void*>(new std::variant<double, ll::ui::ObservableNumber>(std::in_place_index<0>, static_cast<double>(value)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_variant_57217b04_create_1(void* value) try
+{
+    return static_cast<void*>(new std::variant<double, ll::ui::ObservableNumber>(std::in_place_index<1>, *static_cast<const ll::ui::ObservableNumber*>(value)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void hs_variant_57217b04_destroy(void* hs_self) try
+{
+    delete static_cast<std::variant<double, ll::ui::ObservableNumber>*>(hs_self);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
+static double hs_variant_57217b04_get_0(void* hs_self) try
+{
+    auto const& hs_value = *static_cast<const std::variant<double, ll::ui::ObservableNumber>*>(hs_self);
+    if (hs_value.index() != 0) { return 0.0; }
+    return static_cast<double>(std::get<0>(hs_value));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0.0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0.0;
+}
+
+static void* hs_variant_57217b04_get_1(void* hs_self) try
+{
+    auto const& hs_value = *static_cast<const std::variant<double, ll::ui::ObservableNumber>*>(hs_self);
+    if (hs_value.index() != 1) { return nullptr; }
+    return static_cast<void*>(new ll::ui::ObservableNumber(std::get<1>(hs_value)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static std::int32_t hs_variant_57217b04_index(void* hs_self) try
+{
+    return static_cast<std::int32_t>(static_cast<const std::variant<double, ll::ui::ObservableNumber>*>(hs_self)->index());
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
+static void* hs_variant_d6da2e34_create_0(const char* value_data, std::size_t value_size) try
+{
+    return static_cast<void*>(new std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>(std::in_place_index<0>, std::string(value_data, value_size)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_variant_d6da2e34_create_1(void* value) try
+{
+    return static_cast<void*>(new std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>(std::in_place_index<1>, *static_cast<const ll::ui::UIRawMessage*>(value)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_variant_d6da2e34_create_2(void* value) try
+{
+    return static_cast<void*>(new std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>(std::in_place_index<2>, *static_cast<const ll::ui::ObservableString*>(value)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_variant_d6da2e34_create_3(void* value) try
+{
+    return static_cast<void*>(new std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>(std::in_place_index<3>, *static_cast<const ll::ui::ObservableUIRawMessage*>(value)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void hs_variant_d6da2e34_destroy(void* hs_self) try
+{
+    delete static_cast<std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(hs_self);
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
+}
+
+static HosihikariStringView hs_variant_d6da2e34_get_0(void* hs_self) try
+{
+    auto const& hs_value = *static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(hs_self);
+    thread_local std::string hs_variantString;
+    if (hs_value.index() != 0) { return HosihikariStringView{nullptr, 0}; }
+    auto const& hs_text = std::get<0>(hs_value);
+    hs_variantString.assign(hs_text.data(), hs_text.size());
+    return HosihikariStringView{hs_variantString.data(), hs_variantString.size()};
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariStringView{nullptr, 0};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariStringView{nullptr, 0};
+}
+
+static void* hs_variant_d6da2e34_get_1(void* hs_self) try
+{
+    auto const& hs_value = *static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(hs_self);
+    if (hs_value.index() != 1) { return nullptr; }
+    return static_cast<void*>(new ll::ui::UIRawMessage(std::get<1>(hs_value)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_variant_d6da2e34_get_2(void* hs_self) try
+{
+    auto const& hs_value = *static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(hs_self);
+    if (hs_value.index() != 2) { return nullptr; }
+    return static_cast<void*>(new ll::ui::ObservableString(std::get<2>(hs_value)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static void* hs_variant_d6da2e34_get_3(void* hs_self) try
+{
+    auto const& hs_value = *static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(hs_self);
+    if (hs_value.index() != 3) { return nullptr; }
+    return static_cast<void*>(new ll::ui::ObservableUIRawMessage(std::get<3>(hs_value)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
+static std::int32_t hs_variant_d6da2e34_index(void* hs_self) try
+{
+    return static_cast<std::int32_t>(static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(hs_self)->index());
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 const HosihikariBindingTableV1 kTable{
@@ -49573,6 +50259,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_ea35375f,
     &hs_method_8ef6958d,
     &hs_method_05bd94b3,
+    &hs_destroy_62470329,
     &hs_destroy_6277e111,
     &hs_method_5d22e940,
     &hs_method_4739b571,
@@ -50357,13 +51044,20 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_2c1a5681,
     &hs_method_6836991e,
     &hs_method_7b94a684,
+    &hs_method_4850d8c2,
+    &hs_method_8d2a1d7f,
     &hs_method_fe218c64,
+    &hs_method_18a698b9,
+    &hs_method_c910e915,
     &hs_method_cbdfe00a,
+    &hs_method_046e7188,
+    &hs_method_903dc091,
     &hs_destroy_ac371bf8,
     &hs_get_4ad32f22,
     &hs_destroy_fedca0c6,
     &hs_get_b625ce32,
     &hs_get_47236392,
+    &hs_set_47236392,
     &hs_get_db760430,
     &hs_set_db760430,
     &hs_destroy_a3d5bb6a,
@@ -50371,6 +51065,9 @@ const HosihikariBindingTableV1 kTable{
     &hs_get_f0f61271,
     &hs_get_7ab25c31,
     &hs_destroy_5c12c3b0,
+    &hs_method_44cf2213,
+    &hs_method_4e575dd6,
+    &hs_method_6167cdee,
     &hs_method_bbc3a137,
     &hs_method_b11cad00,
     &hs_destroy_d6dd7b49,
@@ -50379,9 +51076,13 @@ const HosihikariBindingTableV1 kTable{
     &hs_get_d5d74922,
     &hs_destroy_9d0528b9,
     &hs_create_4215b323,
+    &hs_destroy_7493acf0,
+    &hs_destroy_69d5276d,
     &hs_destroy_176f9a86,
     &hs_get_e3b4abac,
     &hs_set_e3b4abac,
+    &hs_destroy_d9140cc2,
+    &hs_destroy_4a5ce42e,
     &hs_destroy_a7519cac,
     &hs_create_e8842391,
     &hs_create_95a67ed4,
@@ -50450,6 +51151,22 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_3782fb1b,
     &hs_destroy_7a71c0d3,
     &hs_method_a5648673,
+    &hs_variant_57217b04_create_0,
+    &hs_variant_57217b04_create_1,
+    &hs_variant_57217b04_destroy,
+    &hs_variant_57217b04_get_0,
+    &hs_variant_57217b04_get_1,
+    &hs_variant_57217b04_index,
+    &hs_variant_d6da2e34_create_0,
+    &hs_variant_d6da2e34_create_1,
+    &hs_variant_d6da2e34_create_2,
+    &hs_variant_d6da2e34_create_3,
+    &hs_variant_d6da2e34_destroy,
+    &hs_variant_d6da2e34_get_0,
+    &hs_variant_d6da2e34_get_1,
+    &hs_variant_d6da2e34_get_2,
+    &hs_variant_d6da2e34_get_3,
+    &hs_variant_d6da2e34_index,
 };
 
 }  // namespace

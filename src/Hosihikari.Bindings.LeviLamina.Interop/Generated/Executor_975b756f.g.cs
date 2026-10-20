@@ -22,7 +22,7 @@ public sealed unsafe partial class Executor : global::System.IDisposable
 
     public string getName()
     {
-        var __hs_view = NativeMethods.TablePtr->f2226((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2227((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -31,7 +31,7 @@ public sealed unsafe partial class Executor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2225((void*)_handle);
+            NativeMethods.TablePtr->f2226((void*)_handle);
             _handle = 0;
         }
     }

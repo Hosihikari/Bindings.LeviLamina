@@ -16,19 +16,19 @@ public sealed unsafe partial class PlayerPlacedBlockEvent : global::System.IDisp
 
     public nint placedBlock()
     {
-        return (nint)NativeMethods.TablePtr->f2562((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2563((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2563((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2564((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2561((void*)_handle);
+            NativeMethods.TablePtr->f2562((void*)_handle);
             _handle = 0;
         }
     }

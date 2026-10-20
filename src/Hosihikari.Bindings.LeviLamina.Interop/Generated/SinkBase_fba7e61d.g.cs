@@ -16,12 +16,12 @@ public sealed unsafe partial class SinkBase : global::System.IDisposable
 
     public void flush()
     {
-        NativeMethods.TablePtr->f2752((void*)_handle);
+        NativeMethods.TablePtr->f2753((void*)_handle);
     }
 
     public void setFlushLevel(int arg0)
     {
-        NativeMethods.TablePtr->f2753((void*)_handle, arg0);
+        NativeMethods.TablePtr->f2754((void*)_handle, arg0);
     }
 
     public void setFormatter(nint fmter) =>
@@ -32,7 +32,7 @@ public sealed unsafe partial class SinkBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2751((void*)_handle);
+            NativeMethods.TablePtr->f2752((void*)_handle);
             _handle = 0;
         }
     }

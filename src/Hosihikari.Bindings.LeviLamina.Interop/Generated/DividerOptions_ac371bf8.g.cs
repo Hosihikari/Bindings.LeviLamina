@@ -13,14 +13,14 @@ public sealed unsafe partial class DividerOptions : global::System.IDisposable
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f2992((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2999((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2991((void*)_handle);
+            NativeMethods.TablePtr->f2998((void*)_handle);
             _handle = 0;
         }
     }

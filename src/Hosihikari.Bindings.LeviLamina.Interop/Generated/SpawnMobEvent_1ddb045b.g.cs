@@ -13,38 +13,38 @@ public sealed unsafe partial class SpawnMobEvent
 
     public nint fromSpawner()
     {
-        return (nint)NativeMethods.TablePtr->f2591((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2592((void*)_handle);
     }
 
     public nint identifier()
     {
-        return (nint)NativeMethods.TablePtr->f2592((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2593((void*)_handle);
     }
 
     public nint naturalSpawn()
     {
-        return (nint)NativeMethods.TablePtr->f2593((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2594((void*)_handle);
     }
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f2594((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2595((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2595((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2596((void*)_handle, (void*)arg0);
     }
 
     public nint? spawner()
     {
         var __hs_hasValue = false;
-        var __hs_handle = NativeMethods.TablePtr->f2596((void*)_handle, &__hs_hasValue);
+        var __hs_handle = NativeMethods.TablePtr->f2597((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? (nint)__hs_handle : null;
     }
 
     public nint surface()
     {
-        return (nint)NativeMethods.TablePtr->f2597((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2598((void*)_handle);
     }
 }

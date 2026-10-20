@@ -3,11 +3,20 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 
-public sealed partial class ObservableBoolean
+public sealed unsafe partial class ObservableBoolean : global::System.IDisposable
 {
     private nint _handle;
 
     public ObservableBoolean(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f3022((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

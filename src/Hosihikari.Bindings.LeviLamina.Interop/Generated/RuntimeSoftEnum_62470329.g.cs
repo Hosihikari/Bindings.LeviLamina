@@ -3,11 +3,20 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed partial class RuntimeSoftEnum
+public sealed unsafe partial class RuntimeSoftEnum : global::System.IDisposable
 {
     private nint _handle;
 
     public RuntimeSoftEnum(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f2205((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

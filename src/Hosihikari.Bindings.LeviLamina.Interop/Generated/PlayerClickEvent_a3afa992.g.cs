@@ -18,7 +18,7 @@ public sealed unsafe partial class PlayerClickEvent : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2526((void*)_handle);
+            NativeMethods.TablePtr->f2527((void*)_handle);
             _handle = 0;
         }
     }

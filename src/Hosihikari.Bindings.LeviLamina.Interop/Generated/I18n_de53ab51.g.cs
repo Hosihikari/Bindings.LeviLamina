@@ -13,7 +13,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
 
     public static I18n Create()
     {
-        var handle = NativeMethods.TablePtr->f2658();
+        var handle = NativeMethods.TablePtr->f2659();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +24,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
 
     public void clear()
     {
-        NativeMethods.TablePtr->f2659((void*)_handle);
+        NativeMethods.TablePtr->f2660((void*)_handle);
     }
 
     public string get(string key, string localeCode)
@@ -35,7 +35,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_view = NativeMethods.TablePtr->f2660((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+                var __hs_view = NativeMethods.TablePtr->f2661((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
                 return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
             }
         }
@@ -47,7 +47,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(path);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2661((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            NativeMethods.TablePtr->f2662((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
         }
     }
@@ -63,7 +63,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
             {
                 fixed (byte* __hs_stringData2 = __hs_stringBytes2)
                 {
-                    NativeMethods.TablePtr->f2662((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
+                    NativeMethods.TablePtr->f2663((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
                 }
             }
         }
@@ -74,7 +74,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2657((void*)_handle);
+            NativeMethods.TablePtr->f2658((void*)_handle);
             _handle = 0;
         }
     }

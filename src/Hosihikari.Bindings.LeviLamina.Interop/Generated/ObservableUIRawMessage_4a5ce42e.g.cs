@@ -3,11 +3,20 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 
-public sealed partial class ObservableUIRawMessage
+public sealed unsafe partial class ObservableUIRawMessage : global::System.IDisposable
 {
     private nint _handle;
 
     public ObservableUIRawMessage(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    public void Dispose()
+    {
+        if (_handle != 0)
+        {
+            NativeMethods.TablePtr->f3028((void*)_handle);
+            _handle = 0;
+        }
+    }
 }

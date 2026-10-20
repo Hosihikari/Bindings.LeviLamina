@@ -13,18 +13,18 @@ public sealed unsafe partial class I18nStringError : global::System.IDisposable
 
     public nint args()
     {
-        return (nint)NativeMethods.TablePtr->f2664((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2665((void*)_handle);
     }
 
     public string key()
     {
-        var __hs_view = NativeMethods.TablePtr->f2665((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2666((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f2666((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2667((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -33,7 +33,7 @@ public sealed unsafe partial class I18nStringError : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(localeCode);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->f2667((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->f2668((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
@@ -42,7 +42,7 @@ public sealed unsafe partial class I18nStringError : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2663((void*)_handle);
+            NativeMethods.TablePtr->f2664((void*)_handle);
             _handle = 0;
         }
     }

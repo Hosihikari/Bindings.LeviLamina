@@ -13,7 +13,7 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public static Mod Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Manifest manifest)
     {
-        var handle = NativeMethods.TablePtr->f2703((void*)manifest.Handle);
+        var handle = NativeMethods.TablePtr->f2719((void*)manifest.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,58 +24,58 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public nint getBehaviorDir()
     {
-        return (nint)NativeMethods.TablePtr->f2704((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2720((void*)_handle);
     }
 
     public nint getConfigDir()
     {
-        return (nint)NativeMethods.TablePtr->f2705((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2721((void*)_handle);
     }
 
     public nint getDataDir()
     {
-        return (nint)NativeMethods.TablePtr->f2706((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2722((void*)_handle);
     }
 
     public nint getLangDir()
     {
-        return (nint)NativeMethods.TablePtr->f2707((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2723((void*)_handle);
     }
 
     public nint getLogger()
     {
-        return (nint)NativeMethods.TablePtr->f2708((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2724((void*)_handle);
     }
 
     public nint getManifest()
     {
-        return (nint)NativeMethods.TablePtr->f2709((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2725((void*)_handle);
     }
 
     public nint getModDir()
     {
-        return (nint)NativeMethods.TablePtr->f2710((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2726((void*)_handle);
     }
 
     public string getName()
     {
-        var __hs_view = NativeMethods.TablePtr->f2711((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2727((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint getResourceDir()
     {
-        return (nint)NativeMethods.TablePtr->f2712((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2728((void*)_handle);
     }
 
     public int getState()
     {
-        return NativeMethods.TablePtr->f2713((void*)_handle);
+        return NativeMethods.TablePtr->f2729((void*)_handle);
     }
 
     public string getType()
     {
-        var __hs_view = NativeMethods.TablePtr->f2714((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2730((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -87,32 +87,32 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public bool isDisabled()
     {
-        return NativeMethods.TablePtr->f2715((void*)_handle);
+        return NativeMethods.TablePtr->f2731((void*)_handle);
     }
 
     public bool isEnabled()
     {
-        return NativeMethods.TablePtr->f2716((void*)_handle);
+        return NativeMethods.TablePtr->f2732((void*)_handle);
     }
 
     public void onDisable(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2717((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->f2733((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
     public void onEnable(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2718((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->f2734((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
     public void onLoad(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2719((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->f2735((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
     public void onUnload(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2720((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->f2736((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
 
@@ -120,7 +120,7 @@ public sealed unsafe partial class Mod : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2702((void*)_handle);
+            NativeMethods.TablePtr->f2718((void*)_handle);
             _handle = 0;
         }
     }

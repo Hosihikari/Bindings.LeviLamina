@@ -13,7 +13,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
 
     public static ModalForm Create()
     {
-        var handle = NativeMethods.TablePtr->f2502();
+        var handle = NativeMethods.TablePtr->f2512();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -22,52 +22,76 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
         return new ModalForm((nint)handle);
     }
 
-    public static ModalForm Create(nint title, nint content, nint upperButton, nint lowerButton) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors accept at most one string parameter.");
+    public static ModalForm Create(string title, string content, string upperButton, string lowerButton)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(content);
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(upperButton);
+                fixed (byte* __hs_stringData2 = __hs_stringBytes2)
+                {
+                    var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(lowerButton);
+                    fixed (byte* __hs_stringData3 = __hs_stringBytes3)
+                    {
+                        var handle = NativeMethods.TablePtr->f2513(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length);
+                        if (handle == null)
+                        {
+                            throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+                        }
+
+                        return new ModalForm((nint)handle);
+                    }
+                }
+            }
+        }
+    }
 
     public bool sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return NativeMethods.TablePtr->f2503((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return NativeMethods.TablePtr->f2514((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public bool sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return NativeMethods.TablePtr->f2504((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return NativeMethods.TablePtr->f2515((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint setContent(string content)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(content);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(content);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2505((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2516((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint setLowerButton(string lowerButton)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(lowerButton);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(lowerButton);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2506((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2517((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint setTitle(string title)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2507((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2518((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint setUpperButton(string upperButton)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(upperButton);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(upperButton);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2508((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2519((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -76,7 +100,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2501((void*)_handle);
+            NativeMethods.TablePtr->f2511((void*)_handle);
             _handle = 0;
         }
     }

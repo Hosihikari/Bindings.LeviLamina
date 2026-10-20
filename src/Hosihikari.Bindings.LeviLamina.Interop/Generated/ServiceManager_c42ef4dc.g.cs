@@ -13,13 +13,13 @@ public sealed unsafe partial class ServiceManager
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2795();
+        return (nint)NativeMethods.TablePtr->f2811();
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
     {
         var __hs_hasValue = false;
-        var __hs_expectedResult = NativeMethods.TablePtr->f2796((void*)_handle, (void*)id.Handle, &__hs_hasValue);
+        var __hs_expectedResult = NativeMethods.TablePtr->f2812((void*)_handle, (void*)id.Handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
         var __hs_shared = __hs_expectedResult;
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
@@ -28,10 +28,10 @@ public sealed unsafe partial class ServiceManager
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult? queryService(string name)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_handle = NativeMethods.TablePtr->f2797((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            var __hs_handle = NativeMethods.TablePtr->f2813((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             return __hs_hasValue && __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult((nint)__hs_handle) : null;
         }
     }
@@ -41,16 +41,16 @@ public sealed unsafe partial class ServiceManager
 
     public bool registerService(nint service, nint mod)
     {
-        return NativeMethods.TablePtr->f2798((void*)_handle, (void*)service, (void*)mod);
+        return NativeMethods.TablePtr->f2814((void*)_handle, (void*)service, (void*)mod);
     }
 
     public bool unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
     {
-        return NativeMethods.TablePtr->f2799((void*)_handle, (void*)id.Handle);
+        return NativeMethods.TablePtr->f2815((void*)_handle, (void*)id.Handle);
     }
 
     public void unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Mod mod)
     {
-        NativeMethods.TablePtr->f2800((void*)_handle, (void*)mod.Handle);
+        NativeMethods.TablePtr->f2816((void*)_handle, (void*)mod.Handle);
     }
 }

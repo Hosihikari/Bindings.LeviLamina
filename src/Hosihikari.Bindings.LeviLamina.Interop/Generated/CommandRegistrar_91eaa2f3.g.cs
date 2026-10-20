@@ -36,10 +36,10 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
-                var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-                fixed (byte* __hs_stringData = __hs_stringBytes)
+                var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+                fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1881((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1881((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }
@@ -64,7 +64,7 @@ public sealed unsafe partial class CommandRegistrar
     }
 
     public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandPermissionLevel' is not a known bindable declaration.");
 
     public static nint getServerInstance()
     {
@@ -73,19 +73,19 @@ public sealed unsafe partial class CommandRegistrar
 
     public bool hasEnum(string name)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f1884((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f1884((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public bool hasSoftEnum(string name)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f1885((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return NativeMethods.TablePtr->f1885((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -108,10 +108,10 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
-                var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-                fixed (byte* __hs_stringData = __hs_stringBytes)
+                var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+                fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1886((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1886((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }
@@ -140,10 +140,10 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
-                var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-                fixed (byte* __hs_stringData = __hs_stringBytes)
+                var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+                fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1887((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1887((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }
@@ -178,10 +178,10 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
             {
-                var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-                fixed (byte* __hs_stringData = __hs_stringBytes)
+                var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+                fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->f1888((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                    return NativeMethods.TablePtr->f1888((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
                 }
             }
         }

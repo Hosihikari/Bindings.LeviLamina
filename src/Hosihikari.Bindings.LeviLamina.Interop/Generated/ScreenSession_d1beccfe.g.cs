@@ -13,7 +13,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create()
     {
-        var handle = NativeMethods.TablePtr->f2874();
+        var handle = NativeMethods.TablePtr->f2890();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -33,7 +33,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
     {
-        var handle = NativeMethods.TablePtr->f2875((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2891((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -45,44 +45,87 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     public static ScreenSession Create(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
-    public nint borrowProperty(nint datastore, nint property) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property borrowProperty(string datastore, string property)
+    {
+        var __hs_hasValue = false;
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                var __hs_expectedResult = NativeMethods.TablePtr->f2892((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, &__hs_hasValue);
+                if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
+            }
+        }
+    }
 
     public void close()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2876((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2893((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
-    public nint createProperty_8d590c2a(nint datastore, nint property, nint value) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property createProperty(string datastore, string property, nint value)
+    {
+        var __hs_hasValue = false;
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                var __hs_expectedResult = NativeMethods.TablePtr->f2894((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)value, &__hs_hasValue);
+                if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
+            }
+        }
+    }
 
-    public nint createProperty_d9361dd5(nint datastore, nint property, nint json) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property createProperty(string datastore, string property, string json)
+    {
+        var __hs_hasValue = false;
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(json);
+                fixed (byte* __hs_stringData2 = __hs_stringBytes2)
+                {
+                    var __hs_expectedResult = NativeMethods.TablePtr->f2895((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, &__hs_hasValue);
+                    if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
+                }
+            }
+        }
+    }
 
     public uint? getFormId()
     {
         var __hs_hasValue = false;
-        var __hs_value = NativeMethods.TablePtr->f2877((void*)_handle, &__hs_hasValue);
+        var __hs_value = NativeMethods.TablePtr->f2896((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? __hs_value : (uint?)null;
     }
 
     public uint? getInstanceId()
     {
         var __hs_hasValue = false;
-        var __hs_value = NativeMethods.TablePtr->f2878((void*)_handle, &__hs_hasValue);
+        var __hs_value = NativeMethods.TablePtr->f2897((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? __hs_value : (uint?)null;
     }
 
     public byte getState()
     {
-        return NativeMethods.TablePtr->f2879((void*)_handle);
+        return NativeMethods.TablePtr->f2898((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2880((void*)_handle);
+        return NativeMethods.TablePtr->f2899((void*)_handle);
     }
 
     public nint operator_assign_e92563b0(nint arg0) =>
@@ -102,7 +145,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2873((void*)_handle);
+            NativeMethods.TablePtr->f2889((void*)_handle);
             _handle = 0;
         }
     }

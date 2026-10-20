@@ -13,7 +13,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
 
     public static SimpleForm Create()
     {
-        var handle = NativeMethods.TablePtr->f2510();
+        var handle = NativeMethods.TablePtr->f2521();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -22,69 +22,99 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         return new SimpleForm((nint)handle);
     }
 
-    public static SimpleForm Create(nint title, nint content) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors accept at most one string parameter.");
+    public static SimpleForm Create(string title, string content)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(content);
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                var handle = NativeMethods.TablePtr->f2522(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+                if (handle == null)
+                {
+                    throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+                }
 
-    public nint appendButton(nint text, nint imageData, nint imageType, nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+                return new SimpleForm((nint)handle);
+            }
+        }
+    }
+
+    public nint appendButton(string text, string imageData, string imageType, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(imageData);
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(imageType);
+                fixed (byte* __hs_stringData2 = __hs_stringBytes2)
+                {
+                    return (nint)NativeMethods.TablePtr->f2523((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+                }
+            }
+        }
+    }
 
     public nint appendButton(string text, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2511((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return (nint)NativeMethods.TablePtr->f2524((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 
     public nint appendDivider()
     {
-        return (nint)NativeMethods.TablePtr->f2512((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2525((void*)_handle);
     }
 
     public nint appendHeader(string text)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2513((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2526((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint appendLabel(string text)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2514((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2527((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->f2515((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return (nint)NativeMethods.TablePtr->f2528((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->f2516((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return (nint)NativeMethods.TablePtr->f2529((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint setContent(string content)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(content);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(content);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2517((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2530((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint setTitle(string title)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(title);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2518((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2531((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -93,7 +123,7 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2509((void*)_handle);
+            NativeMethods.TablePtr->f2520((void*)_handle);
             _handle = 0;
         }
     }

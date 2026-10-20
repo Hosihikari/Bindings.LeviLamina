@@ -30,43 +30,63 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
 
     public nint optional(string name, ulong kind)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2085((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
+            return (nint)NativeMethods.TablePtr->f2085((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, kind);
         }
     }
 
-    public nint optional(nint name, ulong enumKind, nint enumName) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+    public nint optional(string name, ulong enumKind, string enumName)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(enumName);
+            fixed (byte* __hs_stringData2 = __hs_stringBytes2)
+            {
+                return (nint)NativeMethods.TablePtr->f2086((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
+            }
+        }
+    }
 
     public nint postfix(string postfix)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(postfix);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(postfix);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2086((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2087((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint required(string name, ulong kind)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(name);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2087((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, kind);
+            return (nint)NativeMethods.TablePtr->f2088((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, kind);
         }
     }
 
-    public nint required(nint name, ulong enumKind, nint enumName) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+    public nint required(string name, ulong enumKind, string enumName)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(enumName);
+            fixed (byte* __hs_stringData2 = __hs_stringBytes2)
+            {
+                return (nint)NativeMethods.TablePtr->f2089((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
+            }
+        }
+    }
 
     public nint text(string text)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(text);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2088((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2090((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 

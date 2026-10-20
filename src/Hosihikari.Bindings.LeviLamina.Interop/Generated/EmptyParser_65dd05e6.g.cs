@@ -12,7 +12,7 @@ public sealed unsafe partial class EmptyParser : global::System.IDisposable
     public nint Handle => _handle;
 
     public bool operator_call(nint arg0, nint arg1, nint arg2, nint arg3, int arg4, nint arg5, nint arg6) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods do not accept mutable string references.");
 
     public void Dispose()
     {

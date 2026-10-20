@@ -13,63 +13,63 @@ public sealed unsafe partial class RotateConfig : global::System.IDisposable
 
     public bool cleanup
     {
-        get => NativeMethods.TablePtr->f2593((void*)_handle);
-        set => NativeMethods.TablePtr->f2594((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2609((void*)_handle);
+        set => NativeMethods.TablePtr->f2610((void*)_handle, value);
     }
 
     public bool compress
     {
-        get => NativeMethods.TablePtr->f2595((void*)_handle);
-        set => NativeMethods.TablePtr->f2596((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2611((void*)_handle);
+        set => NativeMethods.TablePtr->f2612((void*)_handle, value);
     }
 
     public int interval
     {
-        get => NativeMethods.TablePtr->f2597((void*)_handle);
-        set => NativeMethods.TablePtr->f2598((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2613((void*)_handle);
+        set => NativeMethods.TablePtr->f2614((void*)_handle, value);
     }
 
     public ulong keepUncompressed
     {
-        get => NativeMethods.TablePtr->f2599((void*)_handle);
-        set => NativeMethods.TablePtr->f2600((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2615((void*)_handle);
+        set => NativeMethods.TablePtr->f2616((void*)_handle, value);
     }
 
     public int maxAgeDays
     {
-        get => NativeMethods.TablePtr->f2601((void*)_handle);
-        set => NativeMethods.TablePtr->f2602((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2617((void*)_handle);
+        set => NativeMethods.TablePtr->f2618((void*)_handle, value);
     }
 
     public ulong maxFileSize
     {
-        get => NativeMethods.TablePtr->f2603((void*)_handle);
-        set => NativeMethods.TablePtr->f2604((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2619((void*)_handle);
+        set => NativeMethods.TablePtr->f2620((void*)_handle, value);
     }
 
     public ulong maxFiles
     {
-        get => NativeMethods.TablePtr->f2605((void*)_handle);
-        set => NativeMethods.TablePtr->f2606((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2621((void*)_handle);
+        set => NativeMethods.TablePtr->f2622((void*)_handle, value);
     }
 
     public bool rotateOnOpen
     {
-        get => NativeMethods.TablePtr->f2607((void*)_handle);
-        set => NativeMethods.TablePtr->f2608((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2623((void*)_handle);
+        set => NativeMethods.TablePtr->f2624((void*)_handle, value);
     }
 
     public ulong totalSizeCap
     {
-        get => NativeMethods.TablePtr->f2609((void*)_handle);
-        set => NativeMethods.TablePtr->f2610((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2625((void*)_handle);
+        set => NativeMethods.TablePtr->f2626((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2592((void*)_handle);
+            NativeMethods.TablePtr->f2608((void*)_handle);
             _handle = 0;
         }
     }

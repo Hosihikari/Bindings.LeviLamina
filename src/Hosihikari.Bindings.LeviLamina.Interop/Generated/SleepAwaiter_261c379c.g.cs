@@ -13,12 +13,12 @@ public sealed unsafe partial class SleepAwaiter : global::System.IDisposable
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f2119((void*)_handle);
+        return NativeMethods.TablePtr->f2121((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f2120((void*)_handle);
+        NativeMethods.TablePtr->f2122((void*)_handle);
     }
 
     public void await_suspend(nint handle) =>
@@ -26,14 +26,14 @@ public sealed unsafe partial class SleepAwaiter : global::System.IDisposable
 
     public void setExecutor(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor? ex)
     {
-        NativeMethods.TablePtr->f2121((void*)_handle, (void*)(ex?.Handle ?? 0), ex is not null);
+        NativeMethods.TablePtr->f2123((void*)_handle, (void*)(ex?.Handle ?? 0), ex is not null);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2118((void*)_handle);
+            NativeMethods.TablePtr->f2120((void*)_handle);
             _handle = 0;
         }
     }

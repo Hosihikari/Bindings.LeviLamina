@@ -16,19 +16,19 @@ public sealed unsafe partial class NativeMod
 
     public static global::Hosihikari.Bindings.Abi.SharedHandle? current(nint handle)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2735((void*)handle);
+        var __hs_shared = NativeMethods.TablePtr->f2751((void*)handle);
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public static global::Hosihikari.Bindings.Abi.SharedHandle? getByHandle(nint handle)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2736((void*)handle);
+        var __hs_shared = NativeMethods.TablePtr->f2752((void*)handle);
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public nint getHandle()
     {
-        return (nint)NativeMethods.TablePtr->f2737((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2753((void*)_handle);
     }
 
     public void Destroy() =>

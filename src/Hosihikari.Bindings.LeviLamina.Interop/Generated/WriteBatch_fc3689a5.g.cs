@@ -13,7 +13,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
 
     public static WriteBatch Create()
     {
-        var handle = NativeMethods.TablePtr->f2168();
+        var handle = NativeMethods.TablePtr->f2171();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,25 +27,35 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
 
     public nint del(string key)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(key);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2169((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length);
+            return (nint)NativeMethods.TablePtr->f2172((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
-    public nint set(nint key, nint val) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+    public nint set(string key, string val)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(val);
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                return (nint)NativeMethods.TablePtr->f2173((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+            }
+        }
+    }
 
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2167((void*)_handle);
+            NativeMethods.TablePtr->f2170((void*)_handle);
             _handle = 0;
         }
     }

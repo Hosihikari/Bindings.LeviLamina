@@ -20,7 +20,7 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
     public void finish()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2090((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2092((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -30,17 +30,17 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
     public void status()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2091((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2093((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
     public void write(string data)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(data);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(data);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2092((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            NativeMethods.TablePtr->f2094((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
         }
     }
@@ -50,7 +50,7 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2089((void*)_handle);
+            NativeMethods.TablePtr->f2091((void*)_handle);
             _handle = 0;
         }
     }

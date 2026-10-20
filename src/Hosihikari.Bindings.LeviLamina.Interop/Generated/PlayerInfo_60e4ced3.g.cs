@@ -20,10 +20,10 @@ public sealed unsafe partial class PlayerInfo
     public nint? fromName(string arg0)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(arg0);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(arg0);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_handle = NativeMethods.TablePtr->f2769((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            var __hs_handle = NativeMethods.TablePtr->f2785((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             return __hs_hasValue ? (nint)__hs_handle : null;
         }
     }
@@ -34,16 +34,16 @@ public sealed unsafe partial class PlayerInfo
     public nint? fromXuid(string arg0)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(arg0);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(arg0);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_handle = NativeMethods.TablePtr->f2770((void*)_handle, __hs_stringData, (nuint)__hs_stringBytes.Length, &__hs_hasValue);
+            var __hs_handle = NativeMethods.TablePtr->f2786((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             return __hs_hasValue ? (nint)__hs_handle : null;
         }
     }
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2771();
+        return (nint)NativeMethods.TablePtr->f2787();
     }
 }

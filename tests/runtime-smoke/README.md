@@ -25,6 +25,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `Version` string construction, string result, field getters, string method parameter.
 - Out-of-line `ll::Error` construction, `operator bool`, `message()` (string result), and destruction.
 - Out-of-line virtual-destructor and allocator-backed lifecycle: `GlobalThreadPauser`, `ConsoleSink`, and `InplaceExecutor` creation and destruction.
+- Multiple string parameters in one call: `Version(1, 2, 3, "beta", "build.5")` pins both the pre-release and build strings and round-trips through `to_string()`.
 - `std::function` callback projection: `InplaceExecutor.execute` invokes a managed C callback and its release callback exactly once.
 - `std::shared_ptr<T>` projection: `LoggerRegistry::getOrCreate`/`tryGet` return a `SharedHandle`; both lookups alias the same target, the target serves `Logger::getTitle`, and the shared references release cleanly.
 - `optional_ref<T>` projection: `PlayerInfo::fromName`/`fromXuid` return `nint?`; lookups for absent players report an empty reference.
@@ -40,6 +41,7 @@ eventid.hash=0x72f9cc1f8b00ae5e
 version.to_string=1.2.3
 version.fields=1.2.3
 version.valid=True
+version.multi=1.2.3-beta+build.5
 error.bool=True
 error.message=success
 error.dispose=ok

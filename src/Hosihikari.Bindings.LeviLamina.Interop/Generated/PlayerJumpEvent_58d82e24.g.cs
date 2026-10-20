@@ -16,24 +16,24 @@ public sealed unsafe partial class PlayerJumpEvent : global::System.IDisposable
 
     public nint fromPosition()
     {
-        return (nint)NativeMethods.TablePtr->f2427((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2432((void*)_handle);
     }
 
     public void serialize(nint nbt)
     {
-        NativeMethods.TablePtr->f2428((void*)_handle, (void*)nbt);
+        NativeMethods.TablePtr->f2433((void*)_handle, (void*)nbt);
     }
 
     public nint toPosition()
     {
-        return (nint)NativeMethods.TablePtr->f2429((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2434((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2426((void*)_handle);
+            NativeMethods.TablePtr->f2431((void*)_handle);
             _handle = 0;
         }
     }

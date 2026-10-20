@@ -16,24 +16,24 @@ public sealed unsafe partial class PlayerConnectEvent : global::System.IDisposab
 
     public nint connectionRequest()
     {
-        return (nint)NativeMethods.TablePtr->f2406((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2411((void*)_handle);
     }
 
     public nint networkIdentifier()
     {
-        return (nint)NativeMethods.TablePtr->f2407((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2412((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2408((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2413((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2405((void*)_handle);
+            NativeMethods.TablePtr->f2410((void*)_handle);
             _handle = 0;
         }
     }

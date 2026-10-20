@@ -16,7 +16,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
 
     public static nint ServiceId
     {
-        get => (nint)NativeMethods.TablePtr->f2783();
+        get => (nint)NativeMethods.TablePtr->f2799();
     }
 
     public nint getServiceId() =>
@@ -24,7 +24,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
 
     public void invalidate()
     {
-        NativeMethods.TablePtr->f2784((void*)_handle);
+        NativeMethods.TablePtr->f2800((void*)_handle);
     }
 
 
@@ -32,7 +32,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2782((void*)_handle);
+            NativeMethods.TablePtr->f2798((void*)_handle);
             _handle = 0;
         }
     }

@@ -12,29 +12,29 @@ public sealed unsafe partial class ConsoleOutputtingEvent : global::System.IDisp
     public nint Handle => _handle;
 
     public static ConsoleOutputtingEvent Create(nint message) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors accept at most one string parameter.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors do not accept mutable string references.");
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2330((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2335((void*)_handle, (void*)arg0);
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f2331((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2336((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2332((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2337((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2329((void*)_handle);
+            NativeMethods.TablePtr->f2334((void*)_handle);
             _handle = 0;
         }
     }

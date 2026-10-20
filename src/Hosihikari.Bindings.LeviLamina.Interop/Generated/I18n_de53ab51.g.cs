@@ -13,7 +13,7 @@ public sealed unsafe partial class I18n : global::System.IDisposable
 
     public static I18n Create()
     {
-        var handle = NativeMethods.TablePtr->f2527();
+        var handle = NativeMethods.TablePtr->f2540();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,28 +24,53 @@ public sealed unsafe partial class I18n : global::System.IDisposable
 
     public void clear()
     {
-        NativeMethods.TablePtr->f2528((void*)_handle);
+        NativeMethods.TablePtr->f2541((void*)_handle);
     }
 
-    public nint get(nint key, nint localeCode) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+    public string get(string key, string localeCode)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(localeCode);
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                var __hs_view = NativeMethods.TablePtr->f2542((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+                return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
+            }
+        }
+    }
 
     public void load(nint path)
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2529((void*)_handle, (void*)path, &__hs_hasValue);
+        NativeMethods.TablePtr->f2543((void*)_handle, (void*)path, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
-    public void set(nint localeCode, nint key, nint value) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+    public void set(string localeCode, string key, string value)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(localeCode);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(key);
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(value);
+                fixed (byte* __hs_stringData2 = __hs_stringBytes2)
+                {
+                    NativeMethods.TablePtr->f2544((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length);
+                }
+            }
+        }
+    }
 
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2526((void*)_handle);
+            NativeMethods.TablePtr->f2539((void*)_handle);
             _handle = 0;
         }
     }

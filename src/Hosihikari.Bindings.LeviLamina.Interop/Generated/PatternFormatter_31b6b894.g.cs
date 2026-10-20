@@ -13,10 +13,10 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
 
     public static PatternFormatter Create(string pattern, bool colored, nint bracketed)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(pattern);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(pattern);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2586(__hs_stringData, (nuint)__hs_stringBytes.Length, colored, (void*)bracketed);
+            var handle = NativeMethods.TablePtr->f2602(__hs_stringData0, (nuint)__hs_stringBytes0.Length, colored, (void*)bracketed);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,30 +28,30 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
 
     public nint bracketed
     {
-        get => (nint)NativeMethods.TablePtr->f2587((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2603((void*)_handle);
     }
 
     public bool colored
     {
-        get => NativeMethods.TablePtr->f2588((void*)_handle);
-        set => NativeMethods.TablePtr->f2589((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2604((void*)_handle);
+        set => NativeMethods.TablePtr->f2605((void*)_handle, value);
     }
 
     public void format(nint view, nint buffer) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods do not accept mutable string references.");
 
     public string pattern
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2590((void*)_handle);
+            var view = NativeMethods.TablePtr->f2606((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint styles
     {
-        get => (nint)NativeMethods.TablePtr->f2591((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2607((void*)_handle);
     }
 
 
@@ -59,7 +59,7 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2585((void*)_handle);
+            NativeMethods.TablePtr->f2601((void*)_handle);
             _handle = 0;
         }
     }

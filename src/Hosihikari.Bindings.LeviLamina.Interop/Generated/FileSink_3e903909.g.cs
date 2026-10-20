@@ -16,22 +16,22 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
 
     public void append(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessageView view)
     {
-        NativeMethods.TablePtr->f2546((void*)_handle, (void*)view.Handle);
+        NativeMethods.TablePtr->f2561((void*)_handle, (void*)view.Handle);
     }
 
     public void flush()
     {
-        NativeMethods.TablePtr->f2547((void*)_handle);
+        NativeMethods.TablePtr->f2562((void*)_handle);
     }
 
     public void rotate()
     {
-        NativeMethods.TablePtr->f2548((void*)_handle);
+        NativeMethods.TablePtr->f2563((void*)_handle);
     }
 
     public void setFlushLevel(int level)
     {
-        NativeMethods.TablePtr->f2549((void*)_handle, level);
+        NativeMethods.TablePtr->f2564((void*)_handle, level);
     }
 
     public void setFormatter(nint fmter) =>
@@ -39,7 +39,7 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
 
     public void setPolicy(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotatePolicy policy)
     {
-        NativeMethods.TablePtr->f2550((void*)_handle, (void*)policy.Handle);
+        NativeMethods.TablePtr->f2565((void*)_handle, (void*)policy.Handle);
     }
 
 
@@ -47,7 +47,7 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2545((void*)_handle);
+            NativeMethods.TablePtr->f2560((void*)_handle);
             _handle = 0;
         }
     }

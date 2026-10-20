@@ -13,19 +13,19 @@ public sealed unsafe partial class Form
 
     public static bool sendRawTo(nint player, string formData, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(formData);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(formData);
+        fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return NativeMethods.TablePtr->f2497((void*)player, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return NativeMethods.TablePtr->f2507((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 
     public static bool sendRawUpdate(nint player, string formData, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(formData);
-        fixed (byte* __hs_stringData = __hs_stringBytes)
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(formData);
+        fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return NativeMethods.TablePtr->f2498((void*)player, __hs_stringData, (nuint)__hs_stringBytes.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return NativeMethods.TablePtr->f2508((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 }

@@ -12,59 +12,59 @@ public sealed partial class TypedStorageImpl_8ULL__24ULL__Bedrock__NonOwnerPoint
     public nint Handle => _handle;
 
     public static TypedStorageImpl_8ULL__24ULL__Bedrock__NonOwnerPointer_ServerTextSettings__ Create_be245723(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public static TypedStorageImpl_8ULL__24ULL__Bedrock__NonOwnerPointer_ServerTextSettings__ Create_a6a01b65(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint data
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
+        set => throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
     }
 
     public nint get_9a992878() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint get_7e5c5988() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint get_a908edd7() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint get_5d0bd8d9() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_Bedrock__NonOwnerPointer_ServerTextSettings___() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_const_Bedrock__NonOwnerPointer_ServerTextSettings___() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_multiply_8d2fa872() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_multiply_3a2bfba1() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_multiply_3b955a45() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_multiply_13ecb7e8() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_operator___8e61af1f() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_operator___f48662ad() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_assign_80ba62e3(nint u) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public nint operator_assign_0c2a567a(nint u) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 }

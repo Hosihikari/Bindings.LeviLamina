@@ -12,10 +12,10 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__48ULL__PackIdVersion_
     public nint Handle => _handle;
 
     public static TypedStorageImpl_8ULL__48ULL__PackIdVersion_ Create_721dd64d(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public static TypedStorageImpl_8ULL__48ULL__PackIdVersion_ Create_435dc6b3(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public nint data
     {
@@ -23,7 +23,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__48ULL__PackIdVersion_
     }
 
     public nint get_e9176049() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint get_eca327fa()
     {
@@ -31,7 +31,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__48ULL__PackIdVersion_
     }
 
     public nint get_d903b5b9() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint get_1b705195()
     {
@@ -49,7 +49,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__48ULL__PackIdVersion_
     }
 
     public nint operator_multiply_e4445202() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint operator_multiply_f91f7e43()
     {
@@ -57,7 +57,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__48ULL__PackIdVersion_
     }
 
     public nint operator_multiply_81b5e0e5() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint operator_multiply_ef085e97()
     {
@@ -75,11 +75,11 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__48ULL__PackIdVersion_
     }
 
     public nint operator_assign_d74aad80(nint u) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint operator_assign_66f9162a(nint u) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has no accessible destructor.");
 }

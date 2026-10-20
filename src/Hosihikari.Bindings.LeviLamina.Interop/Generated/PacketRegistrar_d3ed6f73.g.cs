@@ -12,10 +12,10 @@ public sealed unsafe partial class PacketRegistrar
     public nint Handle => _handle;
 
     public nint createPacket(ulong runtimeId) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::unique_ptr<ll::network::Packet>' is not a known bindable declaration.");
 
     public nint getHandler(ulong runtimeId) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<ll::network::IPacketHandler>' is not a known bindable declaration.");
 
     public static nint getInstance()
     {
@@ -23,11 +23,11 @@ public sealed unsafe partial class PacketRegistrar
     }
 
     public bool registerHandler(nint name, ulong id, nint handler) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'optional_ref<ll::network::IPacketHandler>' is not a known bindable declaration.");
 
     public bool registerPacket(nint name, ulong id, nint factory) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::network::Packet>' is not supported.");
 
     public bool registerPacket(nint name, ulong id, nint factory, nint handler) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::network::Packet>' is not supported.");
 }

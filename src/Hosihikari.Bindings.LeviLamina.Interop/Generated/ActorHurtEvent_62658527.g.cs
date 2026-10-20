@@ -12,7 +12,7 @@ public sealed unsafe partial class ActorHurtEvent : global::System.IDisposable
     public nint Handle => _handle;
 
     public static ActorHurtEvent Create(nint actor, nint source, nint damage) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint damage()
     {

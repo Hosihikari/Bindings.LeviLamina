@@ -12,19 +12,19 @@ public sealed unsafe partial class PlayerInfo
     public nint Handle => _handle;
 
     public nint entries() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<const ll::service::PlayerInfo::PlayerInfoEntry &>' is not a known bindable declaration.");
 
     public bool erase(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.");
 
     public nint fromName(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<const ll::service::PlayerInfo::PlayerInfoEntry>' is not a known bindable declaration.");
 
     public nint fromUuid(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<const ll::service::PlayerInfo::PlayerInfoEntry>' is not a known bindable declaration.");
 
     public nint fromXuid(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<const ll::service::PlayerInfo::PlayerInfoEntry>' is not a known bindable declaration.");
 
     public static nint getInstance()
     {

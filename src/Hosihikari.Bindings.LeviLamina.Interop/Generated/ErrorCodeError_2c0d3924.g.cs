@@ -12,7 +12,7 @@ public sealed unsafe partial class ErrorCodeError : global::System.IDisposable
     public nint Handle => _handle;
 
     public static ErrorCodeError Create(nint ec) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::error_code' is not a known bindable declaration.");
 
     public nint ec
     {

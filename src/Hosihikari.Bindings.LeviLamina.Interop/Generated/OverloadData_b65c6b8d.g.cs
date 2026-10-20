@@ -12,10 +12,10 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
     public nint Handle => _handle;
 
     public static OverloadData Create(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
 
     public void Dispose()

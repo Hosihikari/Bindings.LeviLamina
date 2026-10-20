@@ -12,7 +12,7 @@ public sealed unsafe partial class SinkBase : global::System.IDisposable
     public nint Handle => _handle;
 
     public void append(nint view) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public void flush()
     {
@@ -25,7 +25,7 @@ public sealed unsafe partial class SinkBase : global::System.IDisposable
     }
 
     public void setFormatter(nint fmter) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
 
     public void Dispose()

@@ -22,10 +22,10 @@ public sealed unsafe partial class SleepAwaiter : global::System.IDisposable
     }
 
     public void await_suspend(nint handle) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.");
 
     public void setExecutor(nint ex) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'optional_ref<const ll::coro::Executor>' is not a known bindable declaration.");
 
     public void Dispose()
     {

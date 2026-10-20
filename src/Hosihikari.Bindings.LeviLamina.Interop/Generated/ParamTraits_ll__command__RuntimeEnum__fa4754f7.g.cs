@@ -12,10 +12,10 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeEnum_ : globa
     public nint Handle => _handle;
 
     public static nint dataType() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandParameterDataType' is not a known bindable declaration.");
 
     public static nint options() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandParameterOption' is not a known bindable declaration.");
 
     public void Dispose()
     {

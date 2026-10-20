@@ -12,7 +12,7 @@ public sealed unsafe partial class BlockChangedEvent : global::System.IDisposabl
     public nint Handle => _handle;
 
     public static BlockChangedEvent Create(nint blockSource, nint layer, nint previousBlock, nint newBlock, nint pos) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint layer()
     {

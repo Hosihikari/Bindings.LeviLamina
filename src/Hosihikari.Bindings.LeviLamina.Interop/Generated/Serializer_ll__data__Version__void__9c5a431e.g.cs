@@ -12,8 +12,8 @@ public sealed partial class Serializer_ll__data__Version__void_
     public nint Handle => _handle;
 
     public static nint from_string(nint s) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 
     public static nint to_string(nint t) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template arguments are inaccessible or incomplete.");
 }

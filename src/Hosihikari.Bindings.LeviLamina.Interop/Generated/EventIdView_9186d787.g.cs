@@ -12,10 +12,10 @@ public sealed unsafe partial class EventIdView : global::System.IDisposable
     public nint Handle => _handle;
 
     public static EventIdView Create_9030bd2a(nint id) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
 
     public static EventIdView Create_194bfb6c(nint id) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
 
     public string name
     {

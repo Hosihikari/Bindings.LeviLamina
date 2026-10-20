@@ -12,13 +12,13 @@ public sealed unsafe partial class NativeMod
     public nint Handle => _handle;
 
     public static NativeMod Create(nint manifest, nint handle) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
     public static nint current(nint handle) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::NativeMod>' is not a known bindable declaration.");
 
     public static nint getByHandle(nint handle) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::NativeMod>' is not a known bindable declaration.");
 
     public nint getHandle()
     {
@@ -26,5 +26,5 @@ public sealed unsafe partial class NativeMod
     }
 
     public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has no accessible destructor.");
 }

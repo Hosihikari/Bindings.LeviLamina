@@ -12,13 +12,13 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
     public nint Handle => _handle;
 
     public static Observable_bool_ Create(bool initial) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public static Observable_bool_ Create_5c5dad5c(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public static Observable_bool_ Create_c75d0f1b(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public bool getData()
     {
@@ -26,10 +26,10 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
     }
 
     public nint operator_assign_0ddb3b12(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint operator_assign_c2dc8c65(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public void setData(bool value)
     {
@@ -37,7 +37,7 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
     }
 
     public uint subscribe(nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (const bool &)>' is not supported.");
 
     public bool unsubscribe(uint id)
     {

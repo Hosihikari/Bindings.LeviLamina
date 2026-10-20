@@ -34,7 +34,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
     }
 
     public static KeyValueDB Create_fadc003b(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public bool del(string key)
     {
@@ -51,7 +51,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
     }
 
     public nint get(nint key) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<std::basic_string<char>>' is not a known bindable declaration.");
 
     public bool has(string key)
     {
@@ -63,13 +63,13 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
     }
 
     public nint iter() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<std::pair<std::basic_string_view<char>, std::basic_string_view<char>>>' is not a known bindable declaration.");
 
     public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public bool set(nint key, nint val) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public bool write(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch batch)
     {

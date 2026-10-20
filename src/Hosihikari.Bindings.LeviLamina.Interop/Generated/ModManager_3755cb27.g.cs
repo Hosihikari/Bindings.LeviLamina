@@ -12,7 +12,7 @@ public sealed unsafe partial class ModManager
     public nint Handle => _handle;
 
     public nint getMod(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public ulong getModCount()
     {
@@ -35,5 +35,5 @@ public sealed unsafe partial class ModManager
     }
 
     public nint mods() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::mod::Mod &>' is not a known bindable declaration.");
 }

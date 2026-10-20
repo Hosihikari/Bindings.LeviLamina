@@ -38,10 +38,10 @@ public sealed unsafe partial class Version : global::System.IDisposable
     }
 
     public static Version Create_b09560d2(ushort mj, ushort mn, ushort pt, nint prt, nint bu) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::optional<std::basic_string<char>>' is not a known bindable declaration.");
 
     public static Version Create_bbf847ff(ushort mj, ushort mn, ushort pt, nint prt, nint bu) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::optional<ll::data::PreRelease>' is not a known bindable declaration.");
 
     public nint build
     {
@@ -89,7 +89,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
     }
 
     public nint operator_compare(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::strong_ordering' is not a known bindable declaration.");
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version other)
     {

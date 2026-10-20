@@ -12,7 +12,7 @@ public sealed unsafe partial class UIObservable_bool_ : global::System.IDisposab
     public nint Handle => _handle;
 
     public static UIObservable_bool_ Create(bool initial, nint options) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public bool isClientWritable()
     {

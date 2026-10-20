@@ -22,7 +22,7 @@ public sealed unsafe partial class Stacktrace : global::System.IDisposable
     }
 
     public static nint fromThread(nint id) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::thread::id' is not a known bindable declaration.");
 
     public ulong getHash()
     {

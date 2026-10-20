@@ -23,10 +23,10 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
     }
 
     public static SimpleForm Create(nint title, nint content) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors accept at most one string parameter.");
 
     public nint appendButton(nint text, nint imageData, nint imageType, nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public nint appendButton(string text, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {

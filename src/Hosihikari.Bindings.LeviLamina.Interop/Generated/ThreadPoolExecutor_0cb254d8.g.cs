@@ -37,7 +37,7 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
     }
 
     public nint executeAfter(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::data::CancellableCallback>' is not a known bindable declaration.");
 
     public static nint getDefault()
     {

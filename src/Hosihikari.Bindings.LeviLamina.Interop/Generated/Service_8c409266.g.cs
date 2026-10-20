@@ -12,7 +12,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
     public nint Handle => _handle;
 
     public static Service Create() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
     public static nint ServiceId
     {
@@ -20,7 +20,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
     }
 
     public nint getServiceId() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public void invalidate()
     {

@@ -17,5 +17,5 @@ public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent
     }
 
     public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has no accessible destructor.");
 }

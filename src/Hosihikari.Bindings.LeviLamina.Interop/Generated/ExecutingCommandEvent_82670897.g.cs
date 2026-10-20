@@ -12,7 +12,7 @@ public sealed unsafe partial class ExecutingCommandEvent : global::System.IDispo
     public nint Handle => _handle;
 
     public static ExecutingCommandEvent Create(nint minecraftCommands, nint commandContext, nint suppressOutput) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint commandContext()
     {

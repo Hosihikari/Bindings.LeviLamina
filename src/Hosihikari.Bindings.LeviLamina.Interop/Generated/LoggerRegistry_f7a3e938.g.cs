@@ -26,11 +26,11 @@ public sealed unsafe partial class LoggerRegistry
     }
 
     public nint getOrCreate(nint title) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::io::Logger>' is not a known bindable declaration.");
 
     public nint loggers() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::io::Logger &>' is not a known bindable declaration.");
 
     public nint tryGet(nint title) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::io::Logger>' is not a known bindable declaration.");
 }

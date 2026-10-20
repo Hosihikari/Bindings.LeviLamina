@@ -12,7 +12,7 @@ public sealed unsafe partial class CommandHandle
     public nint Handle => _handle;
 
     public static CommandHandle Create(nint registrar, nint signature, bool owned) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
     public nint alias(string alias)
     {
@@ -24,11 +24,11 @@ public sealed unsafe partial class CommandHandle
     }
 
     public nint alias() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
 
     public nint runtimeOverload(nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public void Destroy() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has no accessible destructor.");
 }

@@ -43,7 +43,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     }
 
     public nint appendDropdown(nint name, nint text, nint options, ulong defaultVal, nint tooltip) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public nint appendHeader(string text)
     {
@@ -55,7 +55,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     }
 
     public nint appendInput(nint name, nint text, nint placeholder, nint defaultVal, nint tooltip) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public nint appendLabel(string text)
     {
@@ -67,13 +67,13 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     }
 
     public nint appendSlider(nint name, nint text, double min, double max, double step, double defaultVal, nint tooltip) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public nint appendStepSlider(nint name, nint text, nint steps, ulong defaultVal, nint tooltip) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public nint appendToggle(nint name, nint text, bool defaultVal, nint tooltip) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public string getFormData()
     {

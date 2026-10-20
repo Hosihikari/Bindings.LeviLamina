@@ -12,7 +12,7 @@ public sealed unsafe partial class PlayerSprintingEvent : global::System.IDispos
     public nint Handle => _handle;
 
     public static PlayerSprintingEvent Create(nint player) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public void Dispose()
     {

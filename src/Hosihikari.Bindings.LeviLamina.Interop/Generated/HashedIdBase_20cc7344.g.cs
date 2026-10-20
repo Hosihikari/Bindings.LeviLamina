@@ -18,7 +18,7 @@ public sealed unsafe partial class HashedIdBase
     }
 
     public nint operator_compare(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::strong_ordering' is not a known bindable declaration.");
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
     {

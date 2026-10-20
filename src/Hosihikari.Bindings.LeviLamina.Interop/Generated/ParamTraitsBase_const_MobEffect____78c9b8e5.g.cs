@@ -12,7 +12,7 @@ public sealed unsafe partial class ParamTraitsBase_const_MobEffect___ : global::
     public nint Handle => _handle;
 
     public static nint dataType() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandParameterDataType' is not a known bindable declaration.");
 
     public static string enumNameOrPostfix()
     {
@@ -21,10 +21,10 @@ public sealed unsafe partial class ParamTraitsBase_const_MobEffect___ : global::
     }
 
     public static nint options() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandParameterOption' is not a known bindable declaration.");
 
     public static nint parseFn() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: return type 'bool (CommandRegistry::*)(void *, const CommandRegistry::ParseToken &, const CommandOrigin &, int, std::basic_string<char> &, std::vector<std::basic_string<char>> &) const' is not supported.");
 
     public static nint parseRule()
     {
@@ -43,7 +43,7 @@ public sealed unsafe partial class ParamTraitsBase_const_MobEffect___ : global::
     }
 
     public static nint typeId() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'Bedrock::typeid_t<CommandRegistry>' is not a known bindable declaration.");
 
     public void Dispose()
     {

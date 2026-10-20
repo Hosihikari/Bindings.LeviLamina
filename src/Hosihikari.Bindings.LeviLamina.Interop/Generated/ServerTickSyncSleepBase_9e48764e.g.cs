@@ -12,7 +12,7 @@ public sealed unsafe partial class ServerTickSyncSleepBase : global::System.IDis
     public nint Handle => _handle;
 
     public static ServerTickSyncSleepBase Create() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
 
     public void Dispose()

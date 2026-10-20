@@ -46,8 +46,8 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
 
     public nint namer
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => throw new global::System.NotSupportedException("BindingShim cannot project this member: field type 'std::function<std::basic_string<char> (const ll::io::ArchiveNameInfo &)>' is not supported.");
+        set => throw new global::System.NotSupportedException("BindingShim cannot project this member: field type 'std::function<std::basic_string<char> (const ll::io::ArchiveNameInfo &)>' is not supported.");
     }
 
     public void Dispose()

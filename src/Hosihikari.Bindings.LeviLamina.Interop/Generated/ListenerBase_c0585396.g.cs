@@ -12,7 +12,7 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
     public nint Handle => _handle;
 
     public void call(nint @event) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public ulong getId()
     {
@@ -30,7 +30,7 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
     }
 
     public nint operator_compare(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::strong_ordering' is not a known bindable declaration.");
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase other)
     {

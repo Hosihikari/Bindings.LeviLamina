@@ -23,10 +23,10 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
     }
 
     public static SignatureElement Create_cedf0afa(nint @byte) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::byte' is not a known bindable declaration.");
 
     public static SignatureElement Create_9758b616(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::nullptr_t' is not a known bindable declaration.");
 
     public static SignatureElement Create(byte @byte)
     {
@@ -50,7 +50,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
     }
 
     public nint operator_multiply() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::byte' is not a known bindable declaration.");
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureElement other)
     {
@@ -58,7 +58,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
     }
 
     public bool operator_equal(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::byte' is not a known bindable declaration.");
 
     public bool operator_equal(byte other)
     {

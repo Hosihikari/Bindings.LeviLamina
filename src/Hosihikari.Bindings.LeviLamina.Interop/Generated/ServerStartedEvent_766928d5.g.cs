@@ -12,7 +12,7 @@ public sealed unsafe partial class ServerStartedEvent : global::System.IDisposab
     public nint Handle => _handle;
 
     public static ServerStartedEvent Create(nint server) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public void serialize(nint arg0)
     {

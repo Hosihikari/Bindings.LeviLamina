@@ -12,7 +12,7 @@ public sealed unsafe partial class Parser : global::System.IDisposable
     public nint Handle => _handle;
 
     public bool operator_call(nint registry, nint storage, nint token, nint arg3, int arg4, nint arg5, nint arg6) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public void Dispose()
     {

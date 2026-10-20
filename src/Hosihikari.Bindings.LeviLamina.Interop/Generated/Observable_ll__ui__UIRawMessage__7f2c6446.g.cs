@@ -12,13 +12,13 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
     public nint Handle => _handle;
 
     public static Observable_ll__ui__UIRawMessage_ Create_355fb239(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public static Observable_ll__ui__UIRawMessage_ Create_a2d09c48(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public static Observable_ll__ui__UIRawMessage_ Create_e7f8498b(nint initial) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage getData()
     {
@@ -26,10 +26,10 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
     }
 
     public nint operator_assign_3295b9f8(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint operator_assign_a165cd1b(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public void setData(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage value)
     {
@@ -37,7 +37,7 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
     }
 
     public uint subscribe(nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (const ll::ui::UIRawMessage &)>' is not supported.");
 
     public bool unsubscribe(uint id)
     {

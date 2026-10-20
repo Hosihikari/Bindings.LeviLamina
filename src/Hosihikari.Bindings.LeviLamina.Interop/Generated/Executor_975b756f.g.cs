@@ -12,13 +12,13 @@ public sealed unsafe partial class Executor : global::System.IDisposable
     public nint Handle => _handle;
 
     public static Executor Create(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
     public void execute(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public nint executeAfter(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public string getName()
     {

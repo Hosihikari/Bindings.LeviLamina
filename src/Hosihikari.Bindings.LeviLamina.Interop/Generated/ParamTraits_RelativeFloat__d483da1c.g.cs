@@ -12,7 +12,7 @@ public sealed unsafe partial class ParamTraits_RelativeFloat_ : global::System.I
     public nint Handle => _handle;
 
     public static nint parseRuleValue() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandRegistry::HardNonTerminal' is not a known bindable declaration.");
 
     public void Dispose()
     {

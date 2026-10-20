@@ -12,25 +12,25 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
     public nint Handle => _handle;
 
     public static SymbolView Create() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
 
     public static SymbolView Create_5042d829(nint symbol) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
 
     public static SymbolView Create_2f593b27(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
 
     public static SymbolView Create_82bafcb3(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
 
     public static SymbolView Create_0a9efa25(nint symbol) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
 
     public nint operator_assign_43d0519c(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint operator_assign_c9ceea3e(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public string raw()
     {

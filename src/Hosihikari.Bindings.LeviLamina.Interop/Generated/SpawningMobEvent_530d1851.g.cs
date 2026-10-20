@@ -12,7 +12,7 @@ public sealed unsafe partial class SpawningMobEvent : global::System.IDisposable
     public nint Handle => _handle;
 
     public static SpawningMobEvent Create(nint blockSource, nint identifier, nint spawner, nint pos, nint naturalSpawn, nint surface, nint fromSpawner) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public void deserialize(nint arg0)
     {

@@ -12,7 +12,7 @@ public sealed unsafe partial class IPacketHandler : global::System.IDisposable
     public nint Handle => _handle;
 
     public void handle(nint netId, nint callback, nint packet) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
 
     public void Dispose()

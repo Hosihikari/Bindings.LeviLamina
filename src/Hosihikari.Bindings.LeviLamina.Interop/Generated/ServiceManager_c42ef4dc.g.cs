@@ -17,13 +17,13 @@ public sealed unsafe partial class ServiceManager
     }
 
     public nint getService(nint id) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<std::shared_ptr<ll::service::Service>, ll::Error>' is not a known bindable declaration.");
 
     public nint queryService(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<ll::service::QueryServiceResult>' is not a known bindable declaration.");
 
     public nint queryServices(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::vector<ll::service::QueryServiceResult>' is not a known bindable declaration.");
 
     public bool registerService(nint service, nint mod)
     {

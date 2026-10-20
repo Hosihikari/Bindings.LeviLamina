@@ -12,7 +12,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     public nint Handle => _handle;
 
     public static Optional_std__variant_int__bool__float__DimensionType__std__basic_string_char___ll__command__Run_f92af424 Create(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public nint as_ptr_28074207()
     {
@@ -25,7 +25,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint get_fa66ebb5() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint get_53bcfcec()
     {
@@ -33,7 +33,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint get_15b8f4da() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint get_ed9e1d4a()
     {
@@ -56,7 +56,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint operator_const_std__variant_int__bool__float__DimensionType__std__bas_aa31d1ce() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint operator_const_std__variant_int__bool__float__DimensionType__std__bas_cc0bb3a2()
     {
@@ -69,7 +69,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint operator_std__variant_int__bool__float__DimensionType__std__basic_str_6644cc5c() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint operator_std__variant_int__bool__float__DimensionType__std__basic_str_a3e8cd42()
     {
@@ -77,7 +77,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint operator_multiply_677fec02() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint operator_multiply_90feb77c()
     {
@@ -85,7 +85,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint operator_multiply_7566a1fd() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint operator_multiply_ae9b3ead()
     {
@@ -103,10 +103,10 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint value_1790e014() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint value_64dc8fdd()
     {
@@ -114,7 +114,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint value_24f7e7fe() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint value_4c9f927c()
     {
@@ -122,7 +122,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint value_or_default_d03747b0() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint value_or_default_588e929d()
     {
@@ -130,7 +130,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
     }
 
     public nint value_or_default_b2cb0c09() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint value_or_default_23195632()
     {

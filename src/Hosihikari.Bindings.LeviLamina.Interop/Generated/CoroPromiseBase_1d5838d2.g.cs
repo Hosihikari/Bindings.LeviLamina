@@ -48,7 +48,7 @@ public sealed unsafe partial class CoroPromiseBase : global::System.IDisposable
     }
 
     public nint initial_suspend() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::suspend_always' is not a known bindable declaration.");
 
     public nint local
     {

@@ -34,10 +34,10 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
     }
 
     public static DynamicLibrary Create_7553eb45(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint free() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<std::system_error>' is not a known bindable declaration.");
 
     public nint getAddress(nint name)
     {
@@ -50,10 +50,10 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
     }
 
     public nint load(nint path) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<std::system_error>' is not a known bindable declaration.");
 
     public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
 
     public void Dispose()

@@ -23,13 +23,13 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
     }
 
     public static RuntimePacket Create_2484f5c9(nint packet) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::unique_ptr<ll::network::Packet>' is not a known bindable declaration.");
 
     public nint getOwnedPacket() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<ll::network::Packet>' is not a known bindable declaration.");
 
     public nint getPacket() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<const ll::network::Packet>' is not a known bindable declaration.");
 
     public ulong getRuntimeId()
     {
@@ -47,10 +47,10 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
     }
 
     public void movePacket(nint newPacket) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::unique_ptr<ll::network::Packet>' is not a known bindable declaration.");
 
     public nint releasePacket() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::unique_ptr<ll::network::Packet>' is not a known bindable declaration.");
 
     public void Dispose()
     {

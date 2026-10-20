@@ -12,7 +12,7 @@ public sealed unsafe partial class PlayerChangePermEvent : global::System.IDispo
     public nint Handle => _handle;
 
     public static PlayerChangePermEvent Create(nint player, nint newPerm) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public void deserialize(nint arg0)
     {

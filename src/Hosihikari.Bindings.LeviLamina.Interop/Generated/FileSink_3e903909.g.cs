@@ -12,7 +12,7 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
     public nint Handle => _handle;
 
     public static FileSink Create(nint path, nint formatter, nint policy) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.");
 
     public void append(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessageView view)
     {
@@ -35,7 +35,7 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
     }
 
     public void setFormatter(nint fmter) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.");
 
     public void setPolicy(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotatePolicy policy)
     {

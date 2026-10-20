@@ -23,28 +23,28 @@ public sealed unsafe partial class Error : global::System.IDisposable
     }
 
     public static Error Create_af81c54d(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public static Error Create_699c61d1(nint i) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.");
 
     public static Error Create_507cce9a(nint i) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::unique_ptr<ll::ErrorInfoBase>' is not a known bindable declaration.");
 
     public nint join_ef96b8b2(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'll::Error' is not copy-constructible.");
 
     public nint join_377137a4(nint err) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.");
 
     public nint log_24ce3688(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandOutputMessageType' is not a known bindable declaration.");
 
     public nint log(nint arg0, nint locale, nint arg2) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandOutputMessageType' is not a known bindable declaration.");
 
     public nint log_4962dd8b(nint @out, nint locale) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::function_ref<void (std::basic_string_view<char>)>' is not supported.");
 
     public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, int arg1)
     {
@@ -82,10 +82,10 @@ public sealed unsafe partial class Error : global::System.IDisposable
     }
 
     public nint operator_unexpected_type() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.");
 
     public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
 
     public void Dispose()

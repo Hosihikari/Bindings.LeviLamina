@@ -23,7 +23,7 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
     }
 
     public static ModalForm Create(nint title, nint content, nint upperButton, nint lowerButton) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors accept at most one string parameter.");
 
     public bool sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {

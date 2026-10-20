@@ -12,10 +12,10 @@ public sealed unsafe partial class Logger : global::System.IDisposable
     public nint Handle => _handle;
 
     public static Logger Create(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
     public ulong addSink(nint sink) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::shared_ptr<ll::io::SinkBase>' is not a known bindable declaration.");
 
     public void clearSink()
     {
@@ -60,7 +60,7 @@ public sealed unsafe partial class Logger : global::System.IDisposable
     }
 
     public nint getSink(ulong index) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::io::SinkBase>' is not a known bindable declaration.");
 
     public string getTitle()
     {
@@ -92,7 +92,7 @@ public sealed unsafe partial class Logger : global::System.IDisposable
     }
 
     public void setFormatter(nint formatter) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.");
 
     public void setLevel(int level)
     {
@@ -105,7 +105,7 @@ public sealed unsafe partial class Logger : global::System.IDisposable
     }
 
     public nint sinks() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::io::SinkBase &>' is not a known bindable declaration.");
 
     public void trace(string msg)
     {

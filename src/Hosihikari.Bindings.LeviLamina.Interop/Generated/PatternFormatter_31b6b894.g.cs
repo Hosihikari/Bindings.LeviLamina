@@ -38,7 +38,7 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
     }
 
     public void format(nint view, nint buffer) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public string pattern
     {

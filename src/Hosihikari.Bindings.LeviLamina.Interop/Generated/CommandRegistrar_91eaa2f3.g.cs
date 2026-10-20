@@ -12,22 +12,22 @@ public sealed unsafe partial class CommandRegistrar
     public nint Handle => _handle;
 
     public bool addEnumValues(nint name, nint values, nint type) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::pair<std::basic_string<char>, unsigned long long>>' is not a known bindable declaration.");
 
     public bool addRuntimeEnumValues(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::pair<std::basic_string<char>, unsigned long long>>' is not a known bindable declaration.");
 
     public bool addSoftEnumValues(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
 
     public void clear() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public nint compileCommand(nint commandStr, nint origin, nint version) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<std::unique_ptr<Command>, ll::Error>' is not a known bindable declaration.");
 
     public nint executeCommand(nint commandStr, nint origin, nint outputType, nint version) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandOutput' is not a known bindable declaration.");
 
     public static nint getInstance(bool isClientSide)
     {
@@ -35,7 +35,7 @@ public sealed unsafe partial class CommandRegistrar
     }
 
     public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public static nint getServerInstance()
     {
@@ -61,17 +61,17 @@ public sealed unsafe partial class CommandRegistrar
     }
 
     public bool removeSoftEnumValues(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
 
     public bool setSoftEnumValues(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
 
     public bool tryRegisterEnum(nint name, nint values, nint type, nint parser) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::pair<std::basic_string<char>, unsigned long long>>' is not a known bindable declaration.");
 
     public bool tryRegisterRuntimeEnum(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::pair<std::basic_string<char>, unsigned long long>>' is not a known bindable declaration.");
 
     public bool tryRegisterSoftEnum(nint name, nint values) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
 }

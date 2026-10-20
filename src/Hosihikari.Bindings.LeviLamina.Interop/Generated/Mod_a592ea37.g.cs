@@ -80,10 +80,10 @@ public sealed unsafe partial class Mod : global::System.IDisposable
     }
 
     public nint getWorldConfigDir() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<std::filesystem::path>' is not a known bindable declaration.");
 
     public nint getWorldDataDir() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::optional<std::filesystem::path>' is not a known bindable declaration.");
 
     public bool isDisabled()
     {

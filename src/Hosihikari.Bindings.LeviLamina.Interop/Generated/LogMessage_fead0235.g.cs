@@ -34,10 +34,10 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
     }
 
     public static LogMessage Create(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public static LogMessage Create(nint msg, nint tit, nint lvl, nint tm) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors accept at most one string parameter.");
 
     public string msgBuffer
     {

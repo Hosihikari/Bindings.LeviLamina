@@ -28,10 +28,10 @@ public sealed unsafe partial class Signature : global::System.IDisposable
     }
 
     public nint begin() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<ll::memory::SignatureElement>>>' is not a known bindable declaration.");
 
     public nint end() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<ll::memory::SignatureElement>>>' is not a known bindable declaration.");
 
     public nint front()
     {

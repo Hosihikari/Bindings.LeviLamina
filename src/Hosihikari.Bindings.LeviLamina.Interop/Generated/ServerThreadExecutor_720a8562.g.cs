@@ -12,7 +12,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
     public nint Handle => _handle;
 
     public static ServerThreadExecutor Create(nint name, nint maxOnceDuration, ulong checkPack) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::chrono::duration<long long, std::ratio<1, 1000000000>>' is not a known bindable declaration.");
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
@@ -20,7 +20,7 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
     }
 
     public nint executeAfter(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::data::CancellableCallback>' is not a known bindable declaration.");
 
     public static nint getDefault()
     {

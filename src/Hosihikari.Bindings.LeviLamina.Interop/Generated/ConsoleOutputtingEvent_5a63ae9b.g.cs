@@ -12,7 +12,7 @@ public sealed unsafe partial class ConsoleOutputtingEvent : global::System.IDisp
     public nint Handle => _handle;
 
     public static ConsoleOutputtingEvent Create(nint message) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors accept at most one string parameter.");
 
     public void deserialize(nint arg0)
     {

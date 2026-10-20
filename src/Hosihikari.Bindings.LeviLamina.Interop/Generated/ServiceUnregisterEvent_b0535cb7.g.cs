@@ -12,7 +12,7 @@ public sealed unsafe partial class ServiceUnregisterEvent : global::System.IDisp
     public nint Handle => _handle;
 
     public static ServiceUnregisterEvent Create(nint service) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
     public void Dispose()
     {

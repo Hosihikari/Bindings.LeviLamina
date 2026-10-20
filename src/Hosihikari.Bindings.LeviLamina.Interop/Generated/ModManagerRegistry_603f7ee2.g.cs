@@ -31,22 +31,22 @@ public sealed unsafe partial class ModManagerRegistry
     }
 
     public ulong eraseOnModCallback(nint mod, nint type) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public ulong executeOnMod(nint type, nint fn, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public ulong executeOnModDisable(nint fn, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public ulong executeOnModEnable(nint fn, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public ulong executeOnModLoad(nint fn, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public ulong executeOnModUnload(nint fn, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public static nint getInstance()
     {
@@ -54,13 +54,13 @@ public sealed unsafe partial class ModManagerRegistry
     }
 
     public nint getManager(nint type) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::ModManager>' is not a known bindable declaration.");
 
     public nint getManagerForMod(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::ModManager>' is not a known bindable declaration.");
 
     public nint getMod(nint name) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public string getModType(string name)
     {
@@ -91,8 +91,8 @@ public sealed unsafe partial class ModManagerRegistry
     }
 
     public nint managers() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::mod::ModManager &>' is not a known bindable declaration.");
 
     public nint mods() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::mod::Mod &>' is not a known bindable declaration.");
 }

@@ -12,7 +12,7 @@ public sealed unsafe partial class promise_type : global::System.IDisposable
     public nint Handle => _handle;
 
     public nint final_suspend() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::suspend_never' is not a known bindable declaration.");
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation get_return_object()
     {
@@ -20,7 +20,7 @@ public sealed unsafe partial class promise_type : global::System.IDisposable
     }
 
     public nint initial_suspend() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::suspend_always' is not a known bindable declaration.");
 
     public void return_void()
     {

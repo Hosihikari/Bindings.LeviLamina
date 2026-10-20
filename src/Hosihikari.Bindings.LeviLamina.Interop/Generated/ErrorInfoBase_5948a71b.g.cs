@@ -12,7 +12,7 @@ public sealed unsafe partial class ErrorInfoBase : global::System.IDisposable
     public nint Handle => _handle;
 
     public static ErrorInfoBase Create() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
     public string message()
     {
@@ -21,7 +21,7 @@ public sealed unsafe partial class ErrorInfoBase : global::System.IDisposable
     }
 
     public nint message(nint locale) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
 
     public void Dispose()

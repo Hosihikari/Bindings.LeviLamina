@@ -12,7 +12,7 @@ public sealed unsafe partial class UIObservable_ll__ui__UIRawMessage_ : global::
     public nint Handle => _handle;
 
     public static UIObservable_ll__ui__UIRawMessage_ Create(nint initial, nint options) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public bool isClientWritable()
     {

@@ -23,7 +23,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
     }
 
     public static Subscription Create_c6d34139(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public bool operator_bool()
     {
@@ -31,7 +31,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
     }
 
     public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public void reset()
     {

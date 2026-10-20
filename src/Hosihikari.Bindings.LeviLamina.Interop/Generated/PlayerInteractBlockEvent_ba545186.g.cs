@@ -12,10 +12,10 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
     public nint Handle => _handle;
 
     public static PlayerInteractBlockEvent Create(nint player, nint item, nint blockPos, nint face, nint clickPos, nint block) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint block() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<const Block>' is not a known bindable declaration.");
 
     public nint blockPos()
     {

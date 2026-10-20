@@ -12,7 +12,7 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
     public nint Handle => _handle;
 
     public void format(nint view, nint buffer) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public static bool supportColorLog()
     {

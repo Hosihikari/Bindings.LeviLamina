@@ -34,13 +34,13 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
     }
 
     public static UIRawMessage Create_9b6f9516(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint operator_assign_e1f154a7(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint operator_assign_c7ed1619(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
@@ -48,7 +48,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
     }
 
     public static nint rawText(nint messages) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<ll::ui::UIRawMessage>' is not a known bindable declaration.");
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage text(string value)
     {
@@ -78,7 +78,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
     }
 
     public static nint translate(nint key, nint substitutions) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::vector<std::basic_string<char>>' is not a known bindable declaration.");
 
 
     public void Dispose()

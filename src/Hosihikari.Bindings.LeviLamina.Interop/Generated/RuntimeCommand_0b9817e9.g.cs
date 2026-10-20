@@ -12,7 +12,7 @@ public sealed unsafe partial class RuntimeCommand : global::System.IDisposable
     public nint Handle => _handle;
 
     public void execute(nint arg0, nint arg1) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public static void operator_delete(nint arg0)
     {

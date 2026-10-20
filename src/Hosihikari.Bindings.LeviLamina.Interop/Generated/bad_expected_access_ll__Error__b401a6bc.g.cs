@@ -12,10 +12,10 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
     public nint Handle => _handle;
 
     public static bad_expected_access_ll__Error_ Create(nint e) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint error_5a2a67ef() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint error_cd83de93()
     {
@@ -23,7 +23,7 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
     }
 
     public nint error_3eeff636() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
     public nint error_648678e4()
     {

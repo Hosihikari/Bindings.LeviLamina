@@ -12,13 +12,13 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
     public nint Handle => _handle;
 
     public static ViaContinuation Create_15b2ea8e(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public static ViaContinuation Create_2ded596c(nint h) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<ll::coro::ViaContinuation::promise_type>' is not a known bindable declaration.");
 
     public nint get() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::coroutine_handle<void>' is not a known bindable declaration.");
 
     public void release()
     {

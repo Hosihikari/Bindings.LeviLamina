@@ -23,7 +23,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
     }
 
     public static WriteBatch Create(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint del(string key)
     {
@@ -35,10 +35,10 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
     }
 
     public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint set(nint key, nint val) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
 
     public void Dispose()

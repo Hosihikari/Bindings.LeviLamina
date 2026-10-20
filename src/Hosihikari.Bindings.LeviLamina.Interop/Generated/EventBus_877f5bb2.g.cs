@@ -17,10 +17,10 @@ public sealed unsafe partial class EventBus
     }
 
     public nint events(nint modName) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::event::EventIdView>' is not a known bindable declaration.");
 
     public nint events() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<std::pair<std::basic_string_view<char>, ll::event::EventIdView>>' is not a known bindable declaration.");
 
     public static nint getInstance()
     {
@@ -28,7 +28,7 @@ public sealed unsafe partial class EventBus
     }
 
     public nint getListener(ulong id) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::event::ListenerBase>' is not a known bindable declaration.");
 
     public ulong getListenerCount(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg0)
     {
@@ -85,5 +85,5 @@ public sealed unsafe partial class EventBus
     }
 
     public bool setEventEmitter(nint fn, nint eventId, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::event::EmitterBase>' is not supported.");
 }

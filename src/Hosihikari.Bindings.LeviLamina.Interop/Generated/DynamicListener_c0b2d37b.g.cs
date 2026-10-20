@@ -12,7 +12,7 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
     public nint Handle => _handle;
 
     public static DynamicListener Create(nint fn, nint priority, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::weak_ptr<ll::mod::Mod>' is not a known bindable declaration.");
 
     public void call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event @event)
     {
@@ -20,7 +20,7 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
     }
 
     public static nint create(nint fn, nint priority, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::shared_ptr<ll::event::DynamicListener>' is not a known bindable declaration.");
 
 
     public void Dispose()

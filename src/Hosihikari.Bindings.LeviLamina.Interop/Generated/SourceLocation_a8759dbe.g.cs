@@ -12,7 +12,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
     public nint Handle => _handle;
 
     public static SourceLocation Create(nint file, nint function, nint funcsig, int line, int column) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: consteval constructors cannot be called at runtime.");
 
     public int column()
     {
@@ -20,7 +20,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
     }
 
     public static nint current(nint file, nint function, nint funcsig, int line, int column) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: consteval methods cannot be called at runtime.");
 
     public nint file()
     {
@@ -76,7 +76,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
     }
 
     public static nint unknown() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: consteval methods cannot be called at runtime.");
 
     public void Dispose()
     {

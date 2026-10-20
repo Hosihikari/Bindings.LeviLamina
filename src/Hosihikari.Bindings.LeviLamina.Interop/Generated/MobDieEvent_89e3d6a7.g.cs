@@ -12,7 +12,7 @@ public sealed unsafe partial class MobDieEvent : global::System.IDisposable
     public nint Handle => _handle;
 
     public static MobDieEvent Create(nint mob, nint source) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public void serialize(nint arg0)
     {

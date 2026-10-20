@@ -34,7 +34,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
     }
 
     public static BindingHandle Create_82cd4ec2(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public bool isClientWritable()
     {
@@ -47,13 +47,13 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
     }
 
     public nint operator_assign_91e7b69b(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint operator_assign_22fb7d49(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
     public nint setClientWritable(bool writable) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::expected<void, ll::Error>' is not a known bindable declaration.");
 
 
     public void Dispose()

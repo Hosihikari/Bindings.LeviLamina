@@ -12,7 +12,7 @@ public sealed unsafe partial class GameTickClock : global::System.IDisposable
     public nint Handle => _handle;
 
     public static nint fromTick(nint tick) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::chrono::time_point<ll::chrono::GameTickClock>' is not a known bindable declaration.");
 
     public static bool is_steady
     {
@@ -20,7 +20,7 @@ public sealed unsafe partial class GameTickClock : global::System.IDisposable
     }
 
     public static nint now() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::chrono::time_point<ll::chrono::GameTickClock>' is not a known bindable declaration.");
 
     public void Dispose()
     {

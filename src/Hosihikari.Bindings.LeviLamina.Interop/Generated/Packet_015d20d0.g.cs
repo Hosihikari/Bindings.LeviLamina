@@ -12,10 +12,10 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     public nint Handle => _handle;
 
     public static Packet Create(nint priority, nint reliability, nint clientSubId, bool compress) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
     public nint getName() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public ulong getRuntimeId()
     {
@@ -43,13 +43,13 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     }
 
     public nint read(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public void sendTo(nint actor, nint except) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'optional_ref<const Player>' is not a known bindable declaration.");
 
     public void sendTo(nint pos, nint dimId, nint except) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'DimensionType' is not a known bindable declaration.");
 
     public void sendTo(nint player)
     {
@@ -57,7 +57,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     }
 
     public void sendToClient(nint identifier, nint clientId) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'SubClientId' is not a known bindable declaration.");
 
     public void sendToClient(nint identifierWithSubId)
     {
@@ -70,7 +70,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     }
 
     public void sendToClients(nint exceptId, nint exceptSubid) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'SubClientId' is not a known bindable declaration.");
 
     public void sendToServer()
     {
@@ -78,7 +78,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     }
 
     public void write(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
 
     public void Dispose()

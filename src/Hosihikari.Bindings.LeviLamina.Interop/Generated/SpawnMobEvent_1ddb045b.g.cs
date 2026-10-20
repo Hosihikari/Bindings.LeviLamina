@@ -37,7 +37,7 @@ public sealed unsafe partial class SpawnMobEvent
     }
 
     public nint spawner() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'optional_ref<Actor>' is not a known bindable declaration.");
 
     public nint surface()
     {

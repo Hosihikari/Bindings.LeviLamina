@@ -12,7 +12,7 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
     public nint Handle => _handle;
 
     public static ForwardAwaiter_const_ll__coro__Executor___ Create(nint val) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has an abstract template argument.");
 
     public bool await_ready()
     {
@@ -25,7 +25,7 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
     }
 
     public void await_suspend(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.");
 
     public nint t
     {

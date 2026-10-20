@@ -12,10 +12,10 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
     public nint Handle => _handle;
 
     public static RuntimeOverload Create(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint deoption(nint option) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandParameterOption' is not a known bindable declaration.");
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
@@ -23,10 +23,10 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
     }
 
     public nint modify(nint fn) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::function_ref<void (CommandParameterData &)>' is not supported.");
 
     public nint option(nint option) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandParameterOption' is not a known bindable declaration.");
 
     public nint optional(string name, ulong kind)
     {
@@ -38,7 +38,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
     }
 
     public nint optional(nint name, ulong enumKind, nint enumName) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public nint postfix(string postfix)
     {
@@ -59,7 +59,7 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
     }
 
     public nint required(nint name, ulong enumKind, nint enumName) =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: methods accept at most one string parameter.");
 
     public nint text(string text)
     {

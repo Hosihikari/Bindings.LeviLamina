@@ -28,7 +28,7 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
     }
 
     public nint sleep() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::InterruptableSleep::EtnAwaiter' is not a known bindable declaration.");
 
 
     public void Dispose()

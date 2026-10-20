@@ -13,8 +13,8 @@ public sealed unsafe partial class TypeList_EndTag__ByteTag__ShortTag__IntTag__I
 
     public static nint index
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => throw new global::System.NotSupportedException("BindingShim cannot project this member: static variable templates are not projected.");
+        set => throw new global::System.NotSupportedException("BindingShim cannot project this member: static variable templates are not projected.");
     }
 
     public static ulong size

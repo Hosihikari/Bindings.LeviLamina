@@ -13,8 +13,8 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
 
     public nint ctor
     {
-        get => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
-        set => throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        get => throw new global::System.NotSupportedException("BindingShim cannot project this member: field type 'void *(*)(const void *)' is not supported.");
+        set => throw new global::System.NotSupportedException("BindingShim cannot project this member: field type 'void *(*)(const void *)' is not supported.");
     }
 
     public nint operator_call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter t)
@@ -23,7 +23,7 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
     }
 
     public static polymorphicCopy_ll__io__Formatter_ Create() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public void Dispose()
     {

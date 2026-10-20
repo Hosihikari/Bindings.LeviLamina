@@ -17,7 +17,7 @@ public sealed unsafe partial class ServerClock : global::System.IDisposable
     }
 
     public static nint now() =>
-        throw new global::System.NotSupportedException("BindingShim does not expose this member.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::chrono::time_point<ll::chrono::ServerClock>' is not a known bindable declaration.");
 
     public void Dispose()
     {

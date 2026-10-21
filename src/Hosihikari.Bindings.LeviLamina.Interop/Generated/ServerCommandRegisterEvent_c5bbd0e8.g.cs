@@ -29,19 +29,19 @@ public sealed unsafe partial class ServerCommandRegisterEvent : global::System.I
 
     public bool isClientHostedServer()
     {
-        return NativeMethods.TablePtr->f2595((void*)_handle);
+        return NativeMethods.TablePtr->f2596((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2596((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2597((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2594((void*)_handle);
+            NativeMethods.TablePtr->f2595((void*)_handle);
             _handle = 0;
         }
     }

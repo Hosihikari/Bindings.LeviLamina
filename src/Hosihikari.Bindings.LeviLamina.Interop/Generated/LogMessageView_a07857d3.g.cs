@@ -23,21 +23,36 @@ public sealed unsafe partial class LogMessageView : global::System.IDisposable
         return __hs_handle;
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: the class owns a borrowed string field.", false)]
-    public static LogMessageView Create(nint msg, nint tit, nint lvl, nint tm) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
+    public static LogMessageView Create(string msg, string tit, int lvl, global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.TmWithMs tm)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(tit);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                var handle = NativeMethods.TablePtr->f2712(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, lvl, (void*)tm.Handle);
+                if (handle == null)
+                {
+                    throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+                }
+
+                return new LogMessageView((nint)handle);
+            }
+        }
+    }
 
     public int lvl
     {
-        get => NativeMethods.TablePtr->f2711((void*)_handle);
-        set => NativeMethods.TablePtr->f2712((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2713((void*)_handle);
+        set => NativeMethods.TablePtr->f2714((void*)_handle, value);
     }
 
     public string msg
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2713((void*)_handle);
+            var view = NativeMethods.TablePtr->f2715((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -46,22 +61,22 @@ public sealed unsafe partial class LogMessageView : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2714((void*)_handle);
+            var view = NativeMethods.TablePtr->f2716((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint tm
     {
-        get => (nint)NativeMethods.TablePtr->f2715((void*)_handle);
-        set => NativeMethods.TablePtr->f2716((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2717((void*)_handle);
+        set => NativeMethods.TablePtr->f2718((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2710((void*)_handle);
+            NativeMethods.TablePtr->f2711((void*)_handle);
             _handle = 0;
         }
     }

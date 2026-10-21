@@ -23,34 +23,45 @@ public sealed unsafe partial class ServiceIdView : global::System.IDisposable
         return __hs_handle;
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: the class owns a borrowed string field.", false)]
+    [global::System.Obsolete("BindingShim cannot project this member: the class stores borrowed strings but the constructor has no string parameter.", false)]
     public static ServiceIdView Create(nint id) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class stores borrowed strings but the constructor has no string parameter.");
 
-    [global::System.Obsolete("BindingShim cannot project this member: the class owns a borrowed string field.", false)]
-    public static ServiceIdView Create(nint id, ulong ver) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
+    public static ServiceIdView Create(string id, ulong ver)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(id);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var handle = NativeMethods.TablePtr->f2965(__hs_stringData0, (nuint)__hs_stringBytes0.Length, ver);
+            if (handle == null)
+            {
+                throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+            }
+
+            return new ServiceIdView((nint)handle);
+        }
+    }
 
     public string name
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2962((void*)_handle);
+            var view = NativeMethods.TablePtr->f2966((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f2963((void*)_handle);
-        set => NativeMethods.TablePtr->f2964((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2967((void*)_handle);
+        set => NativeMethods.TablePtr->f2968((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2961((void*)_handle);
+            NativeMethods.TablePtr->f2964((void*)_handle);
             _handle = 0;
         }
     }

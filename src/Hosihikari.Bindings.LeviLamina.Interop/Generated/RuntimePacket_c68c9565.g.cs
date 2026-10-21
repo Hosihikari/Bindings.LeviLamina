@@ -25,7 +25,7 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
 
     public static RuntimePacket Create()
     {
-        var handle = NativeMethods.TablePtr->f2923();
+        var handle = NativeMethods.TablePtr->f2926();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,7 +36,7 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
 
     public static RuntimePacket Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet packet)
     {
-        var handle = NativeMethods.TablePtr->f2924((void*)packet.ReleaseHandle());
+        var handle = NativeMethods.TablePtr->f2927((void*)packet.ReleaseHandle());
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -48,40 +48,40 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
     public nint? getOwnedPacket()
     {
         var __hs_hasValue = false;
-        var __hs_handle = NativeMethods.TablePtr->f2925((void*)_handle, &__hs_hasValue);
+        var __hs_handle = NativeMethods.TablePtr->f2928((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? (nint)__hs_handle : null;
     }
 
     public nint? getPacket()
     {
         var __hs_hasValue = false;
-        var __hs_handle = NativeMethods.TablePtr->f2926((void*)_handle, &__hs_hasValue);
+        var __hs_handle = NativeMethods.TablePtr->f2929((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? (nint)__hs_handle : null;
     }
 
     public ulong getRuntimeId()
     {
-        return NativeMethods.TablePtr->f2927((void*)_handle);
+        return NativeMethods.TablePtr->f2930((void*)_handle);
     }
 
     public bool hasPacket()
     {
-        return NativeMethods.TablePtr->f2928((void*)_handle);
+        return NativeMethods.TablePtr->f2931((void*)_handle);
     }
 
     public bool isOwned()
     {
-        return NativeMethods.TablePtr->f2929((void*)_handle);
+        return NativeMethods.TablePtr->f2932((void*)_handle);
     }
 
     public void movePacket(global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet newPacket)
     {
-        NativeMethods.TablePtr->f2930((void*)_handle, (void*)newPacket.ReleaseHandle());
+        NativeMethods.TablePtr->f2933((void*)_handle, (void*)newPacket.ReleaseHandle());
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet? releasePacket()
     {
-        var __hs_handle = NativeMethods.TablePtr->f2931((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->f2934((void*)_handle);
         return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle) : null;
     }
 
@@ -89,7 +89,7 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2922((void*)_handle);
+            NativeMethods.TablePtr->f2925((void*)_handle);
             _handle = 0;
         }
     }

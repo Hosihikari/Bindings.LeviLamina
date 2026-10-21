@@ -25,7 +25,7 @@ public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent
 
     public void call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event @event)
     {
-        NativeMethods.TablePtr->f2526((void*)_handle, (void*)@event.Handle);
+        NativeMethods.TablePtr->f2527((void*)_handle, (void*)@event.Handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: the class has no accessible destructor.", false)]

@@ -29,19 +29,19 @@ public sealed unsafe partial class NativeMod
 
     public static global::Hosihikari.Bindings.Abi.SharedHandle? current(nint handle)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2897((void*)handle);
+        var __hs_shared = NativeMethods.TablePtr->f2900((void*)handle);
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public static global::Hosihikari.Bindings.Abi.SharedHandle? getByHandle(nint handle)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2898((void*)handle);
+        var __hs_shared = NativeMethods.TablePtr->f2901((void*)handle);
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public nint getHandle()
     {
-        return (nint)NativeMethods.TablePtr->f2899((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2902((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: the class has no accessible destructor.", false)]

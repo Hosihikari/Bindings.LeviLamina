@@ -33,31 +33,31 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public ulong getRuntimeId()
     {
-        return NativeMethods.TablePtr->f2902((void*)_handle);
+        return NativeMethods.TablePtr->f2905((void*)_handle);
     }
 
     public int mCompressible
     {
-        get => NativeMethods.TablePtr->f2903((void*)_handle);
-        set => NativeMethods.TablePtr->f2904((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2906((void*)_handle);
+        set => NativeMethods.TablePtr->f2907((void*)_handle, value);
     }
 
     public int mPriority
     {
-        get => NativeMethods.TablePtr->f2905((void*)_handle);
-        set => NativeMethods.TablePtr->f2906((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2908((void*)_handle);
+        set => NativeMethods.TablePtr->f2909((void*)_handle, value);
     }
 
     public int mReliability
     {
-        get => NativeMethods.TablePtr->f2907((void*)_handle);
-        set => NativeMethods.TablePtr->f2908((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2910((void*)_handle);
+        set => NativeMethods.TablePtr->f2911((void*)_handle, value);
     }
 
     public byte mSenderSubId
     {
-        get => NativeMethods.TablePtr->f2909((void*)_handle);
-        set => NativeMethods.TablePtr->f2910((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2912((void*)_handle);
+        set => NativeMethods.TablePtr->f2913((void*)_handle, value);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
@@ -66,7 +66,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendTo(nint actor, nint? except)
     {
-        NativeMethods.TablePtr->f2911((void*)_handle, (void*)actor, (void*)(except ?? 0), except is not null);
+        NativeMethods.TablePtr->f2914((void*)_handle, (void*)actor, (void*)(except ?? 0), except is not null);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'DimensionType' is not a known bindable declaration.", false)]
@@ -75,32 +75,32 @@ public sealed unsafe partial class Packet : global::System.IDisposable
 
     public void sendTo(nint player)
     {
-        NativeMethods.TablePtr->f2912((void*)_handle, (void*)player);
+        NativeMethods.TablePtr->f2915((void*)_handle, (void*)player);
     }
 
     public void sendToClient(nint identifier, byte clientId)
     {
-        NativeMethods.TablePtr->f2913((void*)_handle, (void*)identifier, clientId);
+        NativeMethods.TablePtr->f2916((void*)_handle, (void*)identifier, clientId);
     }
 
     public void sendToClient(nint identifierWithSubId)
     {
-        NativeMethods.TablePtr->f2914((void*)_handle, (void*)identifierWithSubId);
+        NativeMethods.TablePtr->f2917((void*)_handle, (void*)identifierWithSubId);
     }
 
     public void sendToClients()
     {
-        NativeMethods.TablePtr->f2915((void*)_handle);
+        NativeMethods.TablePtr->f2918((void*)_handle);
     }
 
     public void sendToClients(nint exceptId, byte exceptSubid)
     {
-        NativeMethods.TablePtr->f2916((void*)_handle, (void*)exceptId, exceptSubid);
+        NativeMethods.TablePtr->f2919((void*)_handle, (void*)exceptId, exceptSubid);
     }
 
     public void sendToServer()
     {
-        NativeMethods.TablePtr->f2917((void*)_handle);
+        NativeMethods.TablePtr->f2920((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
@@ -112,7 +112,7 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2901((void*)_handle);
+            NativeMethods.TablePtr->f2904((void*)_handle);
             _handle = 0;
         }
     }

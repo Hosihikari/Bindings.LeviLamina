@@ -33,7 +33,7 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
 
     public nint error_cd83de93()
     {
-        return (nint)NativeMethods.TablePtr->f3127((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3131((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -42,19 +42,19 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
 
     public nint error_648678e4()
     {
-        return (nint)NativeMethods.TablePtr->f3128((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3132((void*)_handle);
     }
 
     public nint what()
     {
-        return (nint)NativeMethods.TablePtr->f3129((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3133((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3126((void*)_handle);
+            NativeMethods.TablePtr->f3130((void*)_handle);
             _handle = 0;
         }
     }

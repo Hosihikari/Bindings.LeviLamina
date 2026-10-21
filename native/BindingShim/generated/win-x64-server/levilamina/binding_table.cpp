@@ -10,6 +10,7 @@
 #include <filesystem>
 #include <functional>
 #include <memory>
+#include <mutex>
 #include <new>
 #include <optional>
 #include <stdexcept>
@@ -261,6 +262,48 @@ template <class T>
 std::weak_ptr<T> hs_weak_from_handle(HosihikariSharedHandle handle)
 {
     return std::weak_ptr<T>(hs_shared_from_handle<T>(handle));
+}
+
+template <class T>
+struct hs_borrowed_holder
+{
+    std::vector<std::string> strings;
+    std::unique_ptr<T> value;
+};
+
+struct hs_borrowed_entry
+{
+    void* holder;
+    void (*release)(void*);
+};
+
+inline std::mutex hs_borrowedMutex;
+inline std::unordered_map<void*, hs_borrowed_entry> hs_borrowedRegistry;
+
+inline void hs_register_borrowed(void* target, void* holder, void (*release)(void*))
+{
+    std::lock_guard<std::mutex> lock(hs_borrowedMutex);
+    hs_borrowedRegistry[target] = hs_borrowed_entry{holder, release};
+}
+
+template <class T>
+void hs_destroy_borrowed_or_delete(void* target)
+{
+    void* holder = nullptr;
+    void (*release)(void*) = nullptr;
+    {
+        std::lock_guard<std::mutex> lock(hs_borrowedMutex);
+        auto it = hs_borrowedRegistry.find(target);
+        if (it != hs_borrowedRegistry.end())
+        {
+            holder = it->second.holder;
+            release = it->second.release;
+            hs_borrowedRegistry.erase(it);
+        }
+    }
+
+    if (release) { release(holder); }
+    else { delete static_cast<T*>(target); }
 }
 
 template <class T>
@@ -38281,7 +38324,7 @@ catch (...)
 
 static void hs_destroy_9186d787(void* hs_self) try
 {
-    delete static_cast<ll::event::EventIdView*>(hs_self);
+    hs_destroy_borrowed_or_delete<ll::event::EventIdView>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -38292,6 +38335,26 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static void* hs_create_194bfb6c(const char* id_data, std::size_t id_size) try
+{
+    auto* hs_borrowed = new hs_borrowed_holder<ll::event::EventIdView>();
+    hs_borrowed->strings.emplace_back(id_data, id_size);
+    hs_borrowed->value = std::make_unique<ll::event::EventIdView>(std::string_view(hs_borrowed->strings[0]));
+    auto* hs_target = hs_borrowed->value.get();
+    hs_register_borrowed(hs_target, hs_borrowed, [](void* hs_holder) { delete static_cast<hs_borrowed_holder<ll::event::EventIdView>*>(hs_holder); });
+    return hs_target;
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
 }
 
 static HosihikariStringView hs_get_89dbad1a(void* hs_self) try
@@ -41712,7 +41775,7 @@ catch (...)
 
 static void hs_destroy_a07857d3(void* hs_self) try
 {
-    delete static_cast<ll::io::LogMessageView*>(hs_self);
+    hs_destroy_borrowed_or_delete<ll::io::LogMessageView>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -41723,6 +41786,27 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static void* hs_create_d7798e45(const char* msg_data, std::size_t msg_size, const char* tit_data, std::size_t tit_size, std::int32_t lvl, void* tm) try
+{
+    auto* hs_borrowed = new hs_borrowed_holder<ll::io::LogMessageView>();
+    hs_borrowed->strings.emplace_back(msg_data, msg_size);
+    hs_borrowed->strings.emplace_back(tit_data, tit_size);
+    hs_borrowed->value = std::make_unique<ll::io::LogMessageView>(std::string_view(hs_borrowed->strings[0]), std::string_view(hs_borrowed->strings[1]), static_cast<ll::io::LogLevel>(lvl), *static_cast<const ll::data::TmWithMs*>(tm));
+    auto* hs_target = hs_borrowed->value.get();
+    hs_register_borrowed(hs_target, hs_borrowed, [](void* hs_holder) { delete static_cast<hs_borrowed_holder<ll::io::LogMessageView>*>(hs_holder); });
+    return hs_target;
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
 }
 
 static std::int32_t hs_get_b02ad594(void* hs_self) try
@@ -43446,7 +43530,7 @@ catch (...)
 
 static void hs_destroy_aab93e2d(void* hs_self) try
 {
-    delete static_cast<ll::memory::SymbolView*>(hs_self);
+    hs_destroy_borrowed_or_delete<ll::memory::SymbolView>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -43457,6 +43541,26 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static void* hs_create_0a9efa25(const char* symbol_data, std::size_t symbol_size) try
+{
+    auto* hs_borrowed = new hs_borrowed_holder<ll::memory::SymbolView>();
+    hs_borrowed->strings.emplace_back(symbol_data, symbol_size);
+    hs_borrowed->value = std::make_unique<ll::memory::SymbolView>(std::string_view(hs_borrowed->strings[0]));
+    auto* hs_target = hs_borrowed->value.get();
+    hs_register_borrowed(hs_target, hs_borrowed, [](void* hs_holder) { delete static_cast<hs_borrowed_holder<ll::memory::SymbolView>*>(hs_holder); });
+    return hs_target;
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
 }
 
 static HosihikariStringView hs_method_cd9dc5fe(void* hs_self) try
@@ -45738,7 +45842,7 @@ catch (...)
 
 static void hs_destroy_13cea6f4(void* hs_self) try
 {
-    delete static_cast<ll::service::ServiceIdView*>(hs_self);
+    hs_destroy_borrowed_or_delete<ll::service::ServiceIdView>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -45749,6 +45853,26 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static void* hs_create_6f6c136f(const char* id_data, std::size_t id_size, std::uint64_t ver) try
+{
+    auto* hs_borrowed = new hs_borrowed_holder<ll::service::ServiceIdView>();
+    hs_borrowed->strings.emplace_back(id_data, id_size);
+    hs_borrowed->value = std::make_unique<ll::service::ServiceIdView>(std::string_view(hs_borrowed->strings[0]), static_cast<unsigned long long>(ver));
+    auto* hs_target = hs_borrowed->value.get();
+    hs_register_borrowed(hs_target, hs_borrowed, [](void* hs_holder) { delete static_cast<hs_borrowed_holder<ll::service::ServiceIdView>*>(hs_holder); });
+    return hs_target;
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
 }
 
 static HosihikariStringView hs_get_e93bdd84(void* hs_self) try
@@ -51301,6 +51425,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_create_b9dc51e8,
     &hs_get_11deb4c6,
     &hs_destroy_9186d787,
+    &hs_create_194bfb6c,
     &hs_get_89dbad1a,
     &hs_method_3bf2e906,
     &hs_method_12ff330c,
@@ -51514,6 +51639,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_get_8c29d1b2,
     &hs_get_54e7798d,
     &hs_destroy_a07857d3,
+    &hs_create_d7798e45,
     &hs_get_b02ad594,
     &hs_set_b02ad594,
     &hs_get_946fb31e,
@@ -51629,6 +51755,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_810802d7,
     &hs_method_a40ae36f,
     &hs_destroy_aab93e2d,
+    &hs_create_0a9efa25,
     &hs_method_cd9dc5fe,
     &hs_method_5cd95024,
     &hs_method_d6d4f0ef,
@@ -51765,6 +51892,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_get_5ccc339f,
     &hs_set_5ccc339f,
     &hs_destroy_13cea6f4,
+    &hs_create_6f6c136f,
     &hs_get_e93bdd84,
     &hs_get_889068b1,
     &hs_set_889068b1,

@@ -16,7 +16,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
         var __hs_stringBytes = global::System.Text.Encoding.UTF8.GetBytes(value);
         fixed (byte* __hs_stringData = __hs_stringBytes)
         {
-            var handle = NativeMethods.TablePtr->f3138(__hs_stringData, (nuint)__hs_stringBytes.Length);
+            var handle = NativeMethods.TablePtr->f3142(__hs_stringData, (nuint)__hs_stringBytes.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +27,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
 
     public static Variant_d6da2e34 CreateUIRawMessage(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage value)
     {
-        var handle = NativeMethods.TablePtr->f3139((void*)value.Handle);
+        var handle = NativeMethods.TablePtr->f3143((void*)value.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -37,7 +37,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
 
     public static Variant_d6da2e34 CreateObservableString(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableString value)
     {
-        var handle = NativeMethods.TablePtr->f3140((void*)value.Handle);
+        var handle = NativeMethods.TablePtr->f3144((void*)value.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -47,7 +47,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
 
     public static Variant_d6da2e34 CreateObservableUIRawMessage(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableUIRawMessage value)
     {
-        var handle = NativeMethods.TablePtr->f3141((void*)value.Handle);
+        var handle = NativeMethods.TablePtr->f3145((void*)value.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -55,7 +55,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
         return new Variant_d6da2e34((nint)handle);
     }
 
-    public int Index => NativeMethods.TablePtr->f3147((void*)_handle);
+    public int Index => NativeMethods.TablePtr->f3151((void*)_handle);
 
     public bool IsString => Index == 0;
 
@@ -72,7 +72,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
             return null;
         }
 
-        var __hs_view = NativeMethods.TablePtr->f3143((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f3147((void*)_handle);
         return __hs_view.Data == null ? string.Empty : global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -83,7 +83,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
             return null;
         }
 
-        var __hs_handle = NativeMethods.TablePtr->f3144((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->f3148((void*)_handle);
         return __hs_handle == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)__hs_handle);
     }
 
@@ -94,7 +94,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
             return null;
         }
 
-        var __hs_handle = NativeMethods.TablePtr->f3145((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->f3149((void*)_handle);
         return __hs_handle == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableString((nint)__hs_handle);
     }
 
@@ -105,7 +105,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
             return null;
         }
 
-        var __hs_handle = NativeMethods.TablePtr->f3146((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->f3150((void*)_handle);
         return __hs_handle == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableUIRawMessage((nint)__hs_handle);
     }
 
@@ -113,7 +113,7 @@ public sealed unsafe class Variant_d6da2e34 : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3142((void*)_handle);
+            NativeMethods.TablePtr->f3146((void*)_handle);
             _handle = 0;
         }
     }

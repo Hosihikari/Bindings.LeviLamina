@@ -23,19 +23,30 @@ public sealed unsafe partial class EventIdView : global::System.IDisposable
         return __hs_handle;
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: the class owns a borrowed string field.", false)]
-    public static EventIdView Create_9030bd2a(nint id) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
+    [global::System.Obsolete("BindingShim cannot project this member: the class stores borrowed strings but the constructor has no string parameter.", false)]
+    public static EventIdView Create(nint id) =>
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class stores borrowed strings but the constructor has no string parameter.");
 
-    [global::System.Obsolete("BindingShim cannot project this member: the class owns a borrowed string field.", false)]
-    public static EventIdView Create_194bfb6c(nint id) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
+    public static EventIdView Create(string id)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(id);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            var handle = NativeMethods.TablePtr->f2498(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            if (handle == null)
+            {
+                throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
+            }
+
+            return new EventIdView((nint)handle);
+        }
+    }
 
     public string name
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2498((void*)_handle);
+            var view = NativeMethods.TablePtr->f2499((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }

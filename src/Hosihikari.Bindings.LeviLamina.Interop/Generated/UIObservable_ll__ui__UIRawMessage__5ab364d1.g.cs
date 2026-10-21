@@ -29,14 +29,14 @@ public sealed unsafe partial class UIObservable_ll__ui__UIRawMessage_ : global::
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->f3106((void*)_handle);
+        return NativeMethods.TablePtr->f3110((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3105((void*)_handle);
+            NativeMethods.TablePtr->f3109((void*)_handle);
             _handle = 0;
         }
     }

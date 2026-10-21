@@ -25,7 +25,7 @@ public sealed unsafe partial class ServiceId : global::System.IDisposable
 
     public static ServiceId Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
     {
-        var handle = NativeMethods.TablePtr->f2956((void*)id.Handle);
+        var handle = NativeMethods.TablePtr->f2959((void*)id.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -39,7 +39,7 @@ public sealed unsafe partial class ServiceId : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(id);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2957(__hs_stringData0, (nuint)__hs_stringBytes0.Length, ver);
+            var handle = NativeMethods.TablePtr->f2960(__hs_stringData0, (nuint)__hs_stringBytes0.Length, ver);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -53,22 +53,22 @@ public sealed unsafe partial class ServiceId : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2958((void*)_handle);
+            var view = NativeMethods.TablePtr->f2961((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f2959((void*)_handle);
-        set => NativeMethods.TablePtr->f2960((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2962((void*)_handle);
+        set => NativeMethods.TablePtr->f2963((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2955((void*)_handle);
+            NativeMethods.TablePtr->f2958((void*)_handle);
             _handle = 0;
         }
     }

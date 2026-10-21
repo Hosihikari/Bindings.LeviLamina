@@ -15,7 +15,7 @@ The LeviLamina LLAPI surface for the Hosihikari bindings: a CI-generated native-
 The Interop and Idiomatic projects build. The carrier-linked generated Interop, the v1 BindingShim table with its `extern "C"` implementations, and the coverage manifest are committed:
 
 - `src/Hosihikari.Bindings.LeviLamina.Interop/Generated/` contains the generated native-style C# classes and `NativeMethods`; deliberately unsupported members are `NotSupportedException` stubs marked `[Obsolete]`, so calls raise compiler warning CS0618.
-- `native/BindingShim/generated/win-x64-server/levilamina/` contains the 3,148-function table and its implementations.
+- `native/BindingShim/generated/win-x64-server/levilamina/` contains the 3,152-function table and its implementations.
 - `coverage/` contains the coverage manifest, summary, baseline, and provenance.
 
 The host calls `Hosihikari.Bindings.LeviLamina.Interop.NativeMethods.Load(path)` before using a generated wrapper. `native/BindingShim/build.ps1` builds the shim with clang-cl against `LeviLamina.lib`, fmt, and prelinked Bedrock imports.

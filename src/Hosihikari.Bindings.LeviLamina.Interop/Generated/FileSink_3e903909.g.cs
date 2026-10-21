@@ -29,22 +29,22 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
 
     public void append(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessageView view)
     {
-        NativeMethods.TablePtr->f2696((void*)_handle, (void*)view.Handle);
+        NativeMethods.TablePtr->f2697((void*)_handle, (void*)view.Handle);
     }
 
     public void flush()
     {
-        NativeMethods.TablePtr->f2697((void*)_handle);
+        NativeMethods.TablePtr->f2698((void*)_handle);
     }
 
     public void rotate()
     {
-        NativeMethods.TablePtr->f2698((void*)_handle);
+        NativeMethods.TablePtr->f2699((void*)_handle);
     }
 
     public void setFlushLevel(int level)
     {
-        NativeMethods.TablePtr->f2699((void*)_handle, level);
+        NativeMethods.TablePtr->f2700((void*)_handle, level);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'll::data::IndirectValue<ll::io::Formatter, ll::data::polymorphicCopy<ll::io::Formatter>>' is not a known bindable declaration.", false)]
@@ -53,7 +53,7 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
 
     public void setPolicy(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotatePolicy policy)
     {
-        NativeMethods.TablePtr->f2700((void*)_handle, (void*)policy.Handle);
+        NativeMethods.TablePtr->f2701((void*)_handle, (void*)policy.Handle);
     }
 
 
@@ -61,7 +61,7 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2695((void*)_handle);
+            NativeMethods.TablePtr->f2696((void*)_handle);
             _handle = 0;
         }
     }

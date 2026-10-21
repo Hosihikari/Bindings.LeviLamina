@@ -28,7 +28,7 @@ public sealed unsafe partial class Form
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(formData);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return NativeMethods.TablePtr->f2641((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return NativeMethods.TablePtr->f2642((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 
@@ -37,7 +37,7 @@ public sealed unsafe partial class Form
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(formData);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return NativeMethods.TablePtr->f2642((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return NativeMethods.TablePtr->f2643((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 }

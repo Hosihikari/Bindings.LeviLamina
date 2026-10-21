@@ -37,7 +37,7 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public string getData()
     {
-        var __hs_view = NativeMethods.TablePtr->f2321((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_529b2a55((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -54,25 +54,25 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2322((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->hs_method_557d39f2((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public uint subscribe(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return NativeMethods.TablePtr->f2323((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return NativeMethods.TablePtr->hs_method_aecc67d8((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f2324((void*)_handle, id);
+        return NativeMethods.TablePtr->hs_method_e9a29ddb((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2320((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_7412faa7((void*)_handle);
             _handle = 0;
         }
     }

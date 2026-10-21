@@ -29,12 +29,12 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f2241((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_7f13234a((void*)_handle);
     }
 
     public nint await_resume()
     {
-        return (nint)NativeMethods.TablePtr->f2242((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_e3c5d3b6((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.", false)]
@@ -43,14 +43,14 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
 
     public nint t
     {
-        get => (nint)NativeMethods.TablePtr->f2243((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_3cf3081b((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2240((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_87455beb((void*)_handle);
             _handle = 0;
         }
     }

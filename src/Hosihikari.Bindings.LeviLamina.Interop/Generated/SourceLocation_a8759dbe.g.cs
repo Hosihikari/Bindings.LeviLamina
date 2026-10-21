@@ -29,7 +29,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
 
     public int column()
     {
-        return NativeMethods.TablePtr->f18((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_77937482((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: consteval methods cannot be called at runtime.", false)]
@@ -38,54 +38,54 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
 
     public nint file()
     {
-        return (nint)NativeMethods.TablePtr->f19((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_673db6c0((void*)_handle);
     }
 
     public nint funcsig()
     {
-        return (nint)NativeMethods.TablePtr->f20((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_26ba98aa((void*)_handle);
     }
 
     public nint function()
     {
-        return (nint)NativeMethods.TablePtr->f21((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_968c3612((void*)_handle);
     }
 
     public int line()
     {
-        return NativeMethods.TablePtr->f22((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_ced6fd68((void*)_handle);
     }
 
     public int mColumn
     {
-        get => NativeMethods.TablePtr->f23((void*)_handle);
-        set => NativeMethods.TablePtr->f24((void*)_handle, value);
+        get => NativeMethods.TablePtr->hs_get_39c65bcf((void*)_handle);
+        set => NativeMethods.TablePtr->hs_set_39c65bcf((void*)_handle, value);
     }
 
     public nint mFile
     {
-        get => (nint)NativeMethods.TablePtr->f25((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_b1b86cf8((void*)_handle);
     }
 
     public nint mFuncsig
     {
-        get => (nint)NativeMethods.TablePtr->f26((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_0743d79a((void*)_handle);
     }
 
     public nint mFunction
     {
-        get => (nint)NativeMethods.TablePtr->f27((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_7c28faef((void*)_handle);
     }
 
     public int mLine
     {
-        get => NativeMethods.TablePtr->f28((void*)_handle);
-        set => NativeMethods.TablePtr->f29((void*)_handle, value);
+        get => NativeMethods.TablePtr->hs_get_07a7d889((void*)_handle);
+        set => NativeMethods.TablePtr->hs_set_07a7d889((void*)_handle, value);
     }
 
     public string toString()
     {
-        var __hs_view = NativeMethods.TablePtr->f30((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_58298df9((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -97,7 +97,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f17((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_a8759dbe((void*)_handle);
             _handle = 0;
         }
     }

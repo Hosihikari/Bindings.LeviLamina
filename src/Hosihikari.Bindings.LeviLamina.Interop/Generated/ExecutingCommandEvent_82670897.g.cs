@@ -29,24 +29,24 @@ public sealed unsafe partial class ExecutingCommandEvent : global::System.IDispo
 
     public nint commandContext()
     {
-        return (nint)NativeMethods.TablePtr->f2514((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_88790774((void*)_handle);
     }
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2515((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->hs_method_b97254a8((void*)_handle, (void*)arg0);
     }
 
     public nint suppressOutput()
     {
-        return (nint)NativeMethods.TablePtr->f2516((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_25fe1a29((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2513((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_82670897((void*)_handle);
             _handle = 0;
         }
     }

@@ -13,7 +13,7 @@ public sealed unsafe class Variant_57217b04 : global::System.IDisposable
 
     public static Variant_57217b04 CreateDouble(double value)
     {
-        var handle = NativeMethods.TablePtr->f3146(value);
+        var handle = NativeMethods.TablePtr->hs_variant_57217b04_create_0(value);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -23,7 +23,7 @@ public sealed unsafe class Variant_57217b04 : global::System.IDisposable
 
     public static Variant_57217b04 CreateObservableNumber(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableNumber value)
     {
-        var handle = NativeMethods.TablePtr->f3147((void*)value.Handle);
+        var handle = NativeMethods.TablePtr->hs_variant_57217b04_create_1((void*)value.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -31,7 +31,7 @@ public sealed unsafe class Variant_57217b04 : global::System.IDisposable
         return new Variant_57217b04((nint)handle);
     }
 
-    public int Index => NativeMethods.TablePtr->f3151((void*)_handle);
+    public int Index => NativeMethods.TablePtr->hs_variant_57217b04_index((void*)_handle);
 
     public bool IsDouble => Index == 0;
 
@@ -44,7 +44,7 @@ public sealed unsafe class Variant_57217b04 : global::System.IDisposable
             return null;
         }
 
-        return NativeMethods.TablePtr->f3149((void*)_handle);
+        return NativeMethods.TablePtr->hs_variant_57217b04_get_0((void*)_handle);
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableNumber? AsObservableNumber()
@@ -54,7 +54,7 @@ public sealed unsafe class Variant_57217b04 : global::System.IDisposable
             return null;
         }
 
-        var __hs_handle = NativeMethods.TablePtr->f3150((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_variant_57217b04_get_1((void*)_handle);
         return __hs_handle == null ? null : new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableNumber((nint)__hs_handle);
     }
 
@@ -62,7 +62,7 @@ public sealed unsafe class Variant_57217b04 : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3148((void*)_handle);
+            NativeMethods.TablePtr->hs_variant_57217b04_destroy((void*)_handle);
             _handle = 0;
         }
     }

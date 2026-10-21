@@ -25,7 +25,7 @@ public sealed unsafe partial class ConsoleSink : global::System.IDisposable
 
     public static ConsoleSink Create()
     {
-        var handle = NativeMethods.TablePtr->f2700();
+        var handle = NativeMethods.TablePtr->hs_create_dc14334a();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -40,7 +40,7 @@ public sealed unsafe partial class ConsoleSink : global::System.IDisposable
 
     public void append(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessageView view)
     {
-        NativeMethods.TablePtr->f2701((void*)_handle, (void*)view.Handle);
+        NativeMethods.TablePtr->hs_method_e0073778((void*)_handle, (void*)view.Handle);
     }
 
 
@@ -48,7 +48,7 @@ public sealed unsafe partial class ConsoleSink : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2699((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_f7dc1ea8((void*)_handle);
             _handle = 0;
         }
     }

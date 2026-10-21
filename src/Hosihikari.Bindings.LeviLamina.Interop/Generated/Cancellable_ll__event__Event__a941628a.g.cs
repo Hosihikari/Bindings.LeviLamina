@@ -25,34 +25,34 @@ public sealed unsafe partial class Cancellable_ll__event__Event_ : global::Syste
 
     public void cancel()
     {
-        NativeMethods.TablePtr->f2411((void*)_handle);
+        NativeMethods.TablePtr->hs_method_766b500b((void*)_handle);
     }
 
     public void deserialize(nint nbt)
     {
-        NativeMethods.TablePtr->f2412((void*)_handle, (void*)nbt);
+        NativeMethods.TablePtr->hs_method_d9723982((void*)_handle, (void*)nbt);
     }
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->f2413((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_1f313805((void*)_handle);
     }
 
     public void serialize(nint nbt)
     {
-        NativeMethods.TablePtr->f2414((void*)_handle, (void*)nbt);
+        NativeMethods.TablePtr->hs_method_1611ed2a((void*)_handle, (void*)nbt);
     }
 
     public void setCancelled(bool cancelled)
     {
-        NativeMethods.TablePtr->f2415((void*)_handle, cancelled);
+        NativeMethods.TablePtr->hs_method_833145ca((void*)_handle, cancelled);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2410((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_a941628a((void*)_handle);
             _handle = 0;
         }
     }

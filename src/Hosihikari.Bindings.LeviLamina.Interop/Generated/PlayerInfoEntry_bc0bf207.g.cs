@@ -27,21 +27,21 @@ public sealed unsafe partial class PlayerInfoEntry : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2952((void*)_handle);
+            var view = NativeMethods.TablePtr->hs_get_b69ef67b((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint uuid
     {
-        get => (nint)NativeMethods.TablePtr->f2953((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_eb409eeb((void*)_handle);
     }
 
     public string xuid
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2954((void*)_handle);
+            var view = NativeMethods.TablePtr->hs_get_74ea7e9c((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -50,7 +50,7 @@ public sealed unsafe partial class PlayerInfoEntry : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2951((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_bc0bf207((void*)_handle);
             _handle = 0;
         }
     }

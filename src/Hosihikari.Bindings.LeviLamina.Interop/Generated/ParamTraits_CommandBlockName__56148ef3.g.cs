@@ -25,14 +25,14 @@ public sealed unsafe partial class ParamTraits_CommandBlockName_ : global::Syste
 
     public static byte options()
     {
-        return NativeMethods.TablePtr->f1927();
+        return NativeMethods.TablePtr->hs_method_8be376d7();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1926((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_56148ef3((void*)_handle);
             _handle = 0;
         }
     }

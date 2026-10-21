@@ -25,14 +25,14 @@ public sealed unsafe partial class ParamTraits_Json__Value_ : global::System.IDi
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1953();
+        return NativeMethods.TablePtr->hs_method_d9d5aa24();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1952((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_7eb5cf22((void*)_handle);
             _handle = 0;
         }
     }

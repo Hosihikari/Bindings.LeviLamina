@@ -33,7 +33,7 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__ClockSpriteCalc
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f210((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_2d24e3ac((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -42,7 +42,7 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__ClockSpriteCalc
 
     public nint get_95e3b461()
     {
-        return (nint)NativeMethods.TablePtr->f211((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_95e3b461((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -51,17 +51,17 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__ClockSpriteCalc
 
     public nint get_0540f17a()
     {
-        return (nint)NativeMethods.TablePtr->f212((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_0540f17a((void*)_handle);
     }
 
     public nint operator_ClockSpriteCalculator__()
     {
-        return (nint)NativeMethods.TablePtr->f213((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_14b56324((void*)_handle);
     }
 
     public nint operator_const_ClockSpriteCalculator__()
     {
-        return (nint)NativeMethods.TablePtr->f214((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_b2e93bf1((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -70,7 +70,7 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__ClockSpriteCalc
 
     public nint operator_multiply_d2b10719()
     {
-        return (nint)NativeMethods.TablePtr->f215((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_d2b10719((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -79,17 +79,17 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__ClockSpriteCalc
 
     public nint operator_multiply_b2fd02b0()
     {
-        return (nint)NativeMethods.TablePtr->f216((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_b2fd02b0((void*)_handle);
     }
 
     public nint operator_operator___8ed5ec9b()
     {
-        return (nint)NativeMethods.TablePtr->f217((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_8ed5ec9b((void*)_handle);
     }
 
     public nint operator_operator___b6c732d8()
     {
-        return (nint)NativeMethods.TablePtr->f218((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_b6c732d8((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]

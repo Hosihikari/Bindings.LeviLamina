@@ -25,14 +25,14 @@ public sealed unsafe partial class ParamTraits_std__basic_string_char__ : global
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1971();
+        return NativeMethods.TablePtr->hs_method_a3ef1f9e();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1970((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_abc5bed1((void*)_handle);
             _handle = 0;
         }
     }

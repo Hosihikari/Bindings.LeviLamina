@@ -25,7 +25,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
 
     public static Subscription Create()
     {
-        var handle = NativeMethods.TablePtr->f3101();
+        var handle = NativeMethods.TablePtr->hs_create_013ecf39();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,7 +36,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
 
     public static Subscription Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Subscription arg0)
     {
-        var handle = NativeMethods.TablePtr->f3102((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->hs_create_c6d34139((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -47,7 +47,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f3103((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_6c2d01a6((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -56,7 +56,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
 
     public void reset()
     {
-        NativeMethods.TablePtr->f3104((void*)_handle);
+        NativeMethods.TablePtr->hs_method_1eb7fc5f((void*)_handle);
     }
 
 
@@ -64,7 +64,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3100((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_ae5103f2((void*)_handle);
             _handle = 0;
         }
     }

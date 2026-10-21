@@ -25,34 +25,34 @@ public sealed unsafe partial class Cancellable_ll__event__SpawnMobEvent_ : globa
 
     public void cancel()
     {
-        NativeMethods.TablePtr->f2453((void*)_handle);
+        NativeMethods.TablePtr->hs_method_451aef58((void*)_handle);
     }
 
     public void deserialize(nint nbt)
     {
-        NativeMethods.TablePtr->f2454((void*)_handle, (void*)nbt);
+        NativeMethods.TablePtr->hs_method_c044976c((void*)_handle, (void*)nbt);
     }
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->f2455((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_1bad133a((void*)_handle);
     }
 
     public void serialize(nint nbt)
     {
-        NativeMethods.TablePtr->f2456((void*)_handle, (void*)nbt);
+        NativeMethods.TablePtr->hs_method_ec1316ff((void*)_handle, (void*)nbt);
     }
 
     public void setCancelled(bool cancelled)
     {
-        NativeMethods.TablePtr->f2457((void*)_handle, cancelled);
+        NativeMethods.TablePtr->hs_method_a1a0390c((void*)_handle, cancelled);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2452((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_f6d34972((void*)_handle);
             _handle = 0;
         }
     }

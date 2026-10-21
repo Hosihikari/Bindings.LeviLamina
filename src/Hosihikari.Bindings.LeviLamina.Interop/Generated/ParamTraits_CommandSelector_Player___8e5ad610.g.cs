@@ -25,14 +25,14 @@ public sealed unsafe partial class ParamTraits_CommandSelector_Player__ : global
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1949();
+        return NativeMethods.TablePtr->hs_method_fc0d250b();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1948((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_8e5ad610((void*)_handle);
             _handle = 0;
         }
     }

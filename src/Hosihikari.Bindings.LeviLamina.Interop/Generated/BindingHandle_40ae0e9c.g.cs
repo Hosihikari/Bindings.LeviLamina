@@ -25,7 +25,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public static BindingHandle Create()
     {
-        var handle = NativeMethods.TablePtr->f3134();
+        var handle = NativeMethods.TablePtr->hs_create_5268f1f9();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,7 +36,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public static BindingHandle Create_d43627b6(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
     {
-        var handle = NativeMethods.TablePtr->f3135((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->hs_create_d43627b6((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -47,7 +47,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public static BindingHandle Create_82cd4ec2(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
     {
-        var handle = NativeMethods.TablePtr->f3136((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->hs_create_82cd4ec2((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -58,12 +58,12 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->f3137((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_9cf859b8((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f3138((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_76b2ba1c((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -77,7 +77,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
     public void setClientWritable(bool writable)
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3139((void*)_handle, writable, &__hs_hasValue);
+        NativeMethods.TablePtr->hs_method_59fc34b4((void*)_handle, writable, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -86,7 +86,7 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3133((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_40ae0e9c((void*)_handle);
             _handle = 0;
         }
     }

@@ -25,18 +25,18 @@ public sealed unsafe partial class ParamTraitsBase_bool_ : global::System.IDispo
 
     public static int dataType()
     {
-        return NativeMethods.TablePtr->f2114();
+        return NativeMethods.TablePtr->hs_method_0530a89c();
     }
 
     public static string enumNameOrPostfix()
     {
-        var __hs_view = NativeMethods.TablePtr->f2115();
+        var __hs_view = NativeMethods.TablePtr->hs_method_7cc31150();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static byte options()
     {
-        return NativeMethods.TablePtr->f2116();
+        return NativeMethods.TablePtr->hs_method_43442f6e();
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: return type 'bool (CommandRegistry::*)(void *, const CommandRegistry::ParseToken &, const CommandOrigin &, int, std::basic_string<char> &, std::vector<std::basic_string<char>> &) const' is not supported.", false)]
@@ -45,30 +45,30 @@ public sealed unsafe partial class ParamTraitsBase_bool_ : global::System.IDispo
 
     public static nint parseRule()
     {
-        return (nint)NativeMethods.TablePtr->f2117();
+        return (nint)NativeMethods.TablePtr->hs_method_9fbe1c0f();
     }
 
     public static string subChain()
     {
-        var __hs_view = NativeMethods.TablePtr->f2118();
+        var __hs_view = NativeMethods.TablePtr->hs_method_9ce248d2();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static void transformData(nint arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar arg1)
     {
-        NativeMethods.TablePtr->f2119((void*)arg0, (void*)arg1.Handle);
+        NativeMethods.TablePtr->hs_method_780a9b0a((void*)arg0, (void*)arg1.Handle);
     }
 
     public static ushort typeId()
     {
-        return NativeMethods.TablePtr->f2120();
+        return NativeMethods.TablePtr->hs_method_f3249a77();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2113((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_090010a5((void*)_handle);
             _handle = 0;
         }
     }

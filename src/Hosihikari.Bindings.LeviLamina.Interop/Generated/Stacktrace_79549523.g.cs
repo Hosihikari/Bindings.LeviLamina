@@ -25,12 +25,12 @@ public sealed unsafe partial class Stacktrace : global::System.IDisposable
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.Stacktrace current(ulong skip, ulong maxDepth)
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Stacktrace((nint)NativeMethods.TablePtr->f32(skip, maxDepth));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Stacktrace((nint)NativeMethods.TablePtr->hs_method_16b128cf(skip, maxDepth));
     }
 
     public bool empty()
     {
-        return NativeMethods.TablePtr->f33((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_98d6483c((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::thread::id' is not a known bindable declaration.", false)]
@@ -39,24 +39,24 @@ public sealed unsafe partial class Stacktrace : global::System.IDisposable
 
     public ulong getHash()
     {
-        return NativeMethods.TablePtr->f34((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_e66468aa((void*)_handle);
     }
 
     public nint operator_index(ulong index)
     {
-        return (nint)NativeMethods.TablePtr->f35((void*)_handle, index);
+        return (nint)NativeMethods.TablePtr->hs_method_ca44197a((void*)_handle, index);
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f36((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_87be660e((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f31((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_79549523((void*)_handle);
             _handle = 0;
         }
     }

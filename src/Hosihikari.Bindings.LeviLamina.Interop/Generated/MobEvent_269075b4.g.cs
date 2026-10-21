@@ -25,11 +25,11 @@ public sealed unsafe partial class MobEvent
 
     public nint self()
     {
-        return (nint)NativeMethods.TablePtr->f2531((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_aea176be((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2532((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->hs_method_d8021936((void*)_handle, (void*)arg0);
     }
 }

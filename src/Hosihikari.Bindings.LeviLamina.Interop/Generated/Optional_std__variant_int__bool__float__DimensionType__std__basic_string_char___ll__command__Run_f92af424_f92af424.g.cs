@@ -29,12 +29,12 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint as_ptr_28074207()
     {
-        return (nint)NativeMethods.TablePtr->f1903((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_28074207((void*)_handle);
     }
 
     public nint as_ptr_da62c3dc()
     {
-        return (nint)NativeMethods.TablePtr->f1904((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_da62c3dc((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -43,7 +43,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint get_53bcfcec()
     {
-        return (nint)NativeMethods.TablePtr->f1905((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_53bcfcec((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -52,22 +52,22 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint get_ed9e1d4a()
     {
-        return (nint)NativeMethods.TablePtr->f1906((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_ed9e1d4a((void*)_handle);
     }
 
     public bool has_value()
     {
-        return NativeMethods.TablePtr->f1907((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_3a6096cb((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f1908((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_52e4aef6((void*)_handle);
     }
 
     public nint operator_const_std__variant_int__bool__float__DimensionType__std__bas_d1d9cc7a()
     {
-        return (nint)NativeMethods.TablePtr->f1909((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_d1d9cc7a((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -76,12 +76,12 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint operator_const_std__variant_int__bool__float__DimensionType__std__bas_cc0bb3a2()
     {
-        return (nint)NativeMethods.TablePtr->f1910((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_cc0bb3a2((void*)_handle);
     }
 
     public nint operator_std__variant_int__bool__float__DimensionType__std__basic_str_ac3feece()
     {
-        return (nint)NativeMethods.TablePtr->f1911((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_ac3feece((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -90,7 +90,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint operator_std__variant_int__bool__float__DimensionType__std__basic_str_a3e8cd42()
     {
-        return (nint)NativeMethods.TablePtr->f1912((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_a3e8cd42((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -99,7 +99,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint operator_multiply_90feb77c()
     {
-        return (nint)NativeMethods.TablePtr->f1913((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_90feb77c((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -108,17 +108,17 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint operator_multiply_ae9b3ead()
     {
-        return (nint)NativeMethods.TablePtr->f1914((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_ae9b3ead((void*)_handle);
     }
 
     public nint operator_operator___a063d875()
     {
-        return (nint)NativeMethods.TablePtr->f1915((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_a063d875((void*)_handle);
     }
 
     public nint operator_operator___8c2c0592()
     {
-        return (nint)NativeMethods.TablePtr->f1916((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_8c2c0592((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -131,7 +131,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint value_64dc8fdd()
     {
-        return (nint)NativeMethods.TablePtr->f1917((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_64dc8fdd((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -140,7 +140,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint value_4c9f927c()
     {
-        return (nint)NativeMethods.TablePtr->f1918((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_4c9f927c((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -149,7 +149,7 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint value_or_default_588e929d()
     {
-        return (nint)NativeMethods.TablePtr->f1919((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_588e929d((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -158,14 +158,14 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public nint value_or_default_23195632()
     {
-        return (nint)NativeMethods.TablePtr->f1920((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_23195632((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1902((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_f92af424((void*)_handle);
             _handle = 0;
         }
     }

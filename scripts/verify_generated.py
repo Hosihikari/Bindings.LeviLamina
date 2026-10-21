@@ -45,7 +45,7 @@ def main() -> int:
 
     header = (SHIM / "binding_table.h").read_text(encoding="utf-8")
     source = (SHIM / "binding_table.cpp").read_text(encoding="utf-8")
-    functions = header.count("(*f")
+    functions = header.count("(*hs_")
     if functions != provenance["functions"]:
         fail(f"shim table has {functions} functions, provenance says {provenance['functions']}")
     if functions < baseline["functions"]:

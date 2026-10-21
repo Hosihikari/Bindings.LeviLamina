@@ -29,7 +29,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
 
     public static MessageBox Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox arg0)
     {
-        var handle = NativeMethods.TablePtr->f3052((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->hs_create_9733af91((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -40,29 +40,29 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
 
     public nint body(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 value)
     {
-        return (nint)NativeMethods.TablePtr->f3053((void*)_handle, (void*)value.Handle);
+        return (nint)NativeMethods.TablePtr->hs_method_44cf2213((void*)_handle, (void*)value.Handle);
     }
 
     public nint button1(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
     {
-        return (nint)NativeMethods.TablePtr->f3054((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
+        return (nint)NativeMethods.TablePtr->hs_method_4e575dd6((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
     }
 
     public nint button2(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
     {
-        return (nint)NativeMethods.TablePtr->f3055((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
+        return (nint)NativeMethods.TablePtr->hs_method_6167cdee((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
     }
 
     public void close()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3056((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->hs_method_bbc3a137((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f3057((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_b11cad00((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -72,7 +72,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     public void show(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3058((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease, &__hs_hasValue);
+        NativeMethods.TablePtr->hs_method_5030d226((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -85,7 +85,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3051((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_5c12c3b0((void*)_handle);
             _handle = 0;
         }
     }

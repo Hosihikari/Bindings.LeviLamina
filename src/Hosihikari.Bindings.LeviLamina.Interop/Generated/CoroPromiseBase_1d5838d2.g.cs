@@ -25,7 +25,7 @@ public sealed unsafe partial class CoroPromiseBase : global::System.IDisposable
 
     public static CoroPromiseBase Create()
     {
-        var handle = NativeMethods.TablePtr->f2227();
+        var handle = NativeMethods.TablePtr->hs_create_506910ad();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,27 +36,27 @@ public sealed unsafe partial class CoroPromiseBase : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ForwardAwaiter_const_ll__coro__Executor___ await_transform(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.CurrentExecutor arg0)
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ForwardAwaiter_const_ll__coro__Executor___((nint)NativeMethods.TablePtr->f2228((void*)_handle, (void*)arg0.Handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ForwardAwaiter_const_ll__coro__Executor___((nint)NativeMethods.TablePtr->hs_method_4df3425c((void*)_handle, (void*)arg0.Handle));
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.YieldAwaiter await_transform(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Yield arg0)
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.YieldAwaiter((nint)NativeMethods.TablePtr->f2229((void*)_handle, (void*)arg0.Handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.YieldAwaiter((nint)NativeMethods.TablePtr->hs_method_a18a91ba((void*)_handle, (void*)arg0.Handle));
     }
 
     public nint exec
     {
-        get => (nint)NativeMethods.TablePtr->f2230((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_bd666446((void*)_handle);
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.CoroPromiseBase_Nested.FinalAwaiter final_suspend()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.CoroPromiseBase_Nested.FinalAwaiter((nint)NativeMethods.TablePtr->f2231((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.CoroPromiseBase_Nested.FinalAwaiter((nint)NativeMethods.TablePtr->hs_method_c25fec32((void*)_handle));
     }
 
     public nint handle
     {
-        get => (nint)NativeMethods.TablePtr->f2232((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_5164c43a((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::suspend_always' is not a known bindable declaration.", false)]
@@ -65,15 +65,15 @@ public sealed unsafe partial class CoroPromiseBase : global::System.IDisposable
 
     public nint local
     {
-        get => (nint)NativeMethods.TablePtr->f2233((void*)_handle);
-        set => NativeMethods.TablePtr->f2234((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->hs_get_1f9f5375((void*)_handle);
+        set => NativeMethods.TablePtr->hs_set_1f9f5375((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2226((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_1d5838d2((void*)_handle);
             _handle = 0;
         }
     }

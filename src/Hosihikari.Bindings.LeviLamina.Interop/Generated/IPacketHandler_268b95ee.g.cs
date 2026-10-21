@@ -32,7 +32,7 @@ public sealed unsafe partial class IPacketHandler : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2909((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_268b95ee((void*)_handle);
             _handle = 0;
         }
     }

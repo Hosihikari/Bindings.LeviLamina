@@ -25,7 +25,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public static SignatureElement Create()
     {
-        var handle = NativeMethods.TablePtr->f2811();
+        var handle = NativeMethods.TablePtr->hs_create_169d3cd0();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -44,7 +44,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public static SignatureElement Create(byte @byte)
     {
-        var handle = NativeMethods.TablePtr->f2812(@byte);
+        var handle = NativeMethods.TablePtr->hs_create_91885b98(@byte);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -55,12 +55,12 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public ulong hash()
     {
-        return NativeMethods.TablePtr->f2813((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_4a91da7f((void*)_handle);
     }
 
     public bool isWildcard()
     {
-        return NativeMethods.TablePtr->f2814((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_985014ba((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::byte' is not a known bindable declaration.", false)]
@@ -69,7 +69,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureElement other)
     {
-        return NativeMethods.TablePtr->f2815((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_2319360a((void*)_handle, (void*)other.Handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::byte' is not a known bindable declaration.", false)]
@@ -78,14 +78,14 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public bool operator_equal(byte other)
     {
-        return NativeMethods.TablePtr->f2816((void*)_handle, other);
+        return NativeMethods.TablePtr->hs_method_1b15f4fa((void*)_handle, other);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2810((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_d5da3fe3((void*)_handle);
             _handle = 0;
         }
     }

@@ -36,7 +36,7 @@ public sealed unsafe partial class Sink : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2777((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_fccc3a69((void*)_handle);
             _handle = 0;
         }
     }

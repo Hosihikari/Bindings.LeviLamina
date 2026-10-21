@@ -33,7 +33,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__tim
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f1791((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_194a09a8((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -42,7 +42,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__tim
 
     public long get_4f64a053()
     {
-        return NativeMethods.TablePtr->f1792((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_4f64a053((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -51,17 +51,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__tim
 
     public long get_0100609d()
     {
-        return NativeMethods.TablePtr->f1793((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_0100609d((void*)_handle);
     }
 
     public long operator_const_std__chrono__time_point_std__chrono__steady_clock___()
     {
-        return NativeMethods.TablePtr->f1794((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_c1074f13((void*)_handle);
     }
 
     public long operator_std__chrono__time_point_std__chrono__steady_clock___()
     {
-        return NativeMethods.TablePtr->f1795((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_0da4a23c((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -70,7 +70,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__tim
 
     public long operator_multiply_6a5e0aeb()
     {
-        return NativeMethods.TablePtr->f1796((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_6a5e0aeb((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -79,17 +79,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__tim
 
     public long operator_multiply_994ece3b()
     {
-        return NativeMethods.TablePtr->f1797((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_994ece3b((void*)_handle);
     }
 
     public nint operator_operator___607dd204()
     {
-        return (nint)NativeMethods.TablePtr->f1798((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_607dd204((void*)_handle);
     }
 
     public nint operator_operator___5543d14f()
     {
-        return (nint)NativeMethods.TablePtr->f1799((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_5543d14f((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]

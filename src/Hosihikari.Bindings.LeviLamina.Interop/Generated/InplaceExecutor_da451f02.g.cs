@@ -28,7 +28,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2999(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->hs_create_f5688f29(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -40,18 +40,18 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
 
     public void execute(nint arg0Invoke, nint arg0UserData, nint arg0Release)
     {
-        NativeMethods.TablePtr->f3000((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
+        NativeMethods.TablePtr->hs_method_c9037fb1((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release);
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? executeAfter(nint arg0Invoke, nint arg0UserData, nint arg0Release, long arg1)
     {
-        var __hs_shared = NativeMethods.TablePtr->f3001((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release, arg1);
+        var __hs_shared = NativeMethods.TablePtr->hs_method_1a384bf7((void*)_handle, (void*)arg0Invoke, (void*)arg0UserData, (void*)arg0Release, arg1);
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
     public static nint getDefault()
     {
-        return (nint)NativeMethods.TablePtr->f3002();
+        return (nint)NativeMethods.TablePtr->hs_method_34e67db4();
     }
 
 
@@ -59,7 +59,7 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2998((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_da451f02((void*)_handle);
             _handle = 0;
         }
     }

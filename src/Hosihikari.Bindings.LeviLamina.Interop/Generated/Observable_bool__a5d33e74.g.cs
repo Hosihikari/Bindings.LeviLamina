@@ -37,7 +37,7 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
 
     public bool getData()
     {
-        return NativeMethods.TablePtr->f2306((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_e37c0f25((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -50,24 +50,24 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
 
     public void setData(bool value)
     {
-        NativeMethods.TablePtr->f2307((void*)_handle, value);
+        NativeMethods.TablePtr->hs_method_22c7845e((void*)_handle, value);
     }
 
     public uint subscribe(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return NativeMethods.TablePtr->f2308((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return NativeMethods.TablePtr->hs_method_9fd5bd9d((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f2309((void*)_handle, id);
+        return NativeMethods.TablePtr->hs_method_8da0720f((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2305((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_a5d33e74((void*)_handle);
             _handle = 0;
         }
     }

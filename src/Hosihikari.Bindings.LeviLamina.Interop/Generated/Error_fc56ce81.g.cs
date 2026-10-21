@@ -25,7 +25,7 @@ public sealed unsafe partial class Error : global::System.IDisposable
 
     public static Error Create()
     {
-        var handle = NativeMethods.TablePtr->f1();
+        var handle = NativeMethods.TablePtr->hs_create_c9b03de9();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,7 +36,7 @@ public sealed unsafe partial class Error : global::System.IDisposable
 
     public static Error Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error arg0)
     {
-        var handle = NativeMethods.TablePtr->f2((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->hs_create_af81c54d((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -51,7 +51,7 @@ public sealed unsafe partial class Error : global::System.IDisposable
 
     public static Error Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ErrorInfoBase i)
     {
-        var handle = NativeMethods.TablePtr->f3((void*)i.ReleaseHandle());
+        var handle = NativeMethods.TablePtr->hs_create_507cce9a((void*)i.ReleaseHandle());
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -70,7 +70,7 @@ public sealed unsafe partial class Error : global::System.IDisposable
 
     public nint log(nint arg0, int arg1)
     {
-        return (nint)NativeMethods.TablePtr->f4((void*)_handle, (void*)arg0, arg1);
+        return (nint)NativeMethods.TablePtr->hs_method_24ce3688((void*)_handle, (void*)arg0, arg1);
     }
 
     public nint log(nint arg0, string locale, int arg2)
@@ -78,7 +78,7 @@ public sealed unsafe partial class Error : global::System.IDisposable
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return (nint)NativeMethods.TablePtr->f5((void*)_handle, (void*)arg0, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
+            return (nint)NativeMethods.TablePtr->hs_method_ecc40f03((void*)_handle, (void*)arg0, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
         }
     }
 
@@ -87,13 +87,13 @@ public sealed unsafe partial class Error : global::System.IDisposable
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return (nint)NativeMethods.TablePtr->f6((void*)_handle, (void*)@outInvoke, (void*)@outUserData, (void*)@outRelease, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+            return (nint)NativeMethods.TablePtr->hs_method_4962dd8b((void*)_handle, (void*)@outInvoke, (void*)@outUserData, (void*)@outRelease, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
         }
     }
 
     public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, int arg1)
     {
-        return (nint)NativeMethods.TablePtr->f7((void*)_handle, (void*)arg0.Handle, arg1);
+        return (nint)NativeMethods.TablePtr->hs_method_e159e652((void*)_handle, (void*)arg0.Handle, arg1);
     }
 
     public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, string locale, int arg2)
@@ -101,13 +101,13 @@ public sealed unsafe partial class Error : global::System.IDisposable
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return (nint)NativeMethods.TablePtr->f8((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
+            return (nint)NativeMethods.TablePtr->hs_method_909c5e3f((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
         }
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f9((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_efe26085((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -116,14 +116,14 @@ public sealed unsafe partial class Error : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->f10((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->hs_method_0a714fe5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f11((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_d1d2bd04((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.", false)]
@@ -139,7 +139,7 @@ public sealed unsafe partial class Error : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f0((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_fc56ce81((void*)_handle);
             _handle = 0;
         }
     }

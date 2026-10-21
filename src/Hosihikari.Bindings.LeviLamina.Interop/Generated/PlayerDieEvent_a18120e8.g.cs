@@ -29,19 +29,19 @@ public sealed unsafe partial class PlayerDieEvent : global::System.IDisposable
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2559((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->hs_method_87387cf1((void*)_handle, (void*)arg0);
     }
 
     public nint source()
     {
-        return (nint)NativeMethods.TablePtr->f2560((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_32fdf504((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2558((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_a18120e8((void*)_handle);
             _handle = 0;
         }
     }

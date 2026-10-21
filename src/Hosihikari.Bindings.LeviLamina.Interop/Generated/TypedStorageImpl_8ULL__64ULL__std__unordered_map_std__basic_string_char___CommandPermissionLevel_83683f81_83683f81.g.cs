@@ -33,7 +33,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f1571((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_be342ba9((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -42,7 +42,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
 
     public global::System.Collections.Generic.Dictionary<string, byte> get_1e919a1c()
     {
-        var __hs_view = NativeMethods.TablePtr->f1572((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_1e919a1c((void*)_handle);
         var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
         var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
         for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
@@ -61,7 +61,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
 
     public global::System.Collections.Generic.Dictionary<string, byte> get_014c49ff()
     {
-        var __hs_view = NativeMethods.TablePtr->f1573((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_014c49ff((void*)_handle);
         var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
         var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
         for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
@@ -76,7 +76,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
 
     public global::System.Collections.Generic.Dictionary<string, byte> operator_const_std__unordered_map_std__basic_string_char___CommandPer_a39888ac()
     {
-        var __hs_view = NativeMethods.TablePtr->f1574((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_a39888ac((void*)_handle);
         var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
         var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
         for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
@@ -91,7 +91,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
 
     public global::System.Collections.Generic.Dictionary<string, byte> operator_std__unordered_map_std__basic_string_char___CommandPermissio_3ca0101a()
     {
-        var __hs_view = NativeMethods.TablePtr->f1575((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_3ca0101a((void*)_handle);
         var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
         var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
         for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
@@ -110,7 +110,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
 
     public global::System.Collections.Generic.Dictionary<string, byte> operator_multiply_54a76fd4()
     {
-        var __hs_view = NativeMethods.TablePtr->f1576((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_54a76fd4((void*)_handle);
         var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
         var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
         for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
@@ -129,7 +129,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
 
     public global::System.Collections.Generic.Dictionary<string, byte> operator_multiply_d2172a18()
     {
-        var __hs_view = NativeMethods.TablePtr->f1577((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_d2172a18((void*)_handle);
         var __hs_items = (global::Hosihikari.Bindings.Abi.MapEntry*)__hs_view.Data;
         var __hs_result = new global::System.Collections.Generic.Dictionary<string, byte>(checked((int)__hs_view.Size));
         for (var __hs_i = 0; __hs_i < checked((int)__hs_view.Size); __hs_i++)
@@ -144,12 +144,12 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
 
     public nint operator_operator___ccf33e78()
     {
-        return (nint)NativeMethods.TablePtr->f1578((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_ccf33e78((void*)_handle);
     }
 
     public nint operator_operator___76585082()
     {
-        return (nint)NativeMethods.TablePtr->f1579((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_76585082((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]

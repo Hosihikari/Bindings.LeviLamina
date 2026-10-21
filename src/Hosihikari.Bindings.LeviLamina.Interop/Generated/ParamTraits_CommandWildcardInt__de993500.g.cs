@@ -25,14 +25,14 @@ public sealed unsafe partial class ParamTraits_CommandWildcardInt_ : global::Sys
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1951();
+        return NativeMethods.TablePtr->hs_method_2c62d0b1();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1950((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_de993500((void*)_handle);
             _handle = 0;
         }
     }

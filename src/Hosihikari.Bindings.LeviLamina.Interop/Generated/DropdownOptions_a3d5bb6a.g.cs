@@ -25,24 +25,24 @@ public sealed unsafe partial class DropdownOptions : global::System.IDisposable
 
     public nint description
     {
-        get => (nint)NativeMethods.TablePtr->f3048((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_2620a48e((void*)_handle);
     }
 
     public nint disabled
     {
-        get => (nint)NativeMethods.TablePtr->f3049((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_f0f61271((void*)_handle);
     }
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f3050((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_7ab25c31((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3047((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_a3d5bb6a((void*)_handle);
             _handle = 0;
         }
     }

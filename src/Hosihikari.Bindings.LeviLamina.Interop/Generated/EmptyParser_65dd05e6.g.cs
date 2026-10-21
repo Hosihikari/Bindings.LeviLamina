@@ -31,7 +31,7 @@ public sealed unsafe partial class EmptyParser : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1901((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_65dd05e6((void*)_handle);
             _handle = 0;
         }
     }

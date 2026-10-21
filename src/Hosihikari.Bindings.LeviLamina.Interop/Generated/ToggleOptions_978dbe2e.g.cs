@@ -25,24 +25,24 @@ public sealed unsafe partial class ToggleOptions : global::System.IDisposable
 
     public nint description
     {
-        get => (nint)NativeMethods.TablePtr->f3112((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_e656b131((void*)_handle);
     }
 
     public nint disabled
     {
-        get => (nint)NativeMethods.TablePtr->f3113((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_43f46802((void*)_handle);
     }
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f3114((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_3871ca84((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3111((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_978dbe2e((void*)_handle);
             _handle = 0;
         }
     }

@@ -25,7 +25,7 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public static Mod Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Manifest manifest)
     {
-        var handle = NativeMethods.TablePtr->f2866((void*)manifest.Handle);
+        var handle = NativeMethods.TablePtr->hs_create_31ccf128((void*)manifest.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,109 +36,109 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public string getBehaviorDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2867((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_675e8045((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getConfigDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2868((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_079d3c6d((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getDataDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2869((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_e928da17((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getLangDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2870((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_9d82ff37((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint getLogger()
     {
-        return (nint)NativeMethods.TablePtr->f2871((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_c2f8203b((void*)_handle);
     }
 
     public nint getManifest()
     {
-        return (nint)NativeMethods.TablePtr->f2872((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_9df4802c((void*)_handle);
     }
 
     public string getModDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2873((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_830f9da6((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getName()
     {
-        var __hs_view = NativeMethods.TablePtr->f2874((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_5ebbdfc4((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getResourceDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2875((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_e5585fcd((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public int getState()
     {
-        return NativeMethods.TablePtr->f2876((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_e5a11d67((void*)_handle);
     }
 
     public string getType()
     {
-        var __hs_view = NativeMethods.TablePtr->f2877((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_b1ac2eef((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string? getWorldConfigDir()
     {
         var __hs_hasValue = false;
-        var __hs_view = NativeMethods.TablePtr->f2878((void*)_handle, &__hs_hasValue);
+        var __hs_view = NativeMethods.TablePtr->hs_method_02a38612((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size)) : null;
     }
 
     public string? getWorldDataDir()
     {
         var __hs_hasValue = false;
-        var __hs_view = NativeMethods.TablePtr->f2879((void*)_handle, &__hs_hasValue);
+        var __hs_view = NativeMethods.TablePtr->hs_method_8eded801((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size)) : null;
     }
 
     public bool isDisabled()
     {
-        return NativeMethods.TablePtr->f2880((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_53251ec7((void*)_handle);
     }
 
     public bool isEnabled()
     {
-        return NativeMethods.TablePtr->f2881((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_d05c78a2((void*)_handle);
     }
 
     public void onDisable(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2882((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->hs_method_1bbcd94c((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
     public void onEnable(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2883((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->hs_method_1bd94c1a((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
     public void onLoad(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2884((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->hs_method_d463a139((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
     public void onUnload(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2885((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->hs_method_c9532442((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
 
@@ -146,7 +146,7 @@ public sealed unsafe partial class Mod : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2865((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_a592ea37((void*)_handle);
             _handle = 0;
         }
     }

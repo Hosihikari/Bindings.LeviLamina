@@ -25,19 +25,19 @@ public sealed unsafe partial class ParamTraits_std__unique_ptr_Command__ : globa
 
     public static nint parseRule()
     {
-        return (nint)NativeMethods.TablePtr->f1973();
+        return (nint)NativeMethods.TablePtr->hs_method_4f549684();
     }
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1974();
+        return NativeMethods.TablePtr->hs_method_71b4b439();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1972((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_fe35bee2((void*)_handle);
             _handle = 0;
         }
     }

@@ -25,7 +25,7 @@ public sealed unsafe partial class GlobalThreadPauser : global::System.IDisposab
 
     public static GlobalThreadPauser Create()
     {
-        var handle = NativeMethods.TablePtr->f2997();
+        var handle = NativeMethods.TablePtr->hs_create_38490708();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -39,7 +39,7 @@ public sealed unsafe partial class GlobalThreadPauser : global::System.IDisposab
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2996((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_f3452456((void*)_handle);
             _handle = 0;
         }
     }

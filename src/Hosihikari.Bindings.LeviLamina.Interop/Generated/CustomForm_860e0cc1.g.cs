@@ -25,7 +25,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public static CustomForm Create()
     {
-        var handle = NativeMethods.TablePtr->f2633();
+        var handle = NativeMethods.TablePtr->hs_create_9bac6465();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -39,7 +39,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2634(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->hs_create_321c25b1(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -51,7 +51,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint appendDivider()
     {
-        return (nint)NativeMethods.TablePtr->f2635((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_b2f77523((void*)_handle);
     }
 
     public nint appendDropdown(string name, string text, string[] options, ulong defaultVal, string tooltip)
@@ -82,7 +82,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return (nint)NativeMethods.TablePtr->f2636((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(options?.Length ?? 0));
+                            return (nint)NativeMethods.TablePtr->hs_method_2be981f8((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(options?.Length ?? 0));
                         }
                     }
                 }
@@ -99,7 +99,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2637((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->hs_method_a567f46b((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -120,7 +120,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return (nint)NativeMethods.TablePtr->f2638((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length, __hs_stringData4, (nuint)__hs_stringBytes4.Length);
+                            return (nint)NativeMethods.TablePtr->hs_method_318bf0c5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length, __hs_stringData4, (nuint)__hs_stringBytes4.Length);
                         }
                     }
                 }
@@ -133,7 +133,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2639((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->hs_method_28c740ca((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -148,7 +148,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
             {
                 fixed (byte* __hs_stringData6 = __hs_stringBytes6)
                 {
-                    return (nint)NativeMethods.TablePtr->f2640((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, min, max, step, defaultVal, __hs_stringData6, (nuint)__hs_stringBytes6.Length);
+                    return (nint)NativeMethods.TablePtr->hs_method_1773c194((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, min, max, step, defaultVal, __hs_stringData6, (nuint)__hs_stringBytes6.Length);
                 }
             }
         }
@@ -182,7 +182,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return (nint)NativeMethods.TablePtr->f2641((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(steps?.Length ?? 0));
+                            return (nint)NativeMethods.TablePtr->hs_method_d1e57eac((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(steps?.Length ?? 0));
                         }
                     }
                 }
@@ -205,7 +205,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
             {
                 fixed (byte* __hs_stringData3 = __hs_stringBytes3)
                 {
-                    return (nint)NativeMethods.TablePtr->f2642((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData3, (nuint)__hs_stringBytes3.Length);
+                    return (nint)NativeMethods.TablePtr->hs_method_3603e310((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData3, (nuint)__hs_stringBytes3.Length);
                 }
             }
         }
@@ -213,18 +213,18 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public string getFormData()
     {
-        var __hs_view = NativeMethods.TablePtr->f2643((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_afafee03((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->f2644((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return (nint)NativeMethods.TablePtr->hs_method_fe47f6f6((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->f2645((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return (nint)NativeMethods.TablePtr->hs_method_7ae2e0a5((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public nint setSubmitButton(string text)
@@ -232,7 +232,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2646((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->hs_method_6e2ffa54((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -241,7 +241,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2647((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->hs_method_e3111678((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -250,7 +250,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2632((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_860e0cc1((void*)_handle);
             _handle = 0;
         }
     }

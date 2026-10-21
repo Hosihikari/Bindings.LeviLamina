@@ -31,7 +31,7 @@ public sealed unsafe partial class PlayerJoinEvent : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2571((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_09ef0acf((void*)_handle);
             _handle = 0;
         }
     }

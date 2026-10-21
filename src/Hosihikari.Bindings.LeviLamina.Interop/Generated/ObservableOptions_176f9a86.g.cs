@@ -25,15 +25,15 @@ public sealed unsafe partial class ObservableOptions : global::System.IDisposabl
 
     public bool clientWritable
     {
-        get => NativeMethods.TablePtr->f3068((void*)_handle);
-        set => NativeMethods.TablePtr->f3069((void*)_handle, value);
+        get => NativeMethods.TablePtr->hs_get_e3b4abac((void*)_handle);
+        set => NativeMethods.TablePtr->hs_set_e3b4abac((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3067((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_176f9a86((void*)_handle);
             _handle = 0;
         }
     }

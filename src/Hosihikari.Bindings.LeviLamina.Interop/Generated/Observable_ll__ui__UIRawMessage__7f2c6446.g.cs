@@ -37,7 +37,7 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage getData()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->f2316((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->hs_method_114db1ad((void*)_handle));
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -50,24 +50,24 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
 
     public void setData(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage value)
     {
-        NativeMethods.TablePtr->f2317((void*)_handle, (void*)value.Handle);
+        NativeMethods.TablePtr->hs_method_4b4adab1((void*)_handle, (void*)value.Handle);
     }
 
     public uint subscribe(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return NativeMethods.TablePtr->f2318((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return NativeMethods.TablePtr->hs_method_3888e827((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f2319((void*)_handle, id);
+        return NativeMethods.TablePtr->hs_method_8658992c((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2315((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_7f2c6446((void*)_handle);
             _handle = 0;
         }
     }

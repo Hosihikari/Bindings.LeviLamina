@@ -25,12 +25,12 @@ public sealed unsafe partial class SleepAwaiter : global::System.IDisposable
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f2248((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_c501b34d((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f2249((void*)_handle);
+        NativeMethods.TablePtr->hs_method_5d69255a((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.", false)]
@@ -39,14 +39,14 @@ public sealed unsafe partial class SleepAwaiter : global::System.IDisposable
 
     public void setExecutor(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor? ex)
     {
-        NativeMethods.TablePtr->f2250((void*)_handle, (void*)(ex?.Handle ?? 0), ex is not null);
+        NativeMethods.TablePtr->hs_method_43664c68((void*)_handle, (void*)(ex?.Handle ?? 0), ex is not null);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2247((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_261c379c((void*)_handle);
             _handle = 0;
         }
     }

@@ -29,27 +29,27 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
 
     public ulong getId()
     {
-        return NativeMethods.TablePtr->f2523((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_2959d3b1((void*)_handle);
     }
 
     public int getPriority()
     {
-        return NativeMethods.TablePtr->f2524((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_57d3c253((void*)_handle);
     }
 
     public nint modPtr
     {
-        get => (nint)NativeMethods.TablePtr->f2525((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_ef4962f4((void*)_handle);
     }
 
     public sbyte operator_compare(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase other)
     {
-        return NativeMethods.TablePtr->f2526((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_a890d0d7((void*)_handle, (void*)other.Handle);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase other)
     {
-        return NativeMethods.TablePtr->f2527((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_34bb69f6((void*)_handle, (void*)other.Handle);
     }
 
 
@@ -57,7 +57,7 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2522((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_c0585396((void*)_handle);
             _handle = 0;
         }
     }

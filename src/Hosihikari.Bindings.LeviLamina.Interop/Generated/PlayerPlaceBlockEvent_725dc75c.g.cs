@@ -25,11 +25,11 @@ public sealed unsafe partial class PlayerPlaceBlockEvent
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f2583((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_1903f7b8((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2584((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->hs_method_35eb3764((void*)_handle, (void*)arg0);
     }
 }

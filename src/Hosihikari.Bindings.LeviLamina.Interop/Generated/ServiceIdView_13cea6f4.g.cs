@@ -32,7 +32,7 @@ public sealed unsafe partial class ServiceIdView : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(id);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2971(__hs_stringData0, (nuint)__hs_stringBytes0.Length, ver);
+            var handle = NativeMethods.TablePtr->hs_create_6f6c136f(__hs_stringData0, (nuint)__hs_stringBytes0.Length, ver);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -46,22 +46,22 @@ public sealed unsafe partial class ServiceIdView : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2972((void*)_handle);
+            var view = NativeMethods.TablePtr->hs_get_e93bdd84((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f2973((void*)_handle);
-        set => NativeMethods.TablePtr->f2974((void*)_handle, value);
+        get => NativeMethods.TablePtr->hs_get_889068b1((void*)_handle);
+        set => NativeMethods.TablePtr->hs_set_889068b1((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2970((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_13cea6f4((void*)_handle);
             _handle = 0;
         }
     }

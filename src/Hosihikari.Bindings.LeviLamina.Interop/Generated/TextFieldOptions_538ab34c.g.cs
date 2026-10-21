@@ -25,24 +25,24 @@ public sealed unsafe partial class TextFieldOptions : global::System.IDisposable
 
     public nint description
     {
-        get => (nint)NativeMethods.TablePtr->f3106((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_c2cbd1bf((void*)_handle);
     }
 
     public nint disabled
     {
-        get => (nint)NativeMethods.TablePtr->f3107((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_93fdcae8((void*)_handle);
     }
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f3108((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_c938e1a8((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3105((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_538ab34c((void*)_handle);
             _handle = 0;
         }
     }

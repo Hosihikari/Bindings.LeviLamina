@@ -29,34 +29,34 @@ public sealed unsafe partial class PlayerPickUpItemEvent : global::System.IDispo
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2578((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->hs_method_7579f233((void*)_handle, (void*)arg0);
     }
 
     public nint favoredSlot()
     {
-        return (nint)NativeMethods.TablePtr->f2579((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_0e63e30b((void*)_handle);
     }
 
     public nint itemActor()
     {
-        return (nint)NativeMethods.TablePtr->f2580((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_ecadd0cc((void*)_handle);
     }
 
     public nint orgCount()
     {
-        return (nint)NativeMethods.TablePtr->f2581((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_3ea5079b((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2582((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->hs_method_6926f186((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2577((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_a18008f6((void*)_handle);
             _handle = 0;
         }
     }

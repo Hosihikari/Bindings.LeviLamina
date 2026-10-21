@@ -30,40 +30,40 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
     public nint? block()
     {
         var __hs_hasValue = false;
-        var __hs_handle = NativeMethods.TablePtr->f2565((void*)_handle, &__hs_hasValue);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_f4b13300((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? (nint)__hs_handle : null;
     }
 
     public nint blockPos()
     {
-        return (nint)NativeMethods.TablePtr->f2566((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_006a3ef8((void*)_handle);
     }
 
     public nint clickPos()
     {
-        return (nint)NativeMethods.TablePtr->f2567((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_3ab96ca0((void*)_handle);
     }
 
     public nint face()
     {
-        return (nint)NativeMethods.TablePtr->f2568((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_74e90d19((void*)_handle);
     }
 
     public nint item()
     {
-        return (nint)NativeMethods.TablePtr->f2569((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_9ef832dd((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2570((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->hs_method_367f4062((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2564((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_ba545186((void*)_handle);
             _handle = 0;
         }
     }

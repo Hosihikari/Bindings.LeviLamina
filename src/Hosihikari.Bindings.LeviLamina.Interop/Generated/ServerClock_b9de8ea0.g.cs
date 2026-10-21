@@ -25,19 +25,19 @@ public sealed unsafe partial class ServerClock : global::System.IDisposable
 
     public static bool is_steady
     {
-        get => NativeMethods.TablePtr->f1885();
+        get => NativeMethods.TablePtr->hs_get_44d042e1();
     }
 
     public static long now()
     {
-        return NativeMethods.TablePtr->f1886();
+        return NativeMethods.TablePtr->hs_method_e3b4b2ea();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1884((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_b9de8ea0((void*)_handle);
             _handle = 0;
         }
     }

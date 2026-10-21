@@ -25,12 +25,12 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeSoftEnum_ : g
 
     public static int dataType()
     {
-        return NativeMethods.TablePtr->f1967();
+        return NativeMethods.TablePtr->hs_method_8d96f19d();
     }
 
     public static byte options()
     {
-        return NativeMethods.TablePtr->f1968();
+        return NativeMethods.TablePtr->hs_method_86605e55();
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: return type 'bool (CommandRegistry::*)(void *, const CommandRegistry::ParseToken &, const CommandOrigin &, int, std::basic_string<char> &, std::vector<std::basic_string<char>> &) const' is not supported.", false)]
@@ -39,14 +39,14 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeSoftEnum_ : g
 
     public static ushort typeId()
     {
-        return NativeMethods.TablePtr->f1969();
+        return NativeMethods.TablePtr->hs_method_ba14e157();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1966((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_ea722f2b((void*)_handle);
             _handle = 0;
         }
     }

@@ -33,7 +33,7 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__Vec2_
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f438((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->hs_get_ae5d060d((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -42,7 +42,7 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__Vec2_
 
     public nint get_6ba73076()
     {
-        return (nint)NativeMethods.TablePtr->f439((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_6ba73076((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -51,17 +51,17 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__Vec2_
 
     public nint get_2efa5630()
     {
-        return (nint)NativeMethods.TablePtr->f440((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_2efa5630((void*)_handle);
     }
 
     public nint operator_Vec2__()
     {
-        return (nint)NativeMethods.TablePtr->f441((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_7f0f9e67((void*)_handle);
     }
 
     public nint operator_const_Vec2__()
     {
-        return (nint)NativeMethods.TablePtr->f442((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_4e6d32cd((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -70,7 +70,7 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__Vec2_
 
     public nint operator_multiply_f7240af4()
     {
-        return (nint)NativeMethods.TablePtr->f443((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_f7240af4((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -79,17 +79,17 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__Vec2_
 
     public nint operator_multiply_69f2cbe7()
     {
-        return (nint)NativeMethods.TablePtr->f444((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_69f2cbe7((void*)_handle);
     }
 
     public nint operator_operator___9056892b()
     {
-        return (nint)NativeMethods.TablePtr->f445((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_9056892b((void*)_handle);
     }
 
     public nint operator_operator___2ea1fbdc()
     {
-        return (nint)NativeMethods.TablePtr->f446((void*)_handle);
+        return (nint)NativeMethods.TablePtr->hs_method_2ea1fbdc((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]

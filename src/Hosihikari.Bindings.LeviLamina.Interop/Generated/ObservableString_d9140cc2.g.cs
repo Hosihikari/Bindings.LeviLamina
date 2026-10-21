@@ -27,7 +27,7 @@ public sealed unsafe partial class ObservableString : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3070((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_d9140cc2((void*)_handle);
             _handle = 0;
         }
     }

@@ -31,7 +31,7 @@ public sealed unsafe partial class ServiceRegisterEvent : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2613((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_7e334500((void*)_handle);
             _handle = 0;
         }
     }

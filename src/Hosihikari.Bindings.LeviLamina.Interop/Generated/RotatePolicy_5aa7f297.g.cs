@@ -25,7 +25,7 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
 
     public static RotatePolicy Create()
     {
-        var handle = NativeMethods.TablePtr->f2773();
+        var handle = NativeMethods.TablePtr->hs_create_440f50b9();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,7 +36,7 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
 
     public static RotatePolicy Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotateConfig config)
     {
-        var handle = NativeMethods.TablePtr->f2774((void*)config.Handle);
+        var handle = NativeMethods.TablePtr->hs_create_23531b04((void*)config.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -47,13 +47,13 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
 
     public static string defaultNamer(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.ArchiveNameInfo info)
     {
-        var __hs_view = NativeMethods.TablePtr->f2775((void*)info.Handle);
+        var __hs_view = NativeMethods.TablePtr->hs_method_bb9abfe8((void*)info.Handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotatePolicy disabled()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotatePolicy((nint)NativeMethods.TablePtr->f2776());
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotatePolicy((nint)NativeMethods.TablePtr->hs_method_2e63ad40());
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: field type 'std::function<std::basic_string<char> (const ll::io::ArchiveNameInfo &)>' is not supported.", false)]
@@ -67,7 +67,7 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2772((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_5aa7f297((void*)_handle);
             _handle = 0;
         }
     }

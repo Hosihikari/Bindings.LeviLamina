@@ -25,7 +25,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create()
     {
-        var handle = NativeMethods.TablePtr->f3081();
+        var handle = NativeMethods.TablePtr->hs_create_9511ed84();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -48,7 +48,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create_dd7804f0(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
     {
-        var handle = NativeMethods.TablePtr->f3082((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->hs_create_dd7804f0((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -59,7 +59,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public static ScreenSession Create_421a87a9(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
     {
-        var handle = NativeMethods.TablePtr->f3083((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->hs_create_421a87a9((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -77,7 +77,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_expectedResult = NativeMethods.TablePtr->f3084((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, &__hs_hasValue);
+                var __hs_expectedResult = NativeMethods.TablePtr->hs_method_b6ad6e1d((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, &__hs_hasValue);
                 if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
                 return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
             }
@@ -87,7 +87,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     public void close()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3085((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->hs_method_ec081c48((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -100,7 +100,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_expectedResult = NativeMethods.TablePtr->f3086((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)value, &__hs_hasValue);
+                var __hs_expectedResult = NativeMethods.TablePtr->hs_method_8d590c2a((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)value, &__hs_hasValue);
                 if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
                 return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
             }
@@ -119,7 +119,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
             {
                 fixed (byte* __hs_stringData2 = __hs_stringBytes2)
                 {
-                    var __hs_expectedResult = NativeMethods.TablePtr->f3087((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, &__hs_hasValue);
+                    var __hs_expectedResult = NativeMethods.TablePtr->hs_method_d9361dd5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, &__hs_hasValue);
                     if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
                     return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
                 }
@@ -130,25 +130,25 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     public uint? getFormId()
     {
         var __hs_hasValue = false;
-        var __hs_value = NativeMethods.TablePtr->f3088((void*)_handle, &__hs_hasValue);
+        var __hs_value = NativeMethods.TablePtr->hs_method_9e1806c3((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? __hs_value : (uint?)null;
     }
 
     public uint? getInstanceId()
     {
         var __hs_hasValue = false;
-        var __hs_value = NativeMethods.TablePtr->f3089((void*)_handle, &__hs_hasValue);
+        var __hs_value = NativeMethods.TablePtr->hs_method_45ce26ba((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? __hs_value : (uint?)null;
     }
 
     public byte getState()
     {
-        return NativeMethods.TablePtr->f3090((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_5a28bc2c((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f3091((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_6bbf78c7((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -162,7 +162,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     public void show(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3092((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease, &__hs_hasValue);
+        NativeMethods.TablePtr->hs_method_bc4ff820((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -175,7 +175,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3080((void*)_handle);
+            NativeMethods.TablePtr->hs_destroy_d1beccfe((void*)_handle);
             _handle = 0;
         }
     }

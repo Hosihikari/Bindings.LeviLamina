@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__std__map_HashedString__std__unique_ptr_BlockType___
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypedStorageImpl_8ULL__16ULL__std__map_HashedString__std__unique_ptr_BlockType___(nint handle) => _handle = handle;
+    public TypedStorageImpl_8ULL__16ULL__std__map_HashedString__std__unique_ptr_BlockType___(nint handle) : this(handle, true) { }
+
+    internal TypedStorageImpl_8ULL__16ULL__std__map_HashedString__std__unique_ptr_BlockType___(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__std__map_Hashed
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

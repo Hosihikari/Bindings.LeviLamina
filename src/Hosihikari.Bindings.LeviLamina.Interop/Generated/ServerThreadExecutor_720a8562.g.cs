@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.thread;
 public sealed unsafe partial class ServerThreadExecutor : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ServerThreadExecutor(nint handle) => _handle = handle;
+    public ServerThreadExecutor(nint handle) : this(handle, true) { }
+
+    internal ServerThreadExecutor(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -49,9 +61,9 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
-    public static nint getDefault()
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.thread.ServerThreadExecutor getDefault()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_b24beaae();
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.thread.ServerThreadExecutor((nint)NativeMethods.TablePtr->hs_method_b24beaae(), false);
     }
 
 
@@ -59,7 +71,11 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_720a8562((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_720a8562((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

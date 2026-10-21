@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__MolangVariableSettings_ : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypedStorageImpl_4ULL__8ULL__MolangVariableSettings_(nint handle) => _handle = handle;
+    public TypedStorageImpl_4ULL__8ULL__MolangVariableSettings_(nint handle) : this(handle, true) { }
+
+    internal TypedStorageImpl_4ULL__8ULL__MolangVariableSettings_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__MolangVariableSe
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -105,7 +117,11 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__MolangVariableSe
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_6755a7fe((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_6755a7fe((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

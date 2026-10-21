@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 public sealed unsafe partial class Property : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public Property(nint handle) => _handle = handle;
+    public Property(nint handle) : this(handle, true) { }
+
+    internal Property(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class Property : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -68,14 +80,14 @@ public sealed unsafe partial class Property : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_525dca87((void*)_handle);
     }
 
-    public nint operator_assign_bfa12fa4(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property operator_assign_bfa12fa4(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_bfa12fa4((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)NativeMethods.TablePtr->hs_method_bfa12fa4((void*)_handle, (void*)arg0.Handle), false);
     }
 
-    public nint operator_assign_a1807e9e(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property operator_assign_a1807e9e(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_a1807e9e((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)NativeMethods.TablePtr->hs_method_a1807e9e((void*)_handle, (void*)arg0.Handle), false);
     }
 
     public void set(global::Hosihikari.Bindings.LeviLamina.Interop.cereal.DynamicValue value)
@@ -101,7 +113,11 @@ public sealed unsafe partial class Property : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_a7519cac((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_a7519cac((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

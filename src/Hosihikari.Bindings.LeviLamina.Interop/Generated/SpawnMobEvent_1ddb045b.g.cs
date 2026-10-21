@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 public sealed unsafe partial class SpawnMobEvent
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public SpawnMobEvent(nint handle) => _handle = handle;
+    public SpawnMobEvent(nint handle) : this(handle, true) { }
+
+    internal SpawnMobEvent(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class SpawnMobEvent
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -38,9 +50,9 @@ public sealed unsafe partial class SpawnMobEvent
         return (nint)NativeMethods.TablePtr->hs_method_de73fc86((void*)_handle);
     }
 
-    public nint pos()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 pos()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_a5de4999((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_a5de4999((void*)_handle), false);
     }
 
     public void serialize(nint arg0)

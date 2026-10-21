@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.coro;
 public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ForwardAwaiter_const_ll__coro__Executor___(nint handle) => _handle = handle;
+    public ForwardAwaiter_const_ll__coro__Executor___(nint handle) : this(handle, true) { }
+
+    internal ForwardAwaiter_const_ll__coro__Executor___(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -32,9 +44,9 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
         return NativeMethods.TablePtr->hs_method_7f13234a((void*)_handle);
     }
 
-    public nint await_resume()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor await_resume()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_e3c5d3b6((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor((nint)NativeMethods.TablePtr->hs_method_e3c5d3b6((void*)_handle), false);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.", false)]
@@ -50,7 +62,11 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_87455beb((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_87455beb((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

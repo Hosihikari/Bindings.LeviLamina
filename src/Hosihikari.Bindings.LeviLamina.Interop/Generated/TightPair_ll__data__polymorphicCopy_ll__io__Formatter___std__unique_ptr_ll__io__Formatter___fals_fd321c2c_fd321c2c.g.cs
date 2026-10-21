@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 public sealed unsafe partial class TightPair_ll__data__polymorphicCopy_ll__io__Formatter___std__unique_ptr_ll__io__Formatter___fals_fd321c2c
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TightPair_ll__data__polymorphicCopy_ll__io__Formatter___std__unique_ptr_ll__io__Formatter___fals_fd321c2c(nint handle) => _handle = handle;
+    public TightPair_ll__data__polymorphicCopy_ll__io__Formatter___std__unique_ptr_ll__io__Formatter___fals_fd321c2c(nint handle) : this(handle, true) { }
+
+    internal TightPair_ll__data__polymorphicCopy_ll__io__Formatter___std__unique_ptr_ll__io__Formatter___fals_fd321c2c(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -18,19 +25,24 @@ public sealed unsafe partial class TightPair_ll__data__polymorphicCopy_ll__io__F
             throw new global::System.ObjectDisposedException("handle");
         }
 
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
+        }
+
         var __hs_handle = _handle;
         _handle = 0;
         return __hs_handle;
     }
 
-    public nint first_9d4d6093()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_ first_9d4d6093()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_9d4d6093((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_((nint)NativeMethods.TablePtr->hs_method_9d4d6093((void*)_handle), false);
     }
 
-    public nint first_9bccad5c()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_ first_9bccad5c()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_9bccad5c((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_((nint)NativeMethods.TablePtr->hs_method_9bccad5c((void*)_handle), false);
     }
 
     public nint second_73c45094()

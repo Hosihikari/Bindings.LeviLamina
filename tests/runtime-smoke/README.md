@@ -30,7 +30,8 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `std::shared_ptr<T>` projection: `LoggerRegistry::getOrCreate`/`tryGet` return a `SharedHandle`; both lookups alias the same target, the target serves `Logger::getTitle`, and the shared references release cleanly.
 - `vector<pair<string, uint64>>` parameters surface as `KeyValuePair<string, ulong>[]`; `CommandRegistrar.tryRegisterRuntimeEnum` and `addRuntimeEnumValues` register and extend a runtime enum.
 - `brstd::function_ref` callbacks: `Error.log` invokes the managed sink with the formatted message, and the callback releases its state through the generated closure.
-- `CommandFlag` from a dependency declaration constructs from its enum value; `CommandRegistrar.getOrCreateCommand` accepts the flag and the mod weak reference and returns a borrowed `CommandHandle`.
+- `CommandFlag` from a dependency declaration constructs from its enum value; `CommandRegistrar.getOrCreateCommand` accepts the flag and the mod weak reference and returns a typed borrowed `CommandHandle`.
+- Typed borrowed returns: `CommandRegistrar.getInstance`, `ModManagerRegistry.getInstance`, `LoggerRegistry.getInstance`, and `PlayerInfo.getInstance` return wrappers instead of `nint`; a borrowed `RuntimeOverload` from `text()` is disposed without destroying the original overload.
 - `std::weak_ptr<ll::mod::Mod>` parameters accept a `SharedHandle`; `ModManagerRegistry.executeOnModLoad` registers a callback for the mod obtained from `getMod`, and the registration is removed by id.
 - `optional_ref<T>` projection: `PlayerInfo::fromName`/`fromXuid` return `nint?`; lookups for absent players report an empty reference.
 - `nonstd::expected_lite::expected<T, ll::Error>` projection: `Property::setJson` reports the native error through `InvalidOperationException` with the `ll::Error` message.
@@ -66,6 +67,7 @@ shared.dispose=ok
 command_enum.pairs=ok
 weak_ptr.mod=ok
 command.create=ok
+borrowed.dispose=ok
 optional_ref.missing=ok
 expected.error=caught
 invalid=caught:invalid argument

@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.network;
 public sealed unsafe partial class Packet : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public Packet(nint handle) => _handle = handle;
+    public Packet(nint handle) : this(handle, true) { }
+
+    internal Packet(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class Packet : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -113,7 +125,11 @@ public sealed unsafe partial class Packet : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_015d20d0((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_015d20d0((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

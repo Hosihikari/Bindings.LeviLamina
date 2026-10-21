@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.meta;
 public sealed unsafe partial class TypeList_EndTag__ByteTag__ShortTag__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringT_3432c82a : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypeList_EndTag__ByteTag__ShortTag__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringT_3432c82a(nint handle) => _handle = handle;
+    public TypeList_EndTag__ByteTag__ShortTag__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringT_3432c82a(nint handle) : this(handle, true) { }
+
+    internal TypeList_EndTag__ByteTag__ShortTag__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringT_3432c82a(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class TypeList_EndTag__ByteTag__ShortTag__IntTag__I
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -39,7 +51,11 @@ public sealed unsafe partial class TypeList_EndTag__ByteTag__ShortTag__IntTag__I
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_3432c82a((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_3432c82a((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

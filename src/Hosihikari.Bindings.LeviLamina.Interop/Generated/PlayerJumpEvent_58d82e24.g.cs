@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 public sealed unsafe partial class PlayerJumpEvent : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public PlayerJumpEvent(nint handle) => _handle = handle;
+    public PlayerJumpEvent(nint handle) : this(handle, true) { }
+
+    internal PlayerJumpEvent(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class PlayerJumpEvent : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -27,9 +39,9 @@ public sealed unsafe partial class PlayerJumpEvent : global::System.IDisposable
     public static PlayerJumpEvent Create(nint player, nint fromPos, nint toPos) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
-    public nint fromPosition()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 fromPosition()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_8156d737((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_8156d737((void*)_handle), false);
     }
 
     public void serialize(nint nbt)
@@ -37,16 +49,20 @@ public sealed unsafe partial class PlayerJumpEvent : global::System.IDisposable
         NativeMethods.TablePtr->hs_method_86485622((void*)_handle, (void*)nbt);
     }
 
-    public nint toPosition()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 toPosition()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_d9bbfce7((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_d9bbfce7((void*)_handle), false);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_58d82e24((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_58d82e24((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

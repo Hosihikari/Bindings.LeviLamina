@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 public sealed unsafe partial class AnyFunction : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public AnyFunction(nint handle) => _handle = handle;
+    public AnyFunction(nint handle) : this(handle, true) { }
+
+    internal AnyFunction(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -69,14 +81,14 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_0a5e165e((void*)_handle);
     }
 
-    public nint operator_assign_ab62667b(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction operator_assign_ab62667b(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_ab62667b((void*)_handle, (void*)other.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction((nint)NativeMethods.TablePtr->hs_method_ab62667b((void*)_handle, (void*)other.Handle), false);
     }
 
-    public nint operator_assign_e043fab8(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction operator_assign_e043fab8(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_e043fab8((void*)_handle, (void*)other.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction((nint)NativeMethods.TablePtr->hs_method_e043fab8((void*)_handle, (void*)other.Handle), false);
     }
 
     public void swap(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
@@ -89,7 +101,11 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_0ba86cd4((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_0ba86cd4((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

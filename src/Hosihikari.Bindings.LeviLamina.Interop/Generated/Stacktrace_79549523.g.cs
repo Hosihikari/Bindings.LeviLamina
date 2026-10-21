@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 public sealed unsafe partial class Stacktrace : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public Stacktrace(nint handle) => _handle = handle;
+    public Stacktrace(nint handle) : this(handle, true) { }
+
+    internal Stacktrace(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class Stacktrace : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -42,9 +54,9 @@ public sealed unsafe partial class Stacktrace : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_e66468aa((void*)_handle);
     }
 
-    public nint operator_index(ulong index)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.StacktraceEntry operator_index(ulong index)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_ca44197a((void*)_handle, index);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.StacktraceEntry((nint)NativeMethods.TablePtr->hs_method_ca44197a((void*)_handle, index), false);
     }
 
     public ulong size()
@@ -56,7 +68,11 @@ public sealed unsafe partial class Stacktrace : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_79549523((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_79549523((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

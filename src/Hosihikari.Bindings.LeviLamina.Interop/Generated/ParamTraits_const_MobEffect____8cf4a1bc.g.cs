@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 public sealed partial class ParamTraits_const_MobEffect___
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ParamTraits_const_MobEffect___(nint handle) => _handle = handle;
+    public ParamTraits_const_MobEffect___(nint handle) : this(handle, true) { }
+
+    internal ParamTraits_const_MobEffect___(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed partial class ParamTraits_const_MobEffect___
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.nonstd.expected_lite;
 public sealed unsafe partial class bad_expected_access_ll__Error_ : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public bad_expected_access_ll__Error_(nint handle) => _handle = handle;
+    public bad_expected_access_ll__Error_(nint handle) : this(handle, true) { }
+
+    internal bad_expected_access_ll__Error_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -31,18 +43,18 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
     public nint error_5a2a67ef() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint error_cd83de93()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error error_cd83de93()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_cd83de93((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_cd83de93((void*)_handle), false);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
     public nint error_3eeff636() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint error_648678e4()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error error_648678e4()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_648678e4((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_648678e4((void*)_handle), false);
     }
 
     public nint what()
@@ -54,7 +66,11 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_b401a6bc((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_b401a6bc((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

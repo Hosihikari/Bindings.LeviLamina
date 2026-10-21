@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.mod;
 public sealed unsafe partial class ModManagerRegistry
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ModManagerRegistry(nint handle) => _handle = handle;
+    public ModManagerRegistry(nint handle) : this(handle, true) { }
+
+    internal ModManagerRegistry(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class ModManagerRegistry
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -72,9 +84,9 @@ public sealed unsafe partial class ModManagerRegistry
         return NativeMethods.TablePtr->hs_method_ea621a8b((void*)_handle, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
     }
 
-    public static nint getInstance()
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.ModManagerRegistry getInstance()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_35a0463e();
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.ModManagerRegistry((nint)NativeMethods.TablePtr->hs_method_35a0463e(), false);
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getManager(string type)

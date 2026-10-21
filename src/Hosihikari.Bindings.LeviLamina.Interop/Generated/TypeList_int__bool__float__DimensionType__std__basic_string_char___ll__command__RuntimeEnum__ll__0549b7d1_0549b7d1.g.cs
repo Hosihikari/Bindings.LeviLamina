@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.meta;
 public sealed unsafe partial class TypeList_int__bool__float__DimensionType__std__basic_string_char___ll__command__RuntimeEnum__ll__0549b7d1 : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypeList_int__bool__float__DimensionType__std__basic_string_char___ll__command__RuntimeEnum__ll__0549b7d1(nint handle) => _handle = handle;
+    public TypeList_int__bool__float__DimensionType__std__basic_string_char___ll__command__RuntimeEnum__ll__0549b7d1(nint handle) : this(handle, true) { }
+
+    internal TypeList_int__bool__float__DimensionType__std__basic_string_char___ll__command__RuntimeEnum__ll__0549b7d1(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class TypeList_int__bool__float__DimensionType__std
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -32,7 +44,11 @@ public sealed unsafe partial class TypeList_int__bool__float__DimensionType__std
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_0549b7d1((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_0549b7d1((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

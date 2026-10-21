@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.traits;
 public sealed partial class get_type_6ULL__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringTag__ListTag__Compound_5b85185a
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public get_type_6ULL__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringTag__ListTag__Compound_5b85185a(nint handle) => _handle = handle;
+    public get_type_6ULL__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringTag__ListTag__Compound_5b85185a(nint handle) : this(handle, true) { }
+
+    internal get_type_6ULL__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringTag__ListTag__Compound_5b85185a(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed partial class get_type_6ULL__IntTag__Int64Tag__FloatTag__DoubleTag
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 public sealed unsafe partial class LoggerRegistry
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public LoggerRegistry(nint handle) => _handle = handle;
+    public LoggerRegistry(nint handle) : this(handle, true) { }
+
+    internal LoggerRegistry(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class LoggerRegistry
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -32,9 +44,9 @@ public sealed unsafe partial class LoggerRegistry
         }
     }
 
-    public static nint getInstance()
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LoggerRegistry getInstance()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_95e32837();
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LoggerRegistry((nint)NativeMethods.TablePtr->hs_method_95e32837(), false);
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getOrCreate(string title)

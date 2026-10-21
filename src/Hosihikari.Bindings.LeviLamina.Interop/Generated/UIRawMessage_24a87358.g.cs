@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public UIRawMessage(nint handle) => _handle = handle;
+    public UIRawMessage(nint handle) : this(handle, true) { }
+
+    internal UIRawMessage(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -56,14 +68,14 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         return new UIRawMessage((nint)handle);
     }
 
-    public nint operator_assign_e1f154a7(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage operator_assign_e1f154a7(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_e1f154a7((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->hs_method_e1f154a7((void*)_handle, (void*)arg0.Handle), false);
     }
 
-    public nint operator_assign_c7ed1619(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage operator_assign_c7ed1619(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_c7ed1619((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->hs_method_c7ed1619((void*)_handle, (void*)arg0.Handle), false);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
@@ -150,7 +162,11 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_24a87358((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_24a87358((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

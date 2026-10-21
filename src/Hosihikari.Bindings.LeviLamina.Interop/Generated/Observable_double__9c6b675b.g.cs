@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 public sealed unsafe partial class Observable_double_ : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public Observable_double_(nint handle) => _handle = handle;
+    public Observable_double_(nint handle) : this(handle, true) { }
+
+    internal Observable_double_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -67,7 +79,11 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_9c6b675b((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_9c6b675b((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

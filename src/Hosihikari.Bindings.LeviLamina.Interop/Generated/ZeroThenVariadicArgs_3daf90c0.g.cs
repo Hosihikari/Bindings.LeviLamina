@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 public sealed partial class ZeroThenVariadicArgs
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ZeroThenVariadicArgs(nint handle) => _handle = handle;
+    public ZeroThenVariadicArgs(nint handle) : this(handle, true) { }
+
+    internal ZeroThenVariadicArgs(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed partial class ZeroThenVariadicArgs
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

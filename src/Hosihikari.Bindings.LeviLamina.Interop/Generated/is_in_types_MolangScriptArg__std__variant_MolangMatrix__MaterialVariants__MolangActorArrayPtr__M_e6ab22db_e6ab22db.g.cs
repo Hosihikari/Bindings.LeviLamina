@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.traits;
 public sealed partial class is_in_types_MolangScriptArg__std__variant_MolangMatrix__MaterialVariants__MolangActorArrayPtr__M_e6ab22db
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public is_in_types_MolangScriptArg__std__variant_MolangMatrix__MaterialVariants__MolangActorArrayPtr__M_e6ab22db(nint handle) => _handle = handle;
+    public is_in_types_MolangScriptArg__std__variant_MolangMatrix__MaterialVariants__MolangActorArrayPtr__M_e6ab22db(nint handle) : this(handle, true) { }
+
+    internal is_in_types_MolangScriptArg__std__variant_MolangMatrix__MaterialVariants__MolangActorArrayPtr__M_e6ab22db(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed partial class is_in_types_MolangScriptArg__std__variant_MolangMatr
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

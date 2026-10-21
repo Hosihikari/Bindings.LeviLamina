@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.meta.detail;
 public sealed partial class VisitStrategy_12ULL__2_
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public VisitStrategy_12ULL__2_(nint handle) => _handle = handle;
+    public VisitStrategy_12ULL__2_(nint handle) : this(handle, true) { }
+
+    internal VisitStrategy_12ULL__2_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed partial class VisitStrategy_12ULL__2_
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

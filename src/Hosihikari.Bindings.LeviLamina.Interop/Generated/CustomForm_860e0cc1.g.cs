@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.form;
 public sealed unsafe partial class CustomForm : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public CustomForm(nint handle) => _handle = handle;
+    public CustomForm(nint handle) : this(handle, true) { }
+
+    internal CustomForm(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -49,12 +61,12 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         }
     }
 
-    public nint appendDivider()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendDivider()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_b2f77523((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_b2f77523((void*)_handle), false);
     }
 
-    public nint appendDropdown(string name, string text, string[] options, ulong defaultVal, string tooltip)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendDropdown(string name, string text, string[] options, ulong defaultVal, string tooltip)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
@@ -82,7 +94,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return (nint)NativeMethods.TablePtr->hs_method_2be981f8((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(options?.Length ?? 0));
+                            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_2be981f8((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(options?.Length ?? 0)), false);
                         }
                     }
                 }
@@ -94,16 +106,16 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         }
     }
 
-    public nint appendHeader(string text)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendHeader(string text)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_a567f46b((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_a567f46b((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 
-    public nint appendInput(string name, string text, string placeholder, string defaultVal, string tooltip)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendInput(string name, string text, string placeholder, string defaultVal, string tooltip)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
@@ -120,7 +132,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return (nint)NativeMethods.TablePtr->hs_method_318bf0c5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length, __hs_stringData4, (nuint)__hs_stringBytes4.Length);
+                            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_318bf0c5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length, __hs_stringData4, (nuint)__hs_stringBytes4.Length), false);
                         }
                     }
                 }
@@ -128,16 +140,16 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         }
     }
 
-    public nint appendLabel(string text)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendLabel(string text)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_28c740ca((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_28c740ca((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 
-    public nint appendSlider(string name, string text, double min, double max, double step, double defaultVal, string tooltip)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendSlider(string name, string text, double min, double max, double step, double defaultVal, string tooltip)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
@@ -148,13 +160,13 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
             {
                 fixed (byte* __hs_stringData6 = __hs_stringBytes6)
                 {
-                    return (nint)NativeMethods.TablePtr->hs_method_1773c194((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, min, max, step, defaultVal, __hs_stringData6, (nuint)__hs_stringBytes6.Length);
+                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_1773c194((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, min, max, step, defaultVal, __hs_stringData6, (nuint)__hs_stringBytes6.Length), false);
                 }
             }
         }
     }
 
-    public nint appendStepSlider(string name, string text, string[] steps, ulong defaultVal, string tooltip)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendStepSlider(string name, string text, string[] steps, ulong defaultVal, string tooltip)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
@@ -182,7 +194,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return (nint)NativeMethods.TablePtr->hs_method_d1e57eac((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(steps?.Length ?? 0));
+                            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_d1e57eac((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(steps?.Length ?? 0)), false);
                         }
                     }
                 }
@@ -194,7 +206,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         }
     }
 
-    public nint appendToggle(string name, string text, bool defaultVal, string tooltip)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendToggle(string name, string text, bool defaultVal, string tooltip)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
@@ -205,7 +217,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
             {
                 fixed (byte* __hs_stringData3 = __hs_stringBytes3)
                 {
-                    return (nint)NativeMethods.TablePtr->hs_method_3603e310((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData3, (nuint)__hs_stringBytes3.Length);
+                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_3603e310((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData3, (nuint)__hs_stringBytes3.Length), false);
                 }
             }
         }
@@ -217,31 +229,31 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
-    public nint sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_fe47f6f6((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_fe47f6f6((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease), false);
     }
 
-    public nint sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_7ae2e0a5((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_7ae2e0a5((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease), false);
     }
 
-    public nint setSubmitButton(string text)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm setSubmitButton(string text)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_6e2ffa54((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_6e2ffa54((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 
-    public nint setTitle(string title)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm setTitle(string title)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_e3111678((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_e3111678((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 
@@ -250,7 +262,11 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_860e0cc1((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_860e0cc1((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

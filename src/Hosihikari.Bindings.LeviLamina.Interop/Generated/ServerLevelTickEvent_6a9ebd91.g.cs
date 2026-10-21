@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 public sealed unsafe partial class ServerLevelTickEvent : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ServerLevelTickEvent(nint handle) => _handle = handle;
+    public ServerLevelTickEvent(nint handle) : this(handle, true) { }
+
+    internal ServerLevelTickEvent(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class ServerLevelTickEvent : global::System.IDispos
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -31,7 +43,11 @@ public sealed unsafe partial class ServerLevelTickEvent : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_6a9ebd91((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_6a9ebd91((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

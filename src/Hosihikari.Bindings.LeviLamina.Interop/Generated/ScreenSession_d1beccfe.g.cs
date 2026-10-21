@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 public sealed unsafe partial class ScreenSession : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ScreenSession(nint handle) => _handle = handle;
+    public ScreenSession(nint handle) : this(handle, true) { }
+
+    internal ScreenSession(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -151,14 +163,14 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_6bbf78c7((void*)_handle);
     }
 
-    public nint operator_assign_e92563b0(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession operator_assign_e92563b0(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_e92563b0((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession((nint)NativeMethods.TablePtr->hs_method_e92563b0((void*)_handle, (void*)arg0.Handle), false);
     }
 
-    public nint operator_assign_6af6b491(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession operator_assign_6af6b491(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_6af6b491((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession((nint)NativeMethods.TablePtr->hs_method_6af6b491((void*)_handle, (void*)arg0.Handle), false);
     }
 
     public void show(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
@@ -177,7 +189,11 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_d1beccfe((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_d1beccfe((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

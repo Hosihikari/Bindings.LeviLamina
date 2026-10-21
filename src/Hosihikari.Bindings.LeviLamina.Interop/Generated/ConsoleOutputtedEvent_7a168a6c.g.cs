@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 public sealed unsafe partial class ConsoleOutputtedEvent : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ConsoleOutputtedEvent(nint handle) => _handle = handle;
+    public ConsoleOutputtedEvent(nint handle) : this(handle, true) { }
+
+    internal ConsoleOutputtedEvent(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class ConsoleOutputtedEvent : global::System.IDispo
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -58,7 +70,11 @@ public sealed unsafe partial class ConsoleOutputtedEvent : global::System.IDispo
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_7a168a6c((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_7a168a6c((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

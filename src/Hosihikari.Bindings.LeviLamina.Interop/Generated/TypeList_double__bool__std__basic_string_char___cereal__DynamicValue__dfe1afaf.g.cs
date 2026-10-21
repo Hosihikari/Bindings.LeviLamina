@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.meta;
 public sealed unsafe partial class TypeList_double__bool__std__basic_string_char___cereal__DynamicValue_ : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypeList_double__bool__std__basic_string_char___cereal__DynamicValue_(nint handle) => _handle = handle;
+    public TypeList_double__bool__std__basic_string_char___cereal__DynamicValue_(nint handle) : this(handle, true) { }
+
+    internal TypeList_double__bool__std__basic_string_char___cereal__DynamicValue_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class TypeList_double__bool__std__basic_string_char
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -32,7 +44,11 @@ public sealed unsafe partial class TypeList_double__bool__std__basic_string_char
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_dfe1afaf((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_dfe1afaf((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_(nint handle) => _handle = handle;
+    public MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_(nint handle) : this(handle, true) { }
+
+    internal MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

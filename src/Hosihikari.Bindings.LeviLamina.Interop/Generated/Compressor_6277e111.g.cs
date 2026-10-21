@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.compress_utils;
 public sealed unsafe partial class Compressor : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public Compressor(nint handle) => _handle = handle;
+    public Compressor(nint handle) : this(handle, true) { }
+
+    internal Compressor(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -45,9 +57,9 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
-    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.compress_utils.Compressor arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.compress_utils.Compressor operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.compress_utils.Compressor arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_8799de9d((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.compress_utils.Compressor((nint)NativeMethods.TablePtr->hs_method_8799de9d((void*)_handle, (void*)arg0.Handle), false);
     }
 
     public void status()
@@ -73,7 +85,11 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_6277e111((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_6277e111((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

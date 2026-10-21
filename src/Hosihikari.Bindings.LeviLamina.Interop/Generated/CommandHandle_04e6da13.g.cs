@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 public sealed unsafe partial class CommandHandle
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public CommandHandle(nint handle) => _handle = handle;
+    public CommandHandle(nint handle) : this(handle, true) { }
+
+    internal CommandHandle(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class CommandHandle
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -27,12 +39,12 @@ public sealed unsafe partial class CommandHandle
     public static CommandHandle Create(nint registrar, nint signature, bool owned) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
-    public nint alias(string alias)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandHandle alias(string alias)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(alias);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_0f895032((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandHandle((nint)NativeMethods.TablePtr->hs_method_0f895032((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 

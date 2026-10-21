@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested;
 public sealed unsafe partial class WriteBatch : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public WriteBatch(nint handle) => _handle = handle;
+    public WriteBatch(nint handle) : this(handle, true) { }
+
+    internal WriteBatch(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -45,21 +57,21 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
         return new WriteBatch((nint)handle);
     }
 
-    public nint del(string key)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch del(string key)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_2ab0e96e((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch((nint)NativeMethods.TablePtr->hs_method_2ab0e96e((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 
-    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_43fe181e((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch((nint)NativeMethods.TablePtr->hs_method_43fe181e((void*)_handle, (void*)arg0.Handle), false);
     }
 
-    public nint set(string key, string val)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch set(string key, string val)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(key);
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(val);
@@ -67,7 +79,7 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                return (nint)NativeMethods.TablePtr->hs_method_ec2470f1((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch((nint)NativeMethods.TablePtr->hs_method_ec2470f1((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length), false);
             }
         }
     }
@@ -77,7 +89,11 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_fc3689a5((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_fc3689a5((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

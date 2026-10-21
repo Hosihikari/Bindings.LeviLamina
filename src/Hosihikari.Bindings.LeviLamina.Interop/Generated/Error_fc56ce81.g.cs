@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 public sealed unsafe partial class Error : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public Error(nint handle) => _handle = handle;
+    public Error(nint handle) : this(handle, true) { }
+
+    internal Error(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class Error : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -68,40 +80,40 @@ public sealed unsafe partial class Error : global::System.IDisposable
     public nint join_377137a4(nint err) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.");
 
-    public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.CommandOutput arg0, int arg1)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error log(global::Hosihikari.Bindings.LeviLamina.Interop.CommandOutput arg0, int arg1)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_24ce3688((void*)_handle, (void*)arg0.Handle, arg1);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_24ce3688((void*)_handle, (void*)arg0.Handle, arg1), false);
     }
 
-    public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.CommandOutput arg0, string locale, int arg2)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error log(global::Hosihikari.Bindings.LeviLamina.Interop.CommandOutput arg0, string locale, int arg2)
     {
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_ecc40f03((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_ecc40f03((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2), false);
         }
     }
 
-    public nint log(nint @outInvoke, nint @outUserData, nint @outRelease, string locale)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error log(nint @outInvoke, nint @outUserData, nint @outRelease, string locale)
     {
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_4962dd8b((void*)_handle, (void*)@outInvoke, (void*)@outUserData, (void*)@outRelease, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_4962dd8b((void*)_handle, (void*)@outInvoke, (void*)@outUserData, (void*)@outRelease, __hs_stringData1, (nuint)__hs_stringBytes1.Length), false);
         }
     }
 
-    public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, int arg1)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, int arg1)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_e159e652((void*)_handle, (void*)arg0.Handle, arg1);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_e159e652((void*)_handle, (void*)arg0.Handle, arg1), false);
     }
 
-    public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, string locale, int arg2)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, string locale, int arg2)
     {
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_909c5e3f((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_909c5e3f((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2), false);
         }
     }
 
@@ -130,9 +142,9 @@ public sealed unsafe partial class Error : global::System.IDisposable
     public nint operator_unexpected_type() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.");
 
-    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_a7aa13d7((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_a7aa13d7((void*)_handle, (void*)arg0.Handle), false);
     }
 
 
@@ -140,7 +152,11 @@ public sealed unsafe partial class Error : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_fc56ce81((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_fc56ce81((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__polymorphicCopy_ll__io__Formatter___std__default_dele_ebc4d0dc : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public IndirectValue_ll__io__Formatter__ll__data__polymorphicCopy_ll__io__Formatter___std__default_dele_ebc4d0dc(nint handle) => _handle = handle;
+    public IndirectValue_ll__io__Formatter__ll__data__polymorphicCopy_ll__io__Formatter___std__default_dele_ebc4d0dc(nint handle) : this(handle, true) { }
+
+    internal IndirectValue_ll__io__Formatter__ll__data__polymorphicCopy_ll__io__Formatter___std__default_dele_ebc4d0dc(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -43,24 +55,26 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
     public static IndirectValue_ll__io__Formatter__ll__data__polymorphicCopy_ll__io__Formatter___std__default_dele_ebc4d0dc Create_847cb61d(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
-    public nint get_b17c0bfb()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter? get_b17c0bfb()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_b17c0bfb((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_b17c0bfb((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter((nint)__hs_handle, false) : null;
     }
 
-    public nint get_2abcf897()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter? get_2abcf897()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_2abcf897((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_2abcf897((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter((nint)__hs_handle, false) : null;
     }
 
-    public nint getCopyCtor_b13b0094()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_ getCopyCtor_b13b0094()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_b13b0094((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_((nint)NativeMethods.TablePtr->hs_method_b13b0094((void*)_handle), false);
     }
 
-    public nint getCopyCtor_15f4f740()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_ getCopyCtor_15f4f740()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_15f4f740((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_((nint)NativeMethods.TablePtr->hs_method_15f4f740((void*)_handle), false);
     }
 
     public nint getDeleter_4b749aae()
@@ -82,28 +96,30 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
     public nint operator_multiply_ad17d380() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_db594926()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter operator_multiply_db594926()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_db594926((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter((nint)NativeMethods.TablePtr->hs_method_db594926((void*)_handle), false);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
     public nint operator_multiply_273df807() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_01d3c2c9()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter operator_multiply_01d3c2c9()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_01d3c2c9((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter((nint)NativeMethods.TablePtr->hs_method_01d3c2c9((void*)_handle), false);
     }
 
-    public nint operator_operator___c50ef6b2()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter? operator_operator___c50ef6b2()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_c50ef6b2((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_c50ef6b2((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter((nint)__hs_handle, false) : null;
     }
 
-    public nint operator_operator___23b3117c()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter? operator_operator___23b3117c()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_23b3117c((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_23b3117c((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter((nint)__hs_handle, false) : null;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators on template specializations are not projected.", false)]
@@ -114,9 +130,10 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
     public nint operator_assign_9db0845d(nint other) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators on template specializations are not projected.");
 
-    public nint release()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter? release()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_532356ed((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_532356ed((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter((nint)__hs_handle, false) : null;
     }
 
     public void reset(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter ptr, global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_ copy)
@@ -128,7 +145,11 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_ebc4d0dc((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_ebc4d0dc((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

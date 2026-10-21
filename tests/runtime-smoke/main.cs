@@ -130,7 +130,7 @@ public sealed class ShimSmokePlugin : IPlugin
             executor.Dispose();
             log.AppendLine("executor.dispose=ok");
 
-            var registry = new LoggerRegistry(LoggerRegistry.getInstance());
+            var registry = LoggerRegistry.getInstance();
             using (var logger = registry.getOrCreate("hosihikari-smoke"))
             {
                 log.AppendLine($"shared.target={(logger is not null && logger.Target != 0 ? "ok" : "failed")}");
@@ -145,8 +145,7 @@ public sealed class ShimSmokePlugin : IPlugin
 
             log.AppendLine("shared.dispose=ok");
 
-            var commandRegistrar = new Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar(
-                Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar.getInstance(false));
+            var commandRegistrar = Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar.getInstance(false);
             var registered = commandRegistrar.tryRegisterRuntimeEnum(
                 "hosihikari_smoke_enum",
                 new[]
@@ -159,7 +158,7 @@ public sealed class ShimSmokePlugin : IPlugin
                 new[] { new KeyValuePair<string, ulong>("three", 3) });
             log.AppendLine($"command_enum.pairs={(registered && added ? "ok" : "failed")}");
 
-            var modRegistry = new ModManagerRegistry(ModManagerRegistry.getInstance());
+            var modRegistry = ModManagerRegistry.getInstance();
             using (var mod = modRegistry.getMod("hosihikari"))
             {
                 var callbackId = modRegistry.executeOnModLoad(
@@ -173,13 +172,19 @@ public sealed class ShimSmokePlugin : IPlugin
                     0,
                     commandFlag,
                     mod);
-                log.AppendLine($"command.create={(commandHandle != 0 ? "ok" : "failed")}");
+                log.AppendLine($"command.create={(commandHandle.Handle != 0 ? "ok" : "failed")}");
+
+                using (var overload = commandHandle.runtimeOverload(mod))
+                {
+                    var borrowedOverload = overload.text("smoke");
+                    borrowedOverload.Dispose();
+                    log.AppendLine($"borrowed.dispose={(overload.Handle != 0 ? "ok" : "failed")}");
+                }
             }
 
-            var playerInfoHandle = Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo.getInstance();
-            if (playerInfoHandle != 0)
+            var playerInfo = Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo.getInstance();
+            if (playerInfo.Handle != 0)
             {
-                var playerInfo = new Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo(playerInfoHandle);
                 var missingByName = playerInfo.fromName("hosihikari-missing-player");
                 var missingByXuid = playerInfo.fromXuid("0");
                 log.AppendLine($"optional_ref.missing={(missingByName is null && missingByXuid is null ? "ok" : "unexpected")}");

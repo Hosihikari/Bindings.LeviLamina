@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public PlayerInteractBlockEvent(nint handle) => _handle = handle;
+    public PlayerInteractBlockEvent(nint handle) : this(handle, true) { }
+
+    internal PlayerInteractBlockEvent(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -39,9 +51,9 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
         return (nint)NativeMethods.TablePtr->hs_method_006a3ef8((void*)_handle);
     }
 
-    public nint clickPos()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 clickPos()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_3ab96ca0((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_3ab96ca0((void*)_handle), false);
     }
 
     public nint face()
@@ -63,7 +75,11 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_ba545186((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_ba545186((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

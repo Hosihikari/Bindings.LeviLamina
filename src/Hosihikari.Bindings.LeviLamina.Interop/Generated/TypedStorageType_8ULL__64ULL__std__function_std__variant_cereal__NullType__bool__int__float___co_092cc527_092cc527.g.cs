@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 public sealed partial class TypedStorageType_8ULL__64ULL__std__function_std__variant_cereal__NullType__bool__int__float___co_092cc527
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypedStorageType_8ULL__64ULL__std__function_std__variant_cereal__NullType__bool__int__float___co_092cc527(nint handle) => _handle = handle;
+    public TypedStorageType_8ULL__64ULL__std__function_std__variant_cereal__NullType__bool__int__float___co_092cc527(nint handle) : this(handle, true) { }
+
+    internal TypedStorageType_8ULL__64ULL__std__function_std__variant_cereal__NullType__bool__int__float___co_092cc527(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__function_std__var
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

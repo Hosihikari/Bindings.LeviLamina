@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.traits;
 public sealed partial class function_traits_bool__const_BlockType____
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public function_traits_bool__const_BlockType____(nint handle) => _handle = handle;
+    public function_traits_bool__const_BlockType____(nint handle) : this(handle, true) { }
+
+    internal function_traits_bool__const_BlockType____(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed partial class function_traits_bool__const_BlockType____
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

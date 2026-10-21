@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__mce__UUID_ : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypedStorageImpl_8ULL__16ULL__mce__UUID_(nint handle) => _handle = handle;
+    public TypedStorageImpl_8ULL__16ULL__mce__UUID_(nint handle) : this(handle, true) { }
+
+    internal TypedStorageImpl_8ULL__16ULL__mce__UUID_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__mce__UUID_ : gl
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -40,56 +52,58 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__mce__UUID_ : gl
     public nint get_07419bcd() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint get_91c6737a()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID get_91c6737a()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_91c6737a((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID((nint)NativeMethods.TablePtr->hs_method_91c6737a((void*)_handle), false);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
     public nint get_3b30a53e() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint get_e9f36420()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID get_e9f36420()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_e9f36420((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID((nint)NativeMethods.TablePtr->hs_method_e9f36420((void*)_handle), false);
     }
 
-    public nint operator_const_mce__UUID__()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID operator_const_mce__UUID__()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_6e48a2ae((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID((nint)NativeMethods.TablePtr->hs_method_6e48a2ae((void*)_handle), false);
     }
 
-    public nint operator_mce__UUID__()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID operator_mce__UUID__()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_e9c87851((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID((nint)NativeMethods.TablePtr->hs_method_e9c87851((void*)_handle), false);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
     public nint operator_multiply_662e9685() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_a9b74a19()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID operator_multiply_a9b74a19()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_a9b74a19((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID((nint)NativeMethods.TablePtr->hs_method_a9b74a19((void*)_handle), false);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
     public nint operator_multiply_ce586b30() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_e7e6f3ed()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID operator_multiply_e7e6f3ed()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_e7e6f3ed((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID((nint)NativeMethods.TablePtr->hs_method_e7e6f3ed((void*)_handle), false);
     }
 
-    public nint operator_operator___86228093()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID? operator_operator___86228093()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_86228093((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_86228093((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID((nint)__hs_handle, false) : null;
     }
 
-    public nint operator_operator___743291d2()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID? operator_operator___743291d2()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_743291d2((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_743291d2((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID((nint)__hs_handle, false) : null;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators on template specializations are not projected.", false)]
@@ -105,7 +119,11 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__mce__UUID_ : gl
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_63be61d6((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_63be61d6((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

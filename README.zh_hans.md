@@ -6,7 +6,7 @@
 
 ## 边界
 
-- `Hosihikari.Bindings.LeviLamina.Interop` 由 `Hosihikari/Bindings.Generator` 从版本化 IR 生成。它镜像 LLAPI 声明，保留 `nint`/不透明句柄；提交入库并由 CI 重跑比对。
+- `Hosihikari.Bindings.LeviLamina.Interop` 由 `Hosihikari/Bindings.Generator` 从版本化 IR 生成。它镜像 LLAPI 声明：一层指针与引用返回投影为类型化借用包装，其余不透明句柄保留 `nint`；提交入库并由 CI 重跑比对。
 - `Hosihikari.Bindings.LeviLamina` 是手写 .NET 层：属性、事件、运算符、索引器、构造函数与服务端线程调度器。它不进入生成流水线。
 - `native/BindingShim/` 是用 LeviLamina 的 xmake/LLVM 工具链编译的 C ABI 投影。它不托管 CLR；HostingShim 是独立的一层。
 

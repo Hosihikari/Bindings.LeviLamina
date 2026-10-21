@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.data;
 public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public polymorphicCopy_ll__io__Formatter_(nint handle) => _handle = handle;
+    public polymorphicCopy_ll__io__Formatter_(nint handle) : this(handle, true) { }
+
+    internal polymorphicCopy_ll__io__Formatter_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -30,9 +42,10 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
         set => throw new global::System.NotSupportedException("BindingShim cannot project this member: field type 'void *(*)(const void *)' is not supported.");
     }
 
-    public nint operator_call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter t)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter? operator_call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter t)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_65dd2c26((void*)_handle, (void*)t.Handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_65dd2c26((void*)_handle, (void*)t.Handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter((nint)__hs_handle, false) : null;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
@@ -43,7 +56,11 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_eaa53fdb((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_eaa53fdb((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.mce;
 public sealed unsafe partial class UUID : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public UUID(nint handle) => _handle = handle;
+    public UUID(nint handle) : this(handle, true) { }
+
+    internal UUID(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class UUID : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -80,7 +92,11 @@ public sealed unsafe partial class UUID : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_ff8ccc92((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_ff8ccc92((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

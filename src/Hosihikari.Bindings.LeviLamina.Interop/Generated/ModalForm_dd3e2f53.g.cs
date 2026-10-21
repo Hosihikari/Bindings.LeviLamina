@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.form;
 public sealed unsafe partial class ModalForm : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ModalForm(nint handle) => _handle = handle;
+    public ModalForm(nint handle) : this(handle, true) { }
+
+    internal ModalForm(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -71,39 +83,39 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_337e43e5((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
     }
 
-    public nint setContent(string content)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm setContent(string content)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(content);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_8e45f3ac((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm((nint)NativeMethods.TablePtr->hs_method_8e45f3ac((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 
-    public nint setLowerButton(string lowerButton)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm setLowerButton(string lowerButton)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(lowerButton);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_8d93c96d((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm((nint)NativeMethods.TablePtr->hs_method_8d93c96d((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 
-    public nint setTitle(string title)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm setTitle(string title)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_96625c5f((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm((nint)NativeMethods.TablePtr->hs_method_96625c5f((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 
-    public nint setUpperButton(string upperButton)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm setUpperButton(string upperButton)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(upperButton);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_712c6f8b((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm((nint)NativeMethods.TablePtr->hs_method_712c6f8b((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
         }
     }
 
@@ -112,7 +124,11 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_dd3e2f53((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_dd3e2f53((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

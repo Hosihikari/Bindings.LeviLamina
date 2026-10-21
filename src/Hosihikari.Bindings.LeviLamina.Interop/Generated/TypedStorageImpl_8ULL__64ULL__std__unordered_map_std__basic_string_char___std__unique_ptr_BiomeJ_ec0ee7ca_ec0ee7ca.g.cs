@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_map_std__basic_string_char___std__unique_ptr_BiomeJ_ec0ee7ca
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypedStorageImpl_8ULL__64ULL__std__unordered_map_std__basic_string_char___std__unique_ptr_BiomeJ_ec0ee7ca(nint handle) => _handle = handle;
+    public TypedStorageImpl_8ULL__64ULL__std__unordered_map_std__basic_string_char___std__unique_ptr_BiomeJ_ec0ee7ca(nint handle) : this(handle, true) { }
+
+    internal TypedStorageImpl_8ULL__64ULL__std__unordered_map_std__basic_string_char___std__unique_ptr_BiomeJ_ec0ee7ca(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

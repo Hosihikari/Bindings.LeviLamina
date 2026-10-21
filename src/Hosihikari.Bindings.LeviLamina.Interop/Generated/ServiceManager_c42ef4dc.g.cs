@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.service;
 public sealed unsafe partial class ServiceManager
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ServiceManager(nint handle) => _handle = handle;
+    public ServiceManager(nint handle) : this(handle, true) { }
+
+    internal ServiceManager(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -18,14 +25,19 @@ public sealed unsafe partial class ServiceManager
             throw new global::System.ObjectDisposedException("handle");
         }
 
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
+        }
+
         var __hs_handle = _handle;
         _handle = 0;
         return __hs_handle;
     }
 
-    public static nint getInstance()
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceManager getInstance()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_240c2935();
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceManager((nint)NativeMethods.TablePtr->hs_method_240c2935(), false);
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)

@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 public sealed unsafe partial class ParamTraitsBase_DimensionType_ : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public ParamTraitsBase_DimensionType_(nint handle) => _handle = handle;
+    public ParamTraitsBase_DimensionType_(nint handle) : this(handle, true) { }
+
+    internal ParamTraitsBase_DimensionType_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class ParamTraitsBase_DimensionType_ : global::Syst
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -68,7 +80,11 @@ public sealed unsafe partial class ParamTraitsBase_DimensionType_ : global::Syst
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_68d35b01((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_68d35b01((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

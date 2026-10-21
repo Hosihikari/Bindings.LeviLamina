@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__Vec3_ : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypedStorageImpl_4ULL__12ULL__Vec3_(nint handle) => _handle = handle;
+    public TypedStorageImpl_4ULL__12ULL__Vec3_(nint handle) : this(handle, true) { }
+
+    internal TypedStorageImpl_4ULL__12ULL__Vec3_(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__Vec3_ : global:
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -40,56 +52,58 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__Vec3_ : global:
     public nint get_7e623e92() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint get_d2667bd9()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 get_d2667bd9()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_d2667bd9((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_d2667bd9((void*)_handle), false);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
     public nint get_1e6cd977() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint get_f2da1cd9()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 get_f2da1cd9()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_f2da1cd9((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_f2da1cd9((void*)_handle), false);
     }
 
-    public nint operator_Vec3__()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 operator_Vec3__()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_3e85bc44((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_3e85bc44((void*)_handle), false);
     }
 
-    public nint operator_const_Vec3__()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 operator_const_Vec3__()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_0ce8b6aa((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_0ce8b6aa((void*)_handle), false);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
     public nint operator_multiply_c50c378d() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_44975da8()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 operator_multiply_44975da8()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_44975da8((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_44975da8((void*)_handle), false);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
     public nint operator_multiply_ba923d84() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: rvalue-qualified members are not projected.");
 
-    public nint operator_multiply_48ff48db()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3 operator_multiply_48ff48db()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_48ff48db((void*)_handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_48ff48db((void*)_handle), false);
     }
 
-    public nint operator_operator___f3a706d3()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3? operator_operator___f3a706d3()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_f3a706d3((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_f3a706d3((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)__hs_handle, false) : null;
     }
 
-    public nint operator_operator___3de1cf91()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.Vec3? operator_operator___3de1cf91()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_3de1cf91((void*)_handle);
+        var __hs_handle = NativeMethods.TablePtr->hs_method_3de1cf91((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)__hs_handle, false) : null;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators on template specializations are not projected.", false)]
@@ -105,7 +119,11 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__Vec3_ : global:
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_781e4bf4((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_781e4bf4((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

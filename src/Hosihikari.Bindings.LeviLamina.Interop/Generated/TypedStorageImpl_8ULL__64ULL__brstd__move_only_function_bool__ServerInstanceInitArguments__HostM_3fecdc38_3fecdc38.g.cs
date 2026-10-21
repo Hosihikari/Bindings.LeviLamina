@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll;
 public sealed partial class TypedStorageImpl_8ULL__64ULL__brstd__move_only_function_bool__ServerInstanceInitArguments__HostM_3fecdc38
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public TypedStorageImpl_8ULL__64ULL__brstd__move_only_function_bool__ServerInstanceInitArguments__HostM_3fecdc38(nint handle) => _handle = handle;
+    public TypedStorageImpl_8ULL__64ULL__brstd__move_only_function_bool__ServerInstanceInitArguments__HostM_3fecdc38(nint handle) : this(handle, true) { }
+
+    internal TypedStorageImpl_8ULL__64ULL__brstd__move_only_function_bool__ServerInstanceInitArguments__HostM_3fecdc38(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed partial class TypedStorageImpl_8ULL__64ULL__brstd__move_only_funct
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;

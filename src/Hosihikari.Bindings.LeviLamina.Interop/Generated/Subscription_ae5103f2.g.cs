@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 public sealed unsafe partial class Subscription : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public Subscription(nint handle) => _handle = handle;
+    public Subscription(nint handle) : this(handle, true) { }
+
+    internal Subscription(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -50,9 +62,9 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_6c2d01a6((void*)_handle);
     }
 
-    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Subscription arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Subscription operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Subscription arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_cad2aae4((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Subscription((nint)NativeMethods.TablePtr->hs_method_cad2aae4((void*)_handle, (void*)arg0.Handle), false);
     }
 
     public void reset()
@@ -65,7 +77,11 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_ae5103f2((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_ae5103f2((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.service;
 public sealed unsafe partial class PlayerInfo
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public PlayerInfo(nint handle) => _handle = handle;
+    public PlayerInfo(nint handle) : this(handle, true) { }
+
+    internal PlayerInfo(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class PlayerInfo
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -61,8 +73,8 @@ public sealed unsafe partial class PlayerInfo
         }
     }
 
-    public static nint getInstance()
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo getInstance()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_2bde7741();
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo((nint)NativeMethods.TablePtr->hs_method_2bde7741(), false);
     }
 }

@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.network;
 public sealed unsafe partial class PacketRegistrar
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public PacketRegistrar(nint handle) => _handle = handle;
+    public PacketRegistrar(nint handle) : this(handle, true) { }
+
+    internal PacketRegistrar(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class PacketRegistrar
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -36,9 +48,9 @@ public sealed unsafe partial class PacketRegistrar
         return __hs_hasValue ? (nint)__hs_handle : null;
     }
 
-    public static nint getInstance()
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.PacketRegistrar getInstance()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_5ade0854();
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.PacketRegistrar((nint)NativeMethods.TablePtr->hs_method_5ade0854(), false);
     }
 
     public bool registerHandler(string name, ulong id, global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.IPacketHandler? handler)

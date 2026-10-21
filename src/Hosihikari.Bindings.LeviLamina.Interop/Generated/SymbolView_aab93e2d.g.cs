@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.memory;
 public sealed unsafe partial class SymbolView : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public SymbolView(nint handle) => _handle = handle;
+    public SymbolView(nint handle) : this(handle, true) { }
+
+    internal SymbolView(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -54,14 +66,14 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
         }
     }
 
-    public nint operator_assign_43d0519c(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView operator_assign_43d0519c(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_43d0519c((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView((nint)NativeMethods.TablePtr->hs_method_43d0519c((void*)_handle, (void*)arg0.Handle), false);
     }
 
-    public nint operator_assign_c9ceea3e(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView operator_assign_c9ceea3e(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_c9ceea3e((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView((nint)NativeMethods.TablePtr->hs_method_c9ceea3e((void*)_handle, (void*)arg0.Handle), false);
     }
 
     public string raw()
@@ -90,7 +102,11 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_aab93e2d((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_aab93e2d((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

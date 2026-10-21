@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui;
 public sealed unsafe partial class MessageBox : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public MessageBox(nint handle) => _handle = handle;
+    public MessageBox(nint handle) : this(handle, true) { }
+
+    internal MessageBox(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -38,19 +50,19 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
         return new MessageBox((nint)handle);
     }
 
-    public nint body(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 value)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox body(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 value)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_44cf2213((void*)_handle, (void*)value.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox((nint)NativeMethods.TablePtr->hs_method_44cf2213((void*)_handle, (void*)value.Handle), false);
     }
 
-    public nint button1(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox button1(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_4e575dd6((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox((nint)NativeMethods.TablePtr->hs_method_4e575dd6((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null), false);
     }
 
-    public nint button2(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox button2(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_6167cdee((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox((nint)NativeMethods.TablePtr->hs_method_6167cdee((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null), false);
     }
 
     public void close()
@@ -65,9 +77,9 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_b11cad00((void*)_handle);
     }
 
-    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_60fc2cb1((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox((nint)NativeMethods.TablePtr->hs_method_60fc2cb1((void*)_handle, (void*)arg0.Handle), false);
     }
 
     public void show(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
@@ -86,7 +98,11 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_5c12c3b0((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_5c12c3b0((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

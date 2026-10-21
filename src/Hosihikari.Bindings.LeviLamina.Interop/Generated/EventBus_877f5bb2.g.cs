@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 public sealed unsafe partial class EventBus
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public EventBus(nint handle) => _handle = handle;
+    public EventBus(nint handle) : this(handle, true) { }
+
+    internal EventBus(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class EventBus
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -36,9 +48,9 @@ public sealed unsafe partial class EventBus
     public nint events() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<std::pair<std::basic_string_view<char>, ll::event::EventIdView>>' is not a known bindable declaration.");
 
-    public static nint getInstance()
+    public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventBus getInstance()
     {
-        return (nint)NativeMethods.TablePtr->hs_method_cd83bdb3();
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventBus((nint)NativeMethods.TablePtr->hs_method_cd83bdb3(), false);
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getListener(ulong id)

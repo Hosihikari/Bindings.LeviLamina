@@ -6,8 +6,15 @@ namespace Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail;
 public sealed unsafe partial class BindingHandle : global::System.IDisposable
 {
     private nint _handle;
+    private readonly bool _ownsHandle;
 
-    public BindingHandle(nint handle) => _handle = handle;
+    public BindingHandle(nint handle) : this(handle, true) { }
+
+    internal BindingHandle(nint handle, bool ownsHandle)
+    {
+        _handle = handle;
+        _ownsHandle = ownsHandle;
+    }
 
     public nint Handle => _handle;
 
@@ -16,6 +23,11 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
         if (_handle == 0)
         {
             throw new global::System.ObjectDisposedException("handle");
+        }
+
+        if (!_ownsHandle)
+        {
+            throw new global::System.InvalidOperationException("A borrowed handle cannot be released.");
         }
 
         var __hs_handle = _handle;
@@ -66,14 +78,14 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_76b2ba1c((void*)_handle);
     }
 
-    public nint operator_assign_91e7b69b(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle operator_assign_91e7b69b(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_91e7b69b((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle((nint)NativeMethods.TablePtr->hs_method_91e7b69b((void*)_handle, (void*)arg0.Handle), false);
     }
 
-    public nint operator_assign_22fb7d49(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle operator_assign_22fb7d49(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_22fb7d49((void*)_handle, (void*)arg0.Handle);
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle((nint)NativeMethods.TablePtr->hs_method_22fb7d49((void*)_handle, (void*)arg0.Handle), false);
     }
 
     public void setClientWritable(bool writable)
@@ -88,7 +100,11 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->hs_destroy_40ae0e9c((void*)_handle);
+            if (_ownsHandle)
+            {
+                NativeMethods.TablePtr->hs_destroy_40ae0e9c((void*)_handle);
+            }
+
             _handle = 0;
         }
     }

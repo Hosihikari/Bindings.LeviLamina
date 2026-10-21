@@ -40,6 +40,6 @@ vector.enum_register=...
 result=OK
 ```
 
-Short string parameters use a stack buffer when the UTF-8 encoding fits in 256 bytes; small pair-vector entry arrays and their string keys/values use `stackalloc` arenas. The `B/op` column reflects the remaining managed allocations, such as returned strings and shared handles.
+Short string parameters use a stack buffer when the UTF-8 encoding fits in 256 bytes; small pair-vector entry arrays and their string keys/values use `stackalloc` arenas. `SharedHandle` instances are recycled from a per-thread pool, so `shared.try_get` reaches zero steady-state allocations. The `B/op` column reflects the remaining managed allocations, such as the returned string itself.
 
 The numbers are environment-dependent and are not a CI gate; they provide a baseline for comparing generator changes on the same machine and server build.

@@ -56,25 +56,25 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint appendDropdown(string name, string text, string[] options, ulong defaultVal, string tooltip)
     {
-        var __hs_vectorItems = options ?? global::System.Array.Empty<string>();
-        var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
-        var __hs_vectorViews = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems.Length];
-        var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
         var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
+        var __hs_vectorItems2 = options ?? global::System.Array.Empty<string>();
+        var __hs_vectorBytes2 = new byte[__hs_vectorItems2.Length][];
+        var __hs_vectorViews2 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems2.Length];
+        var __hs_vectorHandles2 = new nint[__hs_vectorItems2.Length];
         try
         {
-            for (var __hs_i = 0; __hs_i < __hs_vectorItems.Length; __hs_i++)
+            for (var __hs_i2 = 0; __hs_i2 < __hs_vectorItems2.Length; __hs_i2++)
             {
-                __hs_vectorBytes[__hs_i] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems[__hs_i] ?? string.Empty);
-                var __hs_bytes = __hs_vectorBytes[__hs_i];
+                __hs_vectorBytes2[__hs_i2] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems2[__hs_i2] ?? string.Empty);
+                var __hs_bytes = __hs_vectorBytes2[__hs_i2];
                 var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
                 if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
-                __hs_vectorHandles[__hs_i] = __hs_ptr;
-                __hs_vectorViews[__hs_i] = new global::Hosihikari.Bindings.Abi.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+                __hs_vectorHandles2[__hs_i2] = __hs_ptr;
+                __hs_vectorViews2[__hs_i2] = new global::Hosihikari.Bindings.Abi.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
             }
-            fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
+            fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData2 = __hs_vectorViews2)
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
@@ -82,7 +82,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return (nint)NativeMethods.TablePtr->f2629((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                            return (nint)NativeMethods.TablePtr->f2629((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(options?.Length ?? 0));
                         }
                     }
                 }
@@ -90,7 +90,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         }
         finally
         {
-            for (var __hs_i = 0; __hs_i < __hs_vectorHandles.Length; __hs_i++) { if (__hs_vectorHandles[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles[__hs_i]); } }
+            for (var __hs_i2 = 0; __hs_i2 < __hs_vectorHandles2.Length; __hs_i2++) { if (__hs_vectorHandles2[__hs_i2] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles2[__hs_i2]); } }
         }
     }
 
@@ -156,25 +156,25 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint appendStepSlider(string name, string text, string[] steps, ulong defaultVal, string tooltip)
     {
-        var __hs_vectorItems = steps ?? global::System.Array.Empty<string>();
-        var __hs_vectorBytes = new byte[__hs_vectorItems.Length][];
-        var __hs_vectorViews = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems.Length];
-        var __hs_vectorHandles = new nint[__hs_vectorItems.Length];
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
         var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
+        var __hs_vectorItems2 = steps ?? global::System.Array.Empty<string>();
+        var __hs_vectorBytes2 = new byte[__hs_vectorItems2.Length][];
+        var __hs_vectorViews2 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems2.Length];
+        var __hs_vectorHandles2 = new nint[__hs_vectorItems2.Length];
         try
         {
-            for (var __hs_i = 0; __hs_i < __hs_vectorItems.Length; __hs_i++)
+            for (var __hs_i2 = 0; __hs_i2 < __hs_vectorItems2.Length; __hs_i2++)
             {
-                __hs_vectorBytes[__hs_i] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems[__hs_i] ?? string.Empty);
-                var __hs_bytes = __hs_vectorBytes[__hs_i];
+                __hs_vectorBytes2[__hs_i2] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems2[__hs_i2] ?? string.Empty);
+                var __hs_bytes = __hs_vectorBytes2[__hs_i2];
                 var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
                 if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
-                __hs_vectorHandles[__hs_i] = __hs_ptr;
-                __hs_vectorViews[__hs_i] = new global::Hosihikari.Bindings.Abi.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+                __hs_vectorHandles2[__hs_i2] = __hs_ptr;
+                __hs_vectorViews2[__hs_i2] = new global::Hosihikari.Bindings.Abi.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
             }
-            fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData = __hs_vectorViews)
+            fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData2 = __hs_vectorViews2)
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
@@ -182,7 +182,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return (nint)NativeMethods.TablePtr->f2634((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData, (nuint)__hs_vectorViews.Length);
+                            return (nint)NativeMethods.TablePtr->f2634((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(steps?.Length ?? 0));
                         }
                     }
                 }
@@ -190,7 +190,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         }
         finally
         {
-            for (var __hs_i = 0; __hs_i < __hs_vectorHandles.Length; __hs_i++) { if (__hs_vectorHandles[__hs_i] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles[__hs_i]); } }
+            for (var __hs_i2 = 0; __hs_i2 < __hs_vectorHandles2.Length; __hs_i2++) { if (__hs_vectorHandles2[__hs_i2] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles2[__hs_i2]); } }
         }
     }
 

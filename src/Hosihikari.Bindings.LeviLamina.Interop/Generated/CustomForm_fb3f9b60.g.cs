@@ -61,16 +61,16 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint dropdown(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableNumber value, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.DropdownItemData[] items, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.DropdownOptions options)
     {
-        var __hs_vectorItems = items;
-        var __hs_vectorHandles = new nint[__hs_vectorItems?.Length ?? 0];
-        for (var __hs_i = 0; __hs_i < __hs_vectorHandles.Length; __hs_i++)
+        var __hs_vectorItems2 = items;
+        var __hs_vectorHandles2 = new nint[__hs_vectorItems2?.Length ?? 0];
+        for (var __hs_i2 = 0; __hs_i2 < __hs_vectorHandles2.Length; __hs_i2++)
         {
-            __hs_vectorHandles[__hs_i] = __hs_vectorItems![__hs_i]?.Handle ?? 0;
+            __hs_vectorHandles2[__hs_i2] = __hs_vectorItems2![__hs_i2]?.Handle ?? 0;
         }
-        fixed (nint* __hs_vectorHandleData = __hs_vectorHandles)
+        fixed (nint* __hs_vectorHandleData2 = __hs_vectorHandles2)
         {
-            var __hs_vectorData = (void**)__hs_vectorHandleData;
-            return (nint)NativeMethods.TablePtr->f3019((void*)_handle, (void*)label.Handle, (void*)value.Handle, (void*)options.Handle, __hs_vectorData, (nuint)(items?.Length ?? 0));
+            var __hs_vectorData2 = (void**)__hs_vectorHandleData2;
+            return (nint)NativeMethods.TablePtr->f3019((void*)_handle, (void*)label.Handle, (void*)value.Handle, (void*)options.Handle, __hs_vectorData2, (nuint)(items?.Length ?? 0));
         }
     }
 

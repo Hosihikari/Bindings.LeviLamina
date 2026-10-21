@@ -76,10 +76,10 @@ public sealed unsafe partial class Property : global::System.IDisposable
     public nint operator_assign_a1807e9e(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
-    public void set(nint value)
+    public void set(global::Hosihikari.Bindings.LeviLamina.Interop.cereal.DynamicValue value)
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->hs_method_47592751((void*)_handle, (void*)value, &__hs_hasValue);
+        NativeMethods.TablePtr->hs_method_47592751((void*)_handle, (void*)value.Handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 

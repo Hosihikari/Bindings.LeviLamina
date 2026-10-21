@@ -35,6 +35,7 @@ public sealed unsafe partial class PlayerInfoEntry : global::System.IDisposable
     public nint uuid
     {
         get => (nint)NativeMethods.TablePtr->hs_get_eb409eeb((void*)_handle);
+        set => NativeMethods.TablePtr->hs_set_eb409eeb((void*)_handle, (void*)value);
     }
 
     public string xuid

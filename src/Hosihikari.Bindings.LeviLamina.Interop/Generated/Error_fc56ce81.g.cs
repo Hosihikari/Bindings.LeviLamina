@@ -68,17 +68,17 @@ public sealed unsafe partial class Error : global::System.IDisposable
     public nint join_377137a4(nint err) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.");
 
-    public nint log(nint arg0, int arg1)
+    public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.CommandOutput arg0, int arg1)
     {
-        return (nint)NativeMethods.TablePtr->hs_method_24ce3688((void*)_handle, (void*)arg0, arg1);
+        return (nint)NativeMethods.TablePtr->hs_method_24ce3688((void*)_handle, (void*)arg0.Handle, arg1);
     }
 
-    public nint log(nint arg0, string locale, int arg2)
+    public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.CommandOutput arg0, string locale, int arg2)
     {
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return (nint)NativeMethods.TablePtr->hs_method_ecc40f03((void*)_handle, (void*)arg0, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
+            return (nint)NativeMethods.TablePtr->hs_method_ecc40f03((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
         }
     }
 

@@ -69,9 +69,10 @@ public sealed unsafe partial class Packet : global::System.IDisposable
         NativeMethods.TablePtr->hs_method_5741a673((void*)_handle, (void*)actor, (void*)(except ?? 0), except is not null);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'DimensionType' is not a known bindable declaration.", false)]
-    public void sendTo(nint pos, nint dimId, nint except) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'DimensionType' is not a known bindable declaration.");
+    public void sendTo(nint pos, global::Hosihikari.Bindings.LeviLamina.Interop.DimensionType dimId, nint? except)
+    {
+        NativeMethods.TablePtr->hs_method_3d1e2b3c((void*)_handle, (void*)pos, (void*)dimId.Handle, (void*)(except ?? 0), except is not null);
+    }
 
     public void sendTo(nint player)
     {

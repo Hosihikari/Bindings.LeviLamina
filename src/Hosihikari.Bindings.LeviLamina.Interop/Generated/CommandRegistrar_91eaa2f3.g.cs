@@ -135,18 +135,27 @@ public sealed unsafe partial class CommandRegistrar
     public nint compileCommand(nint commandStr, nint origin, nint version) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: expected value type 'std::unique_ptr<Command>': unique_ptr return type 'Command' is not a known bindable declaration.");
 
-    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'CommandOutput' is not a known bindable declaration.", false)]
+    [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'CommandOutput' has no accessible destructor.", false)]
     public nint executeCommand(nint commandStr, nint origin, nint outputType, nint version) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandOutput' is not a known bindable declaration.");
+        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'CommandOutput' has no accessible destructor.");
 
     public static nint getInstance(bool isClientSide)
     {
         return (nint)NativeMethods.TablePtr->hs_method_c8f00dfd(isClientSide);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'CommandFlag' is not a known bindable declaration.", false)]
-    public nint getOrCreateCommand(nint name, nint description, nint requirement, nint flag, nint mod) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'CommandFlag' is not a known bindable declaration.");
+    public nint getOrCreateCommand(string name, string description, byte requirement, global::Hosihikari.Bindings.LeviLamina.Interop.CommandFlag flag, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
+    {
+        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(description);
+        fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+        {
+            fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+            {
+                return (nint)NativeMethods.TablePtr->hs_method_650fa79f((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, requirement, (void*)flag.Handle, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+            }
+        }
+    }
 
     public static nint getServerInstance()
     {

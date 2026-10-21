@@ -27,9 +27,10 @@ public sealed unsafe partial class PlayerInfo
     public nint entries() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<const ll::service::PlayerInfo::PlayerInfoEntry &>' is not a known bindable declaration.");
 
-    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.", false)]
-    public bool erase(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.");
+    public bool erase(global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID arg0)
+    {
+        return NativeMethods.TablePtr->hs_method_9c9b63a5((void*)_handle, (void*)arg0.Handle);
+    }
 
     public nint? fromName(string arg0)
     {
@@ -42,9 +43,12 @@ public sealed unsafe partial class PlayerInfo
         }
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.", false)]
-    public nint fromUuid(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value record parameter 'mce::UUID' is not a known bindable declaration.");
+    public nint? fromUuid(global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID arg0)
+    {
+        var __hs_hasValue = false;
+        var __hs_handle = NativeMethods.TablePtr->hs_method_f4045e5b((void*)_handle, (void*)arg0.Handle, &__hs_hasValue);
+        return __hs_hasValue ? (nint)__hs_handle : null;
+    }
 
     public nint? fromXuid(string arg0)
     {

@@ -91,7 +91,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
-    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property createProperty(string datastore, string property, nint value)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property createProperty(string datastore, string property, global::Hosihikari.Bindings.LeviLamina.Interop.cereal.DynamicValue value)
     {
         var __hs_hasValue = false;
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
@@ -100,7 +100,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_expectedResult = NativeMethods.TablePtr->hs_method_8d590c2a((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)value, &__hs_hasValue);
+                var __hs_expectedResult = NativeMethods.TablePtr->hs_method_8d590c2a((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)value.Handle, &__hs_hasValue);
                 if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
                 return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
             }

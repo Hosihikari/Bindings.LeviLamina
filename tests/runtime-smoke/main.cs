@@ -26,12 +26,22 @@ public sealed class ShimSmokePlugin : IPlugin
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate void ModCallbackInvoke(nint userData, nint data, nuint size);
 
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate void LogCallbackInvoke(nint userData, nint data, nuint size);
+
     private static readonly CallbackInvoke Callback = OnCallback;
     private static readonly CallbackRelease Release = OnRelease;
     private static readonly ModCallbackInvoke ModCallback = OnModCallback;
+    private static readonly LogCallbackInvoke LogCallback = OnLogCallback;
+    private static string? _logText;
 
     private static void OnModCallback(nint userData, nint data, nuint size)
     {
+    }
+
+    private static void OnLogCallback(nint userData, nint data, nuint size)
+    {
+        _logText = Marshal.PtrToStringUTF8(data, checked((int)size));
     }
     private static int _callbackCount;
     private static bool _callbackReleased;
@@ -78,6 +88,12 @@ public sealed class ShimSmokePlugin : IPlugin
             using var error = Error.Create();
             log.AppendLine($"error.bool={error.operator_bool()}");
             log.AppendLine($"error.message={error.message()}");
+            error.log(
+                (nint)Marshal.GetFunctionPointerForDelegate(LogCallback),
+                0,
+                0,
+                "en");
+            log.AppendLine($"function_ref.log={(_logText == "success" ? "ok" : $"unexpected:{_logText}")}");
             log.AppendLine("error.dispose=ok");
 
             using (var pauser = GlobalThreadPauser.Create())

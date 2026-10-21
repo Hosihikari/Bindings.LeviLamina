@@ -29,6 +29,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `std::function` callback projection: `InplaceExecutor.execute` invokes a managed C callback and its release callback exactly once.
 - `std::shared_ptr<T>` projection: `LoggerRegistry::getOrCreate`/`tryGet` return a `SharedHandle`; both lookups alias the same target, the target serves `Logger::getTitle`, and the shared references release cleanly.
 - `vector<pair<string, uint64>>` parameters surface as `KeyValuePair<string, ulong>[]`; `CommandRegistrar.tryRegisterRuntimeEnum` and `addRuntimeEnumValues` register and extend a runtime enum.
+- `brstd::function_ref` callbacks: `Error.log` invokes the managed sink with the formatted message, and the callback releases its state through the generated closure.
 - `std::weak_ptr<ll::mod::Mod>` parameters accept a `SharedHandle`; `ModManagerRegistry.executeOnModLoad` registers a callback for the mod obtained from `getMod`, and the registration is removed by id.
 - `optional_ref<T>` projection: `PlayerInfo::fromName`/`fromXuid` return `nint?`; lookups for absent players report an empty reference.
 - `nonstd::expected_lite::expected<T, ll::Error>` projection: `Property::setJson` reports the native error through `InvalidOperationException` with the `ll::Error` message.
@@ -46,6 +47,7 @@ version.valid=True
 version.multi=1.2.3-beta+build.5
 error.bool=True
 error.message=success
+function_ref.log=ok
 error.dispose=ok
 pauser.create=ok
 pauser.dispose=ok

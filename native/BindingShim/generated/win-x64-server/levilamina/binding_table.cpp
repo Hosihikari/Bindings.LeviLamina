@@ -41196,7 +41196,7 @@ static HosihikariSharedHandle hs_director_6fec08f6(std::int32_t priority, Hosihi
         void (*hs_release)(void*);
 
         hs_director(std::int32_t priority, HosihikariSharedHandle mod, void* invoke, void* userData, void* release)
-            : ll::event::ListenerBase(static_cast<ll::event::EventPriority>(priority), hs_weak_from_handle<ll::mod::Mod>(mod)), hs_invoke(reinterpret_cast<hs_invoke_type>(invoke)), hs_userData(userData), hs_release(static_cast<void (*)(void*)>(release))
+            : ll::event::ListenerBase(static_cast<ll::event::EventPriority>(priority), hs_weak_from_handle<ll::mod::Mod>(mod)), hs_invoke(reinterpret_cast<hs_invoke_type>(invoke)), hs_userData(userData), hs_release(reinterpret_cast<void (*)(void*)>(release))
         {
         }
 
@@ -48806,7 +48806,7 @@ static HosihikariSharedHandle hs_director_19b21cf4(void* invoke, void* userData,
         void (*hs_release)(void*);
 
         hs_director(void* invoke, void* userData, void* release)
-            : hs_invoke(reinterpret_cast<hs_invoke_type>(invoke)), hs_userData(userData), hs_release(static_cast<void (*)(void*)>(release))
+            : hs_invoke(reinterpret_cast<hs_invoke_type>(invoke)), hs_userData(userData), hs_release(reinterpret_cast<void (*)(void*)>(release))
         {
         }
 
@@ -50892,7 +50892,7 @@ static HosihikariSharedHandle hs_director_9e189359(void* invoke, void* userData,
         void (*hs_release)(void*);
 
         hs_director(void* invoke, void* userData, void* release)
-            : hs_invoke(reinterpret_cast<hs_invoke_type>(invoke)), hs_userData(userData), hs_release(static_cast<void (*)(void*)>(release))
+            : hs_invoke(reinterpret_cast<hs_invoke_type>(invoke)), hs_userData(userData), hs_release(reinterpret_cast<void (*)(void*)>(release))
         {
         }
 

@@ -136,9 +136,9 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
         return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter((nint)__hs_handle, false) : null;
     }
 
-    public void reset(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter ptr, global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_ copy)
+    public void reset(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter? ptr, global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_ copy)
     {
-        NativeMethods.TablePtr->hs_method_c0fd1b7f((void*)_handle, (void*)ptr.Handle, (void*)copy.Handle);
+        NativeMethods.TablePtr->hs_method_c0fd1b7f((void*)_handle, (void*)(ptr?.Handle ?? 0), (void*)copy.Handle);
     }
 
     public void Dispose()

@@ -25,7 +25,7 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public static Mod Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Manifest manifest)
     {
-        var handle = NativeMethods.TablePtr->f2860((void*)manifest.Handle);
+        var handle = NativeMethods.TablePtr->f2866((void*)manifest.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,109 +36,109 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public string getBehaviorDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2861((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2867((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getConfigDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2862((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2868((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getDataDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2863((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2869((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getLangDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2864((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2870((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint getLogger()
     {
-        return (nint)NativeMethods.TablePtr->f2865((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2871((void*)_handle);
     }
 
     public nint getManifest()
     {
-        return (nint)NativeMethods.TablePtr->f2866((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2872((void*)_handle);
     }
 
     public string getModDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2867((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2873((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getName()
     {
-        var __hs_view = NativeMethods.TablePtr->f2868((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2874((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string getResourceDir()
     {
-        var __hs_view = NativeMethods.TablePtr->f2869((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2875((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public int getState()
     {
-        return NativeMethods.TablePtr->f2870((void*)_handle);
+        return NativeMethods.TablePtr->f2876((void*)_handle);
     }
 
     public string getType()
     {
-        var __hs_view = NativeMethods.TablePtr->f2871((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2877((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string? getWorldConfigDir()
     {
         var __hs_hasValue = false;
-        var __hs_view = NativeMethods.TablePtr->f2872((void*)_handle, &__hs_hasValue);
+        var __hs_view = NativeMethods.TablePtr->f2878((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size)) : null;
     }
 
     public string? getWorldDataDir()
     {
         var __hs_hasValue = false;
-        var __hs_view = NativeMethods.TablePtr->f2873((void*)_handle, &__hs_hasValue);
+        var __hs_view = NativeMethods.TablePtr->f2879((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size)) : null;
     }
 
     public bool isDisabled()
     {
-        return NativeMethods.TablePtr->f2874((void*)_handle);
+        return NativeMethods.TablePtr->f2880((void*)_handle);
     }
 
     public bool isEnabled()
     {
-        return NativeMethods.TablePtr->f2875((void*)_handle);
+        return NativeMethods.TablePtr->f2881((void*)_handle);
     }
 
     public void onDisable(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2876((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->f2882((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
     public void onEnable(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2877((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->f2883((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
     public void onLoad(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2878((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->f2884((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
     public void onUnload(nint funcInvoke, nint funcUserData, nint funcRelease)
     {
-        NativeMethods.TablePtr->f2879((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
+        NativeMethods.TablePtr->f2885((void*)_handle, (void*)funcInvoke, (void*)funcUserData, (void*)funcRelease);
     }
 
 
@@ -146,7 +146,7 @@ public sealed unsafe partial class Mod : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2859((void*)_handle);
+            NativeMethods.TablePtr->f2865((void*)_handle);
             _handle = 0;
         }
     }

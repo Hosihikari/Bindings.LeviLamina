@@ -29,19 +29,19 @@ public sealed unsafe partial class PlayerDestroyBlockEvent : global::System.IDis
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f2550((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2556((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2551((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2557((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2549((void*)_handle);
+            NativeMethods.TablePtr->f2555((void*)_handle);
             _handle = 0;
         }
     }

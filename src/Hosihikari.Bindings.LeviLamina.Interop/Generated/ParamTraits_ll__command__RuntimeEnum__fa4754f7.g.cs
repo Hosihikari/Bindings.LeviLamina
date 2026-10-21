@@ -25,19 +25,19 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeEnum_ : globa
 
     public static int dataType()
     {
-        return NativeMethods.TablePtr->f1962();
+        return NativeMethods.TablePtr->f1963();
     }
 
     public static byte options()
     {
-        return NativeMethods.TablePtr->f1963();
+        return NativeMethods.TablePtr->f1964();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1961((void*)_handle);
+            NativeMethods.TablePtr->f1962((void*)_handle);
             _handle = 0;
         }
     }

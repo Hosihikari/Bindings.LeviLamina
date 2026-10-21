@@ -44,7 +44,7 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(symbol);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2828(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->f2834(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -64,23 +64,23 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
 
     public string raw()
     {
-        var __hs_view = NativeMethods.TablePtr->f2829((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2835((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint resolve(bool disableErrorOutput)
     {
-        return (nint)NativeMethods.TablePtr->f2830((void*)_handle, disableErrorOutput);
+        return (nint)NativeMethods.TablePtr->f2836((void*)_handle, disableErrorOutput);
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2831((void*)_handle);
+        return NativeMethods.TablePtr->f2837((void*)_handle);
     }
 
     public string toString()
     {
-        var __hs_view = NativeMethods.TablePtr->f2832((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2838((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -88,7 +88,7 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2827((void*)_handle);
+            NativeMethods.TablePtr->f2833((void*)_handle);
             _handle = 0;
         }
     }

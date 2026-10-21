@@ -25,14 +25,14 @@ public sealed unsafe partial class UntypedStorage_1ULL__2ULL_ : global::System.I
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f1858((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f1859((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1857((void*)_handle);
+            NativeMethods.TablePtr->f1858((void*)_handle);
             _handle = 0;
         }
     }

@@ -25,7 +25,7 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
 
     public static DynamicListener Create(nint fnInvoke, nint fnUserData, nint fnRelease, int priority, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
     {
-        var handle = NativeMethods.TablePtr->f2470((void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, priority, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        var handle = NativeMethods.TablePtr->f2476((void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, priority, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -36,12 +36,12 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
 
     public void call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event @event)
     {
-        NativeMethods.TablePtr->f2471((void*)_handle, (void*)@event.Handle);
+        NativeMethods.TablePtr->f2477((void*)_handle, (void*)@event.Handle);
     }
 
     public static global::Hosihikari.Bindings.Abi.SharedHandle? create(nint fnInvoke, nint fnUserData, nint fnRelease, int priority, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
     {
-        var __hs_shared = NativeMethods.TablePtr->f2472((void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, priority, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        var __hs_shared = NativeMethods.TablePtr->f2478((void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, priority, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
         return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
     }
 
@@ -50,7 +50,7 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2469((void*)_handle);
+            NativeMethods.TablePtr->f2475((void*)_handle);
             _handle = 0;
         }
     }

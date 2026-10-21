@@ -32,7 +32,7 @@ public sealed unsafe partial class ServerTickSyncSleepBase : global::System.IDis
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3006((void*)_handle);
+            NativeMethods.TablePtr->f3012((void*)_handle);
             _handle = 0;
         }
     }

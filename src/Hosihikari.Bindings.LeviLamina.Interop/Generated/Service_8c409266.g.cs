@@ -29,7 +29,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
 
     public static nint ServiceId
     {
-        get => (nint)NativeMethods.TablePtr->f2956();
+        get => (nint)NativeMethods.TablePtr->f2962();
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
@@ -38,7 +38,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
 
     public void invalidate()
     {
-        NativeMethods.TablePtr->f2957((void*)_handle);
+        NativeMethods.TablePtr->f2963((void*)_handle);
     }
 
 
@@ -46,7 +46,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2955((void*)_handle);
+            NativeMethods.TablePtr->f2961((void*)_handle);
             _handle = 0;
         }
     }

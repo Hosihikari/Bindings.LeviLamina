@@ -29,7 +29,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public static CustomForm Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.CustomForm arg0)
     {
-        var handle = NativeMethods.TablePtr->f3019((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f3025((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -38,25 +38,26 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         return new CustomForm((nint)handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void ()>' is not supported.", false)]
-    public nint button(nint label, nint callback, nint options) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void ()>' is not supported.");
+    public nint button(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, nint callbackInvoke, nint callbackUserData, nint callbackRelease, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ButtonOptions options)
+    {
+        return (nint)NativeMethods.TablePtr->f3026((void*)_handle, (void*)label.Handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease, (void*)options.Handle);
+    }
 
     public void close()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3020((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f3027((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
     public nint closeButton()
     {
-        return (nint)NativeMethods.TablePtr->f3021((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3028((void*)_handle);
     }
 
     public nint divider(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.DividerOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f3022((void*)_handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f3029((void*)_handle, (void*)options.Handle);
     }
 
     public nint dropdown(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableNumber value, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.DropdownItemData[] items, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.DropdownOptions options)
@@ -70,32 +71,35 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         fixed (nint* __hs_vectorHandleData2 = __hs_vectorHandles2)
         {
             var __hs_vectorData2 = (void**)__hs_vectorHandleData2;
-            return (nint)NativeMethods.TablePtr->f3023((void*)_handle, (void*)label.Handle, (void*)value.Handle, (void*)options.Handle, __hs_vectorData2, (nuint)(items?.Length ?? 0));
+            return (nint)NativeMethods.TablePtr->f3030((void*)_handle, (void*)label.Handle, (void*)value.Handle, (void*)options.Handle, __hs_vectorData2, (nuint)(items?.Length ?? 0));
         }
     }
 
     public nint header(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 text, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.TextOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f3024((void*)_handle, (void*)text.Handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f3031((void*)_handle, (void*)text.Handle, (void*)options.Handle);
     }
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f3025((void*)_handle);
+        return NativeMethods.TablePtr->f3032((void*)_handle);
     }
 
     public nint label(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 text, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.TextOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f3026((void*)_handle, (void*)text.Handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f3033((void*)_handle, (void*)text.Handle, (void*)options.Handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
-    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>)>' is not supported.", false)]
-    public nint show(nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>)>' is not supported.");
+    public void show(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f3034((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::CoroTask<nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>>' is not a known bindable declaration.", false)]
     public nint showAsync() =>
@@ -103,22 +107,22 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public nint slider(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableNumber value, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_57217b04 min, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_57217b04 max, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.SliderOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f3027((void*)_handle, (void*)label.Handle, (void*)value.Handle, (void*)min.Handle, (void*)max.Handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f3035((void*)_handle, (void*)label.Handle, (void*)value.Handle, (void*)min.Handle, (void*)max.Handle, (void*)options.Handle);
     }
 
     public nint spacer(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.SpacingOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f3028((void*)_handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f3036((void*)_handle, (void*)options.Handle);
     }
 
     public nint textField(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableString text, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.TextFieldOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f3029((void*)_handle, (void*)label.Handle, (void*)text.Handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f3037((void*)_handle, (void*)label.Handle, (void*)text.Handle, (void*)options.Handle);
     }
 
     public nint toggle(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ObservableBoolean toggled, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ToggleOptions options)
     {
-        return (nint)NativeMethods.TablePtr->f3030((void*)_handle, (void*)label.Handle, (void*)toggled.Handle, (void*)options.Handle);
+        return (nint)NativeMethods.TablePtr->f3038((void*)_handle, (void*)label.Handle, (void*)toggled.Handle, (void*)options.Handle);
     }
 
 
@@ -126,7 +130,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3018((void*)_handle);
+            NativeMethods.TablePtr->f3024((void*)_handle);
             _handle = 0;
         }
     }

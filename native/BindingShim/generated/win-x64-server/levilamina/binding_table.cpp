@@ -429,6 +429,42 @@ catch (...)
     return nullptr;
 }
 
+using hs_cb_invoke_hs_method_4962dd8b_cb0 = void (*)(void* userData, const char* arg0_data, std::size_t arg0_size);
+using hs_cb_release_hs_method_4962dd8b_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_4962dd8b_cb0
+{
+    hs_cb_invoke_hs_method_4962dd8b_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_4962dd8b_cb0 release;
+    hs_cb_state_hs_method_4962dd8b_cb0(hs_cb_invoke_hs_method_4962dd8b_cb0 invoke_, void* userData_, hs_cb_release_hs_method_4962dd8b_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_4962dd8b_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_4962dd8b_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_4962dd8b_cb0> state;
+    void operator()(std::basic_string_view<char> arg0) const
+    {
+        HosihikariStringView hs_arg0{arg0.data(), arg0.size()};
+        state->invoke(state->userData, hs_arg0.data, hs_arg0.size);
+    }
+};
+
+static void* hs_method_4962dd8b(void* hs_self, void* out_invoke, void* out_userData, void* out_release, const char* locale_data, std::size_t locale_size) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::Error*>(hs_self)->log(brstd::function_ref<void (std::basic_string_view<char>)>(hs_cb_closure_hs_method_4962dd8b_cb0{std::make_shared<hs_cb_state_hs_method_4962dd8b_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_4962dd8b_cb0>(out_invoke), out_userData, reinterpret_cast<hs_cb_release_hs_method_4962dd8b_cb0>(out_release))}), std::basic_string_view<char>(locale_data, locale_size))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_method_e159e652(void* hs_self, void* arg0, std::int32_t arg1) try
 {
     return const_cast<void*>(static_cast<void const*>(&static_cast<ll::Error*>(hs_self)->log(*static_cast<ll::io::Logger*>(arg0), static_cast<ll::io::LogLevel>(arg1))));
@@ -33823,6 +33859,41 @@ catch (...)
     return;
 }
 
+using hs_cb_invoke_hs_method_185c6fa2_cb0 = void (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_185c6fa2_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_185c6fa2_cb0
+{
+    hs_cb_invoke_hs_method_185c6fa2_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_185c6fa2_cb0 release;
+    hs_cb_state_hs_method_185c6fa2_cb0(hs_cb_invoke_hs_method_185c6fa2_cb0 invoke_, void* userData_, hs_cb_release_hs_method_185c6fa2_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_185c6fa2_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_185c6fa2_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_185c6fa2_cb0> state;
+    void operator()(CommandParameterData & arg0) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)));
+    }
+};
+
+static void* hs_method_185c6fa2(void* hs_self, void* fn_invoke, void* fn_userData, void* fn_release) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->modify(brstd::function_ref<void (CommandParameterData &)>(hs_cb_closure_hs_method_185c6fa2_cb0{std::make_shared<hs_cb_state_hs_method_185c6fa2_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_185c6fa2_cb0>(fn_invoke), fn_userData, reinterpret_cast<hs_cb_release_hs_method_185c6fa2_cb0>(fn_release))}))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_method_57f82de7(void* hs_self, std::uint8_t option) try
 {
     return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->option(static_cast<CommandParameterOption>(option))));
@@ -35404,6 +35475,41 @@ catch (...)
     return;
 }
 
+using hs_cb_invoke_hs_method_9fd5bd9d_cb0 = void (*)(void* userData, bool arg0);
+using hs_cb_release_hs_method_9fd5bd9d_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_9fd5bd9d_cb0
+{
+    hs_cb_invoke_hs_method_9fd5bd9d_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_9fd5bd9d_cb0 release;
+    hs_cb_state_hs_method_9fd5bd9d_cb0(hs_cb_invoke_hs_method_9fd5bd9d_cb0 invoke_, void* userData_, hs_cb_release_hs_method_9fd5bd9d_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_9fd5bd9d_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_9fd5bd9d_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_9fd5bd9d_cb0> state;
+    void operator()(const bool & arg0) const
+    {
+        state->invoke(state->userData, static_cast<bool>(arg0));
+    }
+};
+
+static std::uint32_t hs_method_9fd5bd9d(void* hs_self, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return static_cast<std::uint32_t>(static_cast<ll::data::Observable<bool>*>(hs_self)->subscribe(brstd::move_only_function<void (const bool &)>(hs_cb_closure_hs_method_9fd5bd9d_cb0{std::make_shared<hs_cb_state_hs_method_9fd5bd9d_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_9fd5bd9d_cb0>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_9fd5bd9d_cb0>(callback_release))})));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static bool hs_method_8da0720f(void* hs_self, std::uint32_t id) try
 {
     return static_cast<bool>(static_cast<ll::data::Observable<bool>*>(hs_self)->unsubscribe(static_cast<unsigned int>(id)));
@@ -35462,6 +35568,41 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+using hs_cb_invoke_hs_method_2c6c6854_cb0 = void (*)(void* userData, double arg0);
+using hs_cb_release_hs_method_2c6c6854_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_2c6c6854_cb0
+{
+    hs_cb_invoke_hs_method_2c6c6854_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_2c6c6854_cb0 release;
+    hs_cb_state_hs_method_2c6c6854_cb0(hs_cb_invoke_hs_method_2c6c6854_cb0 invoke_, void* userData_, hs_cb_release_hs_method_2c6c6854_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_2c6c6854_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_2c6c6854_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_2c6c6854_cb0> state;
+    void operator()(const double & arg0) const
+    {
+        state->invoke(state->userData, static_cast<double>(arg0));
+    }
+};
+
+static std::uint32_t hs_method_2c6c6854(void* hs_self, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return static_cast<std::uint32_t>(static_cast<ll::data::Observable<double>*>(hs_self)->subscribe(brstd::move_only_function<void (const double &)>(hs_cb_closure_hs_method_2c6c6854_cb0{std::make_shared<hs_cb_state_hs_method_2c6c6854_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_2c6c6854_cb0>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_2c6c6854_cb0>(callback_release))})));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static bool hs_method_ffac1252(void* hs_self, std::uint32_t id) try
@@ -35524,6 +35665,41 @@ catch (...)
     return;
 }
 
+using hs_cb_invoke_hs_method_3888e827_cb0 = void (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_3888e827_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_3888e827_cb0
+{
+    hs_cb_invoke_hs_method_3888e827_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_3888e827_cb0 release;
+    hs_cb_state_hs_method_3888e827_cb0(hs_cb_invoke_hs_method_3888e827_cb0 invoke_, void* userData_, hs_cb_release_hs_method_3888e827_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_3888e827_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_3888e827_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_3888e827_cb0> state;
+    void operator()(const ll::ui::UIRawMessage & arg0) const
+    {
+        state->invoke(state->userData, const_cast<void*>(static_cast<void const*>(std::addressof(arg0))));
+    }
+};
+
+static std::uint32_t hs_method_3888e827(void* hs_self, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return static_cast<std::uint32_t>(static_cast<ll::data::Observable<ll::ui::UIRawMessage>*>(hs_self)->subscribe(brstd::move_only_function<void (const ll::ui::UIRawMessage &)>(hs_cb_closure_hs_method_3888e827_cb0{std::make_shared<hs_cb_state_hs_method_3888e827_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_3888e827_cb0>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_3888e827_cb0>(callback_release))})));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
+}
+
 static bool hs_method_8658992c(void* hs_self, std::uint32_t id) try
 {
     return static_cast<bool>(static_cast<ll::data::Observable<ll::ui::UIRawMessage>*>(hs_self)->unsubscribe(static_cast<unsigned int>(id)));
@@ -35584,6 +35760,42 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+using hs_cb_invoke_hs_method_aecc67d8_cb0 = void (*)(void* userData, const char* arg0_data, std::size_t arg0_size);
+using hs_cb_release_hs_method_aecc67d8_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_aecc67d8_cb0
+{
+    hs_cb_invoke_hs_method_aecc67d8_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_aecc67d8_cb0 release;
+    hs_cb_state_hs_method_aecc67d8_cb0(hs_cb_invoke_hs_method_aecc67d8_cb0 invoke_, void* userData_, hs_cb_release_hs_method_aecc67d8_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_aecc67d8_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_aecc67d8_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_aecc67d8_cb0> state;
+    void operator()(const std::basic_string<char> & arg0) const
+    {
+        HosihikariStringView hs_arg0{arg0.data(), arg0.size()};
+        state->invoke(state->userData, hs_arg0.data, hs_arg0.size);
+    }
+};
+
+static std::uint32_t hs_method_aecc67d8(void* hs_self, void* callback_invoke, void* callback_userData, void* callback_release) try
+{
+    return static_cast<std::uint32_t>(static_cast<ll::data::Observable<std::basic_string<char>>*>(hs_self)->subscribe(brstd::move_only_function<void (const std::basic_string<char> &)>(hs_cb_closure_hs_method_aecc67d8_cb0{std::make_shared<hs_cb_state_hs_method_aecc67d8_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_aecc67d8_cb0>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_aecc67d8_cb0>(callback_release))})));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return 0;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return 0;
 }
 
 static bool hs_method_e9a29ddb(void* hs_self, std::uint32_t id) try
@@ -46828,6 +47040,41 @@ catch (...)
     return nullptr;
 }
 
+using hs_cb_invoke_hs_method_7c604bbc_cb1 = void (*)(void* userData);
+using hs_cb_release_hs_method_7c604bbc_cb1 = void (*)(void*);
+struct hs_cb_state_hs_method_7c604bbc_cb1
+{
+    hs_cb_invoke_hs_method_7c604bbc_cb1 invoke;
+    void* userData;
+    hs_cb_release_hs_method_7c604bbc_cb1 release;
+    hs_cb_state_hs_method_7c604bbc_cb1(hs_cb_invoke_hs_method_7c604bbc_cb1 invoke_, void* userData_, hs_cb_release_hs_method_7c604bbc_cb1 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_7c604bbc_cb1() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_7c604bbc_cb1
+{
+    std::shared_ptr<hs_cb_state_hs_method_7c604bbc_cb1> state;
+    void operator()() const
+    {
+        state->invoke(state->userData);
+    }
+};
+
+static void* hs_method_7c604bbc(void* hs_self, void* label, void* callback_invoke, void* callback_userData, void* callback_release, void* options) try
+{
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::ui::CustomForm*>(hs_self)->button(*static_cast<const std::variant<std::basic_string<char>, ll::ui::UIRawMessage, ll::ui::ObservableString, ll::ui::ObservableUIRawMessage>*>(label), brstd::move_only_function<void ()>(hs_cb_closure_hs_method_7c604bbc_cb1{std::make_shared<hs_cb_state_hs_method_7c604bbc_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_7c604bbc_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_7c604bbc_cb1>(callback_release))}), *static_cast<const ll::ui::ButtonOptions*>(options))));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void hs_method_2c1a5681(void* hs_self, bool* hs_hasValue) try
 {
     auto hs_expected = static_cast<ll::ui::CustomForm*>(hs_self)->close();
@@ -46940,6 +47187,50 @@ catch (...)
 {
     setLastError("unknown native exception");
     return nullptr;
+}
+
+using hs_cb_invoke_hs_method_57e5bf34_cb0 = void (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_57e5bf34_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_57e5bf34_cb0
+{
+    hs_cb_invoke_hs_method_57e5bf34_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_57e5bf34_cb0 release;
+    hs_cb_state_hs_method_57e5bf34_cb0(hs_cb_invoke_hs_method_57e5bf34_cb0 invoke_, void* userData_, hs_cb_release_hs_method_57e5bf34_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_57e5bf34_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_57e5bf34_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_57e5bf34_cb0> state;
+    void operator()(nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error> arg0) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)));
+    }
+};
+
+static void hs_method_57e5bf34(void* hs_self, void* callback_invoke, void* callback_userData, void* callback_release, bool* hs_hasValue) try
+{
+    auto hs_expected = static_cast<ll::ui::CustomForm*>(hs_self)->show(brstd::move_only_function<void (nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>)>(hs_cb_closure_hs_method_57e5bf34_cb0{std::make_shared<hs_cb_state_hs_method_57e5bf34_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_57e5bf34_cb0>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_57e5bf34_cb0>(callback_release))}));
+    if (!hs_expected)
+    {
+        setLastError(hs_expected.error().message().c_str());
+        *hs_hasValue = false;
+        return;
+    }
+    *hs_hasValue = true;
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return;
 }
 
 static void* hs_method_c910e915(void* hs_self, void* label, void* value, void* min, void* max, void* options) try
@@ -47294,6 +47585,50 @@ catch (...)
 {
     setLastError("unknown native exception");
     return false;
+}
+
+using hs_cb_invoke_hs_method_5030d226_cb0 = void (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_5030d226_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_5030d226_cb0
+{
+    hs_cb_invoke_hs_method_5030d226_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_5030d226_cb0 release;
+    hs_cb_state_hs_method_5030d226_cb0(hs_cb_invoke_hs_method_5030d226_cb0 invoke_, void* userData_, hs_cb_release_hs_method_5030d226_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_5030d226_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_5030d226_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_5030d226_cb0> state;
+    void operator()(nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error> arg0) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)));
+    }
+};
+
+static void hs_method_5030d226(void* hs_self, void* callback_invoke, void* callback_userData, void* callback_release, bool* hs_hasValue) try
+{
+    auto hs_expected = static_cast<ll::ui::MessageBox*>(hs_self)->show(brstd::move_only_function<void (nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>)>(hs_cb_closure_hs_method_5030d226_cb0{std::make_shared<hs_cb_state_hs_method_5030d226_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_5030d226_cb0>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_5030d226_cb0>(callback_release))}));
+    if (!hs_expected)
+    {
+        setLastError(hs_expected.error().message().c_str());
+        *hs_hasValue = false;
+        return;
+    }
+    *hs_hasValue = true;
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return;
 }
 
 static void hs_destroy_d6dd7b49(void* hs_self) try
@@ -47863,6 +48198,50 @@ catch (...)
 {
     setLastError("unknown native exception");
     return false;
+}
+
+using hs_cb_invoke_hs_method_bc4ff820_cb0 = void (*)(void* userData, void* arg0);
+using hs_cb_release_hs_method_bc4ff820_cb0 = void (*)(void*);
+struct hs_cb_state_hs_method_bc4ff820_cb0
+{
+    hs_cb_invoke_hs_method_bc4ff820_cb0 invoke;
+    void* userData;
+    hs_cb_release_hs_method_bc4ff820_cb0 release;
+    hs_cb_state_hs_method_bc4ff820_cb0(hs_cb_invoke_hs_method_bc4ff820_cb0 invoke_, void* userData_, hs_cb_release_hs_method_bc4ff820_cb0 release_)
+        : invoke(invoke_), userData(userData_), release(release_) {}
+    ~hs_cb_state_hs_method_bc4ff820_cb0() { if (release) { release(userData); } }
+};
+struct hs_cb_closure_hs_method_bc4ff820_cb0
+{
+    std::shared_ptr<hs_cb_state_hs_method_bc4ff820_cb0> state;
+    void operator()(nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error> arg0) const
+    {
+        state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)));
+    }
+};
+
+static void hs_method_bc4ff820(void* hs_self, void* callback_invoke, void* callback_userData, void* callback_release, bool* hs_hasValue) try
+{
+    auto hs_expected = static_cast<ll::ui::ScreenSession*>(hs_self)->show(brstd::move_only_function<void (nonstd::expected_lite::expected<DataDrivenScreenClosedReason, ll::Error>)>(hs_cb_closure_hs_method_bc4ff820_cb0{std::make_shared<hs_cb_state_hs_method_bc4ff820_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_bc4ff820_cb0>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_bc4ff820_cb0>(callback_release))}));
+    if (!hs_expected)
+    {
+        setLastError(hs_expected.error().message().c_str());
+        *hs_hasValue = false;
+        return;
+    }
+    *hs_hasValue = true;
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    if (hs_hasValue) { *hs_hasValue = false; }
+    return;
 }
 
 static void hs_destroy_65044de5(void* hs_self) try
@@ -48933,6 +49312,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_create_507cce9a,
     &hs_method_24ce3688,
     &hs_method_ecc40f03,
+    &hs_method_4962dd8b,
     &hs_method_e159e652,
     &hs_method_909c5e3f,
     &hs_method_efe26085,
@@ -51133,6 +51513,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_create_270aec83,
     &hs_method_8adc19c3,
     &hs_method_df448e2e,
+    &hs_method_185c6fa2,
     &hs_method_57f82de7,
     &hs_method_476ed114,
     &hs_method_194762e4,
@@ -51233,18 +51614,22 @@ const HosihikariBindingTableV1 kTable{
     &hs_destroy_a5d33e74,
     &hs_method_e37c0f25,
     &hs_method_22c7845e,
+    &hs_method_9fd5bd9d,
     &hs_method_8da0720f,
     &hs_destroy_9c6b675b,
     &hs_method_d53bfa12,
     &hs_method_881de8c0,
+    &hs_method_2c6c6854,
     &hs_method_ffac1252,
     &hs_destroy_7f2c6446,
     &hs_method_114db1ad,
     &hs_method_4b4adab1,
+    &hs_method_3888e827,
     &hs_method_8658992c,
     &hs_destroy_7412faa7,
     &hs_method_529b2a55,
     &hs_method_557d39f2,
+    &hs_method_aecc67d8,
     &hs_method_e9a29ddb,
     &hs_destroy_1e0ce516,
     &hs_create_debc5a46,
@@ -51947,6 +52332,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_get_623ca3c9,
     &hs_destroy_fb3f9b60,
     &hs_create_efa252c2,
+    &hs_method_7c604bbc,
     &hs_method_2c1a5681,
     &hs_method_6836991e,
     &hs_method_7b94a684,
@@ -51954,6 +52340,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_8d2a1d7f,
     &hs_method_fe218c64,
     &hs_method_18a698b9,
+    &hs_method_57e5bf34,
     &hs_method_c910e915,
     &hs_method_cbdfe00a,
     &hs_method_046e7188,
@@ -51977,6 +52364,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_6167cdee,
     &hs_method_bbc3a137,
     &hs_method_b11cad00,
+    &hs_method_5030d226,
     &hs_destroy_d6dd7b49,
     &hs_get_208f3155,
     &hs_set_208f3155,
@@ -52010,6 +52398,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_45ce26ba,
     &hs_method_5a28bc2c,
     &hs_method_6bbf78c7,
+    &hs_method_bc4ff820,
     &hs_destroy_65044de5,
     &hs_get_fb15d7b0,
     &hs_get_9df78fa6,

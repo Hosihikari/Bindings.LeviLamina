@@ -27,7 +27,7 @@ public sealed unsafe partial class RuntimeSoftEnum : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2213((void*)_handle);
+            NativeMethods.TablePtr->f2215((void*)_handle);
             _handle = 0;
         }
     }

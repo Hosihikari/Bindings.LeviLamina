@@ -29,34 +29,34 @@ public sealed unsafe partial class BlockChangedEvent : global::System.IDisposabl
 
     public nint layer()
     {
-        return (nint)NativeMethods.TablePtr->f2393((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2399((void*)_handle);
     }
 
     public nint newBlock()
     {
-        return (nint)NativeMethods.TablePtr->f2394((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2400((void*)_handle);
     }
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f2395((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2401((void*)_handle);
     }
 
     public nint previousBlock()
     {
-        return (nint)NativeMethods.TablePtr->f2396((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2402((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2397((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2403((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2392((void*)_handle);
+            NativeMethods.TablePtr->f2398((void*)_handle);
             _handle = 0;
         }
     }

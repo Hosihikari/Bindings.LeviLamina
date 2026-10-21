@@ -33,7 +33,7 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__IntRange_
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f409((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f410((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -42,7 +42,7 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__IntRange_
 
     public nint get_bbb3b9e1()
     {
-        return (nint)NativeMethods.TablePtr->f410((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f411((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -51,17 +51,17 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__IntRange_
 
     public nint get_b4182191()
     {
-        return (nint)NativeMethods.TablePtr->f411((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f412((void*)_handle);
     }
 
     public nint operator_IntRange__()
     {
-        return (nint)NativeMethods.TablePtr->f412((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f413((void*)_handle);
     }
 
     public nint operator_const_IntRange__()
     {
-        return (nint)NativeMethods.TablePtr->f413((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f414((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -70,7 +70,7 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__IntRange_
 
     public nint operator_multiply_2b81b80b()
     {
-        return (nint)NativeMethods.TablePtr->f414((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f415((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -79,17 +79,17 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__IntRange_
 
     public nint operator_multiply_2a8dbf2d()
     {
-        return (nint)NativeMethods.TablePtr->f415((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f416((void*)_handle);
     }
 
     public nint operator_operator___c4e9fdf9()
     {
-        return (nint)NativeMethods.TablePtr->f416((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f417((void*)_handle);
     }
 
     public nint operator_operator___1ff18816()
     {
-        return (nint)NativeMethods.TablePtr->f417((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f418((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]

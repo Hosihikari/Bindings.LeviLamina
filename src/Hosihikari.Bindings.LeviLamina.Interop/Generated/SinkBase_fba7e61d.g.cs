@@ -29,12 +29,12 @@ public sealed unsafe partial class SinkBase : global::System.IDisposable
 
     public void flush()
     {
-        NativeMethods.TablePtr->f2773((void*)_handle);
+        NativeMethods.TablePtr->f2779((void*)_handle);
     }
 
     public void setFlushLevel(int arg0)
     {
-        NativeMethods.TablePtr->f2774((void*)_handle, arg0);
+        NativeMethods.TablePtr->f2780((void*)_handle, arg0);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
@@ -46,7 +46,7 @@ public sealed unsafe partial class SinkBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2772((void*)_handle);
+            NativeMethods.TablePtr->f2778((void*)_handle);
             _handle = 0;
         }
     }

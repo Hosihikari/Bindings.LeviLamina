@@ -82,13 +82,18 @@ public sealed unsafe partial class Error : global::System.IDisposable
         }
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::function_ref<void (std::basic_string_view<char>)>' is not supported.", false)]
-    public nint log(nint @out, nint locale) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::function_ref<void (std::basic_string_view<char>)>' is not supported.");
+    public nint log(nint @outInvoke, nint @outUserData, nint @outRelease, string locale)
+    {
+        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
+        fixed (byte* __hs_stringData1 = __hs_stringBytes1)
+        {
+            return (nint)NativeMethods.TablePtr->f6((void*)_handle, (void*)@outInvoke, (void*)@outUserData, (void*)@outRelease, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+        }
+    }
 
     public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, int arg1)
     {
-        return (nint)NativeMethods.TablePtr->f6((void*)_handle, (void*)arg0.Handle, arg1);
+        return (nint)NativeMethods.TablePtr->f7((void*)_handle, (void*)arg0.Handle, arg1);
     }
 
     public nint log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, string locale, int arg2)
@@ -96,13 +101,13 @@ public sealed unsafe partial class Error : global::System.IDisposable
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return (nint)NativeMethods.TablePtr->f7((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
+            return (nint)NativeMethods.TablePtr->f8((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2);
         }
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f8((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f9((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -111,14 +116,14 @@ public sealed unsafe partial class Error : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(locale);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->f9((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->f10((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f10((void*)_handle);
+        return NativeMethods.TablePtr->f11((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.", false)]

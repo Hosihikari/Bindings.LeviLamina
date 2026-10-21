@@ -29,24 +29,24 @@ public sealed unsafe partial class PlayerAttackEvent : global::System.IDisposabl
 
     public nint cause()
     {
-        return (nint)NativeMethods.TablePtr->f2533((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2539((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2534((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2540((void*)_handle, (void*)arg0);
     }
 
     public nint target()
     {
-        return (nint)NativeMethods.TablePtr->f2535((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2541((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2532((void*)_handle);
+            NativeMethods.TablePtr->f2538((void*)_handle);
             _handle = 0;
         }
     }

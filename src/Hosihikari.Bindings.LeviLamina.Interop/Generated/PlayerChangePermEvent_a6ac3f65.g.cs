@@ -29,24 +29,24 @@ public sealed unsafe partial class PlayerChangePermEvent : global::System.IDispo
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2537((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2543((void*)_handle, (void*)arg0);
     }
 
     public nint newPerm()
     {
-        return (nint)NativeMethods.TablePtr->f2538((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2544((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2539((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2545((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2536((void*)_handle);
+            NativeMethods.TablePtr->f2542((void*)_handle);
             _handle = 0;
         }
     }

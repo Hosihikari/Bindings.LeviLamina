@@ -25,14 +25,14 @@ public sealed unsafe partial class ParamTraits_CommandItem_ : global::System.IDi
 
     public static byte options()
     {
-        return NativeMethods.TablePtr->f1934();
+        return NativeMethods.TablePtr->f1935();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1933((void*)_handle);
+            NativeMethods.TablePtr->f1934((void*)_handle);
             _handle = 0;
         }
     }

@@ -25,19 +25,19 @@ public sealed unsafe partial class from_chars_result : global::System.IDisposabl
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2379((void*)_handle);
+        return NativeMethods.TablePtr->f2385((void*)_handle);
     }
 
     public void value()
     {
-        NativeMethods.TablePtr->f2380((void*)_handle);
+        NativeMethods.TablePtr->f2386((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2378((void*)_handle);
+            NativeMethods.TablePtr->f2384((void*)_handle);
             _handle = 0;
         }
     }

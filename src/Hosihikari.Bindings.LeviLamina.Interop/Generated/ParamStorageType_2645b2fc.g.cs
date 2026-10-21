@@ -25,19 +25,19 @@ public sealed unsafe partial class ParamStorageType : global::System.IDisposable
 
     public bool hold(ulong kind)
     {
-        return NativeMethods.TablePtr->f1923((void*)_handle, kind);
+        return NativeMethods.TablePtr->f1924((void*)_handle, kind);
     }
 
     public ulong index()
     {
-        return NativeMethods.TablePtr->f1924((void*)_handle);
+        return NativeMethods.TablePtr->f1925((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1922((void*)_handle);
+            NativeMethods.TablePtr->f1923((void*)_handle);
             _handle = 0;
         }
     }

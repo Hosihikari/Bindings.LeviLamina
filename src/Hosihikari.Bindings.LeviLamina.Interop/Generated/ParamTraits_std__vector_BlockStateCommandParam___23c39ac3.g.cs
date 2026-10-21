@@ -25,14 +25,14 @@ public sealed unsafe partial class ParamTraits_std__vector_BlockStateCommandPara
 
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1975();
+        return NativeMethods.TablePtr->f1976();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1974((void*)_handle);
+            NativeMethods.TablePtr->f1975((void*)_handle);
             _handle = 0;
         }
     }

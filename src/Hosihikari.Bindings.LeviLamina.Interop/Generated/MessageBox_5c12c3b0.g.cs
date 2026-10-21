@@ -29,7 +29,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
 
     public static MessageBox Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox arg0)
     {
-        var handle = NativeMethods.TablePtr->f3044((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f3052((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -40,38 +40,41 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
 
     public nint body(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 value)
     {
-        return (nint)NativeMethods.TablePtr->f3045((void*)_handle, (void*)value.Handle);
+        return (nint)NativeMethods.TablePtr->f3053((void*)_handle, (void*)value.Handle);
     }
 
     public nint button1(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
     {
-        return (nint)NativeMethods.TablePtr->f3046((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
+        return (nint)NativeMethods.TablePtr->f3054((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
     }
 
     public nint button2(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 label, global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34? tooltip)
     {
-        return (nint)NativeMethods.TablePtr->f3047((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
+        return (nint)NativeMethods.TablePtr->f3055((void*)_handle, (void*)label.Handle, (void*)(tooltip?.Handle ?? 0), tooltip is not null);
     }
 
     public void close()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f3048((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f3056((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->f3049((void*)_handle);
+        return NativeMethods.TablePtr->f3057((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
     public nint operator_assign(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
 
-    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>)>' is not supported.", false)]
-    public nint show(nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>)>' is not supported.");
+    public void show(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    {
+        var __hs_hasValue = false;
+        NativeMethods.TablePtr->f3058((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease, &__hs_hasValue);
+        if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
+    }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::CoroTask<nonstd::expected_lite::expected<ll::ui::MessageBoxResult, ll::Error>>' is not a known bindable declaration.", false)]
     public nint showAsync() =>
@@ -82,7 +85,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3043((void*)_handle);
+            NativeMethods.TablePtr->f3051((void*)_handle);
             _handle = 0;
         }
     }

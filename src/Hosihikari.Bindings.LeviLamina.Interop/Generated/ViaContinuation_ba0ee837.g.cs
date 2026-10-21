@@ -25,7 +25,7 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
 
     public static ViaContinuation Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation other)
     {
-        var handle = NativeMethods.TablePtr->f2250((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2252((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -44,7 +44,7 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
 
     public void release()
     {
-        NativeMethods.TablePtr->f2251((void*)_handle);
+        NativeMethods.TablePtr->f2253((void*)_handle);
     }
 
 
@@ -52,7 +52,7 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2249((void*)_handle);
+            NativeMethods.TablePtr->f2251((void*)_handle);
             _handle = 0;
         }
     }

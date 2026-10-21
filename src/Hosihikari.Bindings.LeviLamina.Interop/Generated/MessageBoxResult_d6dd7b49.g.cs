@@ -25,20 +25,20 @@ public sealed unsafe partial class MessageBoxResult : global::System.IDisposable
 
     public byte closeReason
     {
-        get => NativeMethods.TablePtr->f3051((void*)_handle);
-        set => NativeMethods.TablePtr->f3052((void*)_handle, value);
+        get => NativeMethods.TablePtr->f3060((void*)_handle);
+        set => NativeMethods.TablePtr->f3061((void*)_handle, value);
     }
 
     public nint selection
     {
-        get => (nint)NativeMethods.TablePtr->f3053((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3062((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3050((void*)_handle);
+            NativeMethods.TablePtr->f3059((void*)_handle);
             _handle = 0;
         }
     }

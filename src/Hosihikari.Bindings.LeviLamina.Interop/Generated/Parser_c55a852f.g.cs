@@ -31,7 +31,7 @@ public sealed unsafe partial class Parser : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1964((void*)_handle);
+            NativeMethods.TablePtr->f1965((void*)_handle);
             _handle = 0;
         }
     }

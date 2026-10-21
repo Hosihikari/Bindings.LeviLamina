@@ -25,18 +25,18 @@ public sealed unsafe partial class ParamTraitsBase_bool_ : global::System.IDispo
 
     public static int dataType()
     {
-        return NativeMethods.TablePtr->f2113();
+        return NativeMethods.TablePtr->f2114();
     }
 
     public static string enumNameOrPostfix()
     {
-        var __hs_view = NativeMethods.TablePtr->f2114();
+        var __hs_view = NativeMethods.TablePtr->f2115();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static byte options()
     {
-        return NativeMethods.TablePtr->f2115();
+        return NativeMethods.TablePtr->f2116();
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: return type 'bool (CommandRegistry::*)(void *, const CommandRegistry::ParseToken &, const CommandOrigin &, int, std::basic_string<char> &, std::vector<std::basic_string<char>> &) const' is not supported.", false)]
@@ -45,30 +45,30 @@ public sealed unsafe partial class ParamTraitsBase_bool_ : global::System.IDispo
 
     public static nint parseRule()
     {
-        return (nint)NativeMethods.TablePtr->f2116();
+        return (nint)NativeMethods.TablePtr->f2117();
     }
 
     public static string subChain()
     {
-        var __hs_view = NativeMethods.TablePtr->f2117();
+        var __hs_view = NativeMethods.TablePtr->f2118();
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public static void transformData(nint arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandRegistrar arg1)
     {
-        NativeMethods.TablePtr->f2118((void*)arg0, (void*)arg1.Handle);
+        NativeMethods.TablePtr->f2119((void*)arg0, (void*)arg1.Handle);
     }
 
     public static ushort typeId()
     {
-        return NativeMethods.TablePtr->f2119();
+        return NativeMethods.TablePtr->f2120();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2112((void*)_handle);
+            NativeMethods.TablePtr->f2113((void*)_handle);
             _handle = 0;
         }
     }

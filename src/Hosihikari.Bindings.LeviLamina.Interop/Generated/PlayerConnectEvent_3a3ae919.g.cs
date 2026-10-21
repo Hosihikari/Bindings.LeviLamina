@@ -29,24 +29,24 @@ public sealed unsafe partial class PlayerConnectEvent : global::System.IDisposab
 
     public nint connectionRequest()
     {
-        return (nint)NativeMethods.TablePtr->f2546((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2552((void*)_handle);
     }
 
     public nint networkIdentifier()
     {
-        return (nint)NativeMethods.TablePtr->f2547((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2553((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2548((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2554((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2545((void*)_handle);
+            NativeMethods.TablePtr->f2551((void*)_handle);
             _handle = 0;
         }
     }

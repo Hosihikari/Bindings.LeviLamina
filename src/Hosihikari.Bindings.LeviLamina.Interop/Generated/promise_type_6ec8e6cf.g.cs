@@ -29,7 +29,7 @@ public sealed unsafe partial class promise_type : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation get_return_object()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation((nint)NativeMethods.TablePtr->f2253((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation((nint)NativeMethods.TablePtr->f2255((void*)_handle));
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::suspend_always' is not a known bindable declaration.", false)]
@@ -38,19 +38,19 @@ public sealed unsafe partial class promise_type : global::System.IDisposable
 
     public void return_void()
     {
-        NativeMethods.TablePtr->f2254((void*)_handle);
+        NativeMethods.TablePtr->f2256((void*)_handle);
     }
 
     public void unhandled_exception()
     {
-        NativeMethods.TablePtr->f2255((void*)_handle);
+        NativeMethods.TablePtr->f2257((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2252((void*)_handle);
+            NativeMethods.TablePtr->f2254((void*)_handle);
             _handle = 0;
         }
     }

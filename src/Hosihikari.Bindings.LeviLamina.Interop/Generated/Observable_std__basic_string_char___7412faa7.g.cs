@@ -37,7 +37,7 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public string getData()
     {
-        var __hs_view = NativeMethods.TablePtr->f2316((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2321((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -54,24 +54,25 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2317((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->f2322((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (const std::basic_string<char> &)>' is not supported.", false)]
-    public uint subscribe(nint callback) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (const std::basic_string<char> &)>' is not supported.");
+    public uint subscribe(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
+    {
+        return NativeMethods.TablePtr->f2323((void*)_handle, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+    }
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f2318((void*)_handle, id);
+        return NativeMethods.TablePtr->f2324((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2315((void*)_handle);
+            NativeMethods.TablePtr->f2320((void*)_handle);
             _handle = 0;
         }
     }

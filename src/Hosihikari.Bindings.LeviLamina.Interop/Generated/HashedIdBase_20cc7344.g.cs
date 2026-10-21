@@ -25,17 +25,17 @@ public sealed unsafe partial class HashedIdBase
 
     public ulong hash
     {
-        get => NativeMethods.TablePtr->f2671((void*)_handle);
-        set => NativeMethods.TablePtr->f2672((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2677((void*)_handle);
+        set => NativeMethods.TablePtr->f2678((void*)_handle, value);
     }
 
     public sbyte operator_compare(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
     {
-        return NativeMethods.TablePtr->f2673((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2679((void*)_handle, (void*)other.Handle);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
     {
-        return NativeMethods.TablePtr->f2674((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2680((void*)_handle, (void*)other.Handle);
     }
 }

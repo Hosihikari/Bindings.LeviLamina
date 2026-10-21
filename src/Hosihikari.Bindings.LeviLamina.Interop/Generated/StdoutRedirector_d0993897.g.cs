@@ -25,7 +25,7 @@ public sealed unsafe partial class StdoutRedirector : global::System.IDisposable
 
     public static StdoutRedirector Create(nint outputHandle, int channels)
     {
-        var handle = NativeMethods.TablePtr->f2776((void*)outputHandle, channels);
+        var handle = NativeMethods.TablePtr->f2782((void*)outputHandle, channels);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -39,7 +39,7 @@ public sealed unsafe partial class StdoutRedirector : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2775((void*)_handle);
+            NativeMethods.TablePtr->f2781((void*)_handle);
             _handle = 0;
         }
     }

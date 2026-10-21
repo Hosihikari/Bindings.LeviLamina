@@ -29,7 +29,7 @@ public sealed unsafe partial class ErrorInfoBase : global::System.IDisposable
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f15((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f16((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -42,7 +42,7 @@ public sealed unsafe partial class ErrorInfoBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f14((void*)_handle);
+            NativeMethods.TablePtr->f15((void*)_handle);
             _handle = 0;
         }
     }

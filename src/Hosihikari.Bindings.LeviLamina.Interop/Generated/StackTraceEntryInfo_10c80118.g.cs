@@ -25,28 +25,28 @@ public sealed unsafe partial class StackTraceEntryInfo : global::System.IDisposa
 
     public nint displacement
     {
-        get => (nint)NativeMethods.TablePtr->f2977((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2983((void*)_handle);
     }
 
     public string file
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2978((void*)_handle);
+            var view = NativeMethods.TablePtr->f2984((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint line
     {
-        get => (nint)NativeMethods.TablePtr->f2979((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2985((void*)_handle);
     }
 
     public string name
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2980((void*)_handle);
+            var view = NativeMethods.TablePtr->f2986((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -55,7 +55,7 @@ public sealed unsafe partial class StackTraceEntryInfo : global::System.IDisposa
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2976((void*)_handle);
+            NativeMethods.TablePtr->f2982((void*)_handle);
             _handle = 0;
         }
     }

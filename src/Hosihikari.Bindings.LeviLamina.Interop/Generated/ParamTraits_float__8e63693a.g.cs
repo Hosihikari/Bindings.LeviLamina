@@ -40,6 +40,11 @@ public sealed unsafe partial class ParamTraits_float_ : global::System.IDisposab
         return NativeMethods.TablePtr->hs_method_e8dcf423();
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_float_ AsParamTraitsBase_float_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_float_((nint)NativeMethods.TablePtr->hs_cast_ccc520dc((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

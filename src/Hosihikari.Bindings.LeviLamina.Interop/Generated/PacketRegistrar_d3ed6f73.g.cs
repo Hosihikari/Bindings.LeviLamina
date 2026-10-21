@@ -41,11 +41,11 @@ public sealed unsafe partial class PacketRegistrar
         return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle) : null;
     }
 
-    public nint? getHandler(ulong runtimeId)
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.IPacketHandler? getHandler(ulong runtimeId)
     {
         var __hs_hasValue = false;
         var __hs_handle = NativeMethods.TablePtr->hs_method_0ffcb439((void*)_handle, runtimeId, &__hs_hasValue);
-        return __hs_hasValue ? (nint)__hs_handle : null;
+        return __hs_hasValue && __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.IPacketHandler((nint)__hs_handle, false) : null;
     }
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.PacketRegistrar getInstance()

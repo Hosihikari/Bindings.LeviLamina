@@ -44,4 +44,21 @@ public sealed unsafe partial class MobEvent
     {
         NativeMethods.TablePtr->hs_method_d8021936((void*)_handle, (void*)arg0);
     }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ActorEvent AsActorEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ActorEvent((nint)NativeMethods.TablePtr->hs_cast_12d56b5a((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MobDieEvent? TryAsMobDieEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_4245af00((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MobDieEvent((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerEvent? TryAsPlayerEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_db76b14c((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerEvent((nint)__hs_handle, false) : null;
+    }
 }

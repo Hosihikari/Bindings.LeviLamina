@@ -43,4 +43,9 @@ public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent
     [global::System.Obsolete("BindingShim cannot project this member: the class has no accessible destructor.", false)]
     public void Destroy() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class has no accessible destructor.");
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase AsListenerBase()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase((nint)NativeMethods.TablePtr->hs_cast_2f8d55d6((void*)_handle), false);
+    }
 }

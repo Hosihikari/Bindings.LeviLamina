@@ -49,6 +49,11 @@ public sealed unsafe partial class PlayerPlacedBlockEvent : global::System.IDisp
         NativeMethods.TablePtr->hs_method_a7470134((void*)_handle, (void*)arg0);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerPlaceBlockEvent AsPlayerPlaceBlockEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerPlaceBlockEvent((nint)NativeMethods.TablePtr->hs_cast_d5ffbb48((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

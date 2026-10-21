@@ -45,6 +45,11 @@ public sealed unsafe partial class ParamStorageType : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_95601f24((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.Optional_std__variant_int__bool__float__DimensionType__std__basic_string_char___ll__command__Run_f92af424 AsOptional_std__variant_int__bool__float__DimensionType__std__basic_string_char___ll__command__Run_f92af424()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.Optional_std__variant_int__bool__float__DimensionType__std__basic_string_char___ll__command__Run_f92af424((nint)NativeMethods.TablePtr->hs_cast_31f1bb95((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

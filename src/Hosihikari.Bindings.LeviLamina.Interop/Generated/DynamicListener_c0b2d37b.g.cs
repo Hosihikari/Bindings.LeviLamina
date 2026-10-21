@@ -58,6 +58,11 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
     }
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase AsListenerBase()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase((nint)NativeMethods.TablePtr->hs_cast_4f5ad8f3((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

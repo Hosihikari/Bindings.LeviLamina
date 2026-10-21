@@ -69,6 +69,11 @@ public sealed unsafe partial class ServiceIdView : global::System.IDisposable
         set => NativeMethods.TablePtr->hs_set_889068b1((void*)_handle, value);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase AsHashedIdBase()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase((nint)NativeMethods.TablePtr->hs_cast_760b7957((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

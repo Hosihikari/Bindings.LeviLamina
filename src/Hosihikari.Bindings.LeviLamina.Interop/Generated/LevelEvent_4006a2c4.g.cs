@@ -44,4 +44,15 @@ public sealed unsafe partial class LevelEvent
     {
         NativeMethods.TablePtr->hs_method_5670062e((void*)_handle, (void*)arg0);
     }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_0d45bc89((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ServerLevelTickEvent? TryAsServerLevelTickEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_2bfcb528((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ServerLevelTickEvent((nint)__hs_handle, false) : null;
+    }
 }

@@ -44,4 +44,21 @@ public sealed unsafe partial class ActorEvent
     {
         NativeMethods.TablePtr->hs_method_f72bfd89((void*)_handle, (void*)arg0);
     }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_8989f82e((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ActorEvent_? TryAsCancellable_ll__event__ActorEvent_()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_75c895e8((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ActorEvent_((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MobEvent? TryAsMobEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_ae6a8ebd((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MobEvent((nint)__hs_handle, false) : null;
+    }
 }

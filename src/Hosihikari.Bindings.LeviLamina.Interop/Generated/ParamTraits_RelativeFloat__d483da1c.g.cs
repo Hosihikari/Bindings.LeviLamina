@@ -40,6 +40,11 @@ public sealed unsafe partial class ParamTraits_RelativeFloat_ : global::System.I
         return NativeMethods.TablePtr->hs_method_dea5830e();
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_RelativeFloat_ AsParamTraitsBase_RelativeFloat_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_RelativeFloat_((nint)NativeMethods.TablePtr->hs_cast_ff4f3920((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

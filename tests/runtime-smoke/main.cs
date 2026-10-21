@@ -8,7 +8,6 @@ using System.Threading;
 using Hosihikari;
 using Hosihikari.Bindings.LeviLamina.Interop;
 using Hosihikari.Bindings.LeviLamina.Interop.ll;
-using Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.memory;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.mod;
@@ -72,9 +71,10 @@ public sealed class ShimSmokePlugin : IPlugin
             log.AppendLine("load=ok");
 
             using var id = LlEventId.Create("hosihikari");
-            var hash = new HashedIdBase(id.Handle).hash;
+            var baseView = id.AsHashedIdBase();
             log.AppendLine($"eventid.name={id.name}");
-            log.AppendLine($"eventid.hash=0x{hash:x16}");
+            log.AppendLine($"eventid.hash=0x{baseView.hash:x16}");
+            log.AppendLine($"cast.up={(baseView.Handle == id.Handle ? "ok" : "failed")}");
 
             using var version = LlVersion.Create("1.2.3");
             log.AppendLine($"version.to_string={version.to_string()}");

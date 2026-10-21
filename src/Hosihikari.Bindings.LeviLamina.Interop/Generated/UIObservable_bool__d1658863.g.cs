@@ -44,6 +44,11 @@ public sealed unsafe partial class UIObservable_bool_ : global::System.IDisposab
         return NativeMethods.TablePtr->hs_method_62e115c7((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_bool_ AsObservable_bool_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_bool_((nint)NativeMethods.TablePtr->hs_cast_e10f6758((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

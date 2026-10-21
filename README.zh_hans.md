@@ -6,7 +6,7 @@
 
 ## 边界
 
-- `Hosihikari.Bindings.LeviLamina.Interop` 由 `Hosihikari/Bindings.Generator` 从版本化 IR 生成。它镜像 LLAPI 声明：一层指针与引用返回投影为类型化借用包装，其余不透明句柄保留 `nint`；提交入库并由 CI 重跑比对。
+- `Hosihikari.Bindings.LeviLamina.Interop` 由 `Hosihikari/Bindings.Generator` 从版本化 IR 生成。它镜像 LLAPI 声明：一层指针与引用返回投影为类型化借用包装，`optional_ref<T>` 结果复用同一包装，其余不透明句柄保留 `nint`；提交入库并由 CI 重跑比对。
 - `Hosihikari.Bindings.LeviLamina` 是手写 .NET 层：属性、事件、运算符、索引器、构造函数与服务端线程调度器。它不进入生成流水线。
 - `native/BindingShim/` 是用 LeviLamina 的 xmake/LLVM 工具链编译的 C ABI 投影。它不托管 CLR；HostingShim 是独立的一层。
 
@@ -15,7 +15,7 @@
 Interop 与 Idiomatic 工程可构建。carrier 链接的生成 Interop、v1 BindingShim 函数表及其 `extern "C"` 实现、覆盖清单均已提交：
 
 - `src/Hosihikari.Bindings.LeviLamina.Interop/Generated/` 是生成的原生风格 C# 类与 `NativeMethods`；ABI 值类型与 shim 加载器来自 `Hosihikari/Bindings.Abi`。有意不支持的成员为带 `[Obsolete]` 标记的 `NotSupportedException` stub，调用时产生编译器警告 CS0618。
-- `native/BindingShim/generated/win-x64-server/levilamina/` 是 3,243 个函数的函数表与实现。
+- `native/BindingShim/generated/win-x64-server/levilamina/` 是 3,431 个函数的函数表与实现。
 - `coverage/` 包含覆盖清单、汇总、基线与 provenance。
 
 宿主在使用生成的包装前调用 `Hosihikari.Bindings.LeviLamina.Interop.NativeMethods.Load(path)`。`native/BindingShim/build.ps1` 用 clang-cl 针对 `LeviLamina.lib`、fmt 与 prelink 生成的 Bedrock 导入构建 shim。

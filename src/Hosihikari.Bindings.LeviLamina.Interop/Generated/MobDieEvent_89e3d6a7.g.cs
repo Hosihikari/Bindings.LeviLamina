@@ -49,6 +49,11 @@ public sealed unsafe partial class MobDieEvent : global::System.IDisposable
         return (nint)NativeMethods.TablePtr->hs_method_0ce4260f((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MobEvent AsMobEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MobEvent((nint)NativeMethods.TablePtr->hs_cast_02ef09b1((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

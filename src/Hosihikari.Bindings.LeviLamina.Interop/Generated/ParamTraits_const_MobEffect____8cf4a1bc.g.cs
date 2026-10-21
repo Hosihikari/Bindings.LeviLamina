@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed partial class ParamTraits_const_MobEffect___
+public sealed unsafe partial class ParamTraits_const_MobEffect___
 {
     private nint _handle;
     private readonly bool _ownsHandle;
@@ -33,5 +33,10 @@ public sealed partial class ParamTraits_const_MobEffect___
         var __hs_handle = _handle;
         _handle = 0;
         return __hs_handle;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_const_MobEffect___ AsParamTraitsBase_const_MobEffect___()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_const_MobEffect___((nint)NativeMethods.TablePtr->hs_cast_f5744ec2((void*)_handle), false);
     }
 }

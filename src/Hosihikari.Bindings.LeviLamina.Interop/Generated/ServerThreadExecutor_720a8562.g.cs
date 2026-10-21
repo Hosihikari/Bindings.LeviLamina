@@ -67,6 +67,11 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
     }
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor AsExecutor()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor((nint)NativeMethods.TablePtr->hs_cast_86a41161((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

@@ -50,6 +50,30 @@ public sealed unsafe partial class ErrorInfoBase : global::System.IDisposable
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ErrorCodeError? TryAsErrorCodeError()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_3c4ffa74((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ErrorCodeError((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.GetServiceError? TryAsGetServiceError()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_5e328588((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.GetServiceError((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.i18n.I18nStringError? TryAsI18nStringError()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_93e33275((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.i18n.I18nStringError((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.StringError? TryAsStringError()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_c287f886((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.StringError((nint)__hs_handle, false) : null;
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

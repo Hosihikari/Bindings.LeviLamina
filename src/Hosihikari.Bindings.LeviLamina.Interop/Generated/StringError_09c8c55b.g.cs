@@ -69,6 +69,11 @@ public sealed unsafe partial class StringError : global::System.IDisposable
         }
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ErrorInfoBase AsErrorInfoBase()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ErrorInfoBase((nint)NativeMethods.TablePtr->hs_cast_282ff539((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

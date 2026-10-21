@@ -54,6 +54,11 @@ public sealed unsafe partial class PlayerAddExperienceEvent : global::System.IDi
         NativeMethods.TablePtr->hs_method_ca4eab35((void*)_handle, (void*)arg0);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerEvent_ AsCancellable_ll__event__PlayerEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerEvent_((nint)NativeMethods.TablePtr->hs_cast_787d6945((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

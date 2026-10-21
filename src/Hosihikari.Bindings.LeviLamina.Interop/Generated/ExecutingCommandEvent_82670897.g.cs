@@ -54,6 +54,11 @@ public sealed unsafe partial class ExecutingCommandEvent : global::System.IDispo
         return (nint)NativeMethods.TablePtr->hs_method_25fe1a29((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ExecuteCommandEvent_ AsCancellable_ll__event__ExecuteCommandEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ExecuteCommandEvent_((nint)NativeMethods.TablePtr->hs_cast_edc5ae1f((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

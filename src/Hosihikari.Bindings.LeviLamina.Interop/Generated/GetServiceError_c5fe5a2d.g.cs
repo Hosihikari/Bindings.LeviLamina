@@ -68,6 +68,11 @@ public sealed unsafe partial class GetServiceError : global::System.IDisposable
         set => NativeMethods.TablePtr->hs_set_58b2d13b((void*)_handle, value);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ErrorInfoBase AsErrorInfoBase()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ErrorInfoBase((nint)NativeMethods.TablePtr->hs_cast_ef040730((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

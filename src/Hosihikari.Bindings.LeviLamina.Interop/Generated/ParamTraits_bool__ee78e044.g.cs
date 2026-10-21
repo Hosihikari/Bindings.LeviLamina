@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed partial class ParamTraits_bool_
+public sealed unsafe partial class ParamTraits_bool_
 {
     private nint _handle;
     private readonly bool _ownsHandle;
@@ -33,5 +33,10 @@ public sealed partial class ParamTraits_bool_
         var __hs_handle = _handle;
         _handle = 0;
         return __hs_handle;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_bool_ AsParamTraitsBase_bool_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_bool_((nint)NativeMethods.TablePtr->hs_cast_27f2244d((void*)_handle), false);
     }
 }

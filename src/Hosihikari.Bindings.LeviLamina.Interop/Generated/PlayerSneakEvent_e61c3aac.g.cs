@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 
-public sealed partial class PlayerSneakEvent
+public sealed unsafe partial class PlayerSneakEvent
 {
     private nint _handle;
     private readonly bool _ownsHandle;
@@ -33,5 +33,10 @@ public sealed partial class PlayerSneakEvent
         var __hs_handle = _handle;
         _handle = 0;
         return __hs_handle;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ServerPlayerEvent_ AsCancellable_ll__event__ServerPlayerEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ServerPlayerEvent_((nint)NativeMethods.TablePtr->hs_cast_3d92a9cd((void*)_handle), false);
     }
 }

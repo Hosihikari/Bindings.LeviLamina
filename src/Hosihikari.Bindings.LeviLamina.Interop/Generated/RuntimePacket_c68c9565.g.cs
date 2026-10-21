@@ -57,18 +57,18 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
         return new RuntimePacket((nint)handle);
     }
 
-    public nint? getOwnedPacket()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet? getOwnedPacket()
     {
         var __hs_hasValue = false;
         var __hs_handle = NativeMethods.TablePtr->hs_method_29eee72d((void*)_handle, &__hs_hasValue);
-        return __hs_hasValue ? (nint)__hs_handle : null;
+        return __hs_hasValue && __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle, false) : null;
     }
 
-    public nint? getPacket()
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet? getPacket()
     {
         var __hs_hasValue = false;
         var __hs_handle = NativeMethods.TablePtr->hs_method_09c4824c((void*)_handle, &__hs_hasValue);
-        return __hs_hasValue ? (nint)__hs_handle : null;
+        return __hs_hasValue && __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle, false) : null;
     }
 
     public ulong getRuntimeId()

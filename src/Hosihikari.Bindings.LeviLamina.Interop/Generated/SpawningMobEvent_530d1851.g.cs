@@ -59,6 +59,11 @@ public sealed unsafe partial class SpawningMobEvent : global::System.IDisposable
         return (nint)NativeMethods.TablePtr->hs_method_1fa3d3ad((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__SpawnMobEvent_ AsCancellable_ll__event__SpawnMobEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__SpawnMobEvent_((nint)NativeMethods.TablePtr->hs_cast_33b74535((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

@@ -63,6 +63,11 @@ public sealed unsafe partial class EventIdView : global::System.IDisposable
         }
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase AsHashedIdBase()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase((nint)NativeMethods.TablePtr->hs_cast_d045d900((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

@@ -3,7 +3,7 @@
 
 namespace Hosihikari.Bindings.LeviLamina.Interop.ll.command;
 
-public sealed partial class ParamTraits_const_ActorDefinitionIdentifier___
+public sealed unsafe partial class ParamTraits_const_ActorDefinitionIdentifier___
 {
     private nint _handle;
     private readonly bool _ownsHandle;
@@ -33,5 +33,10 @@ public sealed partial class ParamTraits_const_ActorDefinitionIdentifier___
         var __hs_handle = _handle;
         _handle = 0;
         return __hs_handle;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_const_ActorDefinitionIdentifier___ AsParamTraitsBase_const_ActorDefinitionIdentifier___()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_const_ActorDefinitionIdentifier___((nint)NativeMethods.TablePtr->hs_cast_d07bb610((void*)_handle), false);
     }
 }

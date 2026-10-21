@@ -69,6 +69,11 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
     }
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Sink AsSink()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Sink((nint)NativeMethods.TablePtr->hs_cast_7c9b318d((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

@@ -39,6 +39,11 @@ public sealed unsafe partial class PlayerSwingEvent : global::System.IDisposable
     public static PlayerSwingEvent Create(nint player) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerLeftClickEvent AsPlayerLeftClickEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerLeftClickEvent((nint)NativeMethods.TablePtr->hs_cast_c8a2fb3c((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

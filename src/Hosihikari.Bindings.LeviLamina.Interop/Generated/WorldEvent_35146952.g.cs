@@ -44,4 +44,27 @@ public sealed unsafe partial class WorldEvent
     {
         NativeMethods.TablePtr->hs_method_07d58633((void*)_handle, (void*)arg0);
     }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_f67ddadd((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.BlockChangedEvent? TryAsBlockChangedEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_becba220((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.BlockChangedEvent((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__WorldEvent_? TryAsCancellable_ll__event__WorldEvent_()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_6010dd76((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__WorldEvent_((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.SpawnMobEvent? TryAsSpawnMobEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_c869a056((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.SpawnMobEvent((nint)__hs_handle, false) : null;
+    }
 }

@@ -54,6 +54,11 @@ public sealed unsafe partial class PlayerJumpEvent : global::System.IDisposable
         return new global::Hosihikari.Bindings.LeviLamina.Interop.Vec3((nint)NativeMethods.TablePtr->hs_method_d9bbfce7((void*)_handle), false);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerEvent_ AsCancellable_ll__event__PlayerEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerEvent_((nint)NativeMethods.TablePtr->hs_cast_1f08b8c1((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

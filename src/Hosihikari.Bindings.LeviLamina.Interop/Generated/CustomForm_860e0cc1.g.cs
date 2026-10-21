@@ -258,6 +258,11 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
     }
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.Form AsForm()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.Form((nint)NativeMethods.TablePtr->hs_cast_1ee4370a((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

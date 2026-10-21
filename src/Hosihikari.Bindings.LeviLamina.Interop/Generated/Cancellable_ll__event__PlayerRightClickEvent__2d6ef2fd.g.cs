@@ -60,6 +60,23 @@ public sealed unsafe partial class Cancellable_ll__event__PlayerRightClickEvent_
         NativeMethods.TablePtr->hs_method_d448a0b3((void*)_handle, cancelled);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerRightClickEvent AsPlayerRightClickEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerRightClickEvent((nint)NativeMethods.TablePtr->hs_cast_3de4bd3b((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerInteractBlockEvent? TryAsPlayerInteractBlockEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_af4ba1a2((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerInteractBlockEvent((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerUseItemEvent? TryAsPlayerUseItemEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_894e9b9e((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerUseItemEvent((nint)__hs_handle, false) : null;
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

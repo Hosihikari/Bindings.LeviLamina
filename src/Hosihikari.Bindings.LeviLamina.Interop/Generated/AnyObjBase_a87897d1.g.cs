@@ -52,6 +52,12 @@ public sealed unsafe partial class AnyObjBase : global::System.IDisposable
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunctionObjBase? TryAsAnyFunctionObjBase()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_3ebd3f13((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunctionObjBase((nint)__hs_handle, false) : null;
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

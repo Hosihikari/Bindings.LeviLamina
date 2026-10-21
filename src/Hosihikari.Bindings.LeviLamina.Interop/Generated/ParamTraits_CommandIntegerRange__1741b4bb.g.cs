@@ -40,6 +40,11 @@ public sealed unsafe partial class ParamTraits_CommandIntegerRange_ : global::Sy
         return NativeMethods.TablePtr->hs_method_8b35e570();
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_CommandIntegerRange_ AsParamTraitsBase_CommandIntegerRange_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_CommandIntegerRange_((nint)NativeMethods.TablePtr->hs_cast_add5d98b((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

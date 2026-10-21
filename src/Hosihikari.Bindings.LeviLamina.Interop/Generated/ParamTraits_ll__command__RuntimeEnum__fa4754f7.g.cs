@@ -45,6 +45,11 @@ public sealed unsafe partial class ParamTraits_ll__command__RuntimeEnum_ : globa
         return NativeMethods.TablePtr->hs_method_e75901fe();
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_ll__command__RuntimeEnum_ AsParamTraitsBase_ll__command__RuntimeEnum_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_ll__command__RuntimeEnum_((nint)NativeMethods.TablePtr->hs_cast_2289e867((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

@@ -22,6 +22,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 
 - `NativeMethods.Load` inside BDS.
 - `EventId` string construction, name and hash.
+- Inheritance upcast: `EventId.AsHashedIdBase()` returns a borrowed `HashedIdBase` aliasing the same handle.
 - `Version` string construction, string result, field getters, string method parameter.
 - Out-of-line `ll::Error` construction, `operator bool`, `message()` (string result), and destruction.
 - Out-of-line virtual-destructor and allocator-backed lifecycle: `GlobalThreadPauser`, `ConsoleSink`, and `InplaceExecutor` creation and destruction.
@@ -33,7 +34,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `CommandFlag` from a dependency declaration constructs from its enum value; `CommandRegistrar.getOrCreateCommand` accepts the flag and the mod weak reference and returns a typed borrowed `CommandHandle`.
 - Typed borrowed returns: `CommandRegistrar.getInstance`, `ModManagerRegistry.getInstance`, `LoggerRegistry.getInstance`, and `PlayerInfo.getInstance` return wrappers instead of `nint`; a borrowed `RuntimeOverload` from `text()` is disposed without destroying the original overload.
 - `std::weak_ptr<ll::mod::Mod>` parameters accept a `SharedHandle`; `ModManagerRegistry.executeOnModLoad` registers a callback for the mod obtained from `getMod`, and the registration is removed by id.
-- `optional_ref<T>` projection: `PlayerInfo::fromName`/`fromXuid` return `nint?`; lookups for absent players report an empty reference.
+- `optional_ref<T>` projection: `PlayerInfo::fromName`/`fromXuid` return a borrowed `PlayerInfoEntry?`; lookups for absent players report an empty reference.
 - `nonstd::expected_lite::expected<T, ll::Error>` projection: `Property::setJson` reports the native error through `InvalidOperationException` with the `ll::Error` message.
 - Assignment operator projection: `SymbolView` copy assignment copies the source view into the target, verified through `toString()`.
 - Native exception capture: `Version.Create("not-a-version")` must surface as a managed `InvalidOperationException` with the native message.
@@ -44,6 +45,7 @@ Expected result:
 load=ok
 eventid.name=hosihikari
 eventid.hash=0x72f9cc1f8b00ae5e
+cast.up=ok
 version.to_string=1.2.3
 version.fields=1.2.3
 version.valid=True

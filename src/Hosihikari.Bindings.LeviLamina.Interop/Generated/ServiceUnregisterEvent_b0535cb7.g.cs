@@ -39,6 +39,11 @@ public sealed unsafe partial class ServiceUnregisterEvent : global::System.IDisp
     public static ServiceUnregisterEvent Create(nint service) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the constructor is not exported by the carrier.");
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ServiceEvent AsServiceEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ServiceEvent((nint)NativeMethods.TablePtr->hs_cast_988319e5((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

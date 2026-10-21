@@ -40,6 +40,11 @@ public sealed unsafe partial class ParamTraits_std__vector_BlockStateCommandPara
         return NativeMethods.TablePtr->hs_method_b6e7b3bc();
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_std__vector_BlockStateCommandParam__ AsParamTraitsBase_std__vector_BlockStateCommandParam__()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_std__vector_BlockStateCommandParam__((nint)NativeMethods.TablePtr->hs_cast_49544dc9((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

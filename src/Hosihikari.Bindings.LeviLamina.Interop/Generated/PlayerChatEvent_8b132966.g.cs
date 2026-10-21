@@ -55,6 +55,11 @@ public sealed unsafe partial class PlayerChatEvent : global::System.IDisposable
         NativeMethods.TablePtr->hs_method_a9de3e73((void*)_handle, (void*)arg0);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ServerPlayerEvent_ AsCancellable_ll__event__ServerPlayerEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ServerPlayerEvent_((nint)NativeMethods.TablePtr->hs_cast_cc44a339((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

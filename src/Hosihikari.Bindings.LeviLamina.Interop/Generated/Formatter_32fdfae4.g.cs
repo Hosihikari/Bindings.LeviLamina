@@ -45,6 +45,12 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
     }
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.PatternFormatter? TryAsPatternFormatter()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_079fb70e((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.PatternFormatter((nint)__hs_handle, false) : null;
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

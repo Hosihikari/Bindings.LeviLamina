@@ -105,6 +105,11 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
         }
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessageView AsLogMessageView()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.LogMessageView((nint)NativeMethods.TablePtr->hs_cast_91a3eab5((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

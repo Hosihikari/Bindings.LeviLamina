@@ -71,6 +71,11 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
         NativeMethods.TablePtr->hs_method_367f4062((void*)_handle, (void*)arg0);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerRightClickEvent_ AsCancellable_ll__event__PlayerRightClickEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerRightClickEvent_((nint)NativeMethods.TablePtr->hs_cast_6f75d98c((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

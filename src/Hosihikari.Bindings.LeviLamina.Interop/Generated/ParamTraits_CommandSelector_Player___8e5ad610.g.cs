@@ -40,6 +40,11 @@ public sealed unsafe partial class ParamTraits_CommandSelector_Player__ : global
         return NativeMethods.TablePtr->hs_method_fc0d250b();
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_CommandSelector_Player__ AsParamTraitsBase_CommandSelector_Player__()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_CommandSelector_Player__((nint)NativeMethods.TablePtr->hs_cast_004d109b((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

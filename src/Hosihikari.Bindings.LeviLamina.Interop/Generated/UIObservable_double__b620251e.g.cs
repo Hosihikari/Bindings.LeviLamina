@@ -44,6 +44,11 @@ public sealed unsafe partial class UIObservable_double_ : global::System.IDispos
         return NativeMethods.TablePtr->hs_method_9dad79b5((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_double_ AsObservable_double_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_double_((nint)NativeMethods.TablePtr->hs_cast_4fd28dfd((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

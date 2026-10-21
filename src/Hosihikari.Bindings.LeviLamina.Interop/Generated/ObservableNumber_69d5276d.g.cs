@@ -35,6 +35,11 @@ public sealed unsafe partial class ObservableNumber : global::System.IDisposable
         return __hs_handle;
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIObservable_double_ AsUIObservable_double_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIObservable_double_((nint)NativeMethods.TablePtr->hs_cast_621446c4((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

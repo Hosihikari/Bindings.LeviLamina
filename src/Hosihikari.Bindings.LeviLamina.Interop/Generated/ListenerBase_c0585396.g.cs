@@ -65,6 +65,18 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
     }
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.DynamicListener? TryAsDynamicListener()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_23031961((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.DynamicListener((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_? TryAsMultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_c2575429((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_((nint)__hs_handle, false) : null;
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

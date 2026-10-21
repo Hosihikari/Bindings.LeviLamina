@@ -44,6 +44,11 @@ public sealed unsafe partial class UIObservable_ll__ui__UIRawMessage_ : global::
         return NativeMethods.TablePtr->hs_method_b0335033((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_ll__ui__UIRawMessage_ AsObservable_ll__ui__UIRawMessage_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_ll__ui__UIRawMessage_((nint)NativeMethods.TablePtr->hs_cast_7ffb6452((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

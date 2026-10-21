@@ -39,4 +39,9 @@ public sealed unsafe partial class ServiceEvent
     {
         return (nint)NativeMethods.TablePtr->hs_method_1a6732fc((void*)_handle);
     }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_69f77e8f((void*)_handle), false);
+    }
 }

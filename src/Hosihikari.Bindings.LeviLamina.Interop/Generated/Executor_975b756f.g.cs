@@ -54,6 +54,24 @@ public sealed unsafe partial class Executor : global::System.IDisposable
     }
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.thread.InplaceExecutor? TryAsInplaceExecutor()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_8bfa5543((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.thread.InplaceExecutor((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.thread.ServerThreadExecutor? TryAsServerThreadExecutor()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_0797f1f9((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.thread.ServerThreadExecutor((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.thread.ThreadPoolExecutor? TryAsThreadPoolExecutor()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_6db6067d((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.thread.ThreadPoolExecutor((nint)__hs_handle, false) : null;
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

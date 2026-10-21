@@ -64,6 +64,11 @@ public sealed unsafe partial class PlayerPickUpItemEvent : global::System.IDispo
         NativeMethods.TablePtr->hs_method_6926f186((void*)_handle, (void*)arg0);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerEvent_ AsCancellable_ll__event__PlayerEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerEvent_((nint)NativeMethods.TablePtr->hs_cast_40942f9c((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

@@ -44,4 +44,15 @@ public sealed unsafe partial class CommandRegisterEvent
     {
         NativeMethods.TablePtr->hs_method_448b143b((void*)_handle, (void*)arg0);
     }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_5fd97bbf((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ServerCommandRegisterEvent? TryAsServerCommandRegisterEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_3a2492d0((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ServerCommandRegisterEvent((nint)__hs_handle, false) : null;
+    }
 }

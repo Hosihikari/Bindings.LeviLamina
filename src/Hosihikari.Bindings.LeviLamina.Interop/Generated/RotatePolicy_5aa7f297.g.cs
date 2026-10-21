@@ -75,6 +75,11 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
         set => throw new global::System.NotSupportedException("BindingShim cannot project this member: field type 'std::function<std::basic_string<char> (const ll::io::ArchiveNameInfo &)>' is not supported.");
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotateConfig AsRotateConfig()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.RotateConfig((nint)NativeMethods.TablePtr->hs_cast_70e2b88d((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

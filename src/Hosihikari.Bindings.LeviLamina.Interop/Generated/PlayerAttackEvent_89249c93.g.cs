@@ -54,6 +54,11 @@ public sealed unsafe partial class PlayerAttackEvent : global::System.IDisposabl
         return (nint)NativeMethods.TablePtr->hs_method_4cdc3704((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerLeftClickEvent_ AsCancellable_ll__event__PlayerLeftClickEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__PlayerLeftClickEvent_((nint)NativeMethods.TablePtr->hs_cast_e6821f5a((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

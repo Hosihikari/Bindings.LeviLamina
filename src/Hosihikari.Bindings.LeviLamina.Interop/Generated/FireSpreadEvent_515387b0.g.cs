@@ -49,6 +49,11 @@ public sealed unsafe partial class FireSpreadEvent : global::System.IDisposable
         NativeMethods.TablePtr->hs_method_15ee8151((void*)_handle, (void*)arg0);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__WorldEvent_ AsCancellable_ll__event__WorldEvent_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__WorldEvent_((nint)NativeMethods.TablePtr->hs_cast_54498cca((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

@@ -67,6 +67,11 @@ public sealed unsafe partial class InplaceExecutor : global::System.IDisposable
     }
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor AsExecutor()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor((nint)NativeMethods.TablePtr->hs_cast_4cf4d54e((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

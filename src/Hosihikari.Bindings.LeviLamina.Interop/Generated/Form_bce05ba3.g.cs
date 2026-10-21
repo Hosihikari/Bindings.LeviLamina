@@ -52,4 +52,22 @@ public sealed unsafe partial class Form
             return NativeMethods.TablePtr->hs_method_d54e9c3a((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm? TryAsCustomForm()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_e4ba7111((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm? TryAsModalForm()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_e0cd411e((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.SimpleForm? TryAsSimpleForm()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_db346a72((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.SimpleForm((nint)__hs_handle, false) : null;
+    }
 }

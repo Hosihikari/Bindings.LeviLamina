@@ -44,6 +44,11 @@ public sealed unsafe partial class UIObservable_std__basic_string_char__ : globa
         return NativeMethods.TablePtr->hs_method_b9c200aa((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_std__basic_string_char__ AsObservable_std__basic_string_char__()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_std__basic_string_char__((nint)NativeMethods.TablePtr->hs_cast_f6ab9dab((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

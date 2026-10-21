@@ -40,6 +40,11 @@ public sealed unsafe partial class ParamTraits_CommandFilePath_ : global::System
         return NativeMethods.TablePtr->hs_method_b88e5e4e();
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_CommandFilePath_ AsParamTraitsBase_CommandFilePath_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_CommandFilePath_((nint)NativeMethods.TablePtr->hs_cast_e54b0b7b((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

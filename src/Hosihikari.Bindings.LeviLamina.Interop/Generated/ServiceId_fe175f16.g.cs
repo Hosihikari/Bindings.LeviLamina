@@ -76,6 +76,11 @@ public sealed unsafe partial class ServiceId : global::System.IDisposable
         set => NativeMethods.TablePtr->hs_set_5ccc339f((void*)_handle, value);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase AsHashedIdBase()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase((nint)NativeMethods.TablePtr->hs_cast_dece6e96((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

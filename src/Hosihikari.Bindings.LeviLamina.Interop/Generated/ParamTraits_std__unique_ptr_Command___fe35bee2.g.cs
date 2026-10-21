@@ -45,6 +45,11 @@ public sealed unsafe partial class ParamTraits_std__unique_ptr_Command__ : globa
         return NativeMethods.TablePtr->hs_method_71b4b439();
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_std__unique_ptr_Command__ AsParamTraitsBase_std__unique_ptr_Command__()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.ParamTraitsBase_std__unique_ptr_Command__((nint)NativeMethods.TablePtr->hs_cast_1f8958d1((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

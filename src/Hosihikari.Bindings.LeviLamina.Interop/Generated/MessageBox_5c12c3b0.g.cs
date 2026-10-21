@@ -65,9 +65,10 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_b11cad00((void*)_handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_60fc2cb1((void*)_handle, (void*)arg0.Handle);
+    }
 
     public void show(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {

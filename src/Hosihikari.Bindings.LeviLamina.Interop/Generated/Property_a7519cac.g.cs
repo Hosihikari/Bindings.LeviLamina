@@ -68,13 +68,15 @@ public sealed unsafe partial class Property : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_525dca87((void*)_handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_bfa12fa4(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_bfa12fa4(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_bfa12fa4((void*)_handle, (void*)arg0.Handle);
+    }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_a1807e9e(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_a1807e9e(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_a1807e9e((void*)_handle, (void*)arg0.Handle);
+    }
 
     public void set(global::Hosihikari.Bindings.LeviLamina.Interop.cereal.DynamicValue value)
     {

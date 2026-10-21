@@ -34,6 +34,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `std::weak_ptr<ll::mod::Mod>` parameters accept a `SharedHandle`; `ModManagerRegistry.executeOnModLoad` registers a callback for the mod obtained from `getMod`, and the registration is removed by id.
 - `optional_ref<T>` projection: `PlayerInfo::fromName`/`fromXuid` return `nint?`; lookups for absent players report an empty reference.
 - `nonstd::expected_lite::expected<T, ll::Error>` projection: `Property::setJson` reports the native error through `InvalidOperationException` with the `ll::Error` message.
+- Assignment operator projection: `SymbolView` copy assignment copies the source view into the target, verified through `toString()`.
 - Native exception capture: `Version.Create("not-a-version")` must surface as a managed `InvalidOperationException` with the native message.
 
 Expected result:
@@ -46,6 +47,7 @@ version.to_string=1.2.3
 version.fields=1.2.3
 version.valid=True
 version.multi=1.2.3-beta+build.5
+assignment.operator=ok
 error.bool=True
 error.message=success
 function_ref.log=ok

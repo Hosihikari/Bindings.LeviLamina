@@ -102,9 +102,10 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
     public nint iter() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<std::pair<std::basic_string_view<char>, std::basic_string_view<char>>>' is not a known bindable declaration.");
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_7a898d09((void*)_handle, (void*)arg0.Handle);
+    }
 
     public bool set(string key, string val)
     {

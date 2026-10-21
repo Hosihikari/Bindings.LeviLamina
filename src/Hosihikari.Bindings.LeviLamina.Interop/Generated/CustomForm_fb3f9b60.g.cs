@@ -90,9 +90,10 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         return (nint)NativeMethods.TablePtr->hs_method_18a698b9((void*)_handle, (void*)text.Handle, (void*)options.Handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.CustomForm arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_af7f6ac1((void*)_handle, (void*)arg0.Handle);
+    }
 
     public void show(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {

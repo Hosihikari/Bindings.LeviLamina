@@ -151,13 +151,15 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_6bbf78c7((void*)_handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_e92563b0(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_e92563b0(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_e92563b0((void*)_handle, (void*)arg0.Handle);
+    }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_6af6b491(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_6af6b491(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_6af6b491((void*)_handle, (void*)arg0.Handle);
+    }
 
     public void show(nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {

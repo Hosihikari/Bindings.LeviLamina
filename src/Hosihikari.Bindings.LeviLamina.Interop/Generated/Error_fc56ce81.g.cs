@@ -130,9 +130,10 @@ public sealed unsafe partial class Error : global::System.IDisposable
     public nint operator_unexpected_type() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.");
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_a7aa13d7((void*)_handle, (void*)arg0.Handle);
+    }
 
 
     public void Dispose()

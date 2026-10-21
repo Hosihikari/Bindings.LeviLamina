@@ -56,13 +56,15 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         return new UIRawMessage((nint)handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_e1f154a7(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_e1f154a7(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_e1f154a7((void*)_handle, (void*)arg0.Handle);
+    }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_c7ed1619(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_c7ed1619(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_c7ed1619((void*)_handle, (void*)arg0.Handle);
+    }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {

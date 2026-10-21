@@ -54,9 +54,10 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
         }
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_43fe181e((void*)_handle, (void*)arg0.Handle);
+    }
 
     public nint set(string key, string val)
     {

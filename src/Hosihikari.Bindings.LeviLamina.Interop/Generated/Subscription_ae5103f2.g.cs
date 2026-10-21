@@ -50,9 +50,10 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_6c2d01a6((void*)_handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Subscription arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_cad2aae4((void*)_handle, (void*)arg0.Handle);
+    }
 
     public void reset()
     {

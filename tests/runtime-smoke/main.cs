@@ -10,6 +10,7 @@ using Hosihikari.Bindings.LeviLamina.Interop;
 using Hosihikari.Bindings.LeviLamina.Interop.ll;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.io;
+using Hosihikari.Bindings.LeviLamina.Interop.ll.memory;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.mod;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.thread;
 using LlEventId = Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId;
@@ -83,6 +84,14 @@ public sealed class ShimSmokePlugin : IPlugin
             using (var versionMulti = LlVersion.Create(1, 2, 3, "beta", "build.5"))
             {
                 log.AppendLine($"version.multi={versionMulti.to_string()}");
+            }
+
+            using (var source = SymbolView.Create("beta"))
+            using (var target = SymbolView.Create("alpha"))
+            {
+                target.operator_assign_43d0519c(source);
+                var assigned = target.toString();
+                log.AppendLine($"assignment.operator={(assigned == "beta" ? "ok" : $"unexpected:{assigned}")}");
             }
 
             using var error = Error.Create();

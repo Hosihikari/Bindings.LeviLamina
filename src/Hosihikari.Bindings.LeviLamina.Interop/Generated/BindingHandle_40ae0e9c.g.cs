@@ -66,13 +66,15 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_76b2ba1c((void*)_handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_91e7b69b(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_91e7b69b(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_91e7b69b((void*)_handle, (void*)arg0.Handle);
+    }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_22fb7d49(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_22fb7d49(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_22fb7d49((void*)_handle, (void*)arg0.Handle);
+    }
 
     public void setClientWritable(bool writable)
     {

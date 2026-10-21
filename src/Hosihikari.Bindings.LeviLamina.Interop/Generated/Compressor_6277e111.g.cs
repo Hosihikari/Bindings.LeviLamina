@@ -45,9 +45,10 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.compress_utils.Compressor arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_8799de9d((void*)_handle, (void*)arg0.Handle);
+    }
 
     public void status()
     {

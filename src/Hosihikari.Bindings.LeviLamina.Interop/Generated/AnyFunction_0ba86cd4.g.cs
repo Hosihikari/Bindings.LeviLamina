@@ -69,13 +69,15 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_0a5e165e((void*)_handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_ab62667b(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_ab62667b(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_ab62667b((void*)_handle, (void*)other.Handle);
+    }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_e043fab8(nint other) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_e043fab8(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_e043fab8((void*)_handle, (void*)other.Handle);
+    }
 
     public void swap(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {

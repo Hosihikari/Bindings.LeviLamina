@@ -89,13 +89,15 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
         return (nint)NativeMethods.TablePtr->hs_method_4297646a((void*)_handle);
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_55389e38(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_55389e38(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_55389e38((void*)_handle, (void*)arg0.Handle);
+    }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_37ae7e00(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_37ae7e00(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_37ae7e00((void*)_handle, (void*)arg0.Handle);
+    }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureView other)
     {

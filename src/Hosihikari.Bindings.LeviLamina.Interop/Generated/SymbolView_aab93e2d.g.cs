@@ -54,13 +54,15 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
         }
     }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_43d0519c(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_43d0519c(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_43d0519c((void*)_handle, (void*)arg0.Handle);
+    }
 
-    [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
-    public nint operator_assign_c9ceea3e(nint arg0) =>
-        throw new global::System.NotSupportedException("BindingShim cannot project this member: assignment operators are not projected.");
+    public nint operator_assign_c9ceea3e(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView arg0)
+    {
+        return (nint)NativeMethods.TablePtr->hs_method_c9ceea3e((void*)_handle, (void*)arg0.Handle);
+    }
 
     public string raw()
     {

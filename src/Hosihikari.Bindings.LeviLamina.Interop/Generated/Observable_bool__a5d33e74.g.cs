@@ -16,6 +16,8 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Observable_bool_ Borrow(nint handle) => new Observable_bool_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

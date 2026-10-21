@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__gsl__not_null_B
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__gsl__not_null_Bedrock__UniqueOwnerPointer_LevelCrashDumpManager___ Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__gsl__not_null_Bedrock__UniqueOwnerPointer_LevelCrashDumpManager___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

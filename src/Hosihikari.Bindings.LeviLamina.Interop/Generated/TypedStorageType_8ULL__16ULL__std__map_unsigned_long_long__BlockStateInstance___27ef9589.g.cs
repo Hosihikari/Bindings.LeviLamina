@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__16ULL__std__map_unsigned_long
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__16ULL__std__map_unsigned_long_long__BlockStateInstance__ Borrow(nint handle) => new TypedStorageType_8ULL__16ULL__std__map_unsigned_long_long__BlockStateInstance__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

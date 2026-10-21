@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_1ULL__1ULL__unsigned_char_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_1ULL__1ULL__unsigned_char_ Borrow(nint handle) => new TypedStorageType_1ULL__1ULL__unsigned_char_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

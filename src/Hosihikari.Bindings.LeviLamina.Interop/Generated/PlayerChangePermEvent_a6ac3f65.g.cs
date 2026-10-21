@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerChangePermEvent : global::System.IDispo
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerChangePermEvent Borrow(nint handle) => new PlayerChangePermEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__std__unique_ptr_IResour
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__std__unique_ptr_IResourceDropsStrategy__ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__std__unique_ptr_IResourceDropsStrategy__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__16ULL__std__weak_ptr_LevelChu
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__16ULL__std__weak_ptr_LevelChunk__ Borrow(nint handle) => new TypedStorageType_8ULL__16ULL__std__weak_ptr_LevelChunk__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

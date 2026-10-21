@@ -16,6 +16,8 @@ public sealed partial class Serializer_ll__data__Version__void_
         _ownsHandle = ownsHandle;
     }
 
+    public static Serializer_ll__data__Version__void_ Borrow(nint handle) => new Serializer_ll__data__Version__void_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

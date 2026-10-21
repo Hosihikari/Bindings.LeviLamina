@@ -16,6 +16,8 @@ public sealed partial class Yield
         _ownsHandle = ownsHandle;
     }
 
+    public static Yield Borrow(nint handle) => new Yield(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

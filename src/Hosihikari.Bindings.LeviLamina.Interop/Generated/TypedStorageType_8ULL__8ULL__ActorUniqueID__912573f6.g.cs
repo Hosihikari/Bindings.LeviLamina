@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__ActorUniqueID_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__ActorUniqueID_ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__ActorUniqueID_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__std__map_Hashed
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__std__map_HashedString__std__vector_std__vector_glm__mat_4__4__floa_cce6f8b4 Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__std__map_HashedString__std__vector_std__vector_glm__mat_4__4__floa_cce6f8b4(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

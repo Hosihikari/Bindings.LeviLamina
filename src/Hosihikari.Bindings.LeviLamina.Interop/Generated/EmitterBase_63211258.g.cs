@@ -16,6 +16,8 @@ public sealed unsafe partial class EmitterBase : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static EmitterBase Borrow(nint handle) => new EmitterBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

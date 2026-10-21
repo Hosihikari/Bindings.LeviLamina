@@ -16,6 +16,8 @@ public sealed partial class max_type_double__double_
         _ownsHandle = ownsHandle;
     }
 
+    public static max_type_double__double_ Borrow(nint handle) => new max_type_double__double_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

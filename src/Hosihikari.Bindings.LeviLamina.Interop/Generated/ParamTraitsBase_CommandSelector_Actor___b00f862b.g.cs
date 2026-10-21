@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_CommandSelector_Actor__ : glo
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_CommandSelector_Actor__ Borrow(nint handle) => new ParamTraitsBase_CommandSelector_Actor__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

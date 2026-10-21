@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__gsl__not_null_std__uniq
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__gsl__not_null_std__unique_ptr_DimensionFactoryAndManager___ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__gsl__not_null_std__unique_ptr_DimensionFactoryAndManager___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

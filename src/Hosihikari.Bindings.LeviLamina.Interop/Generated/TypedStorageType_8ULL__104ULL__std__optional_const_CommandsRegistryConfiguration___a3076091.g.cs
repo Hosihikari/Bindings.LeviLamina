@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__104ULL__std__optional_const_C
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__104ULL__std__optional_const_CommandsRegistryConfiguration__ Borrow(nint handle) => new TypedStorageType_8ULL__104ULL__std__optional_const_CommandsRegistryConfiguration__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

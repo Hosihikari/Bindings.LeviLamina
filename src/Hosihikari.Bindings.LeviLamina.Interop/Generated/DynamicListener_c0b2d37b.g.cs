@@ -16,6 +16,8 @@ public sealed unsafe partial class DynamicListener : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static DynamicListener Borrow(nint handle) => new DynamicListener(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

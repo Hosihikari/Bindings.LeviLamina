@@ -16,6 +16,8 @@ public sealed unsafe partial class LoggerRegistry
         _ownsHandle = ownsHandle;
     }
 
+    public static LoggerRegistry Borrow(nint handle) => new LoggerRegistry(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static CustomForm Borrow(nint handle) => new CustomForm(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

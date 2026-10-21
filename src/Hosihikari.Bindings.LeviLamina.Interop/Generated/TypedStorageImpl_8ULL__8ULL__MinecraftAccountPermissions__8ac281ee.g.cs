@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__MinecraftAccount
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__8ULL__MinecraftAccountPermissions_ Borrow(nint handle) => new TypedStorageImpl_8ULL__8ULL__MinecraftAccountPermissions_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

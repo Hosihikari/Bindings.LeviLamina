@@ -16,6 +16,8 @@ public sealed unsafe partial class FinalAwaiter : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static FinalAwaiter Borrow(nint handle) => new FinalAwaiter(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

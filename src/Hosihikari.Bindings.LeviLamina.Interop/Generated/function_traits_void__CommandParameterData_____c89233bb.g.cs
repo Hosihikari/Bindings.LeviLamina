@@ -16,6 +16,8 @@ public sealed partial class function_traits_void__CommandParameterData____
         _ownsHandle = ownsHandle;
     }
 
+    public static function_traits_void__CommandParameterData____ Borrow(nint handle) => new function_traits_void__CommandParameterData____(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

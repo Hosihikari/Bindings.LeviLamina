@@ -16,6 +16,8 @@ public sealed unsafe partial class StdoutRedirector : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static StdoutRedirector Borrow(nint handle) => new StdoutRedirector(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

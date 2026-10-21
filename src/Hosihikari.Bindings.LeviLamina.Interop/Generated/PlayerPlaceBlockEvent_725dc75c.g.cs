@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerPlaceBlockEvent
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerPlaceBlockEvent Borrow(nint handle) => new PlayerPlaceBlockEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

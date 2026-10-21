@@ -16,6 +16,8 @@ public sealed partial class TypedStorageImpl_2ULL__12ULL__Bedrock__DenseEnumMap_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_2ULL__12ULL__Bedrock__DenseEnumMap_SharedTypes__Facing__VoxelShapes__RegistryHa_98d6bda5 Borrow(nint handle) => new TypedStorageImpl_2ULL__12ULL__Bedrock__DenseEnumMap_SharedTypes__Facing__VoxelShapes__RegistryHa_98d6bda5(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

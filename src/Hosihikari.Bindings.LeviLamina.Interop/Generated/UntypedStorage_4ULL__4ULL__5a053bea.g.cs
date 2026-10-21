@@ -16,6 +16,8 @@ public sealed unsafe partial class UntypedStorage_4ULL__4ULL_ : global::System.I
         _ownsHandle = ownsHandle;
     }
 
+    public static UntypedStorage_4ULL__4ULL_ Borrow(nint handle) => new UntypedStorage_4ULL__4ULL_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

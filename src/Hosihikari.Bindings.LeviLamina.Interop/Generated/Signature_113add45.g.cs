@@ -16,6 +16,8 @@ public sealed unsafe partial class Signature : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Signature Borrow(nint handle) => new Signature(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

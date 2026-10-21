@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__std__reference_wrapper_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__std__reference_wrapper_const_BlockState__ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__std__reference_wrapper_const_BlockState__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

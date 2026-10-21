@@ -16,6 +16,8 @@ public sealed unsafe partial class SleepAwaiter : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static SleepAwaiter Borrow(nint handle) => new SleepAwaiter(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

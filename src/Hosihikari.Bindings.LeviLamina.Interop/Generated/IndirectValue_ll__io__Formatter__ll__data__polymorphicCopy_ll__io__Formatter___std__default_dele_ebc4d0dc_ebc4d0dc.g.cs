@@ -16,6 +16,8 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
         _ownsHandle = ownsHandle;
     }
 
+    public static IndirectValue_ll__io__Formatter__ll__data__polymorphicCopy_ll__io__Formatter___std__default_dele_ebc4d0dc Borrow(nint handle) => new IndirectValue_ll__io__Formatter__ll__data__polymorphicCopy_ll__io__Formatter___std__default_dele_ebc4d0dc(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

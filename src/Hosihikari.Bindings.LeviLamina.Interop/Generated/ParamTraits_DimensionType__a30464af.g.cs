@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_DimensionType_
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_DimensionType_ Borrow(nint handle) => new ParamTraits_DimensionType_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

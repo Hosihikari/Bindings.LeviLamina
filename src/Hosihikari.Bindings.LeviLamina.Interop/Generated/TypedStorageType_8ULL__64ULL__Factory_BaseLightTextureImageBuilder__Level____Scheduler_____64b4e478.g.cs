@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__64ULL__Factory_BaseLightTextu
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__64ULL__Factory_BaseLightTextureImageBuilder__Level____Scheduler____ Borrow(nint handle) => new TypedStorageType_8ULL__64ULL__Factory_BaseLightTextureImageBuilder__Level____Scheduler____(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

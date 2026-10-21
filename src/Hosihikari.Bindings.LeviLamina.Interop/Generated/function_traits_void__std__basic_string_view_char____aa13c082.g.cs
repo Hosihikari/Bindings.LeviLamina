@@ -16,6 +16,8 @@ public sealed partial class function_traits_void__std__basic_string_view_char___
         _ownsHandle = ownsHandle;
     }
 
+    public static function_traits_void__std__basic_string_view_char___ Borrow(nint handle) => new function_traits_void__std__basic_string_view_char___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__32ULL__BlockEvents__BlockEven
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__32ULL__BlockEvents__BlockEventManager_ Borrow(nint handle) => new TypedStorageType_8ULL__32ULL__BlockEvents__BlockEventManager_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class DividerOptions : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static DividerOptions Borrow(nint handle) => new DividerOptions(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class function_traits_bool__const_Block____
         _ownsHandle = ownsHandle;
     }
 
+    public static function_traits_bool__const_Block____ Borrow(nint handle) => new function_traits_bool__const_Block____(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class EventBus
         _ownsHandle = ownsHandle;
     }
 
+    public static EventBus Borrow(nint handle) => new EventBus(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

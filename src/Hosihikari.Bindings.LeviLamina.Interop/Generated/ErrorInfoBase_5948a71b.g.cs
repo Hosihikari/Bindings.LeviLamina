@@ -16,6 +16,8 @@ public sealed unsafe partial class ErrorInfoBase : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ErrorInfoBase Borrow(nint handle) => new ErrorInfoBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__20ULL__InventoryOption
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__20ULL__InventoryOptions_ Borrow(nint handle) => new TypedStorageImpl_4ULL__20ULL__InventoryOptions_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

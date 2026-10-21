@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__ServiceRegistrationToke
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__ServiceRegistrationToken_ServerInstance__ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__ServiceRegistrationToken_ServerInstance__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

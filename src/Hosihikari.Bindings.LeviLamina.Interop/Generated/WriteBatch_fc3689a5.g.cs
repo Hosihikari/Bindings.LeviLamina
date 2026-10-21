@@ -16,6 +16,8 @@ public sealed unsafe partial class WriteBatch : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static WriteBatch Borrow(nint handle) => new WriteBatch(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

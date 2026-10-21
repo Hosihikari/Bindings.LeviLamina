@@ -16,6 +16,8 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static PatternFormatter Borrow(nint handle) => new PatternFormatter(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

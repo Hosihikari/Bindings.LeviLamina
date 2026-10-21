@@ -16,6 +16,8 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static PreRelease Borrow(nint handle) => new PreRelease(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

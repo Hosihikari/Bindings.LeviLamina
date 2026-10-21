@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__40ULL__std__deque_BlockPos__
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__40ULL__std__deque_BlockPos__ Borrow(nint handle) => new TypedStorageType_8ULL__40ULL__std__deque_BlockPos__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__72ULL__VariantParamete
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__72ULL__VariantParameterList_ Borrow(nint handle) => new TypedStorageImpl_8ULL__72ULL__VariantParameterList_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

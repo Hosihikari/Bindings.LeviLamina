@@ -16,6 +16,8 @@ public sealed partial class Hook
         _ownsHandle = ownsHandle;
     }
 
+    public static Hook Borrow(nint handle) => new Hook(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

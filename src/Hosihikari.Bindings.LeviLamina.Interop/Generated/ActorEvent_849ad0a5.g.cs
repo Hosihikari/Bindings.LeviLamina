@@ -16,6 +16,8 @@ public sealed unsafe partial class ActorEvent
         _ownsHandle = ownsHandle;
     }
 
+    public static ActorEvent Borrow(nint handle) => new ActorEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageImpl_8ULL__24ULL__Bedrock__NonOwnerPoint
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__24ULL__Bedrock__NonOwnerPointer_NetEventCallback__ Borrow(nint handle) => new TypedStorageImpl_8ULL__24ULL__Bedrock__NonOwnerPointer_NetEventCallback__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

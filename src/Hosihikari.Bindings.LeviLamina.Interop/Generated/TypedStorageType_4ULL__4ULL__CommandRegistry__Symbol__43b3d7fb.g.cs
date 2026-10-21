@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__4ULL__CommandRegistry__Symbol
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__4ULL__CommandRegistry__Symbol_ Borrow(nint handle) => new TypedStorageType_4ULL__4ULL__CommandRegistry__Symbol_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

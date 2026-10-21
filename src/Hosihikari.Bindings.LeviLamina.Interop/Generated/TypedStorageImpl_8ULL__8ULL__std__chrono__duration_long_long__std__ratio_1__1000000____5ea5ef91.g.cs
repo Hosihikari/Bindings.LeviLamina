@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__chrono__dur
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__8ULL__std__chrono__duration_long_long__std__ratio_1__1000000___ Borrow(nint handle) => new TypedStorageImpl_8ULL__8ULL__std__chrono__duration_long_long__std__ratio_1__1000000___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

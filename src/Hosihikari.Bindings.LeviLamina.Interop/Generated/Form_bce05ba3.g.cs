@@ -16,6 +16,8 @@ public sealed unsafe partial class Form
         _ownsHandle = ownsHandle;
     }
 
+    public static Form Borrow(nint handle) => new Form(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

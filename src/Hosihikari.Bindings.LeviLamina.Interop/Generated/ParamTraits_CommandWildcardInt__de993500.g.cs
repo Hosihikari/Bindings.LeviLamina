@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_CommandWildcardInt_ : global::Sys
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_CommandWildcardInt_ Borrow(nint handle) => new ParamTraits_CommandWildcardInt_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

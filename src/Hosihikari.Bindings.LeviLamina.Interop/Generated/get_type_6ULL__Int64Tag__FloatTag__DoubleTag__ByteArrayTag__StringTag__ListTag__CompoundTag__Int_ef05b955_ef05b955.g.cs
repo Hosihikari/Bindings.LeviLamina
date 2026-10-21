@@ -16,6 +16,8 @@ public sealed partial class get_type_6ULL__Int64Tag__FloatTag__DoubleTag__ByteAr
         _ownsHandle = ownsHandle;
     }
 
+    public static get_type_6ULL__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringTag__ListTag__CompoundTag__Int_ef05b955 Borrow(nint handle) => new get_type_6ULL__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringTag__ListTag__CompoundTag__Int_ef05b955(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class PriorityTag_0ULL_
         _ownsHandle = ownsHandle;
     }
 
+    public static PriorityTag_0ULL_ Borrow(nint handle) => new PriorityTag_0ULL_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

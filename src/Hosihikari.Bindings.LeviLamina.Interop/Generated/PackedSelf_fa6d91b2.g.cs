@@ -16,6 +16,8 @@ public sealed unsafe partial class PackedSelf : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static PackedSelf Borrow(nint handle) => new PackedSelf(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

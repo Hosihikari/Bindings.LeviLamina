@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerInteractBlockEvent Borrow(nint handle) => new PlayerInteractBlockEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
         _ownsHandle = ownsHandle;
     }
 
+    public static Observable_std__basic_string_char__ Borrow(nint handle) => new Observable_std__basic_string_char__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

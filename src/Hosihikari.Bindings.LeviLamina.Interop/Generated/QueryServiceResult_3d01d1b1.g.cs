@@ -16,6 +16,8 @@ public sealed unsafe partial class QueryServiceResult : global::System.IDisposab
         _ownsHandle = ownsHandle;
     }
 
+    public static QueryServiceResult Borrow(nint handle) => new QueryServiceResult(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

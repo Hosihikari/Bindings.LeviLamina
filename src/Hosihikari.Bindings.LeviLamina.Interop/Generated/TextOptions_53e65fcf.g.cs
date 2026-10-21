@@ -16,6 +16,8 @@ public sealed unsafe partial class TextOptions : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static TextOptions Borrow(nint handle) => new TextOptions(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

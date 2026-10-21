@@ -16,6 +16,8 @@ public sealed unsafe partial class Service : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Service Borrow(nint handle) => new Service(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

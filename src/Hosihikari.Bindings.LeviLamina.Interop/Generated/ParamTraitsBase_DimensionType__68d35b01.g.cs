@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_DimensionType_ : global::Syst
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_DimensionType_ Borrow(nint handle) => new ParamTraitsBase_DimensionType_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

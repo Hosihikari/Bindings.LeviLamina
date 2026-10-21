@@ -16,6 +16,8 @@ public sealed unsafe partial class ClosureBase : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ClosureBase Borrow(nint handle) => new ClosureBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

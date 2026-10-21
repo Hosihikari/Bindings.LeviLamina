@@ -16,6 +16,8 @@ public sealed unsafe partial class DimensionType : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static DimensionType Borrow(nint handle) => new DimensionType(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

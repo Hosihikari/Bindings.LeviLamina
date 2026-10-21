@@ -16,6 +16,8 @@ public sealed unsafe partial class ExecuteCommandEvent
         _ownsHandle = ownsHandle;
     }
 
+    public static ExecuteCommandEvent Borrow(nint handle) => new ExecuteCommandEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

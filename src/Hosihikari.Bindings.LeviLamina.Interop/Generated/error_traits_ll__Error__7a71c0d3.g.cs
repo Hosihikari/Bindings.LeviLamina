@@ -16,6 +16,8 @@ public sealed unsafe partial class error_traits_ll__Error_ : global::System.IDis
         _ownsHandle = ownsHandle;
     }
 
+    public static error_traits_ll__Error_ Borrow(nint handle) => new error_traits_ll__Error_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

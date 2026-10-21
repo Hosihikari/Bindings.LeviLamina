@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__Bedrock__PubSub__Detail
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__Bedrock__PubSub__Detail__PublisherDisconnector___ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__Bedrock__PubSub__Detail__PublisherDisconnector___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

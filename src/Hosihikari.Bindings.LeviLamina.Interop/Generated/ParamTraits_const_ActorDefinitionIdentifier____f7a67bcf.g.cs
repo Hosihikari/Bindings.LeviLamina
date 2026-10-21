@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_const_ActorDefinitionIdentifier__
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_const_ActorDefinitionIdentifier___ Borrow(nint handle) => new ParamTraits_const_ActorDefinitionIdentifier___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

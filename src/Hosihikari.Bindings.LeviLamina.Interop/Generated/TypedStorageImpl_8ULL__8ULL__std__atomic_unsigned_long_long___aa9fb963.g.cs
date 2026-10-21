@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__8ULL__std__atomic_unsi
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__8ULL__std__atomic_unsigned_long_long__ Borrow(nint handle) => new TypedStorageImpl_8ULL__8ULL__std__atomic_unsigned_long_long__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

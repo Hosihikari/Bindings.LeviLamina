@@ -16,6 +16,8 @@ public sealed partial class TypedStorageImpl_8ULL__128ULL__Bedrock__PubSub__Publ
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__128ULL__Bedrock__PubSub__Publisher_void__const_GameRules____const_GameRul_c062d3e1 Borrow(nint handle) => new TypedStorageImpl_8ULL__128ULL__Bedrock__PubSub__Publisher_void__const_GameRules____const_GameRul_c062d3e1(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class Executor : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Executor Borrow(nint handle) => new Executor(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

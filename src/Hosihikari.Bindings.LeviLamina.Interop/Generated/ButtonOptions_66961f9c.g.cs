@@ -16,6 +16,8 @@ public sealed unsafe partial class ButtonOptions : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ButtonOptions Borrow(nint handle) => new ButtonOptions(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

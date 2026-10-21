@@ -16,6 +16,8 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static RuntimeOverload Borrow(nint handle) => new RuntimeOverload(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

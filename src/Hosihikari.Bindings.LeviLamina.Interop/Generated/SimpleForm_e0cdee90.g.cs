@@ -16,6 +16,8 @@ public sealed unsafe partial class SimpleForm : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static SimpleForm Borrow(nint handle) => new SimpleForm(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

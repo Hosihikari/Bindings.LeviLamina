@@ -16,6 +16,8 @@ public sealed partial class TypedStorageImpl_8ULL__16ULL__Bedrock__UniqueOwnerPo
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__Bedrock__UniqueOwnerPointer_PlayerLocationReceiver__ Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__Bedrock__UniqueOwnerPointer_PlayerLocationReceiver__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

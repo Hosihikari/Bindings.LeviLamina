@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__56ULL__MolangVariableMap_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__56ULL__MolangVariableMap_ Borrow(nint handle) => new TypedStorageType_8ULL__56ULL__MolangVariableMap_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

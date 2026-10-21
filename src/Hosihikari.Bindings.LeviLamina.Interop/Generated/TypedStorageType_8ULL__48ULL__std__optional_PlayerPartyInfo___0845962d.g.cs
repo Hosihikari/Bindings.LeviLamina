@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__48ULL__std__optional_PlayerPa
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__48ULL__std__optional_PlayerPartyInfo__ Borrow(nint handle) => new TypedStorageType_8ULL__48ULL__std__optional_PlayerPartyInfo__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

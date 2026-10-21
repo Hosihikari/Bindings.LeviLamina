@@ -16,6 +16,8 @@ public sealed unsafe partial class TightPair_ll__data__polymorphicCopy_ll__io__F
         _ownsHandle = ownsHandle;
     }
 
+    public static TightPair_ll__data__polymorphicCopy_ll__io__Formatter___std__unique_ptr_ll__io__Formatter___fals_fd321c2c Borrow(nint handle) => new TightPair_ll__data__polymorphicCopy_ll__io__Formatter___std__unique_ptr_ll__io__Formatter___fals_fd321c2c(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

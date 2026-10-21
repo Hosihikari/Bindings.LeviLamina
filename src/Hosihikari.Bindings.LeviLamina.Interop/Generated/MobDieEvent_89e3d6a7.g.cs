@@ -16,6 +16,8 @@ public sealed unsafe partial class MobDieEvent : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static MobDieEvent Borrow(nint handle) => new MobDieEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

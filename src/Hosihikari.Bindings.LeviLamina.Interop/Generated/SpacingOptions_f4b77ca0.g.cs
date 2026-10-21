@@ -16,6 +16,8 @@ public sealed unsafe partial class SpacingOptions : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static SpacingOptions Borrow(nint handle) => new SpacingOptions(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class StringError : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static StringError Borrow(nint handle) => new StringError(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

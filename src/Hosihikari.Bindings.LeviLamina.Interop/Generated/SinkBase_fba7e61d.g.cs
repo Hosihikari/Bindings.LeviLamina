@@ -16,6 +16,8 @@ public sealed unsafe partial class SinkBase : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static SinkBase Borrow(nint handle) => new SinkBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__16ULL__const_Bedrock__UniqueO
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__16ULL__const_Bedrock__UniqueOwnerPointer_ActorEventBroadcaster__ Borrow(nint handle) => new TypedStorageType_8ULL__16ULL__const_Bedrock__UniqueOwnerPointer_ActorEventBroadcaster__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

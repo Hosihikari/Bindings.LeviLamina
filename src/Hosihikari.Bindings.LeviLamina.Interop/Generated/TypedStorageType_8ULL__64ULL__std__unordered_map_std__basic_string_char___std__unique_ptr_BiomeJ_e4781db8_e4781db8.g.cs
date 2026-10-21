@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__unordered_map_std
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__64ULL__std__unordered_map_std__basic_string_char___std__unique_ptr_BiomeJ_e4781db8 Borrow(nint handle) => new TypedStorageType_8ULL__64ULL__std__unordered_map_std__basic_string_char___std__unique_ptr_BiomeJ_e4781db8(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class atomic_backoff : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static atomic_backoff Borrow(nint handle) => new atomic_backoff(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

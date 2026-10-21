@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_std__vector_BlockStateCommandPara
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_std__vector_BlockStateCommandParam__ Borrow(nint handle) => new ParamTraits_std__vector_BlockStateCommandParam__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

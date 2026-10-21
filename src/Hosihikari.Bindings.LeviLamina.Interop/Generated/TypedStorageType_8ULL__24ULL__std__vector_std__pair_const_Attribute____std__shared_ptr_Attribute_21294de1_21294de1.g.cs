@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__24ULL__std__vector_std__pair_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__24ULL__std__vector_std__pair_const_Attribute____std__shared_ptr_Attribute_21294de1 Borrow(nint handle) => new TypedStorageType_8ULL__24ULL__std__vector_std__pair_const_Attribute____std__shared_ptr_Attribute_21294de1(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

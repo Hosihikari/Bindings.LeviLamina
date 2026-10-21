@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__136ULL__std__optional_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__136ULL__std__optional_WebToken__ Borrow(nint handle) => new TypedStorageImpl_8ULL__136ULL__std__optional_WebToken__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

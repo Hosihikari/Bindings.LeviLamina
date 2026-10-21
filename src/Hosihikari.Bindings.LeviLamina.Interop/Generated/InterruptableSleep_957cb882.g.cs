@@ -16,6 +16,8 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
         _ownsHandle = ownsHandle;
     }
 
+    public static InterruptableSleep Borrow(nint handle) => new InterruptableSleep(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ScreenSession Borrow(nint handle) => new ScreenSession(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

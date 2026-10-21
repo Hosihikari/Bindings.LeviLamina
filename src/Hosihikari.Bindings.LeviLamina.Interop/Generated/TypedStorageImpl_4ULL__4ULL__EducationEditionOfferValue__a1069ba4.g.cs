@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__4ULL__EducationEdition
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__4ULL__EducationEditionOfferValue_ Borrow(nint handle) => new TypedStorageImpl_4ULL__4ULL__EducationEditionOfferValue_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

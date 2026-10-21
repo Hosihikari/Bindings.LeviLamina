@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__16ULL__std__weak_ptr_DataDriv
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__16ULL__std__weak_ptr_DataDrivenGeometry__ Borrow(nint handle) => new TypedStorageType_8ULL__16ULL__std__weak_ptr_DataDrivenGeometry__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

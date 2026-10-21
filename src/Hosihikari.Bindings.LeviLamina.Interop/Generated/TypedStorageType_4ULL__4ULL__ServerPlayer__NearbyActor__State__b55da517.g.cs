@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__4ULL__ServerPlayer__NearbyAct
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__4ULL__ServerPlayer__NearbyActor__State_ Borrow(nint handle) => new TypedStorageType_4ULL__4ULL__ServerPlayer__NearbyActor__State_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

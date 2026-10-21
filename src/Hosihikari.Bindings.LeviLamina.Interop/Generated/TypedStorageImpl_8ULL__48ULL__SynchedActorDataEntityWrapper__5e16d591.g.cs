@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__48ULL__SynchedActorDat
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__48ULL__SynchedActorDataEntityWrapper_ Borrow(nint handle) => new TypedStorageImpl_8ULL__48ULL__SynchedActorDataEntityWrapper_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__const_std__function_con
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__const_std__function_const_MolangScriptArg___RenderParams____const_s_22a31824 Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__const_std__function_const_MolangScriptArg___RenderParams____const_s_22a31824(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

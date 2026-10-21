@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_1ULL__1ULL__SharedTypes__v1_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_1ULL__1ULL__SharedTypes__v1_26_0__BlockedDirections_ Borrow(nint handle) => new TypedStorageImpl_1ULL__1ULL__SharedTypes__v1_26_0__BlockedDirections_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

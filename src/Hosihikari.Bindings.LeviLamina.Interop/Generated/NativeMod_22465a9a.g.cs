@@ -16,6 +16,8 @@ public sealed unsafe partial class NativeMod
         _ownsHandle = ownsHandle;
     }
 
+    public static NativeMod Borrow(nint handle) => new NativeMod(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerDieEvent : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerDieEvent Borrow(nint handle) => new PlayerDieEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_1ULL__1ULL__const_CommandMessagePar
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_1ULL__1ULL__const_CommandMessageParams_ Borrow(nint handle) => new TypedStorageType_1ULL__1ULL__const_CommandMessageParams_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

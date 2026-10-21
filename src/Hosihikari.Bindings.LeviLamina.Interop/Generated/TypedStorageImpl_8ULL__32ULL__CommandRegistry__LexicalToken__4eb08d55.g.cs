@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__32ULL__CommandRegistry
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__32ULL__CommandRegistry__LexicalToken_ Borrow(nint handle) => new TypedStorageImpl_8ULL__32ULL__CommandRegistry__LexicalToken_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__CallbackToken_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__CallbackToken_ Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__CallbackToken_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

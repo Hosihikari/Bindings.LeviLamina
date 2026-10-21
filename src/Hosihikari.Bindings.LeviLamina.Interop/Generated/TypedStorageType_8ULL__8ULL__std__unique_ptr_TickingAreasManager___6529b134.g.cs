@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__std__unique_ptr_Ticking
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__std__unique_ptr_TickingAreasManager__ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__std__unique_ptr_TickingAreasManager__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

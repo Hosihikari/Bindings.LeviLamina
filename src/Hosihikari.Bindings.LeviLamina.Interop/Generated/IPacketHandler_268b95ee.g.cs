@@ -16,6 +16,8 @@ public sealed unsafe partial class IPacketHandler : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static IPacketHandler Borrow(nint handle) => new IPacketHandler(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

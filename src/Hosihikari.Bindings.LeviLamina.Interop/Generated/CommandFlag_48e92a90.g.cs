@@ -16,6 +16,8 @@ public sealed unsafe partial class CommandFlag : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static CommandFlag Borrow(nint handle) => new CommandFlag(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__20ULL__std__optional_M
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__20ULL__std__optional_MERSUniformData__ Borrow(nint handle) => new TypedStorageImpl_4ULL__20ULL__std__optional_MERSUniformData__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

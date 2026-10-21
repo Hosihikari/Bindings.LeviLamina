@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__40ULL__EducationLocalLevelSet
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__40ULL__EducationLocalLevelSettings_ Borrow(nint handle) => new TypedStorageType_8ULL__40ULL__EducationLocalLevelSettings_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

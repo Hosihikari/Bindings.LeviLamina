@@ -16,6 +16,8 @@ public sealed unsafe partial class ArchiveNameInfo : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ArchiveNameInfo Borrow(nint handle) => new ArchiveNameInfo(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

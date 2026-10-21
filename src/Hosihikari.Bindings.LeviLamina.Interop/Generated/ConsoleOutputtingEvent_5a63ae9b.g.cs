@@ -16,6 +16,8 @@ public sealed unsafe partial class ConsoleOutputtingEvent : global::System.IDisp
         _ownsHandle = ownsHandle;
     }
 
+    public static ConsoleOutputtingEvent Borrow(nint handle) => new ConsoleOutputtingEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

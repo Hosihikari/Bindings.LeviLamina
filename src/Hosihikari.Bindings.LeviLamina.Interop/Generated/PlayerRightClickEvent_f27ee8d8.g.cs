@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerRightClickEvent : global::System.IDispo
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerRightClickEvent Borrow(nint handle) => new PlayerRightClickEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

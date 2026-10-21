@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__72ULL__entt__dense_map
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__72ULL__entt__dense_map_unsigned_long_long__HashedString__ Borrow(nint handle) => new TypedStorageImpl_8ULL__72ULL__entt__dense_map_unsigned_long_long__HashedString__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

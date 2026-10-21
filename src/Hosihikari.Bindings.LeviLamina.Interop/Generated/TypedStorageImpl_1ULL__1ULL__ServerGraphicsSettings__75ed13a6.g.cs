@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_1ULL__1ULL__ServerGraphicsSe
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_1ULL__1ULL__ServerGraphicsSettings_ Borrow(nint handle) => new TypedStorageImpl_1ULL__1ULL__ServerGraphicsSettings_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

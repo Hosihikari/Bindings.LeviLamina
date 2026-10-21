@@ -16,6 +16,8 @@ public sealed unsafe partial class Decompressor : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Decompressor Borrow(nint handle) => new Decompressor(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

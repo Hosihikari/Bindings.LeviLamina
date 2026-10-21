@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_1ULL__1ULL__ActorTerrainInterlockDa
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_1ULL__1ULL__ActorTerrainInterlockData__VisibilityState_ Borrow(nint handle) => new TypedStorageType_1ULL__1ULL__ActorTerrainInterlockData__VisibilityState_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

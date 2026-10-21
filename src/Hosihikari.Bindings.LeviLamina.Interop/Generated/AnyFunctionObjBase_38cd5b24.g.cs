@@ -16,6 +16,8 @@ public sealed unsafe partial class AnyFunctionObjBase
         _ownsHandle = ownsHandle;
     }
 
+    public static AnyFunctionObjBase Borrow(nint handle) => new AnyFunctionObjBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

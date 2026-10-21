@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__function_void__Ga
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__64ULL__std__function_void__GameRule____const_BaseGameVersion____const_Com_05f76487 Borrow(nint handle) => new TypedStorageType_8ULL__64ULL__std__function_void__GameRule____const_BaseGameVersion____const_Com_05f76487(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

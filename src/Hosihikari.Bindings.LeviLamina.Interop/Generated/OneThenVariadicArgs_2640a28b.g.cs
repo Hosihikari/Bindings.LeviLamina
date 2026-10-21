@@ -16,6 +16,8 @@ public sealed partial class OneThenVariadicArgs
         _ownsHandle = ownsHandle;
     }
 
+    public static OneThenVariadicArgs Borrow(nint handle) => new OneThenVariadicArgs(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

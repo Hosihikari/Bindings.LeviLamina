@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_ll__command__RuntimeSoftEnum_
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_ll__command__RuntimeSoftEnum_ Borrow(nint handle) => new ParamTraitsBase_ll__command__RuntimeSoftEnum_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

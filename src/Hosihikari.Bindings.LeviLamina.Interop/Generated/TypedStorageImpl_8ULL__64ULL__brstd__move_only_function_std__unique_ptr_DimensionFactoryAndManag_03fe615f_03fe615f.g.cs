@@ -16,6 +16,8 @@ public sealed partial class TypedStorageImpl_8ULL__64ULL__brstd__move_only_funct
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__64ULL__brstd__move_only_function_std__unique_ptr_DimensionFactoryAndManag_03fe615f Borrow(nint handle) => new TypedStorageImpl_8ULL__64ULL__brstd__move_only_function_std__unique_ptr_DimensionFactoryAndManag_03fe615f(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

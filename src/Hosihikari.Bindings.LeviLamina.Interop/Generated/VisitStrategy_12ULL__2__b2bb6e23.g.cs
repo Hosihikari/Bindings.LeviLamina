@@ -16,6 +16,8 @@ public sealed partial class VisitStrategy_12ULL__2_
         _ownsHandle = ownsHandle;
     }
 
+    public static VisitStrategy_12ULL__2_ Borrow(nint handle) => new VisitStrategy_12ULL__2_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

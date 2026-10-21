@@ -16,6 +16,8 @@ public sealed unsafe partial class Manifest : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Manifest Borrow(nint handle) => new Manifest(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

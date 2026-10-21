@@ -16,6 +16,8 @@ public sealed unsafe partial class PacketRegistrar
         _ownsHandle = ownsHandle;
     }
 
+    public static PacketRegistrar Borrow(nint handle) => new PacketRegistrar(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

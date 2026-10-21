@@ -16,6 +16,8 @@ public sealed unsafe partial class TypeList_int__bool__float__DimensionType__std
         _ownsHandle = ownsHandle;
     }
 
+    public static TypeList_int__bool__float__DimensionType__std__basic_string_char___ll__command__RuntimeEnum__ll__0549b7d1 Borrow(nint handle) => new TypeList_int__bool__float__DimensionType__std__basic_string_char___ll__command__RuntimeEnum__ll__0549b7d1(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

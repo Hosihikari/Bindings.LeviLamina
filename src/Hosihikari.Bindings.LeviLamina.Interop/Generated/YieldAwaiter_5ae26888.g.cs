@@ -16,6 +16,8 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static YieldAwaiter Borrow(nint handle) => new YieldAwaiter(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

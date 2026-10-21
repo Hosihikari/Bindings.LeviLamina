@@ -16,6 +16,8 @@ public sealed unsafe partial class ErrorCodeError : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ErrorCodeError Borrow(nint handle) => new ErrorCodeError(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

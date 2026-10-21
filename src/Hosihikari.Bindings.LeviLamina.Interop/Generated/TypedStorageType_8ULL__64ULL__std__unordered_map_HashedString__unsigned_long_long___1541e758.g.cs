@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__unordered_map_Has
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__64ULL__std__unordered_map_HashedString__unsigned_long_long__ Borrow(nint handle) => new TypedStorageType_8ULL__64ULL__std__unordered_map_HashedString__unsigned_long_long__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

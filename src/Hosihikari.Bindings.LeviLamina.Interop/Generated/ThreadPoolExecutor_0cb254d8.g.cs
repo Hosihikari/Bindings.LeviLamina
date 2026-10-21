@@ -16,6 +16,8 @@ public sealed unsafe partial class ThreadPoolExecutor : global::System.IDisposab
         _ownsHandle = ownsHandle;
     }
 
+    public static ThreadPoolExecutor Borrow(nint handle) => new ThreadPoolExecutor(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

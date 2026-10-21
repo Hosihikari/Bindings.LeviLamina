@@ -16,6 +16,8 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Subscription Borrow(nint handle) => new Subscription(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

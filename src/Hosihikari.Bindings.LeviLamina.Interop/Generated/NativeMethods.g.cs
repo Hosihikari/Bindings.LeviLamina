@@ -2676,6 +2676,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void> hs_destroy_c0585396;
         public delegate* unmanaged[Cdecl]<void*, void*> hs_cast_23031961;
         public delegate* unmanaged[Cdecl]<void*, void*> hs_cast_c2575429;
+        public delegate* unmanaged[Cdecl]<int, global::Hosihikari.Bindings.Abi.SharedHandleData, void*, void*, void*, global::Hosihikari.Bindings.Abi.SharedHandleData> hs_director_6fec08f6;
         public delegate* unmanaged[Cdecl]<void*, ulong> hs_method_2959d3b1;
         public delegate* unmanaged[Cdecl]<void*, int> hs_method_57d3c253;
         public delegate* unmanaged[Cdecl]<void*, void*> hs_get_ef4962f4;

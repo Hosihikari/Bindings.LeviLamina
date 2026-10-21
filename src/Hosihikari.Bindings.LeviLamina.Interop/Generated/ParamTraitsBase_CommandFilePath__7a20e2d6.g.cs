@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_CommandFilePath_ : global::Sy
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_CommandFilePath_ Borrow(nint handle) => new ParamTraitsBase_CommandFilePath_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class ConsoleSink : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ConsoleSink Borrow(nint handle) => new ConsoleSink(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

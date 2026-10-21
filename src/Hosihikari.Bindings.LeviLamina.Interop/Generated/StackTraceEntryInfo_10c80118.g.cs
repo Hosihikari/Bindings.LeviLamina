@@ -16,6 +16,8 @@ public sealed unsafe partial class StackTraceEntryInfo : global::System.IDisposa
         _ownsHandle = ownsHandle;
     }
 
+    public static StackTraceEntryInfo Borrow(nint handle) => new StackTraceEntryInfo(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

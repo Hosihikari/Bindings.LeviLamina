@@ -16,6 +16,8 @@ public sealed unsafe partial class RotatePolicy : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static RotatePolicy Borrow(nint handle) => new RotatePolicy(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

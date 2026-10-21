@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__24ULL__std__variant_TypedServerNetId_ItemStackNetIdTag__int___TypedClient_031465ff Borrow(nint handle) => new TypedStorageImpl_8ULL__24ULL__std__variant_TypedServerNetId_ItemStackNetIdTag__int___TypedClient_031465ff(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -39698,7 +39698,7 @@ catch (...)
 
 static void hs_destroy_7a168a6c(void* hs_self) try
 {
-    delete static_cast<ll::event::ConsoleOutputtedEvent*>(hs_self);
+    hs_destroy_borrowed_or_delete<ll::event::ConsoleOutputtedEvent>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -39728,7 +39728,12 @@ catch (...)
 
 static void* hs_create_d16d3531(const char* message_data, std::size_t message_size, bool isCancelled) try
 {
-    return new ll::event::ConsoleOutputtedEvent(std::basic_string<char>(message_data, message_size), static_cast<bool>(isCancelled));
+    auto* hs_borrowed = new hs_borrowed_holder<ll::event::ConsoleOutputtedEvent>();
+    hs_borrowed->strings.emplace_back(message_data, message_size);
+    hs_borrowed->value = std::make_unique<ll::event::ConsoleOutputtedEvent>(hs_borrowed->strings[0], static_cast<bool>(isCancelled));
+    auto* hs_target = hs_borrowed->value.get();
+    hs_register_borrowed(hs_target, hs_borrowed, [](void* hs_holder) { delete static_cast<hs_borrowed_holder<ll::event::ConsoleOutputtedEvent>*>(hs_holder); });
+    return hs_target;
 }
 catch (std::exception const& hs_error)
 {
@@ -39790,7 +39795,7 @@ catch (...)
 
 static void hs_destroy_5a63ae9b(void* hs_self) try
 {
-    delete static_cast<ll::event::ConsoleOutputtingEvent*>(hs_self);
+    hs_destroy_borrowed_or_delete<ll::event::ConsoleOutputtingEvent>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -40977,6 +40982,42 @@ catch (...)
     return nullptr;
 }
 
+static HosihikariSharedHandle hs_director_6fec08f6(std::int32_t priority, HosihikariSharedHandle mod, void* invoke, void* userData, void* release) try
+{
+    struct hs_director final : ll::event::ListenerBase
+    {
+        void* hs_userData;
+        void (*hs_invoke)(void*, void*);
+        void (*hs_release)(void*);
+
+        hs_director(std::int32_t priority, HosihikariSharedHandle mod, void* invoke, void* userData, void* release)
+            : ll::event::ListenerBase(static_cast<ll::event::EventPriority>(priority), hs_weak_from_handle<ll::mod::Mod>(mod)), hs_invoke(static_cast<void (*)(void*, void*)>(invoke)), hs_userData(userData), hs_release(static_cast<void (*)(void*)>(release))
+        {
+        }
+
+        ~hs_director() override
+        {
+            if (hs_release) { hs_release(hs_userData); }
+        }
+
+        void call(ll::event::Event & hs_event) override
+        {
+            if (hs_invoke) { hs_invoke(hs_userData, &hs_event); }
+        }
+    };
+    return hs_make_shared_handle(std::static_pointer_cast<ll::event::ListenerBase>(std::make_shared<hs_director>(priority, mod, invoke, userData, release)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
 static std::uint64_t hs_method_2959d3b1(void* hs_self) try
 {
     return static_cast<std::uint64_t>(static_cast<ll::event::ListenerBase*>(hs_self)->getId());
@@ -41444,7 +41485,7 @@ catch (...)
 
 static void hs_destroy_8b132966(void* hs_self) try
 {
-    delete static_cast<ll::event::PlayerChatEvent*>(hs_self);
+    hs_destroy_borrowed_or_delete<ll::event::PlayerChatEvent>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -56025,6 +56066,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_destroy_c0585396,
     &hs_cast_23031961,
     &hs_cast_c2575429,
+    &hs_director_6fec08f6,
     &hs_method_2959d3b1,
     &hs_method_57d3c253,
     &hs_get_ef4962f4,

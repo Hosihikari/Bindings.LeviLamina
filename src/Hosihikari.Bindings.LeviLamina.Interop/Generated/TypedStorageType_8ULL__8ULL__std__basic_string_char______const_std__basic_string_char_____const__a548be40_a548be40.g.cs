@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__std__basic_string_char_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__std__basic_string_char______const_std__basic_string_char_____const__a548be40 Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__std__basic_string_char______const_std__basic_string_char_____const__a548be40(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

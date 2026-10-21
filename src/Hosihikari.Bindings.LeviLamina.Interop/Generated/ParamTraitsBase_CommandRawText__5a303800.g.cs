@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_CommandRawText_ : global::Sys
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_CommandRawText_ Borrow(nint handle) => new ParamTraitsBase_CommandRawText_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageImpl_8ULL__16ULL__WeakRef_Dimension__
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__WeakRef_Dimension__ Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__WeakRef_Dimension__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

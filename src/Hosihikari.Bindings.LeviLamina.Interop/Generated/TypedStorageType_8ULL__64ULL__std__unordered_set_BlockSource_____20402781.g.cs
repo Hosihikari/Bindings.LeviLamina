@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__unordered_set_Blo
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__64ULL__std__unordered_set_BlockSource____ Borrow(nint handle) => new TypedStorageType_8ULL__64ULL__std__unordered_set_BlockSource____(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

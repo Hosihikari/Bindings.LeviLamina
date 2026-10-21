@@ -16,6 +16,8 @@ public sealed unsafe partial class promise_type : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static promise_type Borrow(nint handle) => new promise_type(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

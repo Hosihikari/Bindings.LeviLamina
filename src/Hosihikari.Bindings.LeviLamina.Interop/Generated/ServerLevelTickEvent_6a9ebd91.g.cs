@@ -16,6 +16,8 @@ public sealed unsafe partial class ServerLevelTickEvent : global::System.IDispos
         _ownsHandle = ownsHandle;
     }
 
+    public static ServerLevelTickEvent Borrow(nint handle) => new ServerLevelTickEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
         _ownsHandle = ownsHandle;
     }
 
+    public static ForwardAwaiter_const_ll__coro__Executor___ Borrow(nint handle) => new ForwardAwaiter_const_ll__coro__Executor___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__24ULL__std__vector_CommandReg
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__24ULL__std__vector_CommandRegistry__Symbol__ Borrow(nint handle) => new TypedStorageType_8ULL__24ULL__std__vector_CommandRegistry__Symbol__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

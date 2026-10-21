@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__20ULL__ConnectionDefin
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__20ULL__ConnectionDefinition_ Borrow(nint handle) => new TypedStorageImpl_4ULL__20ULL__ConnectionDefinition_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

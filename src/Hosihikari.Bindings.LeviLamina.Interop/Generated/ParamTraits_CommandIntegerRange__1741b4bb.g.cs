@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_CommandIntegerRange_ : global::Sy
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_CommandIntegerRange_ Borrow(nint handle) => new ParamTraits_CommandIntegerRange_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

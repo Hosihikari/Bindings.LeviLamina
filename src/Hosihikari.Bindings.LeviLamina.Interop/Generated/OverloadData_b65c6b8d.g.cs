@@ -16,6 +16,8 @@ public sealed unsafe partial class OverloadData : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static OverloadData Borrow(nint handle) => new OverloadData(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

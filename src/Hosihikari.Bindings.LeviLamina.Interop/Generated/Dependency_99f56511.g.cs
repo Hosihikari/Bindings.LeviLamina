@@ -16,6 +16,8 @@ public sealed unsafe partial class Dependency : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Dependency Borrow(nint handle) => new Dependency(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

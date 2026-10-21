@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_CommandItem_ : global::System.IDi
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_CommandItem_ Borrow(nint handle) => new ParamTraits_CommandItem_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

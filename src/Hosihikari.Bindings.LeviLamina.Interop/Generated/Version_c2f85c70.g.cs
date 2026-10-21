@@ -16,6 +16,8 @@ public sealed unsafe partial class Version : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Version Borrow(nint handle) => new Version(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

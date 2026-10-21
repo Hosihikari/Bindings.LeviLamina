@@ -16,6 +16,8 @@ public sealed unsafe partial class SliderOptions : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static SliderOptions Borrow(nint handle) => new SliderOptions(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

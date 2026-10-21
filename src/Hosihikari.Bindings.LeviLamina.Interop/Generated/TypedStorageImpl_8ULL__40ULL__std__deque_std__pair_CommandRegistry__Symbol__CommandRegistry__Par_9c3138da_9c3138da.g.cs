@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__40ULL__std__deque_std_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__40ULL__std__deque_std__pair_CommandRegistry__Symbol__CommandRegistry__Par_9c3138da Borrow(nint handle) => new TypedStorageImpl_8ULL__40ULL__std__deque_std__pair_CommandRegistry__Symbol__CommandRegistry__Par_9c3138da(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

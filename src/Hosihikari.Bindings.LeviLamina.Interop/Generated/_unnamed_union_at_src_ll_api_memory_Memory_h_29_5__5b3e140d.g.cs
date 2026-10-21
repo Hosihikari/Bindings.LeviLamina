@@ -16,6 +16,8 @@ public sealed partial class _unnamed_union_at_src_ll_api_memory_Memory_h_29_5_
         _ownsHandle = ownsHandle;
     }
 
+    public static _unnamed_union_at_src_ll_api_memory_Memory_h_29_5_ Borrow(nint handle) => new _unnamed_union_at_src_ll_api_memory_Memory_h_29_5_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__12ULL__std__optional_ItemActo
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__12ULL__std__optional_ItemActor__ItemRenderAdjustments__ Borrow(nint handle) => new TypedStorageType_4ULL__12ULL__std__optional_ItemActor__ItemRenderAdjustments__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

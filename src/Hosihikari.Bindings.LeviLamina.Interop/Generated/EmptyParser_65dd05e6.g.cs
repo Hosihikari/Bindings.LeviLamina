@@ -16,6 +16,8 @@ public sealed unsafe partial class EmptyParser : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static EmptyParser Borrow(nint handle) => new EmptyParser(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

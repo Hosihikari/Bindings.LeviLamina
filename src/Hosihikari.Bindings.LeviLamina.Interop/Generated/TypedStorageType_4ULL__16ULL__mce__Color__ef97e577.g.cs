@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__16ULL__mce__Color_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__16ULL__mce__Color_ Borrow(nint handle) => new TypedStorageType_4ULL__16ULL__mce__Color_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

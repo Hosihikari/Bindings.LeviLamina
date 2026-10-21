@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__16ULL__OwnerPtr_PauseManager_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__16ULL__OwnerPtr_PauseManager__ Borrow(nint handle) => new TypedStorageType_8ULL__16ULL__OwnerPtr_PauseManager__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

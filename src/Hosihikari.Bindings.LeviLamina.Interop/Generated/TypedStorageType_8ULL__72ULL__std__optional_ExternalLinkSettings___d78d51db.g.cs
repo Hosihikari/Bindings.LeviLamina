@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__72ULL__std__optional_External
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__72ULL__std__optional_ExternalLinkSettings__ Borrow(nint handle) => new TypedStorageType_8ULL__72ULL__std__optional_ExternalLinkSettings__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

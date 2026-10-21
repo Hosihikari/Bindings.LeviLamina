@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_1ULL__5ULL__SharedTypes__v1_26_0__D
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_1ULL__5ULL__SharedTypes__v1_26_0__DetectionRule_ Borrow(nint handle) => new TypedStorageType_1ULL__5ULL__SharedTypes__v1_26_0__DetectionRule_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

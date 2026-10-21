@@ -16,6 +16,8 @@ public sealed partial class Vec3
         _ownsHandle = ownsHandle;
     }
 
+    public static Vec3 Borrow(nint handle) => new Vec3(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

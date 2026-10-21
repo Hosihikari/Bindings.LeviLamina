@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_Json__Value_ : global::System
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_Json__Value_ Borrow(nint handle) => new ParamTraitsBase_Json__Value_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

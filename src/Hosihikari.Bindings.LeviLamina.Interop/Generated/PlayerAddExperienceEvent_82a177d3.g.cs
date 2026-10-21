@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerAddExperienceEvent : global::System.IDi
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerAddExperienceEvent Borrow(nint handle) => new PlayerAddExperienceEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

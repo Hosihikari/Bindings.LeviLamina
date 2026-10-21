@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_1ULL__2ULL__std__optional_Co
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_1ULL__2ULL__std__optional_CommandPermissionLevel__ Borrow(nint handle) => new TypedStorageImpl_1ULL__2ULL__std__optional_CommandPermissionLevel__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

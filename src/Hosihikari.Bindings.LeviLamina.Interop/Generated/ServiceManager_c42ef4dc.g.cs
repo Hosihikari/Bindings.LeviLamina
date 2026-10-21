@@ -16,6 +16,8 @@ public sealed unsafe partial class ServiceManager
         _ownsHandle = ownsHandle;
     }
 
+    public static ServiceManager Borrow(nint handle) => new ServiceManager(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

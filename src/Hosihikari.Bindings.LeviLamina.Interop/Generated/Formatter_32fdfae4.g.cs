@@ -16,6 +16,8 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Formatter Borrow(nint handle) => new Formatter(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

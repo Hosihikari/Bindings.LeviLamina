@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_std__unique_ptr_Command__ : g
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_std__unique_ptr_Command__ Borrow(nint handle) => new ParamTraitsBase_std__unique_ptr_Command__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

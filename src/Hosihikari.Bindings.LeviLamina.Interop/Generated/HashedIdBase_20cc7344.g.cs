@@ -16,6 +16,8 @@ public sealed unsafe partial class HashedIdBase
         _ownsHandle = ownsHandle;
     }
 
+    public static HashedIdBase Borrow(nint handle) => new HashedIdBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

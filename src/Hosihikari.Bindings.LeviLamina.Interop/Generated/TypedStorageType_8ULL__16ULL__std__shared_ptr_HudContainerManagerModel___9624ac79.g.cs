@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__16ULL__std__shared_ptr_HudCon
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__16ULL__std__shared_ptr_HudContainerManagerModel__ Borrow(nint handle) => new TypedStorageType_8ULL__16ULL__std__shared_ptr_HudContainerManagerModel__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

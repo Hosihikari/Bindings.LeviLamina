@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__16ULL__std__shared_ptr_VoxelS
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__16ULL__std__shared_ptr_VoxelShapes__VoxelShapeRegistry__ Borrow(nint handle) => new TypedStorageType_8ULL__16ULL__std__shared_ptr_VoxelShapes__VoxelShapeRegistry__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

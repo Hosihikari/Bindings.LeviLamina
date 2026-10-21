@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_std__basic_string_char__ : gl
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_std__basic_string_char__ Borrow(nint handle) => new ParamTraitsBase_std__basic_string_char__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

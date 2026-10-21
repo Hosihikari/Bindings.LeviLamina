@@ -16,6 +16,8 @@ public sealed unsafe partial class ServerClock : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ServerClock Borrow(nint handle) => new ServerClock(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_WildcardCommandSelector_Actor
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_WildcardCommandSelector_Actor__ Borrow(nint handle) => new ParamTraitsBase_WildcardCommandSelector_Actor__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

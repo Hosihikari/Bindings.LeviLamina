@@ -16,6 +16,8 @@ public sealed unsafe partial class EventId : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static EventId Borrow(nint handle) => new EventId(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

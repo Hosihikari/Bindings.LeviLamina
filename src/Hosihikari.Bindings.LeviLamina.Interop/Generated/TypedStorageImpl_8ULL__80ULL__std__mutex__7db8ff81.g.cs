@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__80ULL__std__mutex_ : g
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__80ULL__std__mutex_ Borrow(nint handle) => new TypedStorageImpl_8ULL__80ULL__std__mutex_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

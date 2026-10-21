@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__96ULL__BlockComponentD
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__96ULL__BlockComponentDirectData_ Borrow(nint handle) => new TypedStorageImpl_8ULL__96ULL__BlockComponentDirectData_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

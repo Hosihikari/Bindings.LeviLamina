@@ -16,6 +16,8 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static BindingHandle Borrow(nint handle) => new BindingHandle(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__64ULL__float_4__4__
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__64ULL__float_4__4__ Borrow(nint handle) => new TypedStorageType_4ULL__64ULL__float_4__4__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

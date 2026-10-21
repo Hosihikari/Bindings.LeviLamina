@@ -16,6 +16,8 @@ public sealed unsafe partial class SignatureView : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static SignatureView Borrow(nint handle) => new SignatureView(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

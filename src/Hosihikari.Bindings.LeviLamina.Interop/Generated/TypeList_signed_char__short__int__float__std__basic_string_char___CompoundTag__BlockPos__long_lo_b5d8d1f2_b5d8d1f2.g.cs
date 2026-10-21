@@ -16,6 +16,8 @@ public sealed unsafe partial class TypeList_signed_char__short__int__float__std_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypeList_signed_char__short__int__float__std__basic_string_char___CompoundTag__BlockPos__long_lo_b5d8d1f2 Borrow(nint handle) => new TypeList_signed_char__short__int__float__std__basic_string_char___CompoundTag__BlockPos__long_lo_b5d8d1f2(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

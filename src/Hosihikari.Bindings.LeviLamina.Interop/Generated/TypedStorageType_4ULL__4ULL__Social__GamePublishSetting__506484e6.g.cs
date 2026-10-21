@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__4ULL__Social__GamePublishSett
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__4ULL__Social__GamePublishSetting_ Borrow(nint handle) => new TypedStorageType_4ULL__4ULL__Social__GamePublishSetting_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

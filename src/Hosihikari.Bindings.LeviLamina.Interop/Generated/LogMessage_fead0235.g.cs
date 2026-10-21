@@ -16,6 +16,8 @@ public sealed unsafe partial class LogMessage : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static LogMessage Borrow(nint handle) => new LogMessage(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

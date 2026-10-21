@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_1ULL__8ULL__MolangLoopContinue_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_1ULL__8ULL__MolangLoopContinue_ Borrow(nint handle) => new TypedStorageType_1ULL__8ULL__MolangLoopContinue_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

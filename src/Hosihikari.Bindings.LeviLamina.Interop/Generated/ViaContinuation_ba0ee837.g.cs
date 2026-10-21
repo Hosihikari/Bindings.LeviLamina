@@ -16,6 +16,8 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ViaContinuation Borrow(nint handle) => new ViaContinuation(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

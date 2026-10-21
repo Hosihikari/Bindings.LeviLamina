@@ -16,6 +16,8 @@ public sealed partial class max_type_float__float__float_
         _ownsHandle = ownsHandle;
     }
 
+    public static max_type_float__float__float_ Borrow(nint handle) => new max_type_float__float__float_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

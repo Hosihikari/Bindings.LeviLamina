@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__176ULL__NetworkIdentif
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__176ULL__NetworkIdentifier_ Borrow(nint handle) => new TypedStorageImpl_8ULL__176ULL__NetworkIdentifier_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerChatEvent : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerChatEvent Borrow(nint handle) => new PlayerChatEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

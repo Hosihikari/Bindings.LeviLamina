@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_1ULL__1ULL__PlayerPositionModeCompo
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_1ULL__1ULL__PlayerPositionModeComponent__PositionMode_ Borrow(nint handle) => new TypedStorageType_1ULL__1ULL__PlayerPositionModeComponent__PositionMode_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

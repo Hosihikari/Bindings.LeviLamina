@@ -16,6 +16,8 @@ public sealed unsafe partial class FireSpreadEvent : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static FireSpreadEvent Borrow(nint handle) => new FireSpreadEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -33,6 +33,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `brstd::function_ref` callbacks: `Error.log` invokes the managed sink with the formatted message, and the callback releases its state through the generated closure.
 - `CommandFlag` from a dependency declaration constructs from its enum value; `CommandRegistrar.getOrCreateCommand` accepts the flag and the mod weak reference and returns a typed borrowed `CommandHandle`.
 - Typed borrowed returns: `CommandRegistrar.getInstance`, `ModManagerRegistry.getInstance`, `LoggerRegistry.getInstance`, and `PlayerInfo.getInstance` return wrappers instead of `nint`; a borrowed `RuntimeOverload` from `text()` is disposed without destroying the original overload.
+- Director projection: `ListenerBase.CreateDirector` builds a shared listener forwarding `call(Event&)` to a managed callback; `Event.Borrow` wraps the callback handle, `EventBus` publishes a `ConsoleOutputtedEvent`, and the release callback fires after removal and disposal.
 - `std::weak_ptr<ll::mod::Mod>` parameters accept a `SharedHandle`; `ModManagerRegistry.executeOnModLoad` registers a callback for the mod obtained from `getMod`, and the registration is removed by id.
 - `optional_ref<T>` projection: `PlayerInfo::fromName`/`fromXuid` return a borrowed `PlayerInfoEntry?`; lookups for absent players report an empty reference.
 - `nonstd::expected_lite::expected<T, ll::Error>` projection: `Property::setJson` reports the native error through `InvalidOperationException` with the `ll::Error` message.
@@ -70,6 +71,9 @@ command_enum.pairs=ok
 weak_ptr.mod=ok
 command.create=ok
 borrowed.dispose=ok
+director.add=ok
+director.callback=ok
+director.release=ok
 optional_ref.missing=ok
 expected.error=caught
 invalid=caught:invalid argument

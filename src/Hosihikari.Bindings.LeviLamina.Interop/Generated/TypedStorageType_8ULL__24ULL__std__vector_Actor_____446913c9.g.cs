@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__24ULL__std__vector_Actor____
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__24ULL__std__vector_Actor____ Borrow(nint handle) => new TypedStorageType_8ULL__24ULL__std__vector_Actor____(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

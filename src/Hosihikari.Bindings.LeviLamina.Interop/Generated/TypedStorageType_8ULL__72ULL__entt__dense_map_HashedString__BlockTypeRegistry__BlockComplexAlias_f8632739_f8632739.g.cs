@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__72ULL__entt__dense_map_Hashed
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__72ULL__entt__dense_map_HashedString__BlockTypeRegistry__BlockComplexAlias_f8632739 Borrow(nint handle) => new TypedStorageType_8ULL__72ULL__entt__dense_map_HashedString__BlockTypeRegistry__BlockComplexAlias_f8632739(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

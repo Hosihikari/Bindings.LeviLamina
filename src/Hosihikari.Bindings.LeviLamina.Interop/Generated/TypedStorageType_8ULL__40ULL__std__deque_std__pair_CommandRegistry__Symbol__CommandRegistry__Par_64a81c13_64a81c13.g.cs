@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__40ULL__std__deque_std__pair_C
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__40ULL__std__deque_std__pair_CommandRegistry__Symbol__CommandRegistry__Par_64a81c13 Borrow(nint handle) => new TypedStorageType_8ULL__40ULL__std__deque_std__pair_CommandRegistry__Symbol__CommandRegistry__Par_64a81c13(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

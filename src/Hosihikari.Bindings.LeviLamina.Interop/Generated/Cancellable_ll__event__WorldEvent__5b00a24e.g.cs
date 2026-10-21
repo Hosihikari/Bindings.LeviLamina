@@ -16,6 +16,8 @@ public sealed unsafe partial class Cancellable_ll__event__WorldEvent_ : global::
         _ownsHandle = ownsHandle;
     }
 
+    public static Cancellable_ll__event__WorldEvent_ Borrow(nint handle) => new Cancellable_ll__event__WorldEvent_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

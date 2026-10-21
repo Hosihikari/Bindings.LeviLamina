@@ -16,6 +16,8 @@ public sealed unsafe partial class ServerThreadExecutor : global::System.IDispos
         _ownsHandle = ownsHandle;
     }
 
+    public static ServerThreadExecutor Borrow(nint handle) => new ServerThreadExecutor(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

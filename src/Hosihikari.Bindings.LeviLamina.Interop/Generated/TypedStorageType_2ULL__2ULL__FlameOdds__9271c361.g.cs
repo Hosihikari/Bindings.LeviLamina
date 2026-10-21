@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_2ULL__2ULL__FlameOdds_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_2ULL__2ULL__FlameOdds_ Borrow(nint handle) => new TypedStorageType_2ULL__2ULL__FlameOdds_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

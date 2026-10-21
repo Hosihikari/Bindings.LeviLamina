@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__96ULL__NetEaseBlockComponentS
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__96ULL__NetEaseBlockComponentStorage_ Borrow(nint handle) => new TypedStorageType_8ULL__96ULL__NetEaseBlockComponentStorage_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

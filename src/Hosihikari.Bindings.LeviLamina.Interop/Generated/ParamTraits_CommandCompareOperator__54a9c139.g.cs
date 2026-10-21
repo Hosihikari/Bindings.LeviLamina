@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_CommandCompareOperator_ : global:
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_CommandCompareOperator_ Borrow(nint handle) => new ParamTraits_CommandCompareOperator_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

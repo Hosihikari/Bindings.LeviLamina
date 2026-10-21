@@ -16,6 +16,8 @@ public sealed unsafe partial class LevelEvent
         _ownsHandle = ownsHandle;
     }
 
+    public static LevelEvent Borrow(nint handle) => new LevelEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

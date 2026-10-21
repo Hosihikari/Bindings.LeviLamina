@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_1ULL__1ULL__Bedrock__EnumSet_BlockC
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_1ULL__1ULL__Bedrock__EnumSet_BlockClientPredictionOverrides__7__ Borrow(nint handle) => new TypedStorageType_1ULL__1ULL__Bedrock__EnumSet_BlockClientPredictionOverrides__7__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

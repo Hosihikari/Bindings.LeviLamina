@@ -16,6 +16,8 @@ public sealed unsafe partial class Property : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Property Borrow(nint handle) => new Property(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

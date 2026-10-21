@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__EduSharedUriRes
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__64ULL__EduSharedUriResource_ Borrow(nint handle) => new TypedStorageImpl_8ULL__64ULL__EduSharedUriResource_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

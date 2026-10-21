@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__std__thread_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__std__thread_ Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__std__thread_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

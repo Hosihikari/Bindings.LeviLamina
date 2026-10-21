@@ -16,6 +16,8 @@ public sealed partial class index_of_ListTag__FloatTag__DoubleTag__ByteArrayTag_
         _ownsHandle = ownsHandle;
     }
 
+    public static index_of_ListTag__FloatTag__DoubleTag__ByteArrayTag__StringTag__ListTag__CompoundTag__IntArrayTa_5479aa24 Borrow(nint handle) => new index_of_ListTag__FloatTag__DoubleTag__ByteArrayTag__StringTag__ListTag__CompoundTag__IntArrayTa_5479aa24(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

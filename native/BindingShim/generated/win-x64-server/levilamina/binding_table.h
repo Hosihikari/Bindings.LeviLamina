@@ -2677,6 +2677,7 @@ struct HosihikariBindingTableV1 {
     void (*hs_destroy_c0585396)(void*);
     void* (*hs_cast_23031961)(void*);
     void* (*hs_cast_c2575429)(void*);
+    HosihikariSharedHandle (*hs_director_6fec08f6)(std::int32_t, HosihikariSharedHandle, void*, void*, void*);
     std::uint64_t (*hs_method_2959d3b1)(void*);
     std::int32_t (*hs_method_57d3c253)(void*);
     void* (*hs_get_ef4962f4)(void*);

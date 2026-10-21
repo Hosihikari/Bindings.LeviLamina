@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__gsl__not_null_AABBShape
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__gsl__not_null_AABBShapeComponent____ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__gsl__not_null_AABBShapeComponent____(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

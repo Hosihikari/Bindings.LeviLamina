@@ -16,6 +16,8 @@ public sealed unsafe partial class FormIdManager : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static FormIdManager Borrow(nint handle) => new FormIdManager(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

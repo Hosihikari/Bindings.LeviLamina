@@ -16,6 +16,8 @@ public sealed partial class TypedStorageImpl_8ULL__16ULL__OwnerPtr_LevelChunkSav
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__OwnerPtr_LevelChunkSaveManager__ Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__OwnerPtr_LevelChunkSaveManager__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

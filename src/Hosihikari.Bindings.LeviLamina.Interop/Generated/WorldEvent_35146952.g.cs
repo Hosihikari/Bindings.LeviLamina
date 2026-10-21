@@ -16,6 +16,8 @@ public sealed unsafe partial class WorldEvent
         _ownsHandle = ownsHandle;
     }
 
+    public static WorldEvent Borrow(nint handle) => new WorldEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

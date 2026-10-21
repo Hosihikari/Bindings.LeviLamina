@@ -16,6 +16,8 @@ public sealed unsafe partial class MessageBoxResult : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static MessageBoxResult Borrow(nint handle) => new MessageBoxResult(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

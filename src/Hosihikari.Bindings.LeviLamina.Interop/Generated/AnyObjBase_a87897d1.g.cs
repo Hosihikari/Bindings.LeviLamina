@@ -16,6 +16,8 @@ public sealed unsafe partial class AnyObjBase : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static AnyObjBase Borrow(nint handle) => new AnyObjBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

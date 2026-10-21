@@ -16,6 +16,8 @@ public sealed unsafe partial class ExecutedCommandEvent : global::System.IDispos
         _ownsHandle = ownsHandle;
     }
 
+    public static ExecutedCommandEvent Borrow(nint handle) => new ExecutedCommandEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

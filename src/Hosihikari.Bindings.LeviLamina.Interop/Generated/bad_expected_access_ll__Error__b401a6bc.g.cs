@@ -16,6 +16,8 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
         _ownsHandle = ownsHandle;
     }
 
+    public static bad_expected_access_ll__Error_ Borrow(nint handle) => new bad_expected_access_ll__Error_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class Stacktrace : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Stacktrace Borrow(nint handle) => new Stacktrace(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

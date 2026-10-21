@@ -16,6 +16,8 @@ public sealed unsafe partial class UIObservable_std__basic_string_char__ : globa
         _ownsHandle = ownsHandle;
     }
 
+    public static UIObservable_std__basic_string_char__ Borrow(nint handle) => new UIObservable_std__basic_string_char__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

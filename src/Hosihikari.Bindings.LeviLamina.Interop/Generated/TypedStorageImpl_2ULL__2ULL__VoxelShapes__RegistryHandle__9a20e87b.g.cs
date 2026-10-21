@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_2ULL__2ULL__VoxelShapes__Reg
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_2ULL__2ULL__VoxelShapes__RegistryHandle_ Borrow(nint handle) => new TypedStorageImpl_2ULL__2ULL__VoxelShapes__RegistryHandle_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

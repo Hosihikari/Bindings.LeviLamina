@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__176ULL__std__optional_CloudSa
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__176ULL__std__optional_CloudSaveLevelInfo__ Borrow(nint handle) => new TypedStorageType_8ULL__176ULL__std__optional_CloudSaveLevelInfo__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

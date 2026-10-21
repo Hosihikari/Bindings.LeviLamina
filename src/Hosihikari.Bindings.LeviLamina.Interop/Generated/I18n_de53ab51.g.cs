@@ -16,6 +16,8 @@ public sealed unsafe partial class I18n : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static I18n Borrow(nint handle) => new I18n(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

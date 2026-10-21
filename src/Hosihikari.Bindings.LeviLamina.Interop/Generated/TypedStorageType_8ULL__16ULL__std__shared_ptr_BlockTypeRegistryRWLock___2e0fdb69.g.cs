@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__16ULL__std__shared_ptr_BlockT
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__16ULL__std__shared_ptr_BlockTypeRegistryRWLock__ Borrow(nint handle) => new TypedStorageType_8ULL__16ULL__std__shared_ptr_BlockTypeRegistryRWLock__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

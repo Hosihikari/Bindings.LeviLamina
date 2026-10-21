@@ -16,6 +16,8 @@ public sealed unsafe partial class TextFieldOptions : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static TextFieldOptions Borrow(nint handle) => new TextFieldOptions(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__32ULL__BuiltInActorComponents
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__32ULL__BuiltInActorComponents_ Borrow(nint handle) => new TypedStorageType_8ULL__32ULL__BuiltInActorComponents_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

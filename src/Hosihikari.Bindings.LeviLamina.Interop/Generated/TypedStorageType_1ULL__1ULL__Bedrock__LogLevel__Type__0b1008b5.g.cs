@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_1ULL__1ULL__Bedrock__LogLevel__Type
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_1ULL__1ULL__Bedrock__LogLevel__Type_ Borrow(nint handle) => new TypedStorageType_1ULL__1ULL__Bedrock__LogLevel__Type_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

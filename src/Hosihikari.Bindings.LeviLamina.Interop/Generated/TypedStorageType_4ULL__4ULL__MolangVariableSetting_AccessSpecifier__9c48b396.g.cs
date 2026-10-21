@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__4ULL__MolangVariableSetting_A
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__4ULL__MolangVariableSetting_AccessSpecifier_ Borrow(nint handle) => new TypedStorageType_4ULL__4ULL__MolangVariableSetting_AccessSpecifier_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_bool_ : global::System.IDispo
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_bool_ Borrow(nint handle) => new ParamTraitsBase_bool_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

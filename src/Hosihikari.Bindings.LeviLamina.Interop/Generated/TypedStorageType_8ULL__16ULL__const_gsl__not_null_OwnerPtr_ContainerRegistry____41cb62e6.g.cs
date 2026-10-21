@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__16ULL__const_gsl__not_null_Ow
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__16ULL__const_gsl__not_null_OwnerPtr_ContainerRegistry___ Borrow(nint handle) => new TypedStorageType_8ULL__16ULL__const_gsl__not_null_OwnerPtr_ContainerRegistry___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

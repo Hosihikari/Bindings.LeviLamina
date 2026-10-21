@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerSprintEvent
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerSprintEvent Borrow(nint handle) => new PlayerSprintEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

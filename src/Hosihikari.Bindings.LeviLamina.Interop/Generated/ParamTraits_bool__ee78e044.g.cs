@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_bool_
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_bool_ Borrow(nint handle) => new ParamTraits_bool_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

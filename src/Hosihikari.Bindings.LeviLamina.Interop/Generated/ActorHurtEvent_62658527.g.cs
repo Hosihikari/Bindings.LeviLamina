@@ -16,6 +16,8 @@ public sealed unsafe partial class ActorHurtEvent : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ActorHurtEvent Borrow(nint handle) => new ActorHurtEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

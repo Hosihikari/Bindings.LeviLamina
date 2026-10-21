@@ -16,6 +16,8 @@ public sealed unsafe partial class ObservableNumber : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ObservableNumber Borrow(nint handle) => new ObservableNumber(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

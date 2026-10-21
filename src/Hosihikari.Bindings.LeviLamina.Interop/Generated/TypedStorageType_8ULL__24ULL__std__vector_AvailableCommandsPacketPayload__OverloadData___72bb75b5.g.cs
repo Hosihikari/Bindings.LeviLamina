@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__24ULL__std__vector_AvailableC
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__24ULL__std__vector_AvailableCommandsPacketPayload__OverloadData__ Borrow(nint handle) => new TypedStorageType_8ULL__24ULL__std__vector_AvailableCommandsPacketPayload__OverloadData__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

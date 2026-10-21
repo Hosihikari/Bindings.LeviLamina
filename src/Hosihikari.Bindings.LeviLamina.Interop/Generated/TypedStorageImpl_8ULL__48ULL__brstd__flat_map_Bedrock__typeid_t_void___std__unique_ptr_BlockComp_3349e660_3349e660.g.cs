@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__48ULL__brstd__flat_map
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__48ULL__brstd__flat_map_Bedrock__typeid_t_void___std__unique_ptr_BlockComp_3349e660 Borrow(nint handle) => new TypedStorageImpl_8ULL__48ULL__brstd__flat_map_Bedrock__typeid_t_void___std__unique_ptr_BlockComp_3349e660(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

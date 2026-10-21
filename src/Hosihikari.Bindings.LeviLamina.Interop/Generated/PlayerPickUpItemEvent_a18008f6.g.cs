@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerPickUpItemEvent : global::System.IDispo
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerPickUpItemEvent Borrow(nint handle) => new PlayerPickUpItemEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

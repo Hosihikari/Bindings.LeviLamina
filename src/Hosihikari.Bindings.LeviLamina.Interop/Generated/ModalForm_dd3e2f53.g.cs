@@ -16,6 +16,8 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ModalForm Borrow(nint handle) => new ModalForm(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

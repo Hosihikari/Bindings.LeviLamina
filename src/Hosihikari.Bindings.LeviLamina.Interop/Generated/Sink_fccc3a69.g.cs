@@ -16,6 +16,8 @@ public sealed unsafe partial class Sink : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Sink Borrow(nint handle) => new Sink(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

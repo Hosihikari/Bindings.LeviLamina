@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__24ULL__std__vector_BlockDataF
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__24ULL__std__vector_BlockDataFetchResult_Block___ Borrow(nint handle) => new TypedStorageType_8ULL__24ULL__std__vector_BlockDataFetchResult_Block___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

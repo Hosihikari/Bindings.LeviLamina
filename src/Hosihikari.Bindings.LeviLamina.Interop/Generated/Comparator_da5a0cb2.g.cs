@@ -16,6 +16,8 @@ public sealed unsafe partial class Comparator : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Comparator Borrow(nint handle) => new Comparator(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
         _ownsHandle = ownsHandle;
     }
 
+    public static polymorphicCopy_ll__io__Formatter_ Borrow(nint handle) => new polymorphicCopy_ll__io__Formatter_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

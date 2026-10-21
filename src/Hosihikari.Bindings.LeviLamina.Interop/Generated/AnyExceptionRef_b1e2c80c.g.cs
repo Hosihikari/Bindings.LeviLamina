@@ -16,6 +16,8 @@ public sealed unsafe partial class AnyExceptionRef : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static AnyExceptionRef Borrow(nint handle) => new AnyExceptionRef(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

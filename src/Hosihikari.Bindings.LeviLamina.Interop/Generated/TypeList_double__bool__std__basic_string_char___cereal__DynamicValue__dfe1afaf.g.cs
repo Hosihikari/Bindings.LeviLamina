@@ -16,6 +16,8 @@ public sealed unsafe partial class TypeList_double__bool__std__basic_string_char
         _ownsHandle = ownsHandle;
     }
 
+    public static TypeList_double__bool__std__basic_string_char___cereal__DynamicValue_ Borrow(nint handle) => new TypeList_double__bool__std__basic_string_char___cereal__DynamicValue_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

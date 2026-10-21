@@ -16,6 +16,8 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static UIRawMessage Borrow(nint handle) => new UIRawMessage(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

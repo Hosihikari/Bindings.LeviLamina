@@ -16,6 +16,8 @@ public sealed unsafe partial class from_chars_result : global::System.IDisposabl
         _ownsHandle = ownsHandle;
     }
 
+    public static from_chars_result Borrow(nint handle) => new from_chars_result(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

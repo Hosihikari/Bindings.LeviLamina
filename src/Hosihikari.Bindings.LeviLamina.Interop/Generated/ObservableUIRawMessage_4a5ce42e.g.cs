@@ -16,6 +16,8 @@ public sealed unsafe partial class ObservableUIRawMessage : global::System.IDisp
         _ownsHandle = ownsHandle;
     }
 
+    public static ObservableUIRawMessage Borrow(nint handle) => new ObservableUIRawMessage(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

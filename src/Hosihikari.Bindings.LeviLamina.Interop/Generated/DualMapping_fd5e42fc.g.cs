@@ -16,6 +16,8 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static DualMapping Borrow(nint handle) => new DualMapping(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

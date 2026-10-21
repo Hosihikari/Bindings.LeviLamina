@@ -16,6 +16,8 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static SymbolView Borrow(nint handle) => new SymbolView(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

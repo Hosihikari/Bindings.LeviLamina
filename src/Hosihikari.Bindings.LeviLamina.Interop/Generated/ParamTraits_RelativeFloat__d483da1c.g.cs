@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_RelativeFloat_ : global::System.I
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_RelativeFloat_ Borrow(nint handle) => new ParamTraits_RelativeFloat_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

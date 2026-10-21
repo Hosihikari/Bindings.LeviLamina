@@ -16,6 +16,8 @@ public sealed unsafe partial class RotateConfig : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static RotateConfig Borrow(nint handle) => new RotateConfig(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

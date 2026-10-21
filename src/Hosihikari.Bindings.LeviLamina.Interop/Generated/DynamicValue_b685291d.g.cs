@@ -16,6 +16,8 @@ public sealed unsafe partial class DynamicValue : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static DynamicValue Borrow(nint handle) => new DynamicValue(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

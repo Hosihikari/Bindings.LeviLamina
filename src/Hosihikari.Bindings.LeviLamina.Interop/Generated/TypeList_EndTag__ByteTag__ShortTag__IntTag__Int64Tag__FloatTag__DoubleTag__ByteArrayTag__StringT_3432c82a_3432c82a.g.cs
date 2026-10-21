@@ -16,6 +16,8 @@ public sealed unsafe partial class TypeList_EndTag__ByteTag__ShortTag__IntTag__I
         _ownsHandle = ownsHandle;
     }
 
+    public static TypeList_EndTag__ByteTag__ShortTag__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringT_3432c82a Borrow(nint handle) => new TypeList_EndTag__ByteTag__ShortTag__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringT_3432c82a(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

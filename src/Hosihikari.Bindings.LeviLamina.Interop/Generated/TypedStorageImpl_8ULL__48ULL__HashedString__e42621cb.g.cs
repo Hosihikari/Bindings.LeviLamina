@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__48ULL__HashedString_ :
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__48ULL__HashedString_ Borrow(nint handle) => new TypedStorageImpl_8ULL__48ULL__HashedString_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__std__optional_Sh
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__8ULL__std__optional_SharedTypes__Legacy__LevelSoundEvent__ Borrow(nint handle) => new TypedStorageImpl_4ULL__8ULL__std__optional_SharedTypes__Legacy__LevelSoundEvent__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

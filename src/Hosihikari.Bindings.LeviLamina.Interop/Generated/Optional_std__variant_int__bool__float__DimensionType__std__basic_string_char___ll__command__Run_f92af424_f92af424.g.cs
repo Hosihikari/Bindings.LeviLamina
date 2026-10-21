@@ -16,6 +16,8 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
         _ownsHandle = ownsHandle;
     }
 
+    public static Optional_std__variant_int__bool__float__DimensionType__std__basic_string_char___ll__command__Run_f92af424 Borrow(nint handle) => new Optional_std__variant_int__bool__float__DimensionType__std__basic_string_char___ll__command__Run_f92af424(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

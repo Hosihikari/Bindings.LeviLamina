@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__24ULL__std__vector_std__vecto
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__24ULL__std__vector_std__vector_std__reference_wrapper_const_HashedString__ed5e10be Borrow(nint handle) => new TypedStorageType_8ULL__24ULL__std__vector_std__vector_std__reference_wrapper_const_HashedString__ed5e10be(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

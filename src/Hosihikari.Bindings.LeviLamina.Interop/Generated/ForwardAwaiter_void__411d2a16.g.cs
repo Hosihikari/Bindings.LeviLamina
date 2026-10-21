@@ -16,6 +16,8 @@ public sealed partial class ForwardAwaiter_void_
         _ownsHandle = ownsHandle;
     }
 
+    public static ForwardAwaiter_void_ Borrow(nint handle) => new ForwardAwaiter_void_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

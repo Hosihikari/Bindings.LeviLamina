@@ -16,6 +16,8 @@ public sealed unsafe partial class HashCombiner : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static HashCombiner Borrow(nint handle) => new HashCombiner(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

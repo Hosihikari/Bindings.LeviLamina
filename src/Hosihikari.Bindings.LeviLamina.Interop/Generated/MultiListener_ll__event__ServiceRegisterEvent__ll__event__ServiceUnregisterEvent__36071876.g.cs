@@ -16,6 +16,8 @@ public sealed unsafe partial class MultiListener_ll__event__ServiceRegisterEvent
         _ownsHandle = ownsHandle;
     }
 
+    public static MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_ Borrow(nint handle) => new MultiListener_ll__event__ServiceRegisterEvent__ll__event__ServiceUnregisterEvent_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

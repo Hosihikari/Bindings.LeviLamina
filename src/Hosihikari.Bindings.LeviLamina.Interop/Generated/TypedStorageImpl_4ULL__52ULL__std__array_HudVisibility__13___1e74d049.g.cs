@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__52ULL__std__array_HudV
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__52ULL__std__array_HudVisibility__13__ Borrow(nint handle) => new TypedStorageImpl_4ULL__52ULL__std__array_HudVisibility__13__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

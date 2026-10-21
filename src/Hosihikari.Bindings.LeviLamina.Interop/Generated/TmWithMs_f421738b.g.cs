@@ -16,6 +16,8 @@ public sealed unsafe partial class TmWithMs : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static TmWithMs Borrow(nint handle) => new TmWithMs(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

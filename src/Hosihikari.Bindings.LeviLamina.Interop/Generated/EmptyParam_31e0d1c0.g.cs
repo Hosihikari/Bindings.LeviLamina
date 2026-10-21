@@ -16,6 +16,8 @@ public sealed partial class EmptyParam
         _ownsHandle = ownsHandle;
     }
 
+    public static EmptyParam Borrow(nint handle) => new EmptyParam(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

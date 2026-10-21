@@ -16,6 +16,8 @@ public sealed unsafe partial class ServiceRegisterEvent : global::System.IDispos
         _ownsHandle = ownsHandle;
     }
 
+    public static ServiceRegisterEvent Borrow(nint handle) => new ServiceRegisterEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static KeyValueDB Borrow(nint handle) => new KeyValueDB(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__mce__UUID_ : gl
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__mce__UUID_ Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__mce__UUID_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

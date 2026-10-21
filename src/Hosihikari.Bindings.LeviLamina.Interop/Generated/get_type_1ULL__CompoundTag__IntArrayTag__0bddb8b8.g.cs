@@ -16,6 +16,8 @@ public sealed partial class get_type_1ULL__CompoundTag__IntArrayTag_
         _ownsHandle = ownsHandle;
     }
 
+    public static get_type_1ULL__CompoundTag__IntArrayTag_ Borrow(nint handle) => new get_type_1ULL__CompoundTag__IntArrayTag_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

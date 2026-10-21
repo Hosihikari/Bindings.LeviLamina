@@ -16,6 +16,8 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Compressor Borrow(nint handle) => new Compressor(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

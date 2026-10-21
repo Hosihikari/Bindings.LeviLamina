@@ -16,6 +16,8 @@ public sealed unsafe partial class ServerTickSyncSleepBase : global::System.IDis
         _ownsHandle = ownsHandle;
     }
 
+    public static ServerTickSyncSleepBase Borrow(nint handle) => new ServerTickSyncSleepBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_2ULL__2ULL__MolangVariableIndex_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_2ULL__2ULL__MolangVariableIndex_ Borrow(nint handle) => new TypedStorageType_2ULL__2ULL__MolangVariableIndex_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

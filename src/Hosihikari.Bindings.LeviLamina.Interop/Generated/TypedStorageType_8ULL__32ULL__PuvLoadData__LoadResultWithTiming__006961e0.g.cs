@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__32ULL__PuvLoadData__LoadResul
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__32ULL__PuvLoadData__LoadResultWithTiming_ Borrow(nint handle) => new TypedStorageType_8ULL__32ULL__PuvLoadData__LoadResultWithTiming_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

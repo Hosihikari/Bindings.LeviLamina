@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__std__map_Json__Value__C
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__std__map_Json__Value__CZString__Json__Value__Json__Value__CZStringC_a217a6b5 Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__std__map_Json__Value__CZString__Json__Value__Json__Value__CZStringC_a217a6b5(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

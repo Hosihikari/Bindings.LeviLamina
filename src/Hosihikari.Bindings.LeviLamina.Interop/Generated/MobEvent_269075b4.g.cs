@@ -16,6 +16,8 @@ public sealed unsafe partial class MobEvent
         _ownsHandle = ownsHandle;
     }
 
+    public static MobEvent Borrow(nint handle) => new MobEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

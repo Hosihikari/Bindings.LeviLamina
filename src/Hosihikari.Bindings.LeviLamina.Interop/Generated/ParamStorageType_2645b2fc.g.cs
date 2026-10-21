@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamStorageType : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamStorageType Borrow(nint handle) => new ParamStorageType(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

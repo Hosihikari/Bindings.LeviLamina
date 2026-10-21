@@ -16,6 +16,8 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
         _ownsHandle = ownsHandle;
     }
 
+    public static Observable_ll__ui__UIRawMessage_ Borrow(nint handle) => new Observable_ll__ui__UIRawMessage_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

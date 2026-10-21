@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_1ULL__2ULL__BrightnessPair_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_1ULL__2ULL__BrightnessPair_ Borrow(nint handle) => new TypedStorageImpl_1ULL__2ULL__BrightnessPair_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

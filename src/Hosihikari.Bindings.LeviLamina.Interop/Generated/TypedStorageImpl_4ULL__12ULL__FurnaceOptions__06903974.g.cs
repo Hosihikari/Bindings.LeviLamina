@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__12ULL__FurnaceOptions_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__12ULL__FurnaceOptions_ Borrow(nint handle) => new TypedStorageImpl_4ULL__12ULL__FurnaceOptions_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

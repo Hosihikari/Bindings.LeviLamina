@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__56ULL__Stopwatch_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__56ULL__Stopwatch_ Borrow(nint handle) => new TypedStorageImpl_8ULL__56ULL__Stopwatch_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

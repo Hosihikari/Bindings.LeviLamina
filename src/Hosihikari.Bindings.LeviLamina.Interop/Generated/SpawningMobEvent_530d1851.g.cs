@@ -16,6 +16,8 @@ public sealed unsafe partial class SpawningMobEvent : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static SpawningMobEvent Borrow(nint handle) => new SpawningMobEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

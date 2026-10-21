@@ -16,6 +16,8 @@ public sealed unsafe partial class Logger : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Logger Borrow(nint handle) => new Logger(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__64ULL__std__unordered_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__64ULL__std__unordered_map_HashedString__std__unique_ptr_Command___ Borrow(nint handle) => new TypedStorageImpl_8ULL__64ULL__std__unordered_map_HashedString__std__unique_ptr_Command___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

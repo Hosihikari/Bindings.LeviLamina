@@ -16,6 +16,8 @@ public sealed unsafe partial class CancellableCallback : global::System.IDisposa
         _ownsHandle = ownsHandle;
     }
 
+    public static CancellableCallback Borrow(nint handle) => new CancellableCallback(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

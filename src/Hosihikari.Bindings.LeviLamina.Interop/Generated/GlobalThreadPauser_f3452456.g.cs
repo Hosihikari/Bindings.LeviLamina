@@ -16,6 +16,8 @@ public sealed unsafe partial class GlobalThreadPauser : global::System.IDisposab
         _ownsHandle = ownsHandle;
     }
 
+    public static GlobalThreadPauser Borrow(nint handle) => new GlobalThreadPauser(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

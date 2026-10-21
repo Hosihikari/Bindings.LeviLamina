@@ -16,6 +16,8 @@ public sealed unsafe partial class DynamicLibrary : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static DynamicLibrary Borrow(nint handle) => new DynamicLibrary(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

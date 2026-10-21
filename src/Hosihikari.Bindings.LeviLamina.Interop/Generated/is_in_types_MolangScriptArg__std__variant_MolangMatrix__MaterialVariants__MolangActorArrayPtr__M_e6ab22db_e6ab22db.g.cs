@@ -16,6 +16,8 @@ public sealed partial class is_in_types_MolangScriptArg__std__variant_MolangMatr
         _ownsHandle = ownsHandle;
     }
 
+    public static is_in_types_MolangScriptArg__std__variant_MolangMatrix__MaterialVariants__MolangActorArrayPtr__M_e6ab22db Borrow(nint handle) => new is_in_types_MolangScriptArg__std__variant_MolangMatrix__MaterialVariants__MolangActorArrayPtr__M_e6ab22db(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

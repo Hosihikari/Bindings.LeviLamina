@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__28ULL__Player__PlayerSpawnPoi
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__28ULL__Player__PlayerSpawnPoint_ Borrow(nint handle) => new TypedStorageType_4ULL__28ULL__Player__PlayerSpawnPoint_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

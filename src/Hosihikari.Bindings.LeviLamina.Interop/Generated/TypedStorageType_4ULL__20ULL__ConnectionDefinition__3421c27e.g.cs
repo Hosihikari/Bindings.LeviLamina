@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__20ULL__ConnectionDefinition_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__20ULL__ConnectionDefinition_ Borrow(nint handle) => new TypedStorageType_4ULL__20ULL__ConnectionDefinition_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

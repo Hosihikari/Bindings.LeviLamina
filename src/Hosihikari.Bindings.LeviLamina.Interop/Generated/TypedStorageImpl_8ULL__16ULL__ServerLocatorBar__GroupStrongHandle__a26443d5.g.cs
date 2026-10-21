@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__ServerLocatorBa
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__ServerLocatorBar__GroupStrongHandle_ Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__ServerLocatorBar__GroupStrongHandle_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

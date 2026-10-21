@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_CommandPosition_ : global::Sy
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_CommandPosition_ Borrow(nint handle) => new ParamTraitsBase_CommandPosition_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

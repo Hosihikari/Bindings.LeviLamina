@@ -16,6 +16,8 @@ public sealed partial class CurrentExecutor
         _ownsHandle = ownsHandle;
     }
 
+    public static CurrentExecutor Borrow(nint handle) => new CurrentExecutor(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

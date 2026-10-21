@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__4ULL__SharedTypes__Legacy__Ac
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__4ULL__SharedTypes__Legacy__ActorDamageCause_ Borrow(nint handle) => new TypedStorageType_4ULL__4ULL__SharedTypes__Legacy__ActorDamageCause_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

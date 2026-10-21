@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerInfoEntry : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerInfoEntry Borrow(nint handle) => new PlayerInfoEntry(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

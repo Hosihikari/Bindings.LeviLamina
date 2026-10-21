@@ -16,6 +16,8 @@ public sealed unsafe partial class PlayerSprintingEvent : global::System.IDispos
         _ownsHandle = ownsHandle;
     }
 
+    public static PlayerSprintingEvent Borrow(nint handle) => new PlayerSprintingEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__20ULL__InventoryOptions_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__20ULL__InventoryOptions_ Borrow(nint handle) => new TypedStorageType_4ULL__20ULL__InventoryOptions_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

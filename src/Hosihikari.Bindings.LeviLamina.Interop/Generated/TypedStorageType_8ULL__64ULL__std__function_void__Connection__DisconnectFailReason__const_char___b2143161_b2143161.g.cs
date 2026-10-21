@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__function_void__Co
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__64ULL__std__function_void__Connection__DisconnectFailReason__const_char___b2143161 Borrow(nint handle) => new TypedStorageType_8ULL__64ULL__std__function_void__Connection__DisconnectFailReason__const_char___b2143161(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

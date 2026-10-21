@@ -16,6 +16,8 @@ public sealed unsafe partial class RuntimeEnum : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static RuntimeEnum Borrow(nint handle) => new RuntimeEnum(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

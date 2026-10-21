@@ -16,6 +16,8 @@ public sealed unsafe partial class ServerStartedEvent : global::System.IDisposab
         _ownsHandle = ownsHandle;
     }
 
+    public static ServerStartedEvent Borrow(nint handle) => new ServerStartedEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

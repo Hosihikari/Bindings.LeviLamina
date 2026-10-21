@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__vector_Ava
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__24ULL__std__vector_AvailableCommandsPacketPayload__ChainedSubcommandData__d2ff9678 Borrow(nint handle) => new TypedStorageImpl_8ULL__24ULL__std__vector_AvailableCommandsPacketPayload__ChainedSubcommandData__d2ff9678(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

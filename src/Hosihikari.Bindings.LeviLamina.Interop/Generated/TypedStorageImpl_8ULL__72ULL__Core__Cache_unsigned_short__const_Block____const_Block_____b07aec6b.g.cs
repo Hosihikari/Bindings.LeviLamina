@@ -16,6 +16,8 @@ public sealed partial class TypedStorageImpl_8ULL__72ULL__Core__Cache_unsigned_s
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__72ULL__Core__Cache_unsigned_short__const_Block____const_Block____ Borrow(nint handle) => new TypedStorageImpl_8ULL__72ULL__Core__Cache_unsigned_short__const_Block____const_Block____(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

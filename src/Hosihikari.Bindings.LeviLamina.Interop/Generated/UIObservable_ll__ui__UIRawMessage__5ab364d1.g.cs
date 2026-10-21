@@ -16,6 +16,8 @@ public sealed unsafe partial class UIObservable_ll__ui__UIRawMessage_ : global::
         _ownsHandle = ownsHandle;
     }
 
+    public static UIObservable_ll__ui__UIRawMessage_ Borrow(nint handle) => new UIObservable_ll__ui__UIRawMessage_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

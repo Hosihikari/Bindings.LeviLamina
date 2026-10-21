@@ -16,6 +16,8 @@ public sealed unsafe partial class GameTickClock : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static GameTickClock Borrow(nint handle) => new GameTickClock(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

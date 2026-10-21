@@ -16,6 +16,8 @@ public sealed unsafe partial class ModManager
         _ownsHandle = ownsHandle;
     }
 
+    public static ModManager Borrow(nint handle) => new ModManager(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

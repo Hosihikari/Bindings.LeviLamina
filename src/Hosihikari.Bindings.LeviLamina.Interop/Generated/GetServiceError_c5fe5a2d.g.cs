@@ -16,6 +16,8 @@ public sealed unsafe partial class GetServiceError : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static GetServiceError Borrow(nint handle) => new GetServiceError(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

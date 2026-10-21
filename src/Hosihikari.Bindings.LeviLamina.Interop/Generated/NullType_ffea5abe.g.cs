@@ -16,6 +16,8 @@ public sealed unsafe partial class NullType : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static NullType Borrow(nint handle) => new NullType(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

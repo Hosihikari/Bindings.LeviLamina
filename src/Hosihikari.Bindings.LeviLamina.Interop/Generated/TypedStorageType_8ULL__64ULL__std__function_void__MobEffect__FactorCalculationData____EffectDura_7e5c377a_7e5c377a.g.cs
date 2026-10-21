@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__function_void__Mo
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__64ULL__std__function_void__MobEffect__FactorCalculationData____EffectDura_7e5c377a Borrow(nint handle) => new TypedStorageType_8ULL__64ULL__std__function_void__MobEffect__FactorCalculationData____EffectDura_7e5c377a(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed unsafe partial class NoInstanceIdTag : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static NoInstanceIdTag Borrow(nint handle) => new NoInstanceIdTag(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

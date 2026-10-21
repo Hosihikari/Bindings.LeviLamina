@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__4ULL__std__atomic_int_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__4ULL__std__atomic_int__ Borrow(nint handle) => new TypedStorageImpl_4ULL__4ULL__std__atomic_int__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

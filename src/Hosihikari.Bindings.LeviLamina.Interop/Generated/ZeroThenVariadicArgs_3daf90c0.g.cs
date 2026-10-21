@@ -16,6 +16,8 @@ public sealed partial class ZeroThenVariadicArgs
         _ownsHandle = ownsHandle;
     }
 
+    public static ZeroThenVariadicArgs Borrow(nint handle) => new ZeroThenVariadicArgs(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

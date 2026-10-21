@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraitsBase_CommandPositionFloat_ : globa
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraitsBase_CommandPositionFloat_ Borrow(nint handle) => new ParamTraitsBase_CommandPositionFloat_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

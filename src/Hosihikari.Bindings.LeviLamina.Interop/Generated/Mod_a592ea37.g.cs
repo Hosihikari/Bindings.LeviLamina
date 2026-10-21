@@ -16,6 +16,8 @@ public sealed unsafe partial class Mod : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static Mod Borrow(nint handle) => new Mod(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

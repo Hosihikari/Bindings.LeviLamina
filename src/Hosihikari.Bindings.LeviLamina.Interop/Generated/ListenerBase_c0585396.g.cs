@@ -16,6 +16,8 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static ListenerBase Borrow(nint handle) => new ListenerBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()
@@ -64,6 +66,12 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
         return NativeMethods.TablePtr->hs_method_34bb69f6((void*)_handle, (void*)other.Handle);
     }
 
+
+    public static global::Hosihikari.Bindings.Abi.SharedHandle? CreateDirector(int priority, global::Hosihikari.Bindings.Abi.SharedHandle? mod, nint invoke, nint userData, nint release)
+    {
+        var __hs_shared = NativeMethods.TablePtr->hs_director_6fec08f6(priority, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), (void*)invoke, (void*)userData, (void*)release);
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
+    }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.DynamicListener? TryAsDynamicListener()
     {

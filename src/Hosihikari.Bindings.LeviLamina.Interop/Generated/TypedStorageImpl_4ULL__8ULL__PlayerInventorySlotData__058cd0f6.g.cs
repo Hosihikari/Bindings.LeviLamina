@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__PlayerInventoryS
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__8ULL__PlayerInventorySlotData_ Borrow(nint handle) => new TypedStorageImpl_4ULL__8ULL__PlayerInventorySlotData_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

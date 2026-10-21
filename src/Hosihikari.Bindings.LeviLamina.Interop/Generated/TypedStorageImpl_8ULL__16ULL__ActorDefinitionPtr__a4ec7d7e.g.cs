@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__16ULL__ActorDefinition
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__16ULL__ActorDefinitionPtr_ Borrow(nint handle) => new TypedStorageImpl_8ULL__16ULL__ActorDefinitionPtr_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__24ULL__VanillaWaypointManager
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__24ULL__VanillaWaypointManager_ Borrow(nint handle) => new TypedStorageType_8ULL__24ULL__VanillaWaypointManager_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

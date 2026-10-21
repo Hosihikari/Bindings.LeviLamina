@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__32ULL__CompassSpriteCa
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__32ULL__CompassSpriteCalculator_ Borrow(nint handle) => new TypedStorageImpl_8ULL__32ULL__CompassSpriteCalculator_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

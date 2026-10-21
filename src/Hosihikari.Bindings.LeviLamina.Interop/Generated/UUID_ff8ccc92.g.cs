@@ -16,6 +16,8 @@ public sealed unsafe partial class UUID : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static UUID Borrow(nint handle) => new UUID(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

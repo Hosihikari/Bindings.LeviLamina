@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__gsl__not_null_MobHurtTi
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__gsl__not_null_MobHurtTimeComponent____ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__gsl__not_null_MobHurtTimeComponent____(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

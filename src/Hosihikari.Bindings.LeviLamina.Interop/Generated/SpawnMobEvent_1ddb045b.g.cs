@@ -16,6 +16,8 @@ public sealed unsafe partial class SpawnMobEvent
         _ownsHandle = ownsHandle;
     }
 
+    public static SpawnMobEvent Borrow(nint handle) => new SpawnMobEvent(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

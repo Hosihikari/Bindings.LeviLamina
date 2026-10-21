@@ -16,6 +16,8 @@ public sealed partial class TypedStorageImpl_8ULL__64ULL__brstd__move_only_funct
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_8ULL__64ULL__brstd__move_only_function_bool__ServerInstanceInitArguments__HostM_3fecdc38 Borrow(nint handle) => new TypedStorageImpl_8ULL__64ULL__brstd__move_only_function_bool__ServerInstanceInitArguments__HostM_3fecdc38(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

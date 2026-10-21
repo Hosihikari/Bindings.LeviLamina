@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_4ULL__4ULL__PlayerSpawnFallbackType
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_4ULL__4ULL__PlayerSpawnFallbackType_ Borrow(nint handle) => new TypedStorageType_4ULL__4ULL__PlayerSpawnFallbackType_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

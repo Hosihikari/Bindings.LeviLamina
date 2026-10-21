@@ -16,6 +16,8 @@ public sealed unsafe partial class TypedStorageImpl_4ULL__8ULL__std__optional_Pl
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageImpl_4ULL__8ULL__std__optional_PlayerSpawnFallbackType__ Borrow(nint handle) => new TypedStorageImpl_4ULL__8ULL__std__optional_PlayerSpawnFallbackType__(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

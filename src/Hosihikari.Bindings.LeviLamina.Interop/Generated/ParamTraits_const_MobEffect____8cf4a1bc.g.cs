@@ -16,6 +16,8 @@ public sealed unsafe partial class ParamTraits_const_MobEffect___
         _ownsHandle = ownsHandle;
     }
 
+    public static ParamTraits_const_MobEffect___ Borrow(nint handle) => new ParamTraits_const_MobEffect___(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

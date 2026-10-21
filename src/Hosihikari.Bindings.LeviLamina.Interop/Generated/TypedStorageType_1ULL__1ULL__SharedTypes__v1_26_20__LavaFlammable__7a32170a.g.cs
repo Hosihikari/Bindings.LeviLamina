@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_1ULL__1ULL__SharedTypes__v1_26_20__
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_1ULL__1ULL__SharedTypes__v1_26_20__LavaFlammable_ Borrow(nint handle) => new TypedStorageType_1ULL__1ULL__SharedTypes__v1_26_20__LavaFlammable_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

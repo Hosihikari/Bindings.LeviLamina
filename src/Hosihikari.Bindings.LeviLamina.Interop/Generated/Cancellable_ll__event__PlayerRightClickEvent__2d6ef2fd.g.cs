@@ -16,6 +16,8 @@ public sealed unsafe partial class Cancellable_ll__event__PlayerRightClickEvent_
         _ownsHandle = ownsHandle;
     }
 
+    public static Cancellable_ll__event__PlayerRightClickEvent_ Borrow(nint handle) => new Cancellable_ll__event__PlayerRightClickEvent_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

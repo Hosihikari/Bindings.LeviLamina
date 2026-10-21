@@ -16,6 +16,8 @@ public sealed partial class TypedStorageType_8ULL__8ULL__ChunkPos_
         _ownsHandle = ownsHandle;
     }
 
+    public static TypedStorageType_8ULL__8ULL__ChunkPos_ Borrow(nint handle) => new TypedStorageType_8ULL__8ULL__ChunkPos_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

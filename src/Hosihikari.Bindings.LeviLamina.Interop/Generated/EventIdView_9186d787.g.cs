@@ -16,6 +16,8 @@ public sealed unsafe partial class EventIdView : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static EventIdView Borrow(nint handle) => new EventIdView(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

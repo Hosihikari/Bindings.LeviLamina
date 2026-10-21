@@ -16,6 +16,8 @@ public sealed partial class CoroTask_void_
         _ownsHandle = ownsHandle;
     }
 
+    public static CoroTask_void_ Borrow(nint handle) => new CoroTask_void_(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

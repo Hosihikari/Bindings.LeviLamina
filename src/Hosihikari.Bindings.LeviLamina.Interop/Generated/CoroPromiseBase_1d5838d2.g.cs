@@ -16,6 +16,8 @@ public sealed unsafe partial class CoroPromiseBase : global::System.IDisposable
         _ownsHandle = ownsHandle;
     }
 
+    public static CoroPromiseBase Borrow(nint handle) => new CoroPromiseBase(handle, false);
+
     public nint Handle => _handle;
 
     internal nint ReleaseHandle()

@@ -8,6 +8,7 @@ using System.Threading;
 using Hosihikari;
 using Hosihikari.Bindings.LeviLamina.Interop;
 using Hosihikari.Bindings.LeviLamina.Interop.ll;
+using Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.memory;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.mod;
@@ -29,11 +30,21 @@ public sealed class ShimSmokePlugin : IPlugin
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate void LogCallbackInvoke(nint userData, nint data, nuint size);
 
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate void ListenerInvoke(nint userData, nint eventHandle);
+
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate void ListenerRelease(nint userData);
+
     private static readonly CallbackInvoke Callback = OnCallback;
     private static readonly CallbackRelease Release = OnRelease;
     private static readonly ModCallbackInvoke ModCallback = OnModCallback;
     private static readonly LogCallbackInvoke LogCallback = OnLogCallback;
+    private static readonly ListenerInvoke ListenerCallback = OnListenerEvent;
+    private static readonly ListenerRelease ListenerReleaseCallback = OnListenerRelease;
     private static string? _logText;
+    private static string? _listenerMessage;
+    private static bool _listenerReleased;
 
     private static void OnModCallback(nint userData, nint data, nuint size)
     {
@@ -43,6 +54,14 @@ public sealed class ShimSmokePlugin : IPlugin
     {
         _logText = Marshal.PtrToStringUTF8(data, checked((int)size));
     }
+
+    private static void OnListenerEvent(nint userData, nint eventHandle)
+    {
+        var eventView = Event.Borrow(eventHandle);
+        _listenerMessage = eventView.TryAsConsoleOutputtedEvent()?.message();
+    }
+
+    private static void OnListenerRelease(nint userData) => _listenerReleased = true;
     private static int _callbackCount;
     private static bool _callbackReleased;
 
@@ -179,6 +198,27 @@ public sealed class ShimSmokePlugin : IPlugin
                     var borrowedOverload = overload.text("smoke");
                     borrowedOverload.Dispose();
                     log.AppendLine($"borrowed.dispose={(overload.Handle != 0 ? "ok" : "failed")}");
+                }
+
+                var eventBus = EventBus.getInstance();
+                using (var eventInstance = ConsoleOutputtedEvent.Create("hosihikari-event", false))
+                {
+                    var eventView = eventInstance.AsEvent();
+                    using var eventId = eventView.getId();
+                    using var eventIdView = EventIdView.Create(eventId.name);
+                    var listener = ListenerBase.CreateDirector(
+                        0,
+                        mod,
+                        (nint)Marshal.GetFunctionPointerForDelegate(ListenerCallback),
+                        0,
+                        (nint)Marshal.GetFunctionPointerForDelegate(ListenerReleaseCallback));
+                    var listenerAdded = eventBus.addListener(listener, eventIdView);
+                    log.AppendLine($"director.add={(listenerAdded ? "ok" : "failed")}");
+                    eventBus.publish(eventView, eventIdView);
+                    log.AppendLine($"director.callback={(_listenerMessage == "hosihikari-event" ? "ok" : $"unexpected:{_listenerMessage}")}");
+                    var listenerRemoved = eventBus.removeListener(listener);
+                    listener?.Dispose();
+                    log.AppendLine($"director.release={(_listenerReleased && listenerRemoved ? "ok" : "failed")}");
                 }
             }
 

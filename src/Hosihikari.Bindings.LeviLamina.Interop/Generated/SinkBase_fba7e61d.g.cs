@@ -56,6 +56,18 @@ public sealed unsafe partial class SinkBase : global::System.IDisposable
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.ConsoleSink? TryAsConsoleSink()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_57c3e563((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.ConsoleSink((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.FileSink? TryAsFileSink()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_ba1c896b((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.FileSink((nint)__hs_handle, false) : null;
+    }
+
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Sink? TryAsSink()
     {
         var __hs_handle = NativeMethods.TablePtr->hs_cast_8a29b5fe((void*)_handle);

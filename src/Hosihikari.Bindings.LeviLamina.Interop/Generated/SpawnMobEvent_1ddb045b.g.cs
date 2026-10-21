@@ -74,6 +74,11 @@ public sealed unsafe partial class SpawnMobEvent
         return (nint)NativeMethods.TablePtr->hs_method_9c1955f3((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_ae3bf516((void*)_handle), false);
+    }
+
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.WorldEvent AsWorldEvent()
     {
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.WorldEvent((nint)NativeMethods.TablePtr->hs_cast_c6a2e722((void*)_handle), false);
@@ -89,5 +94,11 @@ public sealed unsafe partial class SpawnMobEvent
     {
         var __hs_handle = NativeMethods.TablePtr->hs_cast_20a88f37((void*)_handle);
         return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.SpawnedMobEvent((nint)__hs_handle, false) : null;
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.SpawningMobEvent? TryAsSpawningMobEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_777bde01((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.SpawningMobEvent((nint)__hs_handle, false) : null;
     }
 }

@@ -66,6 +66,11 @@ public sealed unsafe partial class BlockChangedEvent : global::System.IDisposabl
         NativeMethods.TablePtr->hs_method_c90dfa2a((void*)_handle, (void*)arg0);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_6e13c19c((void*)_handle), false);
+    }
+
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.WorldEvent AsWorldEvent()
     {
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.WorldEvent((nint)NativeMethods.TablePtr->hs_cast_839abb54((void*)_handle), false);

@@ -41,9 +41,34 @@ public sealed unsafe partial class PlayerJoinEvent : global::System.IDisposable
     public static PlayerJoinEvent Create(nint player) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ActorEvent AsActorEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ActorEvent((nint)NativeMethods.TablePtr->hs_cast_9ae8b40a((void*)_handle), false);
+    }
+
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ServerPlayerEvent_ AsCancellable_ll__event__ServerPlayerEvent_()
     {
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ServerPlayerEvent_((nint)NativeMethods.TablePtr->hs_cast_69f43986((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_672060c4((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MobEvent AsMobEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.MobEvent((nint)NativeMethods.TablePtr->hs_cast_05bafb52((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerEvent AsPlayerEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.PlayerEvent((nint)NativeMethods.TablePtr->hs_cast_07e2e292((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ServerPlayerEvent AsServerPlayerEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ServerPlayerEvent((nint)NativeMethods.TablePtr->hs_cast_a6994bd4((void*)_handle), false);
     }
 
     public void Dispose()

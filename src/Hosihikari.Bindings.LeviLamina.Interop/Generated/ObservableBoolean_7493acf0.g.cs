@@ -37,6 +37,11 @@ public sealed unsafe partial class ObservableBoolean : global::System.IDisposabl
         return __hs_handle;
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_bool_ AsObservable_bool_()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_bool_((nint)NativeMethods.TablePtr->hs_cast_5579b63e((void*)_handle), false);
+    }
+
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIObservable_bool_ AsUIObservable_bool_()
     {
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIObservable_bool_((nint)NativeMethods.TablePtr->hs_cast_07126781((void*)_handle), false);

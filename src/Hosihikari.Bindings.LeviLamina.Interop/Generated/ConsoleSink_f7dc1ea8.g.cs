@@ -63,6 +63,11 @@ public sealed unsafe partial class ConsoleSink : global::System.IDisposable
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Sink((nint)NativeMethods.TablePtr->hs_cast_7072bbdb((void*)_handle), false);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.SinkBase AsSinkBase()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.SinkBase((nint)NativeMethods.TablePtr->hs_cast_8db21214((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

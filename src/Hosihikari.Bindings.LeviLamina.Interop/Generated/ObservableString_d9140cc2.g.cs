@@ -37,6 +37,11 @@ public sealed unsafe partial class ObservableString : global::System.IDisposable
         return __hs_handle;
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_std__basic_string_char__ AsObservable_std__basic_string_char__()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_std__basic_string_char__((nint)NativeMethods.TablePtr->hs_cast_c641938c((void*)_handle), false);
+    }
+
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIObservable_std__basic_string_char__ AsUIObservable_std__basic_string_char__()
     {
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIObservable_std__basic_string_char__((nint)NativeMethods.TablePtr->hs_cast_d0fca1ab((void*)_handle), false);

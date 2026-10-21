@@ -76,6 +76,11 @@ public sealed unsafe partial class FileSink : global::System.IDisposable
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Sink((nint)NativeMethods.TablePtr->hs_cast_7c9b318d((void*)_handle), false);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.SinkBase AsSinkBase()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.SinkBase((nint)NativeMethods.TablePtr->hs_cast_3e50fea1((void*)_handle), false);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

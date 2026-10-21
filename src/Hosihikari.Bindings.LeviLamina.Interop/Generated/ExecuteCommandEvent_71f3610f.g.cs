@@ -73,4 +73,10 @@ public sealed unsafe partial class ExecuteCommandEvent
         var __hs_handle = NativeMethods.TablePtr->hs_cast_e71dc0c5((void*)_handle);
         return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ExecutedCommandEvent((nint)__hs_handle, false) : null;
     }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ExecutingCommandEvent? TryAsExecutingCommandEvent()
+    {
+        var __hs_handle = NativeMethods.TablePtr->hs_cast_40b30d00((void*)_handle);
+        return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ExecutingCommandEvent((nint)__hs_handle, false) : null;
+    }
 }

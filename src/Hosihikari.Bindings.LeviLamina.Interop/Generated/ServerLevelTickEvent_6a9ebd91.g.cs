@@ -41,6 +41,11 @@ public sealed unsafe partial class ServerLevelTickEvent : global::System.IDispos
     public static ServerLevelTickEvent Create(nint level) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_e56cbd08((void*)_handle), false);
+    }
+
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.LevelEvent AsLevelEvent()
     {
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.LevelEvent((nint)NativeMethods.TablePtr->hs_cast_f89c4294((void*)_handle), false);

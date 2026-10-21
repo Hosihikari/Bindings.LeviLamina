@@ -61,9 +61,19 @@ public sealed unsafe partial class ActorHurtEvent : global::System.IDisposable
         return (nint)NativeMethods.TablePtr->hs_method_ad20e91a((void*)_handle);
     }
 
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ActorEvent AsActorEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ActorEvent((nint)NativeMethods.TablePtr->hs_cast_62204e43((void*)_handle), false);
+    }
+
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ActorEvent_ AsCancellable_ll__event__ActorEvent_()
     {
         return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Cancellable_ll__event__ActorEvent_((nint)NativeMethods.TablePtr->hs_cast_c44fea05((void*)_handle), false);
+    }
+
+    public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event AsEvent()
+    {
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event((nint)NativeMethods.TablePtr->hs_cast_723bebed((void*)_handle), false);
     }
 
     public void Dispose()

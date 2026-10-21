@@ -49,10 +49,20 @@ public sealed unsafe partial class PlayerInfo
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo_Nested.PlayerInfoEntry? fromName(string arg0)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(arg0);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(arg0);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(arg0, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_handle = NativeMethods.TablePtr->hs_method_f4b9630e((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            var __hs_handle = NativeMethods.TablePtr->hs_method_f4b9630e((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, &__hs_hasValue);
             return __hs_hasValue && __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo_Nested.PlayerInfoEntry((nint)__hs_handle, false) : null;
         }
     }
@@ -67,10 +77,20 @@ public sealed unsafe partial class PlayerInfo
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo_Nested.PlayerInfoEntry? fromXuid(string arg0)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(arg0);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(arg0);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(arg0, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_handle = NativeMethods.TablePtr->hs_method_bfbc3d9c((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            var __hs_handle = NativeMethods.TablePtr->hs_method_bfbc3d9c((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, &__hs_hasValue);
             return __hs_hasValue && __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo_Nested.PlayerInfoEntry((nint)__hs_handle, false) : null;
         }
     }

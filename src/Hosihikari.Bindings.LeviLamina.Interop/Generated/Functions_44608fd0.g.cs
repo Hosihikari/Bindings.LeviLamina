@@ -7,40 +7,80 @@ public static unsafe partial class Functions
 {
     public static string removeTypeNamespace(string s)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(s);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(s);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(s, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->hs_function_1443602d(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->hs_function_1443602d(__hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public static string removeTypePrefix(string s)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(s);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(s);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(s, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->hs_function_9f8ec1d3(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->hs_function_9f8ec1d3(__hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public static string removeTypeSuffix(string s)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(s);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(s);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(s, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->hs_function_363920a4(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->hs_function_363920a4(__hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public static string typeNameStem(string s)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(s);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(s);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(s, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->hs_function_59ec6399(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->hs_function_59ec6399(__hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }

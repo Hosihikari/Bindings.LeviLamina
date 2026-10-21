@@ -50,10 +50,20 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public static CustomForm Create(string title)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(title);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(title, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->hs_create_321c25b1(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->hs_create_321c25b1(__hs_stringData0, (nuint)__hs_stringByteCount0);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -70,9 +80,39 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendDropdown(string name, string text, string[] options, ulong defaultVal, string tooltip)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
-        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(text);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(text, __hs_stringBytes1);
+        var __hs_stringByteCount4 = global::System.Text.Encoding.UTF8.GetByteCount(tooltip);
+        scoped global::System.Span<byte> __hs_stringBytes4;
+        if (__hs_stringByteCount4 <= 256)
+        {
+            __hs_stringBytes4 = stackalloc byte[__hs_stringByteCount4 == 0 ? 1 : __hs_stringByteCount4];
+        }
+        else
+        {
+            __hs_stringBytes4 = new byte[__hs_stringByteCount4];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(tooltip, __hs_stringBytes4);
         var __hs_vectorItems2 = options ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes2 = new byte[__hs_vectorItems2.Length][];
         var __hs_vectorViews2 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems2.Length];
@@ -96,7 +136,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_2be981f8((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(options?.Length ?? 0)), false);
+                            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_2be981f8((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, defaultVal, __hs_stringData4, (nuint)__hs_stringByteCount4, __hs_vectorData2, (nuint)(options?.Length ?? 0)), false);
                         }
                     }
                 }
@@ -110,20 +150,80 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendHeader(string text)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(text);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(text, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_a567f46b((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_a567f46b((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0), false);
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendInput(string name, string text, string placeholder, string defaultVal, string tooltip)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
-        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(placeholder);
-        var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(defaultVal);
-        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(text);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(text, __hs_stringBytes1);
+        var __hs_stringByteCount2 = global::System.Text.Encoding.UTF8.GetByteCount(placeholder);
+        scoped global::System.Span<byte> __hs_stringBytes2;
+        if (__hs_stringByteCount2 <= 256)
+        {
+            __hs_stringBytes2 = stackalloc byte[__hs_stringByteCount2 == 0 ? 1 : __hs_stringByteCount2];
+        }
+        else
+        {
+            __hs_stringBytes2 = new byte[__hs_stringByteCount2];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(placeholder, __hs_stringBytes2);
+        var __hs_stringByteCount3 = global::System.Text.Encoding.UTF8.GetByteCount(defaultVal);
+        scoped global::System.Span<byte> __hs_stringBytes3;
+        if (__hs_stringByteCount3 <= 256)
+        {
+            __hs_stringBytes3 = stackalloc byte[__hs_stringByteCount3 == 0 ? 1 : __hs_stringByteCount3];
+        }
+        else
+        {
+            __hs_stringBytes3 = new byte[__hs_stringByteCount3];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(defaultVal, __hs_stringBytes3);
+        var __hs_stringByteCount4 = global::System.Text.Encoding.UTF8.GetByteCount(tooltip);
+        scoped global::System.Span<byte> __hs_stringBytes4;
+        if (__hs_stringByteCount4 <= 256)
+        {
+            __hs_stringBytes4 = stackalloc byte[__hs_stringByteCount4 == 0 ? 1 : __hs_stringByteCount4];
+        }
+        else
+        {
+            __hs_stringBytes4 = new byte[__hs_stringByteCount4];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(tooltip, __hs_stringBytes4);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
@@ -134,7 +234,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_318bf0c5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, __hs_stringData3, (nuint)__hs_stringBytes3.Length, __hs_stringData4, (nuint)__hs_stringBytes4.Length), false);
+                            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_318bf0c5((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, __hs_stringData2, (nuint)__hs_stringByteCount2, __hs_stringData3, (nuint)__hs_stringByteCount3, __hs_stringData4, (nuint)__hs_stringByteCount4), false);
                         }
                     }
                 }
@@ -144,25 +244,65 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendLabel(string text)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(text);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(text, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_28c740ca((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_28c740ca((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0), false);
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendSlider(string name, string text, double min, double max, double step, double defaultVal, string tooltip)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
-        var __hs_stringBytes6 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(text);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(text, __hs_stringBytes1);
+        var __hs_stringByteCount6 = global::System.Text.Encoding.UTF8.GetByteCount(tooltip);
+        scoped global::System.Span<byte> __hs_stringBytes6;
+        if (__hs_stringByteCount6 <= 256)
+        {
+            __hs_stringBytes6 = stackalloc byte[__hs_stringByteCount6 == 0 ? 1 : __hs_stringByteCount6];
+        }
+        else
+        {
+            __hs_stringBytes6 = new byte[__hs_stringByteCount6];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(tooltip, __hs_stringBytes6);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
                 fixed (byte* __hs_stringData6 = __hs_stringBytes6)
                 {
-                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_1773c194((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, min, max, step, defaultVal, __hs_stringData6, (nuint)__hs_stringBytes6.Length), false);
+                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_1773c194((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, min, max, step, defaultVal, __hs_stringData6, (nuint)__hs_stringByteCount6), false);
                 }
             }
         }
@@ -170,9 +310,39 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendStepSlider(string name, string text, string[] steps, ulong defaultVal, string tooltip)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
-        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(text);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(text, __hs_stringBytes1);
+        var __hs_stringByteCount4 = global::System.Text.Encoding.UTF8.GetByteCount(tooltip);
+        scoped global::System.Span<byte> __hs_stringBytes4;
+        if (__hs_stringByteCount4 <= 256)
+        {
+            __hs_stringBytes4 = stackalloc byte[__hs_stringByteCount4 == 0 ? 1 : __hs_stringByteCount4];
+        }
+        else
+        {
+            __hs_stringBytes4 = new byte[__hs_stringByteCount4];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(tooltip, __hs_stringBytes4);
         var __hs_vectorItems2 = steps ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes2 = new byte[__hs_vectorItems2.Length][];
         var __hs_vectorViews2 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems2.Length];
@@ -196,7 +366,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
                     {
                         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
                         {
-                            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_d1e57eac((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData4, (nuint)__hs_stringBytes4.Length, __hs_vectorData2, (nuint)(steps?.Length ?? 0)), false);
+                            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_d1e57eac((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, defaultVal, __hs_stringData4, (nuint)__hs_stringByteCount4, __hs_vectorData2, (nuint)(steps?.Length ?? 0)), false);
                         }
                     }
                 }
@@ -210,16 +380,46 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm appendToggle(string name, string text, bool defaultVal, string tooltip)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(text);
-        var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(tooltip);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(text);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(text, __hs_stringBytes1);
+        var __hs_stringByteCount3 = global::System.Text.Encoding.UTF8.GetByteCount(tooltip);
+        scoped global::System.Span<byte> __hs_stringBytes3;
+        if (__hs_stringByteCount3 <= 256)
+        {
+            __hs_stringBytes3 = stackalloc byte[__hs_stringByteCount3 == 0 ? 1 : __hs_stringByteCount3];
+        }
+        else
+        {
+            __hs_stringBytes3 = new byte[__hs_stringByteCount3];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(tooltip, __hs_stringBytes3);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
                 fixed (byte* __hs_stringData3 = __hs_stringBytes3)
                 {
-                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_3603e310((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, defaultVal, __hs_stringData3, (nuint)__hs_stringBytes3.Length), false);
+                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_3603e310((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, defaultVal, __hs_stringData3, (nuint)__hs_stringByteCount3), false);
                 }
             }
         }
@@ -243,19 +443,39 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm setSubmitButton(string text)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(text);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(text, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_6e2ffa54((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_6e2ffa54((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0), false);
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm setTitle(string title)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(title);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(title, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_e3111678((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.CustomForm((nint)NativeMethods.TablePtr->hs_method_e3111678((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0), false);
         }
     }
 

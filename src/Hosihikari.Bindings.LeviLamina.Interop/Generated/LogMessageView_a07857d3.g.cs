@@ -39,13 +39,33 @@ public sealed unsafe partial class LogMessageView : global::System.IDisposable
 
     public static LogMessageView Create(string msg, string tit, int lvl, global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.TmWithMs tm)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(msg);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(tit);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(msg);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(msg, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(tit);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(tit, __hs_stringBytes1);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var handle = NativeMethods.TablePtr->hs_create_d7798e45(__hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, lvl, (void*)tm.Handle);
+                var handle = NativeMethods.TablePtr->hs_create_d7798e45(__hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, lvl, (void*)tm.Handle);
                 if (handle == null)
                 {
                     throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");

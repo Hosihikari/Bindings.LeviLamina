@@ -54,20 +54,40 @@ public sealed unsafe partial class ServiceManager
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult? queryService(string name)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_handle = NativeMethods.TablePtr->hs_method_8164fb4d((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            var __hs_handle = NativeMethods.TablePtr->hs_method_8164fb4d((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, &__hs_hasValue);
             return __hs_hasValue && __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult((nint)__hs_handle) : null;
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult[] queryServices(string name)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->hs_method_ab559b2a((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->hs_method_ab559b2a((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             var __hs_items = (void**)__hs_view.Data;
             var __hs_result = new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult[checked((int)__hs_view.Size)];
             for (var __hs_i = 0; __hs_i < __hs_result.Length; __hs_i++)

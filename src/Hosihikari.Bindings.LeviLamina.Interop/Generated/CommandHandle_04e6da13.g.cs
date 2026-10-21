@@ -43,10 +43,20 @@ public sealed unsafe partial class CommandHandle
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandHandle alias(string alias)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(alias);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(alias);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(alias, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandHandle((nint)NativeMethods.TablePtr->hs_method_0f895032((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandHandle((nint)NativeMethods.TablePtr->hs_method_0f895032((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0), false);
         }
     }
 

@@ -39,10 +39,20 @@ public sealed unsafe partial class ModManager
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getMod(string name)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_shared = NativeMethods.TablePtr->hs_method_72114394((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_shared = NativeMethods.TablePtr->hs_method_72114394((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
@@ -60,10 +70,20 @@ public sealed unsafe partial class ModManager
 
     public bool hasMod(string name)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_f65db5e6((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_method_f65db5e6((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 

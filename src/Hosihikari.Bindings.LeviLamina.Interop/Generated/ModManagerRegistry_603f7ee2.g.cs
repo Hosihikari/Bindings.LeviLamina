@@ -44,10 +44,20 @@ public sealed unsafe partial class ModManagerRegistry
 
     public bool eraseManager(string type)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(type);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(type);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(type, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_1cc73cca((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_method_1cc73cca((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
@@ -93,59 +103,119 @@ public sealed unsafe partial class ModManagerRegistry
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getManager(string type)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(type);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(type);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(type, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_shared = NativeMethods.TablePtr->hs_method_7ee89750((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_shared = NativeMethods.TablePtr->hs_method_7ee89750((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getManagerForMod(string name)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_shared = NativeMethods.TablePtr->hs_method_985f5308((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_shared = NativeMethods.TablePtr->hs_method_985f5308((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getMod(string name)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_shared = NativeMethods.TablePtr->hs_method_89d1efb9((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_shared = NativeMethods.TablePtr->hs_method_89d1efb9((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
 
     public string getModType(string name)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->hs_method_f60f18e7((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->hs_method_f60f18e7((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
 
     public bool hasManager(string type)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(type);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(type);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(type, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_e0f37ca6((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_method_e0f37ca6((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
     public bool hasMod(string name)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_baf347a9((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_method_baf347a9((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 

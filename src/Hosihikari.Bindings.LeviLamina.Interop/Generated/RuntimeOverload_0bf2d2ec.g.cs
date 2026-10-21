@@ -70,63 +70,143 @@ public sealed unsafe partial class RuntimeOverload : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload optional(string name, ulong kind)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_476ed114((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, kind), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_476ed114((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, kind), false);
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload optional(string name, ulong enumKind, string enumName)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
-        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(enumName);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
+        var __hs_stringByteCount2 = global::System.Text.Encoding.UTF8.GetByteCount(enumName);
+        scoped global::System.Span<byte> __hs_stringBytes2;
+        if (__hs_stringByteCount2 <= 256)
+        {
+            __hs_stringBytes2 = stackalloc byte[__hs_stringByteCount2 == 0 ? 1 : __hs_stringByteCount2];
+        }
+        else
+        {
+            __hs_stringBytes2 = new byte[__hs_stringByteCount2];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(enumName, __hs_stringBytes2);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData2 = __hs_stringBytes2)
             {
-                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_194762e4((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length), false);
+                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_194762e4((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, enumKind, __hs_stringData2, (nuint)__hs_stringByteCount2), false);
             }
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload postfix(string postfix)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(postfix);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(postfix);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(postfix, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_c28ab4c5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_c28ab4c5((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0), false);
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload required(string name, ulong kind)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_ea35375f((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, kind), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_ea35375f((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, kind), false);
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload required(string name, ulong enumKind, string enumName)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
-        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(enumName);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
+        var __hs_stringByteCount2 = global::System.Text.Encoding.UTF8.GetByteCount(enumName);
+        scoped global::System.Span<byte> __hs_stringBytes2;
+        if (__hs_stringByteCount2 <= 256)
+        {
+            __hs_stringBytes2 = stackalloc byte[__hs_stringByteCount2 == 0 ? 1 : __hs_stringByteCount2];
+        }
+        else
+        {
+            __hs_stringBytes2 = new byte[__hs_stringByteCount2];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(enumName, __hs_stringBytes2);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData2 = __hs_stringBytes2)
             {
-                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_8ef6958d((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, enumKind, __hs_stringData2, (nuint)__hs_stringBytes2.Length), false);
+                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_8ef6958d((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, enumKind, __hs_stringData2, (nuint)__hs_stringByteCount2), false);
             }
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload text(string text)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(text);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(text);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(text, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_05bd94b3((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.RuntimeOverload((nint)NativeMethods.TablePtr->hs_method_05bd94b3((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0), false);
         }
     }
 

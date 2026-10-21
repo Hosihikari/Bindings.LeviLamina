@@ -57,10 +57,20 @@ public sealed unsafe partial class PacketRegistrar
 
     public bool registerHandler(string name, ulong id, global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.IPacketHandler? handler)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_806eebd2((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, id, (void*)(handler?.Handle ?? 0), handler is not null);
+            return NativeMethods.TablePtr->hs_method_806eebd2((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, id, (void*)(handler?.Handle ?? 0), handler is not null);
         }
     }
 

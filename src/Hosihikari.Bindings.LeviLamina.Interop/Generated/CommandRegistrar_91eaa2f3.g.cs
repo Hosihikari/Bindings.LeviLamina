@@ -39,10 +39,28 @@ public sealed unsafe partial class CommandRegistrar
 
     public bool addEnumValues(string name, global::System.Collections.Generic.KeyValuePair<string, ulong>[] values, ushort type)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         var __hs_vectorItems1 = values ?? global::System.Array.Empty<global::System.Collections.Generic.KeyValuePair<string, ulong>>();
         var __hs_vectorCount1 = __hs_vectorItems1.Length;
-        var __hs_vectorEntries1 = (global::Hosihikari.Bindings.Abi.MapEntry*)global::System.Runtime.InteropServices.Marshal.AllocHGlobal((__hs_vectorCount1 == 0 ? 1 : __hs_vectorCount1) * sizeof(global::Hosihikari.Bindings.Abi.MapEntry));
+        scoped global::System.Span<global::Hosihikari.Bindings.Abi.MapEntry> __hs_vectorEntrySpan1;
+        if (__hs_vectorCount1 <= 16)
+        {
+            __hs_vectorEntrySpan1 = stackalloc global::Hosihikari.Bindings.Abi.MapEntry[__hs_vectorCount1 == 0 ? 1 : __hs_vectorCount1];
+        }
+        else
+        {
+            __hs_vectorEntrySpan1 = new global::Hosihikari.Bindings.Abi.MapEntry[__hs_vectorCount1];
+        }
         var __hs_vectorStrings1 = new nint[__hs_vectorCount1 * 1];
         var __hs_vectorStringCount1 = 0;
         try
@@ -58,27 +76,46 @@ public sealed unsafe partial class CommandRegistrar
                 __hs_entry.Key = (ulong)__hs_KeyPtr;
                 __hs_entry.KeySize = (ulong)__hs_KeyBytes.Length;
                 __hs_entry.Value = unchecked((ulong)(__hs_pair.Value));
-                __hs_vectorEntries1[__hs_i1] = __hs_entry;
+                __hs_vectorEntrySpan1[__hs_i1] = __hs_entry;
             }
-            var __hs_vectorData1 = __hs_vectorEntries1;
-            fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+            fixed (global::Hosihikari.Bindings.Abi.MapEntry* __hs_vectorData1 = __hs_vectorEntrySpan1)
             {
-                return NativeMethods.TablePtr->hs_method_7027890d((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, type, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+                {
+                    return NativeMethods.TablePtr->hs_method_7027890d((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, type, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                }
             }
         }
         finally
         {
             for (var __hs_i1 = 0; __hs_i1 < __hs_vectorStringCount1; __hs_i1++) { if (__hs_vectorStrings1[__hs_i1] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal(__hs_vectorStrings1[__hs_i1]); } }
-            global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorEntries1);
         }
     }
 
     public bool addRuntimeEnumValues(string name, global::System.Collections.Generic.KeyValuePair<string, ulong>[] values)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         var __hs_vectorItems1 = values ?? global::System.Array.Empty<global::System.Collections.Generic.KeyValuePair<string, ulong>>();
         var __hs_vectorCount1 = __hs_vectorItems1.Length;
-        var __hs_vectorEntries1 = (global::Hosihikari.Bindings.Abi.MapEntry*)global::System.Runtime.InteropServices.Marshal.AllocHGlobal((__hs_vectorCount1 == 0 ? 1 : __hs_vectorCount1) * sizeof(global::Hosihikari.Bindings.Abi.MapEntry));
+        scoped global::System.Span<global::Hosihikari.Bindings.Abi.MapEntry> __hs_vectorEntrySpan1;
+        if (__hs_vectorCount1 <= 16)
+        {
+            __hs_vectorEntrySpan1 = stackalloc global::Hosihikari.Bindings.Abi.MapEntry[__hs_vectorCount1 == 0 ? 1 : __hs_vectorCount1];
+        }
+        else
+        {
+            __hs_vectorEntrySpan1 = new global::Hosihikari.Bindings.Abi.MapEntry[__hs_vectorCount1];
+        }
         var __hs_vectorStrings1 = new nint[__hs_vectorCount1 * 1];
         var __hs_vectorStringCount1 = 0;
         try
@@ -94,24 +131,35 @@ public sealed unsafe partial class CommandRegistrar
                 __hs_entry.Key = (ulong)__hs_KeyPtr;
                 __hs_entry.KeySize = (ulong)__hs_KeyBytes.Length;
                 __hs_entry.Value = unchecked((ulong)(__hs_pair.Value));
-                __hs_vectorEntries1[__hs_i1] = __hs_entry;
+                __hs_vectorEntrySpan1[__hs_i1] = __hs_entry;
             }
-            var __hs_vectorData1 = __hs_vectorEntries1;
-            fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+            fixed (global::Hosihikari.Bindings.Abi.MapEntry* __hs_vectorData1 = __hs_vectorEntrySpan1)
             {
-                return NativeMethods.TablePtr->hs_method_54e89d5e((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+                {
+                    return NativeMethods.TablePtr->hs_method_54e89d5e((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                }
             }
         }
         finally
         {
             for (var __hs_i1 = 0; __hs_i1 < __hs_vectorStringCount1; __hs_i1++) { if (__hs_vectorStrings1[__hs_i1] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal(__hs_vectorStrings1[__hs_i1]); } }
-            global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorEntries1);
         }
     }
 
     public bool addSoftEnumValues(string name, string[] values)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         var __hs_vectorItems1 = values ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes1 = new byte[__hs_vectorItems1.Length][];
         var __hs_vectorViews1 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems1.Length];
@@ -131,7 +179,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->hs_method_0bf55812((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                    return NativeMethods.TablePtr->hs_method_0bf55812((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
                 }
             }
         }
@@ -160,13 +208,33 @@ public sealed unsafe partial class CommandRegistrar
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandHandle getOrCreateCommand(string name, string description, byte requirement, global::Hosihikari.Bindings.LeviLamina.Interop.CommandFlag flag, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(description);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(description);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(description, __hs_stringBytes1);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandHandle((nint)NativeMethods.TablePtr->hs_method_650fa79f((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, requirement, (void*)flag.Handle, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData)), false);
+                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.command.CommandHandle((nint)NativeMethods.TablePtr->hs_method_650fa79f((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, requirement, (void*)flag.Handle, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData)), false);
             }
         }
     }
@@ -178,25 +246,55 @@ public sealed unsafe partial class CommandRegistrar
 
     public bool hasEnum(string name)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_3f1d97ed((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_method_3f1d97ed((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
     public bool hasSoftEnum(string name)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_5ed64b33((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_method_5ed64b33((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
     public bool removeSoftEnumValues(string name, string[] values)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         var __hs_vectorItems1 = values ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes1 = new byte[__hs_vectorItems1.Length][];
         var __hs_vectorViews1 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems1.Length];
@@ -216,7 +314,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->hs_method_21c982c8((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                    return NativeMethods.TablePtr->hs_method_21c982c8((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
                 }
             }
         }
@@ -228,7 +326,17 @@ public sealed unsafe partial class CommandRegistrar
 
     public bool setSoftEnumValues(string name, string[] values)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         var __hs_vectorItems1 = values ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes1 = new byte[__hs_vectorItems1.Length][];
         var __hs_vectorViews1 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems1.Length];
@@ -248,7 +356,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->hs_method_bd62379b((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                    return NativeMethods.TablePtr->hs_method_bd62379b((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
                 }
             }
         }
@@ -264,10 +372,28 @@ public sealed unsafe partial class CommandRegistrar
 
     public bool tryRegisterRuntimeEnum(string name, global::System.Collections.Generic.KeyValuePair<string, ulong>[] values)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         var __hs_vectorItems1 = values ?? global::System.Array.Empty<global::System.Collections.Generic.KeyValuePair<string, ulong>>();
         var __hs_vectorCount1 = __hs_vectorItems1.Length;
-        var __hs_vectorEntries1 = (global::Hosihikari.Bindings.Abi.MapEntry*)global::System.Runtime.InteropServices.Marshal.AllocHGlobal((__hs_vectorCount1 == 0 ? 1 : __hs_vectorCount1) * sizeof(global::Hosihikari.Bindings.Abi.MapEntry));
+        scoped global::System.Span<global::Hosihikari.Bindings.Abi.MapEntry> __hs_vectorEntrySpan1;
+        if (__hs_vectorCount1 <= 16)
+        {
+            __hs_vectorEntrySpan1 = stackalloc global::Hosihikari.Bindings.Abi.MapEntry[__hs_vectorCount1 == 0 ? 1 : __hs_vectorCount1];
+        }
+        else
+        {
+            __hs_vectorEntrySpan1 = new global::Hosihikari.Bindings.Abi.MapEntry[__hs_vectorCount1];
+        }
         var __hs_vectorStrings1 = new nint[__hs_vectorCount1 * 1];
         var __hs_vectorStringCount1 = 0;
         try
@@ -283,24 +409,35 @@ public sealed unsafe partial class CommandRegistrar
                 __hs_entry.Key = (ulong)__hs_KeyPtr;
                 __hs_entry.KeySize = (ulong)__hs_KeyBytes.Length;
                 __hs_entry.Value = unchecked((ulong)(__hs_pair.Value));
-                __hs_vectorEntries1[__hs_i1] = __hs_entry;
+                __hs_vectorEntrySpan1[__hs_i1] = __hs_entry;
             }
-            var __hs_vectorData1 = __hs_vectorEntries1;
-            fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+            fixed (global::Hosihikari.Bindings.Abi.MapEntry* __hs_vectorData1 = __hs_vectorEntrySpan1)
             {
-                return NativeMethods.TablePtr->hs_method_a1a34edb((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                fixed (byte* __hs_stringData0 = __hs_stringBytes0)
+                {
+                    return NativeMethods.TablePtr->hs_method_a1a34edb((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                }
             }
         }
         finally
         {
             for (var __hs_i1 = 0; __hs_i1 < __hs_vectorStringCount1; __hs_i1++) { if (__hs_vectorStrings1[__hs_i1] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal(__hs_vectorStrings1[__hs_i1]); } }
-            global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorEntries1);
         }
     }
 
     public bool tryRegisterSoftEnum(string name, string[] values)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(name);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         var __hs_vectorItems1 = values ?? global::System.Array.Empty<string>();
         var __hs_vectorBytes1 = new byte[__hs_vectorItems1.Length][];
         var __hs_vectorViews1 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems1.Length];
@@ -320,7 +457,7 @@ public sealed unsafe partial class CommandRegistrar
             {
                 fixed (byte* __hs_stringData0 = __hs_stringBytes0)
                 {
-                    return NativeMethods.TablePtr->hs_method_ec359fd0((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                    return NativeMethods.TablePtr->hs_method_ec359fd0((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
                 }
             }
         }

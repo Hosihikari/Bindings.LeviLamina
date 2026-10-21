@@ -7,28 +7,58 @@ public static unsafe partial class Functions
 {
     public static ulong doHash(string x)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(x);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(x);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(x, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_function_1a0d5f0b(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_function_1a0d5f0b(__hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
     public static ulong doHash2(string x)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(x);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(x);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(x, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_function_74957af8(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_function_74957af8(__hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
     public static ulong doHash3(string x)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(x);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(x);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(x, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_function_7b8e92da(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_function_7b8e92da(__hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 }

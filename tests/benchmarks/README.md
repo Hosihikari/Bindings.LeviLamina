@@ -40,4 +40,6 @@ vector.enum_register=...
 result=OK
 ```
 
+Short string parameters use a stack buffer when the UTF-8 encoding fits in 256 bytes; small pair-vector entry arrays also use `stackalloc`. The `B/op` column reflects the remaining managed allocations, such as returned strings, shared handles, and per-key buffers.
+
 The numbers are environment-dependent and are not a CI gate; they provide a baseline for comparing generator changes on the same machine and server build.

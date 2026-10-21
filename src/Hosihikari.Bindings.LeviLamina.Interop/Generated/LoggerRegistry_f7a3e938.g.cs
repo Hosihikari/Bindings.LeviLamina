@@ -39,10 +39,20 @@ public sealed unsafe partial class LoggerRegistry
 
     public bool erase(string title)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(title);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(title, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_693d71d8((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_method_693d71d8((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
@@ -53,10 +63,20 @@ public sealed unsafe partial class LoggerRegistry
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getOrCreate(string title)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(title);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(title, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_shared = NativeMethods.TablePtr->hs_method_52af8b2f((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_shared = NativeMethods.TablePtr->hs_method_52af8b2f((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
@@ -67,10 +87,20 @@ public sealed unsafe partial class LoggerRegistry
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? tryGet(string title)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(title);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(title);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(title, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_shared = NativeMethods.TablePtr->hs_method_41aba55e((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_shared = NativeMethods.TablePtr->hs_method_41aba55e((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }

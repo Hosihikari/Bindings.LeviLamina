@@ -78,10 +78,20 @@ public sealed unsafe partial class Signature : global::System.IDisposable
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature parse(string str)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(str);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(str);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(str, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature((nint)NativeMethods.TablePtr->hs_method_36ec8175(__hs_stringData0, (nuint)__hs_stringBytes0.Length));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature((nint)NativeMethods.TablePtr->hs_method_36ec8175(__hs_stringData0, (nuint)__hs_stringByteCount0));
         }
     }
 

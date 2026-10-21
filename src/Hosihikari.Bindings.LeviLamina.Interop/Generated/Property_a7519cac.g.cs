@@ -102,10 +102,20 @@ public sealed unsafe partial class Property : global::System.IDisposable
     public void setJson(string json)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(json);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(json);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(json, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->hs_method_d9c1fc42((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            NativeMethods.TablePtr->hs_method_d9c1fc42((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, &__hs_hasValue);
             if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
         }
     }

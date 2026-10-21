@@ -39,19 +39,39 @@ public sealed unsafe partial class Form
 
     public static bool sendRawTo(nint player, string formData, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(formData);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(formData);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(formData, __hs_stringBytes1);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return NativeMethods.TablePtr->hs_method_48b727ed((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return NativeMethods.TablePtr->hs_method_48b727ed((void*)player, __hs_stringData1, (nuint)__hs_stringByteCount1, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 
     public static bool sendRawUpdate(nint player, string formData, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(formData);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(formData);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(formData, __hs_stringBytes1);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return NativeMethods.TablePtr->hs_method_d54e9c3a((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return NativeMethods.TablePtr->hs_method_d54e9c3a((void*)player, __hs_stringData1, (nuint)__hs_stringByteCount1, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 

@@ -89,19 +89,39 @@ public sealed unsafe partial class Error : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error log(global::Hosihikari.Bindings.LeviLamina.Interop.CommandOutput arg0, string locale, int arg2)
     {
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(locale);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(locale, __hs_stringBytes1);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_ecc40f03((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_ecc40f03((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringByteCount1, arg2), false);
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error log(nint @outInvoke, nint @outUserData, nint @outRelease, string locale)
     {
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(locale);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(locale, __hs_stringBytes1);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_4962dd8b((void*)_handle, (void*)@outInvoke, (void*)@outUserData, (void*)@outRelease, __hs_stringData1, (nuint)__hs_stringBytes1.Length), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_4962dd8b((void*)_handle, (void*)@outInvoke, (void*)@outUserData, (void*)@outRelease, __hs_stringData1, (nuint)__hs_stringByteCount1), false);
         }
     }
 
@@ -112,10 +132,20 @@ public sealed unsafe partial class Error : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error log(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Logger arg0, string locale, int arg2)
     {
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(locale);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(locale);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(locale, __hs_stringBytes1);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_909c5e3f((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringBytes1.Length, arg2), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error((nint)NativeMethods.TablePtr->hs_method_909c5e3f((void*)_handle, (void*)arg0.Handle, __hs_stringData1, (nuint)__hs_stringByteCount1, arg2), false);
         }
     }
 
@@ -127,10 +157,20 @@ public sealed unsafe partial class Error : global::System.IDisposable
 
     public string message(string locale)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(locale);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(locale);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(locale, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->hs_method_0a714fe5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->hs_method_0a714fe5((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }

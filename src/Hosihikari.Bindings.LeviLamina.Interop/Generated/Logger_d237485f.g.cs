@@ -53,28 +53,58 @@ public sealed unsafe partial class Logger : global::System.IDisposable
 
     public void debug(string msg)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(msg);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(msg, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->hs_method_1460e901((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->hs_method_1460e901((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
     public void error(string msg)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(msg);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(msg, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->hs_method_970e1856((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->hs_method_970e1856((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
     public void fatal(string msg)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(msg);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(msg, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->hs_method_4b5a9d04((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->hs_method_4b5a9d04((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
@@ -102,19 +132,39 @@ public sealed unsafe partial class Logger : global::System.IDisposable
 
     public void info(string msg)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(msg);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(msg, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->hs_method_d664da2b((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->hs_method_d664da2b((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
     public void log(int level, string msg)
     {
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(msg);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(msg, __hs_stringBytes1);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            NativeMethods.TablePtr->hs_method_c1d191b1((void*)_handle, level, __hs_stringData1, (nuint)__hs_stringBytes1.Length);
+            NativeMethods.TablePtr->hs_method_c1d191b1((void*)_handle, level, __hs_stringData1, (nuint)__hs_stringByteCount1);
         }
     }
 
@@ -143,19 +193,39 @@ public sealed unsafe partial class Logger : global::System.IDisposable
 
     public void trace(string msg)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(msg);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(msg, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->hs_method_594aa3db((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->hs_method_594aa3db((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 
     public void warn(string msg)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(msg);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(msg);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(msg, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->hs_method_f53cdadb((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->hs_method_f53cdadb((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 

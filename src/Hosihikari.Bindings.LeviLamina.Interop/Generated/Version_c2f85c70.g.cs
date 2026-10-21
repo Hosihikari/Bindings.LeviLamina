@@ -50,10 +50,20 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public static Version Create(string str)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(str);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(str);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(str, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->hs_create_03243ed9(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->hs_create_03243ed9(__hs_stringData0, (nuint)__hs_stringByteCount0);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -65,13 +75,33 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public static Version Create(ushort mj, ushort mn, ushort pt, string prt, string? bu)
     {
-        var __hs_stringBytes3 = global::System.Text.Encoding.UTF8.GetBytes(prt);
-        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(bu ?? string.Empty);
+        var __hs_stringByteCount3 = global::System.Text.Encoding.UTF8.GetByteCount(prt);
+        scoped global::System.Span<byte> __hs_stringBytes3;
+        if (__hs_stringByteCount3 <= 256)
+        {
+            __hs_stringBytes3 = stackalloc byte[__hs_stringByteCount3 == 0 ? 1 : __hs_stringByteCount3];
+        }
+        else
+        {
+            __hs_stringBytes3 = new byte[__hs_stringByteCount3];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(prt, __hs_stringBytes3);
+        var __hs_stringByteCount4 = global::System.Text.Encoding.UTF8.GetByteCount(bu ?? string.Empty);
+        scoped global::System.Span<byte> __hs_stringBytes4;
+        if (__hs_stringByteCount4 <= 256)
+        {
+            __hs_stringBytes4 = stackalloc byte[__hs_stringByteCount4 == 0 ? 1 : __hs_stringByteCount4];
+        }
+        else
+        {
+            __hs_stringBytes4 = new byte[__hs_stringByteCount4];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(bu ?? string.Empty, __hs_stringBytes4);
         fixed (byte* __hs_stringData3 = __hs_stringBytes3)
         {
             fixed (byte* __hs_stringData4 = __hs_stringBytes4)
             {
-                var handle = NativeMethods.TablePtr->hs_create_b09560d2(mj, mn, pt, __hs_stringData3, (nuint)__hs_stringBytes3.Length, __hs_stringData4, (nuint)__hs_stringBytes4.Length, bu is not null);
+                var handle = NativeMethods.TablePtr->hs_create_b09560d2(mj, mn, pt, __hs_stringData3, (nuint)__hs_stringByteCount3, __hs_stringData4, (nuint)__hs_stringByteCount4, bu is not null);
                 if (handle == null)
                 {
                     throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -84,10 +114,20 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public static Version Create(ushort mj, ushort mn, ushort pt, global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.PreRelease? prt, string? bu)
     {
-        var __hs_stringBytes4 = global::System.Text.Encoding.UTF8.GetBytes(bu ?? string.Empty);
+        var __hs_stringByteCount4 = global::System.Text.Encoding.UTF8.GetByteCount(bu ?? string.Empty);
+        scoped global::System.Span<byte> __hs_stringBytes4;
+        if (__hs_stringByteCount4 <= 256)
+        {
+            __hs_stringBytes4 = stackalloc byte[__hs_stringByteCount4 == 0 ? 1 : __hs_stringByteCount4];
+        }
+        else
+        {
+            __hs_stringBytes4 = new byte[__hs_stringByteCount4];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(bu ?? string.Empty, __hs_stringBytes4);
         fixed (byte* __hs_stringData4 = __hs_stringBytes4)
         {
-            var handle = NativeMethods.TablePtr->hs_create_bbf847ff(mj, mn, pt, (void*)(prt?.Handle ?? 0), __hs_stringData4, (nuint)__hs_stringBytes4.Length, prt is not null, bu is not null);
+            var handle = NativeMethods.TablePtr->hs_create_bbf847ff(mj, mn, pt, (void*)(prt?.Handle ?? 0), __hs_stringData4, (nuint)__hs_stringByteCount4, prt is not null, bu is not null);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -109,19 +149,39 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version from_string(string str)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(str);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(str);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(str, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version((nint)NativeMethods.TablePtr->hs_method_604e1b43((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length), false);
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version((nint)NativeMethods.TablePtr->hs_method_604e1b43((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0), false);
         }
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result from_string_noexcept(string str)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(str);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(str);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(str, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result((nint)NativeMethods.TablePtr->hs_method_8f580a6a((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result((nint)NativeMethods.TablePtr->hs_method_8f580a6a((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0));
         }
     }
 
@@ -171,10 +231,20 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public static bool valid(string str)
     {
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(str);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(str);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(str, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_937ab2ba(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->hs_method_937ab2ba(__hs_stringData0, (nuint)__hs_stringByteCount0);
         }
     }
 

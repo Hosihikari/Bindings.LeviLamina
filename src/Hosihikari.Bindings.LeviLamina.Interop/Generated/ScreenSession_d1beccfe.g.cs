@@ -85,13 +85,33 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property borrowProperty(string datastore, string property)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(datastore);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(datastore, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(property);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(property, __hs_stringBytes1);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_expectedResult = NativeMethods.TablePtr->hs_method_b6ad6e1d((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, &__hs_hasValue);
+                var __hs_expectedResult = NativeMethods.TablePtr->hs_method_b6ad6e1d((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, &__hs_hasValue);
                 if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
                 return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
             }
@@ -108,13 +128,33 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property createProperty(string datastore, string property, global::Hosihikari.Bindings.LeviLamina.Interop.cereal.DynamicValue value)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(datastore);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(datastore, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(property);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(property, __hs_stringBytes1);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                var __hs_expectedResult = NativeMethods.TablePtr->hs_method_8d590c2a((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)value.Handle, &__hs_hasValue);
+                var __hs_expectedResult = NativeMethods.TablePtr->hs_method_8d590c2a((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, (void*)value.Handle, &__hs_hasValue);
                 if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
                 return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
             }
@@ -124,16 +164,46 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property createProperty(string datastore, string property, string json)
     {
         var __hs_hasValue = false;
-        var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(datastore);
-        var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(property);
-        var __hs_stringBytes2 = global::System.Text.Encoding.UTF8.GetBytes(json);
+        var __hs_stringByteCount0 = global::System.Text.Encoding.UTF8.GetByteCount(datastore);
+        scoped global::System.Span<byte> __hs_stringBytes0;
+        if (__hs_stringByteCount0 <= 256)
+        {
+            __hs_stringBytes0 = stackalloc byte[__hs_stringByteCount0 == 0 ? 1 : __hs_stringByteCount0];
+        }
+        else
+        {
+            __hs_stringBytes0 = new byte[__hs_stringByteCount0];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(datastore, __hs_stringBytes0);
+        var __hs_stringByteCount1 = global::System.Text.Encoding.UTF8.GetByteCount(property);
+        scoped global::System.Span<byte> __hs_stringBytes1;
+        if (__hs_stringByteCount1 <= 256)
+        {
+            __hs_stringBytes1 = stackalloc byte[__hs_stringByteCount1 == 0 ? 1 : __hs_stringByteCount1];
+        }
+        else
+        {
+            __hs_stringBytes1 = new byte[__hs_stringByteCount1];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(property, __hs_stringBytes1);
+        var __hs_stringByteCount2 = global::System.Text.Encoding.UTF8.GetByteCount(json);
+        scoped global::System.Span<byte> __hs_stringBytes2;
+        if (__hs_stringByteCount2 <= 256)
+        {
+            __hs_stringBytes2 = stackalloc byte[__hs_stringByteCount2 == 0 ? 1 : __hs_stringByteCount2];
+        }
+        else
+        {
+            __hs_stringBytes2 = new byte[__hs_stringByteCount2];
+        }
+        global::System.Text.Encoding.UTF8.GetBytes(json, __hs_stringBytes2);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
                 fixed (byte* __hs_stringData2 = __hs_stringBytes2)
                 {
-                    var __hs_expectedResult = NativeMethods.TablePtr->hs_method_d9361dd5((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, __hs_stringData1, (nuint)__hs_stringBytes1.Length, __hs_stringData2, (nuint)__hs_stringBytes2.Length, &__hs_hasValue);
+                    var __hs_expectedResult = NativeMethods.TablePtr->hs_method_d9361dd5((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1, __hs_stringData2, (nuint)__hs_stringByteCount2, &__hs_hasValue);
                     if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
                     return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property((nint)__hs_expectedResult);
                 }

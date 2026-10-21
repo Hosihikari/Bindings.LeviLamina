@@ -1464,7 +1464,7 @@ catch (...)
 
 static void* hs_method_16b128cf(std::uint64_t skip, std::uint64_t maxDepth) try
 {
-    return static_cast<void*>(new ll::Stacktrace(ll::Stacktrace::current(static_cast<unsigned long long>(skip), static_cast<unsigned long long>(maxDepth))));
+    return static_cast<void*>(new ll::Stacktrace(ll::Stacktrace::current(static_cast<std::uint64_t>(skip), static_cast<std::uint64_t>(maxDepth))));
 }
 catch (std::exception const& hs_error)
 {
@@ -1509,7 +1509,7 @@ catch (...)
 
 static void* hs_method_ca44197a(void* hs_self, std::uint64_t index) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::Stacktrace*>(hs_self)->operator[](static_cast<unsigned long long>(index))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::Stacktrace*>(hs_self)->operator[](static_cast<std::uint64_t>(index))));
 }
 catch (std::exception const& hs_error)
 {
@@ -11667,7 +11667,7 @@ catch (...)
 
 static void* hs_get_e24dcfb6(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<unsigned long long, BlockStateInstance>>*>(hs_self)->data));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<std::uint64_t, BlockStateInstance>>*>(hs_self)->data));
 }
 catch (std::exception const& hs_error)
 {
@@ -11682,7 +11682,7 @@ catch (...)
 
 static void* hs_method_c316b6da(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<unsigned long long, BlockStateInstance>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<std::uint64_t, BlockStateInstance>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -11697,7 +11697,7 @@ catch (...)
 
 static void* hs_method_96c5962b(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<unsigned long long, BlockStateInstance>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<std::uint64_t, BlockStateInstance>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -11712,7 +11712,7 @@ catch (...)
 
 static void* hs_method_61fc4e3f(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<unsigned long long, BlockStateInstance>>*>(hs_self)->operator const std::map<unsigned long long, BlockStateInstance> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<std::uint64_t, BlockStateInstance>>*>(hs_self)->operator const std::map<std::uint64_t, BlockStateInstance> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -11727,7 +11727,7 @@ catch (...)
 
 static void* hs_method_75c08840(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<unsigned long long, BlockStateInstance>>*>(hs_self)->operator std::map<unsigned long long, BlockStateInstance> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<std::uint64_t, BlockStateInstance>>*>(hs_self)->operator std::map<std::uint64_t, BlockStateInstance> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -11742,7 +11742,7 @@ catch (...)
 
 static void* hs_method_0f5fd0d6(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<unsigned long long, BlockStateInstance>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<std::uint64_t, BlockStateInstance>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -11757,7 +11757,7 @@ catch (...)
 
 static void* hs_method_e8cf426e(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<unsigned long long, BlockStateInstance>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<std::uint64_t, BlockStateInstance>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -11772,7 +11772,7 @@ catch (...)
 
 static void* hs_method_7d48e1d2(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<unsigned long long, BlockStateInstance>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<std::uint64_t, BlockStateInstance>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -11787,7 +11787,7 @@ catch (...)
 
 static void* hs_method_fa9b1496(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<unsigned long long, BlockStateInstance>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 16ULL, std::map<std::uint64_t, BlockStateInstance>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -24444,7 +24444,7 @@ catch (...)
 
 static void* hs_get_4345bdeb(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, unsigned long long>>*>(hs_self)->data));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, std::uint64_t>>*>(hs_self)->data));
 }
 catch (std::exception const& hs_error)
 {
@@ -24459,7 +24459,7 @@ catch (...)
 
 static void* hs_method_b631b3fc(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, unsigned long long>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, std::uint64_t>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -24474,7 +24474,7 @@ catch (...)
 
 static void* hs_method_834ae8d7(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, unsigned long long>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, std::uint64_t>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -24489,7 +24489,7 @@ catch (...)
 
 static void* hs_method_d066d631(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, unsigned long long>>*>(hs_self)->operator const std::unordered_map<HashedString, unsigned long long> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, std::uint64_t>>*>(hs_self)->operator const std::unordered_map<HashedString, std::uint64_t> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -24504,7 +24504,7 @@ catch (...)
 
 static void* hs_method_a3112462(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, unsigned long long>>*>(hs_self)->operator std::unordered_map<HashedString, unsigned long long> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, std::uint64_t>>*>(hs_self)->operator std::unordered_map<HashedString, std::uint64_t> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -24519,7 +24519,7 @@ catch (...)
 
 static void* hs_method_f11a88df(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, unsigned long long>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, std::uint64_t>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -24534,7 +24534,7 @@ catch (...)
 
 static void* hs_method_87fc258a(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, unsigned long long>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, std::uint64_t>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -24549,7 +24549,7 @@ catch (...)
 
 static void* hs_method_f3984f41(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, unsigned long long>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, std::uint64_t>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -24564,7 +24564,7 @@ catch (...)
 
 static void* hs_method_b7e65aed(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, unsigned long long>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 64ULL, std::unordered_map<HashedString, std::uint64_t>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -25998,7 +25998,7 @@ catch (...)
 
 static void* hs_get_b4c5d8b0(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, HashedString>>*>(hs_self)->data));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, HashedString>>*>(hs_self)->data));
 }
 catch (std::exception const& hs_error)
 {
@@ -26013,7 +26013,7 @@ catch (...)
 
 static void* hs_method_83584299(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, HashedString>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, HashedString>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26028,7 +26028,7 @@ catch (...)
 
 static void* hs_method_99973492(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, HashedString>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, HashedString>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26043,7 +26043,7 @@ catch (...)
 
 static void* hs_method_7c8d2919(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, HashedString>>*>(hs_self)->operator const entt::dense_map<unsigned long long, HashedString> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, HashedString>>*>(hs_self)->operator const entt::dense_map<std::uint64_t, HashedString> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26058,7 +26058,7 @@ catch (...)
 
 static void* hs_method_32aa5ab0(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, HashedString>>*>(hs_self)->operator entt::dense_map<unsigned long long, HashedString> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, HashedString>>*>(hs_self)->operator entt::dense_map<std::uint64_t, HashedString> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26073,7 +26073,7 @@ catch (...)
 
 static void* hs_method_1d29a8df(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, HashedString>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, HashedString>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26088,7 +26088,7 @@ catch (...)
 
 static void* hs_method_2cd8a039(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, HashedString>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, HashedString>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26103,7 +26103,7 @@ catch (...)
 
 static void* hs_method_dc9f453b(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, HashedString>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, HashedString>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26118,7 +26118,7 @@ catch (...)
 
 static void* hs_method_6eda2f2d(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, HashedString>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, HashedString>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26133,7 +26133,7 @@ catch (...)
 
 static void* hs_get_6eed308a(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, unsigned long long>>*>(hs_self)->data));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, std::uint64_t>>*>(hs_self)->data));
 }
 catch (std::exception const& hs_error)
 {
@@ -26148,7 +26148,7 @@ catch (...)
 
 static void* hs_method_4ff71c33(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, unsigned long long>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, std::uint64_t>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26163,7 +26163,7 @@ catch (...)
 
 static void* hs_method_f7a625da(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, unsigned long long>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, std::uint64_t>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26178,7 +26178,7 @@ catch (...)
 
 static void* hs_method_b14fa242(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, unsigned long long>>*>(hs_self)->operator const entt::dense_map<unsigned long long, unsigned long long> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, std::uint64_t>>*>(hs_self)->operator const entt::dense_map<std::uint64_t, std::uint64_t> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26193,7 +26193,7 @@ catch (...)
 
 static void* hs_method_254e4520(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, unsigned long long>>*>(hs_self)->operator entt::dense_map<unsigned long long, unsigned long long> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, std::uint64_t>>*>(hs_self)->operator entt::dense_map<std::uint64_t, std::uint64_t> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26208,7 +26208,7 @@ catch (...)
 
 static void* hs_method_53983a34(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, unsigned long long>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, std::uint64_t>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26223,7 +26223,7 @@ catch (...)
 
 static void* hs_method_82c38b97(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, unsigned long long>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, std::uint64_t>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26238,7 +26238,7 @@ catch (...)
 
 static void* hs_method_ea112e0b(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, unsigned long long>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, std::uint64_t>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -26253,7 +26253,7 @@ catch (...)
 
 static void* hs_method_f574760f(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<unsigned long long, unsigned long long>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 72ULL, entt::dense_map<std::uint64_t, std::uint64_t>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27663,7 +27663,7 @@ catch (...)
 
 static void hs_destroy_aa9fb963(void* hs_self) try
 {
-    delete static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self);
+    delete static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -27678,7 +27678,7 @@ catch (...)
 
 static void* hs_get_b20e737f(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self)->data));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self)->data));
 }
 catch (std::exception const& hs_error)
 {
@@ -27693,7 +27693,7 @@ catch (...)
 
 static void* hs_method_7c3e8df2(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27708,7 +27708,7 @@ catch (...)
 
 static void* hs_method_e01cf428(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self)->get()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self)->get()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27723,7 +27723,7 @@ catch (...)
 
 static void* hs_method_fbc65ca3(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self)->operator const std::atomic<unsigned long long> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self)->operator const std::atomic<std::uint64_t> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27738,7 +27738,7 @@ catch (...)
 
 static void* hs_method_0fb6aaf5(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self)->operator std::atomic<unsigned long long> &()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self)->operator std::atomic<std::uint64_t> &()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27753,7 +27753,7 @@ catch (...)
 
 static void* hs_method_6ff1ea60(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27768,7 +27768,7 @@ catch (...)
 
 static void* hs_method_7f3b3297(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self)->operator*()));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self)->operator*()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27783,7 +27783,7 @@ catch (...)
 
 static void* hs_method_8a4e2366(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27798,7 +27798,7 @@ catch (...)
 
 static void* hs_method_a6751a43(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<unsigned long long>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::atomic<std::uint64_t>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27813,7 +27813,7 @@ catch (...)
 
 static void* hs_get_a9bb8f00(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->data));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000000>>>*>(hs_self)->data));
 }
 catch (std::exception const& hs_error)
 {
@@ -27828,7 +27828,7 @@ catch (...)
 
 static std::int64_t hs_method_9053b63c(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->get()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000000>>>*>(hs_self)->get()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -27843,7 +27843,7 @@ catch (...)
 
 static std::int64_t hs_method_8032dbf6(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->get()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000000>>>*>(hs_self)->get()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -27858,7 +27858,7 @@ catch (...)
 
 static std::int64_t hs_method_86101aad(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator const std::chrono::duration<long long, std::ratio<1, 1000000> > &()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000000>>>*>(hs_self)->operator const std::chrono::duration<std::int64_t, std::ratio<1, 1000000> > &()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -27873,7 +27873,7 @@ catch (...)
 
 static std::int64_t hs_method_509fed99(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator std::chrono::duration<long long, std::ratio<1, 1000000> > &()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000000>>>*>(hs_self)->operator std::chrono::duration<std::int64_t, std::ratio<1, 1000000> > &()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -27888,7 +27888,7 @@ catch (...)
 
 static std::int64_t hs_method_b0da5bc1(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator*()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000000>>>*>(hs_self)->operator*()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -27903,7 +27903,7 @@ catch (...)
 
 static std::int64_t hs_method_f8a8930e(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator*()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000000>>>*>(hs_self)->operator*()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -27918,7 +27918,7 @@ catch (...)
 
 static void* hs_method_e690b31f(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000000>>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27933,7 +27933,7 @@ catch (...)
 
 static void* hs_method_d509e2c0(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000000>>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000000>>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -27948,7 +27948,7 @@ catch (...)
 
 static void* hs_get_d898b382(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->data));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000>>>*>(hs_self)->data));
 }
 catch (std::exception const& hs_error)
 {
@@ -27963,7 +27963,7 @@ catch (...)
 
 static std::int64_t hs_method_4b280060(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->get()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000>>>*>(hs_self)->get()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -27978,7 +27978,7 @@ catch (...)
 
 static std::int64_t hs_method_e3f0ebab(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->get()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000>>>*>(hs_self)->get()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -27993,7 +27993,7 @@ catch (...)
 
 static std::int64_t hs_method_b7a157d4(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator const std::chrono::duration<long long, std::ratio<1, 1000> > &()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000>>>*>(hs_self)->operator const std::chrono::duration<std::int64_t, std::ratio<1, 1000> > &()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -28008,7 +28008,7 @@ catch (...)
 
 static std::int64_t hs_method_11dbd041(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator std::chrono::duration<long long, std::ratio<1, 1000> > &()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000>>>*>(hs_self)->operator std::chrono::duration<std::int64_t, std::ratio<1, 1000> > &()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -28023,7 +28023,7 @@ catch (...)
 
 static std::int64_t hs_method_f3232d15(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator*()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000>>>*>(hs_self)->operator*()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -28038,7 +28038,7 @@ catch (...)
 
 static std::int64_t hs_method_314964e6(void* hs_self) try
 {
-    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator*()).count());
+    return static_cast<std::int64_t>((static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000>>>*>(hs_self)->operator*()).count());
 }
 catch (std::exception const& hs_error)
 {
@@ -28053,7 +28053,7 @@ catch (...)
 
 static void* hs_method_3cbc5da1(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000>>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -28068,7 +28068,7 @@ catch (...)
 
 static void* hs_method_3bf88a93(void* hs_self) try
 {
-    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<long long, std::ratio<1, 1000>>>*>(hs_self)->operator->()));
+    return const_cast<void*>(static_cast<void const*>(static_cast<ll::TypedStorageImpl<8ULL, 8ULL, std::chrono::duration<std::int64_t, std::ratio<1, 1000>>>*>(hs_self)->operator->()));
 }
 catch (std::exception const& hs_error)
 {
@@ -29512,7 +29512,7 @@ catch (...)
 
 static std::uint64_t hs_function_2e2a246d(std::uint64_t len) try
 {
-    return static_cast<std::uint64_t>(ll::base64_utils::getEncodeLength(static_cast<unsigned long long>(len)));
+    return static_cast<std::uint64_t>(ll::base64_utils::getEncodeLength(static_cast<std::uint64_t>(len)));
 }
 catch (std::exception const& hs_error)
 {
@@ -29686,14 +29686,14 @@ catch (...)
 
 static bool hs_method_7027890d(void* hs_self, const char* name_data, std::size_t name_size, std::uint16_t type, const HosihikariMapEntry* values_data, std::size_t values_count) try
 {
-    std::vector<std::pair<std::basic_string<char>, unsigned long long>> hs_vec1;
+    std::vector<std::pair<std::basic_string<char>, std::uint64_t>> hs_vec1;
     hs_vec1.reserve(values_count);
     for (std::size_t hs_vec1Index = 0; hs_vec1Index < values_count; ++hs_vec1Index)
     {
         auto const& hs_entry = values_data[hs_vec1Index];
         hs_vec1.emplace_back(
             std::string(reinterpret_cast<char const*>(hs_entry.key), hs_entry.keySize),
-            static_cast<unsigned long long>(hs_entry.value));
+            static_cast<std::uint64_t>(hs_entry.value));
     }
     return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->addEnumValues(std::basic_string<char>(name_data, name_size), std::move(hs_vec1), Bedrock::typeid_t<CommandRegistry>(type)));
 }
@@ -29710,14 +29710,14 @@ catch (...)
 
 static bool hs_method_54e89d5e(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariMapEntry* values_data, std::size_t values_count) try
 {
-    std::vector<std::pair<std::basic_string<char>, unsigned long long>> hs_vec1;
+    std::vector<std::pair<std::basic_string<char>, std::uint64_t>> hs_vec1;
     hs_vec1.reserve(values_count);
     for (std::size_t hs_vec1Index = 0; hs_vec1Index < values_count; ++hs_vec1Index)
     {
         auto const& hs_entry = values_data[hs_vec1Index];
         hs_vec1.emplace_back(
             std::string(reinterpret_cast<char const*>(hs_entry.key), hs_entry.keySize),
-            static_cast<unsigned long long>(hs_entry.value));
+            static_cast<std::uint64_t>(hs_entry.value));
     }
     return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->addRuntimeEnumValues(std::basic_string<char>(name_data, name_size), std::move(hs_vec1)));
 }
@@ -29854,14 +29854,14 @@ catch (...)
 
 static bool hs_method_a1a34edb(void* hs_self, const char* name_data, std::size_t name_size, const HosihikariMapEntry* values_data, std::size_t values_count) try
 {
-    std::vector<std::pair<std::basic_string<char>, unsigned long long>> hs_vec1;
+    std::vector<std::pair<std::basic_string<char>, std::uint64_t>> hs_vec1;
     hs_vec1.reserve(values_count);
     for (std::size_t hs_vec1Index = 0; hs_vec1Index < values_count; ++hs_vec1Index)
     {
         auto const& hs_entry = values_data[hs_vec1Index];
         hs_vec1.emplace_back(
             std::string(reinterpret_cast<char const*>(hs_entry.key), hs_entry.keySize),
-            static_cast<unsigned long long>(hs_entry.value));
+            static_cast<std::uint64_t>(hs_entry.value));
     }
     return static_cast<bool>(static_cast<ll::command::CommandRegistrar*>(hs_self)->tryRegisterRuntimeEnum(std::basic_string<char>(name_data, name_size), std::move(hs_vec1)));
 }
@@ -30268,7 +30268,7 @@ catch (...)
 
 static bool hs_method_e18196dc(void* hs_self, std::uint64_t kind) try
 {
-    return static_cast<bool>(static_cast<ll::command::ParamStorageType*>(hs_self)->hold(static_cast<unsigned long long>(kind)));
+    return static_cast<bool>(static_cast<ll::command::ParamStorageType*>(hs_self)->hold(static_cast<std::uint64_t>(kind)));
 }
 catch (std::exception const& hs_error)
 {
@@ -34861,7 +34861,7 @@ catch (...)
 
 static void* hs_method_840715b8(std::uint64_t arg0, std::uint32_t paramCount) try
 {
-    return const_cast<void*>(static_cast<void const*>(ll::command::RuntimeCommand::operator new(static_cast<unsigned long long>(arg0), static_cast<unsigned int>(paramCount))));
+    return const_cast<void*>(static_cast<void const*>(ll::command::RuntimeCommand::operator new(static_cast<std::uint64_t>(arg0), static_cast<unsigned int>(paramCount))));
 }
 catch (std::exception const& hs_error)
 {
@@ -34891,7 +34891,7 @@ catch (...)
 
 static void* hs_method_da2608f1(void* hs_self, std::uint64_t idx) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeCommand*>(hs_self)->operator[](static_cast<unsigned long long>(idx))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeCommand*>(hs_self)->operator[](static_cast<std::uint64_t>(idx))));
 }
 catch (std::exception const& hs_error)
 {
@@ -34936,7 +34936,7 @@ catch (...)
 
 static void hs_set_3bae99b3(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::command::RuntimeEnum*>(hs_self)->index = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::command::RuntimeEnum*>(hs_self)->index = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -35097,7 +35097,7 @@ catch (...)
 
 static void* hs_method_476ed114(void* hs_self, const char* name_data, std::size_t name_size, std::uint64_t kind) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->optional(std::basic_string_view<char>(name_data, name_size), static_cast<unsigned long long>(kind))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->optional(std::basic_string_view<char>(name_data, name_size), static_cast<std::uint64_t>(kind))));
 }
 catch (std::exception const& hs_error)
 {
@@ -35112,7 +35112,7 @@ catch (...)
 
 static void* hs_method_194762e4(void* hs_self, const char* name_data, std::size_t name_size, std::uint64_t enumKind, const char* enumName_data, std::size_t enumName_size) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->optional(std::basic_string_view<char>(name_data, name_size), static_cast<unsigned long long>(enumKind), std::basic_string_view<char>(enumName_data, enumName_size))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->optional(std::basic_string_view<char>(name_data, name_size), static_cast<std::uint64_t>(enumKind), std::basic_string_view<char>(enumName_data, enumName_size))));
 }
 catch (std::exception const& hs_error)
 {
@@ -35142,7 +35142,7 @@ catch (...)
 
 static void* hs_method_ea35375f(void* hs_self, const char* name_data, std::size_t name_size, std::uint64_t kind) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->required(std::basic_string_view<char>(name_data, name_size), static_cast<unsigned long long>(kind))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->required(std::basic_string_view<char>(name_data, name_size), static_cast<std::uint64_t>(kind))));
 }
 catch (std::exception const& hs_error)
 {
@@ -35157,7 +35157,7 @@ catch (...)
 
 static void* hs_method_8ef6958d(void* hs_self, const char* name_data, std::size_t name_size, std::uint64_t enumKind, const char* enumName_data, std::size_t enumName_size) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->required(std::basic_string_view<char>(name_data, name_size), static_cast<unsigned long long>(enumKind), std::basic_string_view<char>(enumName_data, enumName_size))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::command::RuntimeOverload*>(hs_self)->required(std::basic_string_view<char>(name_data, name_size), static_cast<std::uint64_t>(enumKind), std::basic_string_view<char>(enumName_data, enumName_size))));
 }
 catch (std::exception const& hs_error)
 {
@@ -40476,7 +40476,7 @@ catch (...)
 
 static HosihikariSharedHandle hs_method_38785725(void* hs_self, std::uint64_t id) try
 {
-    return hs_make_shared_handle(static_cast<ll::event::EventBus*>(hs_self)->getListener(static_cast<unsigned long long>(id)));
+    return hs_make_shared_handle(static_cast<ll::event::EventBus*>(hs_self)->getListener(static_cast<std::uint64_t>(id)));
 }
 catch (std::exception const& hs_error)
 {
@@ -40536,7 +40536,7 @@ catch (...)
 
 static bool hs_method_cf9e8ec4(void* hs_self, std::uint64_t id) try
 {
-    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->hasListener(static_cast<unsigned long long>(id)));
+    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->hasListener(static_cast<std::uint64_t>(id)));
 }
 catch (std::exception const& hs_error)
 {
@@ -40551,7 +40551,7 @@ catch (...)
 
 static bool hs_method_f0c217a0(void* hs_self, std::uint64_t arg0, void* arg1) try
 {
-    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->hasListener(static_cast<unsigned long long>(arg0), *static_cast<const ll::event::EventIdView*>(arg1)));
+    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->hasListener(static_cast<std::uint64_t>(arg0), *static_cast<const ll::event::EventIdView*>(arg1)));
 }
 catch (std::exception const& hs_error)
 {
@@ -40626,7 +40626,7 @@ catch (...)
 
 static bool hs_method_f13ded5e(void* hs_self, std::uint64_t id) try
 {
-    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->removeListener(static_cast<unsigned long long>(id)));
+    return static_cast<bool>(static_cast<ll::event::EventBus*>(hs_self)->removeListener(static_cast<std::uint64_t>(id)));
 }
 catch (std::exception const& hs_error)
 {
@@ -43834,7 +43834,7 @@ catch (...)
 
 static void* hs_method_2be981f8(void* hs_self, const char* name_data, std::size_t name_size, const char* text_data, std::size_t text_size, std::uint64_t defaultVal, const char* tooltip_data, std::size_t tooltip_size, const HosihikariStringView* options_data, std::size_t options_count) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->appendDropdown(std::basic_string<char>(name_data, name_size), std::basic_string<char>(text_data, text_size), hs_make_string_vector(options_data, options_count), static_cast<unsigned long long>(defaultVal), std::basic_string<char>(tooltip_data, tooltip_size))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->appendDropdown(std::basic_string<char>(name_data, name_size), std::basic_string<char>(text_data, text_size), hs_make_string_vector(options_data, options_count), static_cast<std::uint64_t>(defaultVal), std::basic_string<char>(tooltip_data, tooltip_size))));
 }
 catch (std::exception const& hs_error)
 {
@@ -43909,7 +43909,7 @@ catch (...)
 
 static void* hs_method_d1e57eac(void* hs_self, const char* name_data, std::size_t name_size, const char* text_data, std::size_t text_size, std::uint64_t defaultVal, const char* tooltip_data, std::size_t tooltip_size, const HosihikariStringView* steps_data, std::size_t steps_count) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->appendStepSlider(std::basic_string<char>(name_data, name_size), std::basic_string<char>(text_data, text_size), hs_make_string_vector(steps_data, steps_count), static_cast<unsigned long long>(defaultVal), std::basic_string<char>(tooltip_data, tooltip_size))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->appendStepSlider(std::basic_string<char>(name_data, name_size), std::basic_string<char>(text_data, text_size), hs_make_string_vector(steps_data, steps_count), static_cast<std::uint64_t>(defaultVal), std::basic_string<char>(tooltip_data, tooltip_size))));
 }
 catch (std::exception const& hs_error)
 {
@@ -43968,7 +43968,7 @@ struct hs_cb_state_hs_method_fe47f6f6_cb1
 struct hs_cb_closure_hs_method_fe47f6f6_cb1
 {
     std::shared_ptr<hs_cb_state_hs_method_fe47f6f6_cb1> state;
-    void operator()(Player & arg0, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, unsigned long long, double, std::basic_string<char>>>> & arg1, std::optional<ModalFormCancelReason> arg2) const
+    void operator()(Player & arg0, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, std::uint64_t, double, std::basic_string<char>>>> & arg1, std::optional<ModalFormCancelReason> arg2) const
     {
         state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), const_cast<void*>(static_cast<void const*>(std::addressof(arg1))), static_cast<void*>(std::addressof(arg2)));
     }
@@ -43976,7 +43976,7 @@ struct hs_cb_closure_hs_method_fe47f6f6_cb1
 
 static void* hs_method_fe47f6f6(void* hs_self, void* player, void* callback_invoke, void* callback_userData, void* callback_release) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->sendTo(*static_cast<Player*>(player), std::function<void (Player &, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, unsigned long long, double, std::basic_string<char>>>> &, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_fe47f6f6_cb1{std::make_shared<hs_cb_state_hs_method_fe47f6f6_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_fe47f6f6_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_fe47f6f6_cb1>(callback_release))}))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->sendTo(*static_cast<Player*>(player), std::function<void (Player &, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, std::uint64_t, double, std::basic_string<char>>>> &, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_fe47f6f6_cb1{std::make_shared<hs_cb_state_hs_method_fe47f6f6_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_fe47f6f6_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_fe47f6f6_cb1>(callback_release))}))));
 }
 catch (std::exception const& hs_error)
 {
@@ -44003,7 +44003,7 @@ struct hs_cb_state_hs_method_7ae2e0a5_cb1
 struct hs_cb_closure_hs_method_7ae2e0a5_cb1
 {
     std::shared_ptr<hs_cb_state_hs_method_7ae2e0a5_cb1> state;
-    void operator()(Player & arg0, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, unsigned long long, double, std::basic_string<char>>>> & arg1, std::optional<ModalFormCancelReason> arg2) const
+    void operator()(Player & arg0, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, std::uint64_t, double, std::basic_string<char>>>> & arg1, std::optional<ModalFormCancelReason> arg2) const
     {
         state->invoke(state->userData, static_cast<void*>(std::addressof(arg0)), const_cast<void*>(static_cast<void const*>(std::addressof(arg1))), static_cast<void*>(std::addressof(arg2)));
     }
@@ -44011,7 +44011,7 @@ struct hs_cb_closure_hs_method_7ae2e0a5_cb1
 
 static void* hs_method_7ae2e0a5(void* hs_self, void* player, void* callback_invoke, void* callback_userData, void* callback_release) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->sendUpdate(*static_cast<Player*>(player), std::function<void (Player &, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, unsigned long long, double, std::basic_string<char>>>> &, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_7ae2e0a5_cb1{std::make_shared<hs_cb_state_hs_method_7ae2e0a5_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_7ae2e0a5_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_7ae2e0a5_cb1>(callback_release))}))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::form::CustomForm*>(hs_self)->sendUpdate(*static_cast<Player*>(player), std::function<void (Player &, const std::optional<std::unordered_map<std::basic_string<char>, std::variant<std::monostate, std::uint64_t, double, std::basic_string<char>>>> &, std::optional<ModalFormCancelReason>)>(hs_cb_closure_hs_method_7ae2e0a5_cb1{std::make_shared<hs_cb_state_hs_method_7ae2e0a5_cb1>(reinterpret_cast<hs_cb_invoke_hs_method_7ae2e0a5_cb1>(callback_invoke), callback_userData, reinterpret_cast<hs_cb_release_hs_method_7ae2e0a5_cb1>(callback_release))}))));
 }
 catch (std::exception const& hs_error)
 {
@@ -44681,7 +44681,7 @@ catch (...)
 
 static void* hs_create_43ed43fc(std::uint64_t seed) try
 {
-    return new ll::hash_utils::HashCombiner(static_cast<unsigned long long>(seed));
+    return new ll::hash_utils::HashCombiner(static_cast<std::uint64_t>(seed));
 }
 catch (std::exception const& hs_error)
 {
@@ -44711,7 +44711,7 @@ catch (...)
 
 static std::uint64_t hs_method_cf8e6889(void* hs_self) try
 {
-    return static_cast<std::uint64_t>(static_cast<ll::hash_utils::HashCombiner*>(hs_self)->operator unsigned long long());
+    return static_cast<std::uint64_t>(static_cast<ll::hash_utils::HashCombiner*>(hs_self)->operator std::uint64_t());
 }
 catch (std::exception const& hs_error)
 {
@@ -44741,7 +44741,7 @@ catch (...)
 
 static void hs_set_f121c568(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::hash_utils::HashedIdBase*>(hs_self)->hash = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::hash_utils::HashedIdBase*>(hs_self)->hash = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -45073,7 +45073,7 @@ catch (...)
 
 static void hs_set_b55d15b5(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::io::ArchiveNameInfo*>(hs_self)->index = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::io::ArchiveNameInfo*>(hs_self)->index = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -45728,7 +45728,7 @@ catch (...)
 
 static HosihikariSharedHandle hs_method_b3caca9c(void* hs_self, std::uint64_t index) try
 {
-    return hs_make_shared_handle(static_cast<ll::io::Logger*>(hs_self)->getSink(static_cast<unsigned long long>(index)));
+    return hs_make_shared_handle(static_cast<ll::io::Logger*>(hs_self)->getSink(static_cast<std::uint64_t>(index)));
 }
 catch (std::exception const& hs_error)
 {
@@ -46166,7 +46166,7 @@ catch (...)
 
 static void hs_set_ef65b198(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::io::RotateConfig*>(hs_self)->keepUncompressed = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::io::RotateConfig*>(hs_self)->keepUncompressed = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -46226,7 +46226,7 @@ catch (...)
 
 static void hs_set_20b4bdbb(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::io::RotateConfig*>(hs_self)->maxFileSize = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::io::RotateConfig*>(hs_self)->maxFileSize = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -46256,7 +46256,7 @@ catch (...)
 
 static void hs_set_8a64f230(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::io::RotateConfig*>(hs_self)->maxFiles = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::io::RotateConfig*>(hs_self)->maxFiles = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -46316,7 +46316,7 @@ catch (...)
 
 static void hs_set_25878e6f(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::io::RotateConfig*>(hs_self)->totalSizeCap = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::io::RotateConfig*>(hs_self)->totalSizeCap = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -46753,7 +46753,7 @@ catch (...)
 
 static void* hs_create_e5a81f46(std::uint64_t size) try
 {
-    return new ll::memory::DualMapping(static_cast<unsigned long long>(size));
+    return new ll::memory::DualMapping(static_cast<std::uint64_t>(size));
 }
 catch (std::exception const& hs_error)
 {
@@ -46768,7 +46768,7 @@ catch (...)
 
 static void hs_method_2ad35bbc(void* hs_self, std::uint64_t size) try
 {
-    static_cast<ll::memory::DualMapping*>(hs_self)->alloc(static_cast<unsigned long long>(size));
+    static_cast<ll::memory::DualMapping*>(hs_self)->alloc(static_cast<std::uint64_t>(size));
 }
 catch (std::exception const& hs_error)
 {
@@ -46918,7 +46918,7 @@ catch (...)
 
 static void* hs_method_24a2fcc0(void* hs_self, std::uint64_t idx) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::memory::Signature*>(hs_self)->operator[](static_cast<unsigned long long>(idx))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::memory::Signature*>(hs_self)->operator[](static_cast<std::uint64_t>(idx))));
 }
 catch (std::exception const& hs_error)
 {
@@ -47233,7 +47233,7 @@ catch (...)
 
 static void* hs_method_e95df1cf(void* hs_self, std::uint64_t idx) try
 {
-    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::memory::SignatureView*>(hs_self)->operator[](static_cast<unsigned long long>(idx))));
+    return const_cast<void*>(static_cast<void const*>(&static_cast<ll::memory::SignatureView*>(hs_self)->operator[](static_cast<std::uint64_t>(idx))));
 }
 catch (std::exception const& hs_error)
 {
@@ -47484,7 +47484,7 @@ catch (...)
 
 static void* hs_function_fae3176c(std::uint64_t t) try
 {
-    return const_cast<void*>(static_cast<void const*>(ll::memory::toFuncPtr(static_cast<unsigned long long>(t))));
+    return const_cast<void*>(static_cast<void const*>(ll::memory::toFuncPtr(static_cast<std::uint64_t>(t))));
 }
 catch (std::exception const& hs_error)
 {
@@ -47589,7 +47589,7 @@ catch (...)
 
 static void hs_destroy_b5d8d1f2(void* hs_self) try
 {
-    delete static_cast<ll::meta::TypeList<signed char, short, int, float, std::basic_string<char>, CompoundTag, BlockPos, long long, Vec3>*>(hs_self);
+    delete static_cast<ll::meta::TypeList<signed char, short, int, float, std::basic_string<char>, CompoundTag, BlockPos, std::int64_t, Vec3>*>(hs_self);
 }
 catch (std::exception const& hs_error)
 {
@@ -47604,7 +47604,7 @@ catch (...)
 
 static std::uint64_t hs_get_e237d08c() try
 {
-    return static_cast<std::uint64_t>(ll::meta::TypeList<signed char, short, int, float, std::basic_string<char>, CompoundTag, BlockPos, long long, Vec3>::size);
+    return static_cast<std::uint64_t>(ll::meta::TypeList<signed char, short, int, float, std::basic_string<char>, CompoundTag, BlockPos, std::int64_t, Vec3>::size);
 }
 catch (std::exception const& hs_error)
 {
@@ -48406,7 +48406,7 @@ catch (...)
 
 static bool hs_method_aa5a85fc(void* hs_self, std::uint64_t id) try
 {
-    return static_cast<bool>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->eraseOnModCallback(static_cast<unsigned long long>(id)));
+    return static_cast<bool>(static_cast<ll::mod::ModManagerRegistry*>(hs_self)->eraseOnModCallback(static_cast<std::uint64_t>(id)));
 }
 catch (std::exception const& hs_error)
 {
@@ -49105,7 +49105,7 @@ catch (...)
 
 static void* hs_method_441bd9bd(void* hs_self, std::uint64_t runtimeId) try
 {
-    auto hs_result = static_cast<ll::network::PacketRegistrar*>(hs_self)->createPacket(static_cast<unsigned long long>(runtimeId));
+    auto hs_result = static_cast<ll::network::PacketRegistrar*>(hs_self)->createPacket(static_cast<std::uint64_t>(runtimeId));
     return static_cast<void*>(hs_result.release());
 }
 catch (std::exception const& hs_error)
@@ -49121,7 +49121,7 @@ catch (...)
 
 static void* hs_method_0ffcb439(void* hs_self, std::uint64_t runtimeId, bool* hs_hasValue) try
 {
-    auto result = static_cast<ll::network::PacketRegistrar*>(hs_self)->getHandler(static_cast<unsigned long long>(runtimeId));
+    auto result = static_cast<ll::network::PacketRegistrar*>(hs_self)->getHandler(static_cast<std::uint64_t>(runtimeId));
     *hs_hasValue = static_cast<bool>(result);
     return result ? const_cast<void*>(static_cast<void const*>(&*result)) : nullptr;
 }
@@ -49155,7 +49155,7 @@ catch (...)
 
 static bool hs_method_806eebd2(void* hs_self, const char* name_data, std::size_t name_size, std::uint64_t id, void* handler, bool handler_hasValue) try
 {
-    return static_cast<bool>(static_cast<ll::network::PacketRegistrar*>(hs_self)->registerHandler(std::basic_string_view<char>(name_data, name_size), static_cast<unsigned long long>(id), (handler_hasValue ? optional_ref<ll::network::IPacketHandler>{static_cast<ll::network::IPacketHandler*>(handler)} : optional_ref<ll::network::IPacketHandler>{})));
+    return static_cast<bool>(static_cast<ll::network::PacketRegistrar*>(hs_self)->registerHandler(std::basic_string_view<char>(name_data, name_size), static_cast<std::uint64_t>(id), (handler_hasValue ? optional_ref<ll::network::IPacketHandler>{static_cast<ll::network::IPacketHandler*>(handler)} : optional_ref<ll::network::IPacketHandler>{})));
 }
 catch (std::exception const& hs_error)
 {
@@ -49444,7 +49444,7 @@ catch (...)
 
 static void* hs_create_afbe474d(std::int8_t code, std::uint64_t version) try
 {
-    return new ll::service::GetServiceError(static_cast<ll::service::GetServiceError::ErrorType>(code), static_cast<unsigned long long>(version));
+    return new ll::service::GetServiceError(static_cast<ll::service::GetServiceError::ErrorType>(code), static_cast<std::uint64_t>(version));
 }
 catch (std::exception const& hs_error)
 {
@@ -49521,7 +49521,7 @@ catch (...)
 
 static void hs_set_58b2d13b(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::service::GetServiceError*>(hs_self)->version = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::service::GetServiceError*>(hs_self)->version = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -49777,7 +49777,7 @@ catch (...)
 
 static void hs_set_914f6e92(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::service::QueryServiceResult*>(hs_self)->version = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::service::QueryServiceResult*>(hs_self)->version = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -49882,7 +49882,7 @@ catch (...)
 
 static void* hs_create_3c710243(const char* id_data, std::size_t id_size, std::uint64_t ver) try
 {
-    return new ll::service::ServiceId(std::basic_string_view<char>(id_data, id_size), static_cast<unsigned long long>(ver));
+    return new ll::service::ServiceId(std::basic_string_view<char>(id_data, id_size), static_cast<std::uint64_t>(ver));
 }
 catch (std::exception const& hs_error)
 {
@@ -49928,7 +49928,7 @@ catch (...)
 
 static void hs_set_5ccc339f(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::service::ServiceId*>(hs_self)->version = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::service::ServiceId*>(hs_self)->version = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -49975,7 +49975,7 @@ static void* hs_create_6f6c136f(const char* id_data, std::size_t id_size, std::u
 {
     auto* hs_borrowed = new hs_borrowed_holder<ll::service::ServiceIdView>();
     hs_borrowed->strings.emplace_back(id_data, id_size);
-    hs_borrowed->value = std::make_unique<ll::service::ServiceIdView>(std::string_view(hs_borrowed->strings[0]), static_cast<unsigned long long>(ver));
+    hs_borrowed->value = std::make_unique<ll::service::ServiceIdView>(std::string_view(hs_borrowed->strings[0]), static_cast<std::uint64_t>(ver));
     auto* hs_target = hs_borrowed->value.get();
     hs_register_borrowed(hs_target, hs_borrowed, [](void* hs_holder) { delete static_cast<hs_borrowed_holder<ll::service::ServiceIdView>*>(hs_holder); });
     return hs_target;
@@ -50024,7 +50024,7 @@ catch (...)
 
 static void hs_set_889068b1(void* hs_self, std::uint64_t value) try
 {
-    static_cast<ll::service::ServiceIdView*>(hs_self)->version = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<ll::service::ServiceIdView*>(hs_self)->version = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -50649,7 +50649,7 @@ struct hs_cb_closure_hs_method_1a384bf7_cb0
 
 static HosihikariSharedHandle hs_method_1a384bf7(void* hs_self, void* arg0_invoke, void* arg0_userData, void* arg0_release, std::int64_t arg1) try
 {
-    return hs_make_shared_handle(static_cast<ll::thread::InplaceExecutor*>(hs_self)->executeAfter(std::function<void ()>(hs_cb_closure_hs_method_1a384bf7_cb0{std::make_shared<hs_cb_state_hs_method_1a384bf7_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_1a384bf7_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_1a384bf7_cb0>(arg0_release))}), std::chrono::duration<long long, std::ratio<1, 1000000000>>(arg1)));
+    return hs_make_shared_handle(static_cast<ll::thread::InplaceExecutor*>(hs_self)->executeAfter(std::function<void ()>(hs_cb_closure_hs_method_1a384bf7_cb0{std::make_shared<hs_cb_state_hs_method_1a384bf7_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_1a384bf7_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_1a384bf7_cb0>(arg0_release))}), std::chrono::duration<std::int64_t, std::ratio<1, 1000000000>>(arg1)));
 }
 catch (std::exception const& hs_error)
 {
@@ -50769,7 +50769,7 @@ catch (...)
 
 static void* hs_create_bd0ab358(const char* name_data, std::size_t name_size, std::int64_t maxOnceDuration, std::uint64_t checkPack) try
 {
-    return new ll::thread::ServerThreadExecutor(std::basic_string<char>(name_data, name_size), std::chrono::duration<long long, std::ratio<1, 1000000000>>(maxOnceDuration), static_cast<unsigned long long>(checkPack));
+    return new ll::thread::ServerThreadExecutor(std::basic_string<char>(name_data, name_size), std::chrono::duration<std::int64_t, std::ratio<1, 1000000000>>(maxOnceDuration), static_cast<std::uint64_t>(checkPack));
 }
 catch (std::exception const& hs_error)
 {
@@ -50839,7 +50839,7 @@ struct hs_cb_closure_hs_method_9f080ef6_cb0
 
 static HosihikariSharedHandle hs_method_9f080ef6(void* hs_self, void* arg0_invoke, void* arg0_userData, void* arg0_release, std::int64_t arg1) try
 {
-    return hs_make_shared_handle(static_cast<ll::thread::ServerThreadExecutor*>(hs_self)->executeAfter(std::function<void ()>(hs_cb_closure_hs_method_9f080ef6_cb0{std::make_shared<hs_cb_state_hs_method_9f080ef6_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_9f080ef6_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_9f080ef6_cb0>(arg0_release))}), std::chrono::duration<long long, std::ratio<1, 1000000000>>(arg1)));
+    return hs_make_shared_handle(static_cast<ll::thread::ServerThreadExecutor*>(hs_self)->executeAfter(std::function<void ()>(hs_cb_closure_hs_method_9f080ef6_cb0{std::make_shared<hs_cb_state_hs_method_9f080ef6_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_9f080ef6_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_9f080ef6_cb0>(arg0_release))}), std::chrono::duration<std::int64_t, std::ratio<1, 1000000000>>(arg1)));
 }
 catch (std::exception const& hs_error)
 {
@@ -50951,7 +50951,7 @@ catch (...)
 
 static void* hs_create_831264b0(const char* name_data, std::size_t name_size, std::uint64_t nThreads) try
 {
-    return new ll::thread::ThreadPoolExecutor(std::basic_string<char>(name_data, name_size), static_cast<unsigned long long>(nThreads));
+    return new ll::thread::ThreadPoolExecutor(std::basic_string<char>(name_data, name_size), static_cast<std::uint64_t>(nThreads));
 }
 catch (std::exception const& hs_error)
 {
@@ -51036,7 +51036,7 @@ struct hs_cb_closure_hs_method_6d537db8_cb0
 
 static HosihikariSharedHandle hs_method_6d537db8(void* hs_self, void* arg0_invoke, void* arg0_userData, void* arg0_release, std::int64_t arg1) try
 {
-    return hs_make_shared_handle(static_cast<ll::thread::ThreadPoolExecutor*>(hs_self)->executeAfter(std::function<void ()>(hs_cb_closure_hs_method_6d537db8_cb0{std::make_shared<hs_cb_state_hs_method_6d537db8_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_6d537db8_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_6d537db8_cb0>(arg0_release))}), std::chrono::duration<long long, std::ratio<1, 1000000000>>(arg1)));
+    return hs_make_shared_handle(static_cast<ll::thread::ThreadPoolExecutor*>(hs_self)->executeAfter(std::function<void ()>(hs_cb_closure_hs_method_6d537db8_cb0{std::make_shared<hs_cb_state_hs_method_6d537db8_cb0>(reinterpret_cast<hs_cb_invoke_hs_method_6d537db8_cb0>(arg0_invoke), arg0_userData, reinterpret_cast<hs_cb_release_hs_method_6d537db8_cb0>(arg0_release))}), std::chrono::duration<std::int64_t, std::ratio<1, 1000000000>>(arg1)));
 }
 catch (std::exception const& hs_error)
 {
@@ -51066,7 +51066,7 @@ catch (...)
 
 static void hs_method_d6c9f17a(void* hs_self, std::uint64_t nThreads) try
 {
-    static_cast<ll::thread::ThreadPoolExecutor*>(hs_self)->resize(static_cast<unsigned long long>(nThreads));
+    static_cast<ll::thread::ThreadPoolExecutor*>(hs_self)->resize(static_cast<std::uint64_t>(nThreads));
 }
 catch (std::exception const& hs_error)
 {
@@ -53419,7 +53419,7 @@ catch (...)
 
 static void* hs_create_d4a48108(std::uint64_t a, std::uint64_t b) try
 {
-    return new mce::UUID(static_cast<unsigned long long>(a), static_cast<unsigned long long>(b));
+    return new mce::UUID(static_cast<std::uint64_t>(a), static_cast<std::uint64_t>(b));
 }
 catch (std::exception const& hs_error)
 {
@@ -53449,7 +53449,7 @@ catch (...)
 
 static void hs_set_bd270e19(void* hs_self, std::uint64_t value) try
 {
-    static_cast<mce::UUID*>(hs_self)->a = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<mce::UUID*>(hs_self)->a = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {
@@ -53479,7 +53479,7 @@ catch (...)
 
 static void hs_set_3e6d566c(void* hs_self, std::uint64_t value) try
 {
-    static_cast<mce::UUID*>(hs_self)->b = static_cast<unsigned long long>(static_cast<unsigned long long>(value));
+    static_cast<mce::UUID*>(hs_self)->b = static_cast<std::uint64_t>(static_cast<std::uint64_t>(value));
 }
 catch (std::exception const& hs_error)
 {

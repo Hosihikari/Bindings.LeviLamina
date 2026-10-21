@@ -11,21 +11,33 @@ public sealed unsafe partial class from_chars_result : global::System.IDisposabl
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2378((void*)_handle);
+        return NativeMethods.TablePtr->f2379((void*)_handle);
     }
 
     public void value()
     {
-        NativeMethods.TablePtr->f2379((void*)_handle);
+        NativeMethods.TablePtr->f2380((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2377((void*)_handle);
+            NativeMethods.TablePtr->f2378((void*)_handle);
             _handle = 0;
         }
     }

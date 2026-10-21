@@ -11,23 +11,35 @@ public sealed unsafe partial class TightPair_ll__data__polymorphicCopy_ll__io__F
 
     public nint Handle => _handle;
 
-    public nint first_9d4d6093()
+    internal nint ReleaseHandle()
     {
-        return (nint)NativeMethods.TablePtr->f2328((void*)_handle);
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
     }
 
-    public nint first_9bccad5c()
+    public nint first_9d4d6093()
     {
         return (nint)NativeMethods.TablePtr->f2329((void*)_handle);
     }
 
-    public nint second_73c45094()
+    public nint first_9bccad5c()
     {
         return (nint)NativeMethods.TablePtr->f2330((void*)_handle);
     }
 
-    public nint second_85bab499()
+    public nint second_73c45094()
     {
         return (nint)NativeMethods.TablePtr->f2331((void*)_handle);
+    }
+
+    public nint second_85bab499()
+    {
+        return (nint)NativeMethods.TablePtr->f2332((void*)_handle);
     }
 }

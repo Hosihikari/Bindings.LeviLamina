@@ -11,6 +11,18 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static TypedStorageImpl_8ULL__24ULL__std__variant_TypedServerNetId_ItemStackNetIdTag__int___TypedClient_031465ff Create_da530921(nint other) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
@@ -21,7 +33,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f882((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f883((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -30,7 +42,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint get_1f529948()
     {
-        return (nint)NativeMethods.TablePtr->f883((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f884((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -39,17 +51,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint get_61fb3015()
     {
-        return (nint)NativeMethods.TablePtr->f884((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f885((void*)_handle);
     }
 
     public nint operator_const_std__variant_TypedServerNetId_ItemStackNetIdTag__int___8f95d542()
     {
-        return (nint)NativeMethods.TablePtr->f885((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f886((void*)_handle);
     }
 
     public nint operator_std__variant_TypedServerNetId_ItemStackNetIdTag__int___Typed_b4b36c8e()
     {
-        return (nint)NativeMethods.TablePtr->f886((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f887((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -58,7 +70,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint operator_multiply_3edb5473()
     {
-        return (nint)NativeMethods.TablePtr->f887((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f888((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -67,17 +79,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
 
     public nint operator_multiply_b6bec3ce()
     {
-        return (nint)NativeMethods.TablePtr->f888((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f889((void*)_handle);
     }
 
     public nint operator_operator___e89b4b36()
     {
-        return (nint)NativeMethods.TablePtr->f889((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f890((void*)_handle);
     }
 
     public nint operator_operator___efc80e1e()
     {
-        return (nint)NativeMethods.TablePtr->f890((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f891((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -93,7 +105,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__24ULL__std__variant_Ty
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f881((void*)_handle);
+            NativeMethods.TablePtr->f882((void*)_handle);
             _handle = 0;
         }
     }

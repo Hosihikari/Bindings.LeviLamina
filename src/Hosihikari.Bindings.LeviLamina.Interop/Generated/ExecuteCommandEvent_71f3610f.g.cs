@@ -11,23 +11,35 @@ public sealed unsafe partial class ExecuteCommandEvent
 
     public nint Handle => _handle;
 
-    public nint commandContext()
+    internal nint ReleaseHandle()
     {
-        return (nint)NativeMethods.TablePtr->f2498((void*)_handle);
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
     }
 
-    public nint minecraftCommands()
+    public nint commandContext()
     {
         return (nint)NativeMethods.TablePtr->f2499((void*)_handle);
     }
 
+    public nint minecraftCommands()
+    {
+        return (nint)NativeMethods.TablePtr->f2500((void*)_handle);
+    }
+
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2500((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2501((void*)_handle, (void*)arg0);
     }
 
     public nint suppressOutput()
     {
-        return (nint)NativeMethods.TablePtr->f2501((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2502((void*)_handle);
     }
 }

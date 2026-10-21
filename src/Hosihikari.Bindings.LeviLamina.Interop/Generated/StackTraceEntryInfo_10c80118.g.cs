@@ -11,30 +11,42 @@ public sealed unsafe partial class StackTraceEntryInfo : global::System.IDisposa
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint displacement
     {
-        get => (nint)NativeMethods.TablePtr->f2970((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2973((void*)_handle);
     }
 
     public string file
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2971((void*)_handle);
+            var view = NativeMethods.TablePtr->f2974((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint line
     {
-        get => (nint)NativeMethods.TablePtr->f2972((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2975((void*)_handle);
     }
 
     public string name
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2973((void*)_handle);
+            var view = NativeMethods.TablePtr->f2976((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -43,7 +55,7 @@ public sealed unsafe partial class StackTraceEntryInfo : global::System.IDisposa
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2969((void*)_handle);
+            NativeMethods.TablePtr->f2972((void*)_handle);
             _handle = 0;
         }
     }

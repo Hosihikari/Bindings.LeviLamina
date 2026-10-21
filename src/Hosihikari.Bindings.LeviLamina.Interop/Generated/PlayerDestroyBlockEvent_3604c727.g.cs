@@ -11,25 +11,37 @@ public sealed unsafe partial class PlayerDestroyBlockEvent : global::System.IDis
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static PlayerDestroyBlockEvent Create(nint player, nint pos) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint pos()
     {
-        return (nint)NativeMethods.TablePtr->f2548((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2549((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2549((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2550((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2547((void*)_handle);
+            NativeMethods.TablePtr->f2548((void*)_handle);
             _handle = 0;
         }
     }

@@ -11,9 +11,21 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static AnyFunction Create()
     {
-        var handle = NativeMethods.TablePtr->f2261();
+        var handle = NativeMethods.TablePtr->f2262();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +36,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public static AnyFunction Create_3884d83f(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        var handle = NativeMethods.TablePtr->f2262((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2263((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,7 +47,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public static AnyFunction Create_5830bcea(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        var handle = NativeMethods.TablePtr->f2263((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2264((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -54,7 +66,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2264((void*)_handle);
+        return NativeMethods.TablePtr->f2265((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -67,7 +79,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public void swap(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)
     {
-        NativeMethods.TablePtr->f2265((void*)_handle, (void*)other.Handle);
+        NativeMethods.TablePtr->f2266((void*)_handle, (void*)other.Handle);
     }
 
 
@@ -75,7 +87,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2260((void*)_handle);
+            NativeMethods.TablePtr->f2261((void*)_handle);
             _handle = 0;
         }
     }

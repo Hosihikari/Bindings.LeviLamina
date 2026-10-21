@@ -11,35 +11,47 @@ public sealed unsafe partial class SpawningMobEvent : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static SpawningMobEvent Create(nint blockSource, nint identifier, nint spawner, nint pos, nint naturalSpawn, nint surface, nint fromSpawner) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2618((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2619((void*)_handle, (void*)arg0);
     }
 
     public nint fromSpawner()
     {
-        return (nint)NativeMethods.TablePtr->f2619((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2620((void*)_handle);
     }
 
     public nint naturalSpawn()
     {
-        return (nint)NativeMethods.TablePtr->f2620((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2621((void*)_handle);
     }
 
     public nint surface()
     {
-        return (nint)NativeMethods.TablePtr->f2621((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2622((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2617((void*)_handle);
+            NativeMethods.TablePtr->f2618((void*)_handle);
             _handle = 0;
         }
     }

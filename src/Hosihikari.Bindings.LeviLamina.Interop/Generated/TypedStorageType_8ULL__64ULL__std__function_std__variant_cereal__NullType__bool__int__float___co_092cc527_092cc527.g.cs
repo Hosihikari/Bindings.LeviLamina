@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__function_std__var
     public TypedStorageType_8ULL__64ULL__std__function_std__variant_cereal__NullType__bool__int__float___co_092cc527(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

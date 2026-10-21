@@ -11,16 +11,28 @@ public sealed unsafe partial class ParamTraits_CommandPosition_ : global::System
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1939();
+        return NativeMethods.TablePtr->f1940();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1938((void*)_handle);
+            NativeMethods.TablePtr->f1939((void*)_handle);
             _handle = 0;
         }
     }

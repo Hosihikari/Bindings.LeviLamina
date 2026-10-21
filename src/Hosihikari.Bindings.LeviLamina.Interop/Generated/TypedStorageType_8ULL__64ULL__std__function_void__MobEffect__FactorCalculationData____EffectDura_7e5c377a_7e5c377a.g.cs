@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__function_void__Mo
     public TypedStorageType_8ULL__64ULL__std__function_void__MobEffect__FactorCalculationData____EffectDura_7e5c377a(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

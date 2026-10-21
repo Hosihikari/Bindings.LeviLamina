@@ -11,13 +11,25 @@ public sealed unsafe partial class CommandRegisterEvent
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint commandRegistry()
     {
-        return (nint)NativeMethods.TablePtr->f2457((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2458((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2458((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2459((void*)_handle, (void*)arg0);
     }
 }

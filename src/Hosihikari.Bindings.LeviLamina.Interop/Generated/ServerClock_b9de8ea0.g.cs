@@ -11,21 +11,33 @@ public sealed unsafe partial class ServerClock : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static bool is_steady
     {
-        get => NativeMethods.TablePtr->f1883();
+        get => NativeMethods.TablePtr->f1884();
     }
 
     public static long now()
     {
-        return NativeMethods.TablePtr->f1884();
+        return NativeMethods.TablePtr->f1885();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1882((void*)_handle);
+            NativeMethods.TablePtr->f1883((void*)_handle);
             _handle = 0;
         }
     }

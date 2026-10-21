@@ -11,12 +11,24 @@ public sealed unsafe partial class Form
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static bool sendRawTo(nint player, string formData, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(formData);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return NativeMethods.TablePtr->f2640((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return NativeMethods.TablePtr->f2641((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 
@@ -25,7 +37,7 @@ public sealed unsafe partial class Form
         var __hs_stringBytes1 = global::System.Text.Encoding.UTF8.GetBytes(formData);
         fixed (byte* __hs_stringData1 = __hs_stringBytes1)
         {
-            return NativeMethods.TablePtr->f2641((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+            return NativeMethods.TablePtr->f2642((void*)player, __hs_stringData1, (nuint)__hs_stringBytes1.Length, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
         }
     }
 }

@@ -11,6 +11,18 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static Observable_std__basic_string_char__ Create_eca58094(nint arg0) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
@@ -25,7 +37,7 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public string getData()
     {
-        var __hs_view = NativeMethods.TablePtr->f2315((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2316((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -42,7 +54,7 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(value);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2316((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            NativeMethods.TablePtr->f2317((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -52,14 +64,14 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f2317((void*)_handle, id);
+        return NativeMethods.TablePtr->f2318((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2314((void*)_handle);
+            NativeMethods.TablePtr->f2315((void*)_handle);
             _handle = 0;
         }
     }

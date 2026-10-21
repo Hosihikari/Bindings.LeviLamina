@@ -11,6 +11,18 @@ public sealed unsafe partial class ServerTickSyncSleepBase : global::System.IDis
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the class is abstract.", false)]
     public static ServerTickSyncSleepBase Create() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
@@ -20,7 +32,7 @@ public sealed unsafe partial class ServerTickSyncSleepBase : global::System.IDis
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2999((void*)_handle);
+            NativeMethods.TablePtr->f3002((void*)_handle);
             _handle = 0;
         }
     }

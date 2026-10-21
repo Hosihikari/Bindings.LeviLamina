@@ -11,6 +11,18 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: field type 'void *(*)(const void *)' is not supported.", false)]
     public nint ctor
     {
@@ -20,7 +32,7 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
 
     public nint operator_call(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter t)
     {
-        return (nint)NativeMethods.TablePtr->f2381((void*)_handle, (void*)t.Handle);
+        return (nint)NativeMethods.TablePtr->f2382((void*)_handle, (void*)t.Handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
@@ -31,7 +43,7 @@ public sealed unsafe partial class polymorphicCopy_ll__io__Formatter_ : global::
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2380((void*)_handle);
+            NativeMethods.TablePtr->f2381((void*)_handle);
             _handle = 0;
         }
     }

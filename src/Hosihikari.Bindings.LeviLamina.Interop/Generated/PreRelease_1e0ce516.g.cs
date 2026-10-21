@@ -11,9 +11,21 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static PreRelease Create()
     {
-        var handle = NativeMethods.TablePtr->f2319();
+        var handle = NativeMethods.TablePtr->f2320();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +39,7 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(str);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2320(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->f2321(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -39,7 +51,7 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result from_chars(nint first, nint last)
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result((nint)NativeMethods.TablePtr->f2321((void*)_handle, (void*)first, (void*)last));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result((nint)NativeMethods.TablePtr->f2322((void*)_handle, (void*)first, (void*)last));
     }
 
     public nint from_string(string str)
@@ -47,7 +59,7 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(str);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return (nint)NativeMethods.TablePtr->f2322((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return (nint)NativeMethods.TablePtr->f2323((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -56,29 +68,29 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(str);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result((nint)NativeMethods.TablePtr->f2323((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length));
+            return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.detail.from_chars_result((nint)NativeMethods.TablePtr->f2324((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length));
         }
     }
 
     public sbyte operator_compare(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.PreRelease other)
     {
-        return NativeMethods.TablePtr->f2324((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2325((void*)_handle, (void*)other.Handle);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.PreRelease other)
     {
-        return NativeMethods.TablePtr->f2325((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2326((void*)_handle, (void*)other.Handle);
     }
 
     public string to_string()
     {
-        var __hs_view = NativeMethods.TablePtr->f2326((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2327((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint values
     {
-        get => (nint)NativeMethods.TablePtr->f2327((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2328((void*)_handle);
     }
 
 
@@ -86,7 +98,7 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2318((void*)_handle);
+            NativeMethods.TablePtr->f2319((void*)_handle);
             _handle = 0;
         }
     }

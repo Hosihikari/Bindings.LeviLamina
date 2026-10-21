@@ -11,36 +11,48 @@ public sealed unsafe partial class Cancellable_ll__event__PlayerEvent_ : global:
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public void cancel()
     {
-        NativeMethods.TablePtr->f2416((void*)_handle);
+        NativeMethods.TablePtr->f2417((void*)_handle);
     }
 
     public void deserialize(nint nbt)
     {
-        NativeMethods.TablePtr->f2417((void*)_handle, (void*)nbt);
+        NativeMethods.TablePtr->f2418((void*)_handle, (void*)nbt);
     }
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->f2418((void*)_handle);
+        return NativeMethods.TablePtr->f2419((void*)_handle);
     }
 
     public void serialize(nint nbt)
     {
-        NativeMethods.TablePtr->f2419((void*)_handle, (void*)nbt);
+        NativeMethods.TablePtr->f2420((void*)_handle, (void*)nbt);
     }
 
     public void setCancelled(bool cancelled)
     {
-        NativeMethods.TablePtr->f2420((void*)_handle, cancelled);
+        NativeMethods.TablePtr->f2421((void*)_handle, cancelled);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2415((void*)_handle);
+            NativeMethods.TablePtr->f2416((void*)_handle);
             _handle = 0;
         }
     }

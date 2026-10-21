@@ -11,6 +11,18 @@ public sealed unsafe partial class PlayerInfo
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<const ll::service::PlayerInfo::PlayerInfoEntry &>' is not a known bindable declaration.", false)]
     public nint entries() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'll::coro::Generator<const ll::service::PlayerInfo::PlayerInfoEntry &>' is not a known bindable declaration.");
@@ -25,7 +37,7 @@ public sealed unsafe partial class PlayerInfo
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(arg0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_handle = NativeMethods.TablePtr->f2936((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            var __hs_handle = NativeMethods.TablePtr->f2939((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             return __hs_hasValue ? (nint)__hs_handle : null;
         }
     }
@@ -40,13 +52,13 @@ public sealed unsafe partial class PlayerInfo
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(arg0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_handle = NativeMethods.TablePtr->f2937((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            var __hs_handle = NativeMethods.TablePtr->f2940((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             return __hs_hasValue ? (nint)__hs_handle : null;
         }
     }
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2938();
+        return (nint)NativeMethods.TablePtr->f2941();
     }
 }

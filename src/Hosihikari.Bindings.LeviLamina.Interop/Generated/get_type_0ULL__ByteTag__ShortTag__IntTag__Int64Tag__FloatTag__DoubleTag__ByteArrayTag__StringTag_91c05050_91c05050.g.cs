@@ -10,4 +10,16 @@ public sealed partial class get_type_0ULL__ByteTag__ShortTag__IntTag__Int64Tag__
     public get_type_0ULL__ByteTag__ShortTag__IntTag__Int64Tag__FloatTag__DoubleTag__ByteArrayTag__StringTag_91c05050(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

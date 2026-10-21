@@ -341,6 +341,21 @@ catch (...)
     return nullptr;
 }
 
+static void* hs_create_507cce9a(void* i) try
+{
+    return new ll::Error(std::unique_ptr<ll::ErrorInfoBase>(static_cast<ll::ErrorInfoBase*>(i)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_method_24ce3688(void* hs_self, void* arg0, std::int32_t arg1) try
 {
     return const_cast<void*>(static_cast<void const*>(&static_cast<ll::Error*>(hs_self)->log(*static_cast<CommandOutput*>(arg0), static_cast<CommandOutputMessageType>(arg1))));
@@ -45142,6 +45157,21 @@ catch (...)
     return nullptr;
 }
 
+static void* hs_create_2484f5c9(void* packet) try
+{
+    return new ll::network::RuntimePacket(std::unique_ptr<ll::network::Packet>(static_cast<ll::network::Packet*>(packet)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return nullptr;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return nullptr;
+}
+
 static void* hs_method_29eee72d(void* hs_self, bool* hs_hasValue) try
 {
     auto result = static_cast<ll::network::RuntimePacket*>(hs_self)->getOwnedPacket();
@@ -45223,6 +45253,21 @@ catch (...)
 {
     setLastError("unknown native exception");
     return false;
+}
+
+static void hs_method_4bdaf5eb(void* hs_self, void* newPacket) try
+{
+    static_cast<ll::network::RuntimePacket*>(hs_self)->movePacket(std::unique_ptr<ll::network::Packet>(static_cast<ll::network::Packet*>(newPacket)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return;
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return;
 }
 
 static void* hs_method_f39fa00d(void* hs_self) try
@@ -48761,6 +48806,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_destroy_fc56ce81,
     &hs_create_c9b03de9,
     &hs_create_af81c54d,
+    &hs_create_507cce9a,
     &hs_method_24ce3688,
     &hs_method_ecc40f03,
     &hs_method_e159e652,
@@ -51681,11 +51727,13 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_806eebd2,
     &hs_destroy_c68c9565,
     &hs_create_22100699,
+    &hs_create_2484f5c9,
     &hs_method_29eee72d,
     &hs_method_09c4824c,
     &hs_method_fe4f3177,
     &hs_method_c3929489,
     &hs_method_a6d85d09,
+    &hs_method_4bdaf5eb,
     &hs_method_f39fa00d,
     &hs_destroy_c5fe5a2d,
     &hs_create_afbe474d,

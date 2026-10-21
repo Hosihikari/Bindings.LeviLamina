@@ -11,26 +11,38 @@ public sealed unsafe partial class TextFieldOptions : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint description
     {
-        get => (nint)NativeMethods.TablePtr->f3089((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3092((void*)_handle);
     }
 
     public nint disabled
     {
-        get => (nint)NativeMethods.TablePtr->f3090((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3093((void*)_handle);
     }
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f3091((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3094((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3088((void*)_handle);
+            NativeMethods.TablePtr->f3091((void*)_handle);
             _handle = 0;
         }
     }

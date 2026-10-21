@@ -11,13 +11,25 @@ public sealed unsafe partial class LevelEvent
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint level()
     {
-        return (nint)NativeMethods.TablePtr->f2512((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2513((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2513((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2514((void*)_handle, (void*)arg0);
     }
 }

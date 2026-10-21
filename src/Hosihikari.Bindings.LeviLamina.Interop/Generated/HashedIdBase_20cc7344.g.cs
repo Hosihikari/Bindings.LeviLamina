@@ -11,19 +11,31 @@ public sealed unsafe partial class HashedIdBase
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public ulong hash
     {
-        get => NativeMethods.TablePtr->f2669((void*)_handle);
-        set => NativeMethods.TablePtr->f2670((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2670((void*)_handle);
+        set => NativeMethods.TablePtr->f2671((void*)_handle, value);
     }
 
     public sbyte operator_compare(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
     {
-        return NativeMethods.TablePtr->f2671((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2672((void*)_handle, (void*)other.Handle);
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
     {
-        return NativeMethods.TablePtr->f2672((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->f2673((void*)_handle, (void*)other.Handle);
     }
 }

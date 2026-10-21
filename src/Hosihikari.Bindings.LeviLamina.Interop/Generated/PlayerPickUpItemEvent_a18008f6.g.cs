@@ -11,40 +11,52 @@ public sealed unsafe partial class PlayerPickUpItemEvent : global::System.IDispo
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static PlayerPickUpItemEvent Create(nint player, nint itemActor, nint orgCount, nint favoredSlot) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2570((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2571((void*)_handle, (void*)arg0);
     }
 
     public nint favoredSlot()
     {
-        return (nint)NativeMethods.TablePtr->f2571((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2572((void*)_handle);
     }
 
     public nint itemActor()
     {
-        return (nint)NativeMethods.TablePtr->f2572((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2573((void*)_handle);
     }
 
     public nint orgCount()
     {
-        return (nint)NativeMethods.TablePtr->f2573((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2574((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2574((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2575((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2569((void*)_handle);
+            NativeMethods.TablePtr->f2570((void*)_handle);
             _handle = 0;
         }
     }

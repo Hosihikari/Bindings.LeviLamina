@@ -11,17 +11,29 @@ public sealed unsafe partial class ObservableOptions : global::System.IDisposabl
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public bool clientWritable
     {
-        get => NativeMethods.TablePtr->f3052((void*)_handle);
-        set => NativeMethods.TablePtr->f3053((void*)_handle, value);
+        get => NativeMethods.TablePtr->f3055((void*)_handle);
+        set => NativeMethods.TablePtr->f3056((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3051((void*)_handle);
+            NativeMethods.TablePtr->f3054((void*)_handle);
             _handle = 0;
         }
     }

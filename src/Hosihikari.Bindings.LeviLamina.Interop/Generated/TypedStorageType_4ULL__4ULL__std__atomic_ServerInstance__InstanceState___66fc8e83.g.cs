@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_4ULL__4ULL__std__atomic_ServerInsta
     public TypedStorageType_4ULL__4ULL__std__atomic_ServerInstance__InstanceState__(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

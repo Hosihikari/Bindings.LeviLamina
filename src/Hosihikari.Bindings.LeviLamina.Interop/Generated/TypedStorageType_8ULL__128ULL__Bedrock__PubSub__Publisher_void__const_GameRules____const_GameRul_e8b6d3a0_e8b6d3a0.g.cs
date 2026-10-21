@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_8ULL__128ULL__Bedrock__PubSub__Publ
     public TypedStorageType_8ULL__128ULL__Bedrock__PubSub__Publisher_void__const_GameRules____const_GameRul_e8b6d3a0(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

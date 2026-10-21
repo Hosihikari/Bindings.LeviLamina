@@ -11,17 +11,29 @@ public sealed unsafe partial class RuntimeEnum : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public ulong index
     {
-        get => NativeMethods.TablePtr->f2198((void*)_handle);
-        set => NativeMethods.TablePtr->f2199((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2199((void*)_handle);
+        set => NativeMethods.TablePtr->f2200((void*)_handle, value);
     }
 
     public string name
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2200((void*)_handle);
+            var view = NativeMethods.TablePtr->f2201((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -30,7 +42,7 @@ public sealed unsafe partial class RuntimeEnum : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2197((void*)_handle);
+            NativeMethods.TablePtr->f2198((void*)_handle);
             _handle = 0;
         }
     }

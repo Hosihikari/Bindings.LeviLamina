@@ -10,4 +10,16 @@ public sealed partial class index_of_signed_char__signed_char__short__int__float
     public index_of_signed_char__signed_char__short__int__float__std__basic_string_char___CompoundTag__Bloc_d89bc90f(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

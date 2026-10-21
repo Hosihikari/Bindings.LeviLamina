@@ -11,26 +11,38 @@ public sealed unsafe partial class ButtonOptions : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint disabled
     {
-        get => (nint)NativeMethods.TablePtr->f3008((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3011((void*)_handle);
     }
 
     public nint tooltip
     {
-        get => (nint)NativeMethods.TablePtr->f3009((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3012((void*)_handle);
     }
 
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f3010((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3013((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3007((void*)_handle);
+            NativeMethods.TablePtr->f3010((void*)_handle);
             _handle = 0;
         }
     }

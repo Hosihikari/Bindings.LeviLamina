@@ -11,17 +11,29 @@ public sealed unsafe partial class TmWithMs : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public ushort ms
     {
-        get => NativeMethods.TablePtr->f2333((void*)_handle);
-        set => NativeMethods.TablePtr->f2334((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2334((void*)_handle);
+        set => NativeMethods.TablePtr->f2335((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2332((void*)_handle);
+            NativeMethods.TablePtr->f2333((void*)_handle);
             _handle = 0;
         }
     }

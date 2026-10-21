@@ -11,26 +11,29 @@ public sealed unsafe partial class LogMessageView : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the class owns a borrowed string field.", false)]
     public static LogMessageView Create(nint msg, nint tit, nint lvl, nint tm) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
 
     public int lvl
     {
-        get => NativeMethods.TablePtr->f2710((void*)_handle);
-        set => NativeMethods.TablePtr->f2711((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2711((void*)_handle);
+        set => NativeMethods.TablePtr->f2712((void*)_handle, value);
     }
 
     public string msg
-    {
-        get
-        {
-            var view = NativeMethods.TablePtr->f2712((void*)_handle);
-            return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
-        }
-    }
-
-    public string tit
     {
         get
         {
@@ -39,17 +42,26 @@ public sealed unsafe partial class LogMessageView : global::System.IDisposable
         }
     }
 
+    public string tit
+    {
+        get
+        {
+            var view = NativeMethods.TablePtr->f2714((void*)_handle);
+            return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
+        }
+    }
+
     public nint tm
     {
-        get => (nint)NativeMethods.TablePtr->f2714((void*)_handle);
-        set => NativeMethods.TablePtr->f2715((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2715((void*)_handle);
+        set => NativeMethods.TablePtr->f2716((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2709((void*)_handle);
+            NativeMethods.TablePtr->f2710((void*)_handle);
             _handle = 0;
         }
     }

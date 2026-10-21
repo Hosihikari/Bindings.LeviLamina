@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_8ULL__8ULL__std__chrono__time_point
     public TypedStorageType_8ULL__8ULL__std__chrono__time_point_std__chrono__steady_clock__(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

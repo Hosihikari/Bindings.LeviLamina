@@ -11,24 +11,36 @@ public sealed unsafe partial class Event : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static nint CustomEventId
     {
-        get => (nint)NativeMethods.TablePtr->f2475();
+        get => (nint)NativeMethods.TablePtr->f2476();
     }
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2476((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2477((void*)_handle, (void*)arg0);
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId getId()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId((nint)NativeMethods.TablePtr->f2477((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId((nint)NativeMethods.TablePtr->f2478((void*)_handle));
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2478((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2479((void*)_handle, (void*)arg0);
     }
 
 
@@ -36,7 +48,7 @@ public sealed unsafe partial class Event : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2474((void*)_handle);
+            NativeMethods.TablePtr->f2475((void*)_handle);
             _handle = 0;
         }
     }

@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_1ULL__1ULL__mce__MaterialPtr_
     public TypedStorageType_1ULL__1ULL__mce__MaterialPtr_(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

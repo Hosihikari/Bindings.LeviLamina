@@ -11,9 +11,21 @@ public sealed unsafe partial class EmitterBase : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static EmitterBase Create()
     {
-        var handle = NativeMethods.TablePtr->f2473();
+        var handle = NativeMethods.TablePtr->f2474();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -27,7 +39,7 @@ public sealed unsafe partial class EmitterBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2472((void*)_handle);
+            NativeMethods.TablePtr->f2473((void*)_handle);
             _handle = 0;
         }
     }

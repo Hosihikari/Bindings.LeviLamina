@@ -11,16 +11,28 @@ public sealed unsafe partial class DividerOptions : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint visible
     {
-        get => (nint)NativeMethods.TablePtr->f3025((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f3028((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3024((void*)_handle);
+            NativeMethods.TablePtr->f3027((void*)_handle);
             _handle = 0;
         }
     }

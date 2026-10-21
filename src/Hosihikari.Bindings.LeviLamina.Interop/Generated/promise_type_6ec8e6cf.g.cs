@@ -11,13 +11,25 @@ public sealed unsafe partial class promise_type : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::suspend_never' is not a known bindable declaration.", false)]
     public nint final_suspend() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: by-value return type 'std::suspend_never' is not a known bindable declaration.");
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation get_return_object()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation((nint)NativeMethods.TablePtr->f2252((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation((nint)NativeMethods.TablePtr->f2253((void*)_handle));
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::suspend_always' is not a known bindable declaration.", false)]
@@ -26,19 +38,19 @@ public sealed unsafe partial class promise_type : global::System.IDisposable
 
     public void return_void()
     {
-        NativeMethods.TablePtr->f2253((void*)_handle);
+        NativeMethods.TablePtr->f2254((void*)_handle);
     }
 
     public void unhandled_exception()
     {
-        NativeMethods.TablePtr->f2254((void*)_handle);
+        NativeMethods.TablePtr->f2255((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2251((void*)_handle);
+            NativeMethods.TablePtr->f2252((void*)_handle);
             _handle = 0;
         }
     }

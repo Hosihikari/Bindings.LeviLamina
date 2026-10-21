@@ -11,9 +11,21 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static ViaContinuation Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.ViaContinuation other)
     {
-        var handle = NativeMethods.TablePtr->f2249((void*)other.Handle);
+        var handle = NativeMethods.TablePtr->f2250((void*)other.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -32,7 +44,7 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
 
     public void release()
     {
-        NativeMethods.TablePtr->f2250((void*)_handle);
+        NativeMethods.TablePtr->f2251((void*)_handle);
     }
 
 
@@ -40,7 +52,7 @@ public sealed unsafe partial class ViaContinuation : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2248((void*)_handle);
+            NativeMethods.TablePtr->f2249((void*)_handle);
             _handle = 0;
         }
     }

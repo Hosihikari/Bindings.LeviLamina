@@ -11,6 +11,18 @@ public sealed unsafe partial class PlayerLeftClickEvent : global::System.IDispos
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static PlayerLeftClickEvent Create(nint player) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
@@ -19,7 +31,7 @@ public sealed unsafe partial class PlayerLeftClickEvent : global::System.IDispos
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2568((void*)_handle);
+            NativeMethods.TablePtr->f2569((void*)_handle);
             _handle = 0;
         }
     }

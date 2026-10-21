@@ -11,16 +11,28 @@ public sealed unsafe partial class UntypedStorage_1ULL__2ULL_ : global::System.I
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f1857((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f1858((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1856((void*)_handle);
+            NativeMethods.TablePtr->f1857((void*)_handle);
             _handle = 0;
         }
     }

@@ -11,26 +11,38 @@ public sealed unsafe partial class GameTickClock : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static long fromTick(nint tick)
     {
-        return NativeMethods.TablePtr->f1879((void*)tick);
+        return NativeMethods.TablePtr->f1880((void*)tick);
     }
 
     public static bool is_steady
     {
-        get => NativeMethods.TablePtr->f1880();
+        get => NativeMethods.TablePtr->f1881();
     }
 
     public static long now()
     {
-        return NativeMethods.TablePtr->f1881();
+        return NativeMethods.TablePtr->f1882();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1878((void*)_handle);
+            NativeMethods.TablePtr->f1879((void*)_handle);
             _handle = 0;
         }
     }

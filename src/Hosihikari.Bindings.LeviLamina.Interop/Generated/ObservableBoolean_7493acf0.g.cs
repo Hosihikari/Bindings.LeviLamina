@@ -11,11 +11,23 @@ public sealed unsafe partial class ObservableBoolean : global::System.IDisposabl
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3049((void*)_handle);
+            NativeMethods.TablePtr->f3052((void*)_handle);
             _handle = 0;
         }
     }

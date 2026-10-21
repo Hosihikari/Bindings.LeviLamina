@@ -11,6 +11,18 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static Observable_bool_ Create(bool initial) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
@@ -25,7 +37,7 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
 
     public bool getData()
     {
-        return NativeMethods.TablePtr->f2303((void*)_handle);
+        return NativeMethods.TablePtr->f2304((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -38,7 +50,7 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
 
     public void setData(bool value)
     {
-        NativeMethods.TablePtr->f2304((void*)_handle, value);
+        NativeMethods.TablePtr->f2305((void*)_handle, value);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: parameter type 'brstd::move_only_function<void (const bool &)>' is not supported.", false)]
@@ -47,14 +59,14 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->f2305((void*)_handle, id);
+        return NativeMethods.TablePtr->f2306((void*)_handle, id);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2302((void*)_handle);
+            NativeMethods.TablePtr->f2303((void*)_handle);
             _handle = 0;
         }
     }

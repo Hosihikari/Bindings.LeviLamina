@@ -11,13 +11,25 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
     public void format(nint view, nint buffer) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
     public static bool supportColorLog()
     {
-        return NativeMethods.TablePtr->f2701();
+        return NativeMethods.TablePtr->f2702();
     }
 
 
@@ -25,7 +37,7 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2700((void*)_handle);
+            NativeMethods.TablePtr->f2701((void*)_handle);
             _handle = 0;
         }
     }

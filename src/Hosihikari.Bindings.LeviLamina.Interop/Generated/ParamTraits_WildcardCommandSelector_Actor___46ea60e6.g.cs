@@ -11,16 +11,28 @@ public sealed unsafe partial class ParamTraits_WildcardCommandSelector_Actor__ :
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1955();
+        return NativeMethods.TablePtr->f1956();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1954((void*)_handle);
+            NativeMethods.TablePtr->f1955((void*)_handle);
             _handle = 0;
         }
     }

@@ -11,16 +11,28 @@ public sealed unsafe partial class TypeList_int__bool__float__DimensionType__std
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static ulong size
     {
-        get => NativeMethods.TablePtr->f2834();
+        get => NativeMethods.TablePtr->f2835();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2833((void*)_handle);
+            NativeMethods.TablePtr->f2834((void*)_handle);
             _handle = 0;
         }
     }

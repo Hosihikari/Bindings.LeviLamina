@@ -11,30 +11,42 @@ public sealed unsafe partial class ExecutingCommandEvent : global::System.IDispo
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static ExecutingCommandEvent Create(nint minecraftCommands, nint commandContext, nint suppressOutput) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public nint commandContext()
     {
-        return (nint)NativeMethods.TablePtr->f2506((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2507((void*)_handle);
     }
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2507((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2508((void*)_handle, (void*)arg0);
     }
 
     public nint suppressOutput()
     {
-        return (nint)NativeMethods.TablePtr->f2508((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2509((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2505((void*)_handle);
+            NativeMethods.TablePtr->f2506((void*)_handle);
             _handle = 0;
         }
     }

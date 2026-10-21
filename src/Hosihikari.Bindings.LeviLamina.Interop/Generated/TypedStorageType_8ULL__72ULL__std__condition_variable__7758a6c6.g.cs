@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_8ULL__72ULL__std__condition_variabl
     public TypedStorageType_8ULL__72ULL__std__condition_variable_(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

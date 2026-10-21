@@ -11,8 +11,20 @@ public sealed unsafe partial class ServerPlayerEvent
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint self()
     {
-        return (nint)NativeMethods.TablePtr->f2597((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2598((void*)_handle);
     }
 }

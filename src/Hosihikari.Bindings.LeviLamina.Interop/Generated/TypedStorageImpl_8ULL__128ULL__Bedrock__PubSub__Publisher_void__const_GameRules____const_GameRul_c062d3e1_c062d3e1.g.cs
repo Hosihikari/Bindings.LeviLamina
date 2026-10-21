@@ -11,6 +11,18 @@ public sealed partial class TypedStorageImpl_8ULL__128ULL__Bedrock__PubSub__Publ
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the native name is not a valid C++ qualified name.", false)]
     public static TypedStorageImpl_8ULL__128ULL__Bedrock__PubSub__Publisher_void__const_GameRules____const_GameRul_c062d3e1 Create_f49b6f22(nint other) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the native name is not a valid C++ qualified name.");

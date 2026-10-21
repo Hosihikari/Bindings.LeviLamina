@@ -11,9 +11,21 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static DualMapping Create()
     {
-        var handle = NativeMethods.TablePtr->f2785();
+        var handle = NativeMethods.TablePtr->f2786();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +36,7 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
 
     public static DualMapping Create(ulong size)
     {
-        var handle = NativeMethods.TablePtr->f2786(size);
+        var handle = NativeMethods.TablePtr->f2787(size);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -35,27 +47,27 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
 
     public void alloc(ulong size)
     {
-        NativeMethods.TablePtr->f2787((void*)_handle, size);
+        NativeMethods.TablePtr->f2788((void*)_handle, size);
     }
 
     public nint executable()
     {
-        return (nint)NativeMethods.TablePtr->f2788((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2789((void*)_handle);
     }
 
     public void free()
     {
-        NativeMethods.TablePtr->f2789((void*)_handle);
+        NativeMethods.TablePtr->f2790((void*)_handle);
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2790((void*)_handle);
+        return NativeMethods.TablePtr->f2791((void*)_handle);
     }
 
     public nint writable()
     {
-        return (nint)NativeMethods.TablePtr->f2791((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2792((void*)_handle);
     }
 
 
@@ -63,7 +75,7 @@ public sealed unsafe partial class DualMapping : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2784((void*)_handle);
+            NativeMethods.TablePtr->f2785((void*)_handle);
             _handle = 0;
         }
     }

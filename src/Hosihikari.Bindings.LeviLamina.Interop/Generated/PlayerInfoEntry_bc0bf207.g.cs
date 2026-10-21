@@ -11,25 +11,37 @@ public sealed unsafe partial class PlayerInfoEntry : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public string name
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2940((void*)_handle);
+            var view = NativeMethods.TablePtr->f2943((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public nint uuid
     {
-        get => (nint)NativeMethods.TablePtr->f2941((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2944((void*)_handle);
     }
 
     public string xuid
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2942((void*)_handle);
+            var view = NativeMethods.TablePtr->f2945((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
@@ -38,7 +50,7 @@ public sealed unsafe partial class PlayerInfoEntry : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2939((void*)_handle);
+            NativeMethods.TablePtr->f2942((void*)_handle);
             _handle = 0;
         }
     }

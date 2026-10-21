@@ -11,9 +11,21 @@ public sealed unsafe partial class ModManagerRegistry
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public bool addManager(global::Hosihikari.Bindings.Abi.SharedHandle? manager)
     {
-        return NativeMethods.TablePtr->f2880((void*)_handle, manager?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return NativeMethods.TablePtr->f2881((void*)_handle, manager?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
     }
 
     public bool eraseManager(string type)
@@ -21,48 +33,48 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(type);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f2881((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->f2882((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
     public bool eraseOnModCallback(ulong id)
     {
-        return NativeMethods.TablePtr->f2882((void*)_handle, id);
+        return NativeMethods.TablePtr->f2883((void*)_handle, id);
     }
 
     public ulong eraseOnModCallback(global::Hosihikari.Bindings.Abi.SharedHandle? mod, int type)
     {
-        return NativeMethods.TablePtr->f2883((void*)_handle, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), type);
+        return NativeMethods.TablePtr->f2884((void*)_handle, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), type);
     }
 
     public ulong executeOnMod(int type, nint fnInvoke, nint fnUserData, nint fnRelease, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
     {
-        return NativeMethods.TablePtr->f2884((void*)_handle, type, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return NativeMethods.TablePtr->f2885((void*)_handle, type, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
     }
 
     public ulong executeOnModDisable(nint fnInvoke, nint fnUserData, nint fnRelease, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
     {
-        return NativeMethods.TablePtr->f2885((void*)_handle, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return NativeMethods.TablePtr->f2886((void*)_handle, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
     }
 
     public ulong executeOnModEnable(nint fnInvoke, nint fnUserData, nint fnRelease, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
     {
-        return NativeMethods.TablePtr->f2886((void*)_handle, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return NativeMethods.TablePtr->f2887((void*)_handle, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
     }
 
     public ulong executeOnModLoad(nint fnInvoke, nint fnUserData, nint fnRelease, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
     {
-        return NativeMethods.TablePtr->f2887((void*)_handle, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return NativeMethods.TablePtr->f2888((void*)_handle, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
     }
 
     public ulong executeOnModUnload(nint fnInvoke, nint fnUserData, nint fnRelease, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
     {
-        return NativeMethods.TablePtr->f2888((void*)_handle, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return NativeMethods.TablePtr->f2889((void*)_handle, (void*)fnInvoke, (void*)fnUserData, (void*)fnRelease, mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
     }
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2889();
+        return (nint)NativeMethods.TablePtr->f2890();
     }
 
     public global::Hosihikari.Bindings.Abi.SharedHandle? getManager(string type)
@@ -70,7 +82,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(type);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_shared = NativeMethods.TablePtr->f2890((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_shared = NativeMethods.TablePtr->f2891((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
             return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
@@ -80,7 +92,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_shared = NativeMethods.TablePtr->f2891((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_shared = NativeMethods.TablePtr->f2892((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
             return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
@@ -90,7 +102,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_shared = NativeMethods.TablePtr->f2892((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_shared = NativeMethods.TablePtr->f2893((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
             return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
         }
     }
@@ -100,7 +112,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->f2893((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->f2894((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
@@ -110,7 +122,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(type);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f2894((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->f2895((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 
@@ -119,7 +131,7 @@ public sealed unsafe partial class ModManagerRegistry
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f2895((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            return NativeMethods.TablePtr->f2896((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
         }
     }
 

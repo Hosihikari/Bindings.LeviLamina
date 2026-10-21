@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_8ULL__64ULL__std__function_CommandR
     public TypedStorageType_8ULL__64ULL__std__function_CommandRegistry__ParseToken___CommandRegistry__Parse_89945dc2(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

@@ -11,12 +11,24 @@ public sealed unsafe partial class Symbol : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static Symbol Create(string symbol)
     {
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(symbol);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var handle = NativeMethods.TablePtr->f2821(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var handle = NativeMethods.TablePtr->f2822(__hs_stringData0, (nuint)__hs_stringBytes0.Length);
             if (handle == null)
             {
                 throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -28,19 +40,19 @@ public sealed unsafe partial class Symbol : global::System.IDisposable
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2822((void*)_handle);
+        return NativeMethods.TablePtr->f2823((void*)_handle);
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView view()
     {
-        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView((nint)NativeMethods.TablePtr->f2823((void*)_handle));
+        return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SymbolView((nint)NativeMethods.TablePtr->f2824((void*)_handle));
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2820((void*)_handle);
+            NativeMethods.TablePtr->f2821((void*)_handle);
             _handle = 0;
         }
     }

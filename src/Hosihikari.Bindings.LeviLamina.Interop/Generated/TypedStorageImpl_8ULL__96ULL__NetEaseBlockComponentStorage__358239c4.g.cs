@@ -11,6 +11,18 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__96ULL__NetEaseBlockCom
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static TypedStorageImpl_8ULL__96ULL__NetEaseBlockComponentStorage_ Create_1fd14c85(nint other) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
@@ -21,7 +33,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__96ULL__NetEaseBlockCom
 
     public nint data
     {
-        get => (nint)NativeMethods.TablePtr->f1845((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f1846((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -30,7 +42,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__96ULL__NetEaseBlockCom
 
     public nint get_69d90934()
     {
-        return (nint)NativeMethods.TablePtr->f1846((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1847((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -39,17 +51,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__96ULL__NetEaseBlockCom
 
     public nint get_c848e73e()
     {
-        return (nint)NativeMethods.TablePtr->f1847((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1848((void*)_handle);
     }
 
     public nint operator_NetEaseBlockComponentStorage__()
     {
-        return (nint)NativeMethods.TablePtr->f1848((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1849((void*)_handle);
     }
 
     public nint operator_const_NetEaseBlockComponentStorage__()
     {
-        return (nint)NativeMethods.TablePtr->f1849((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1850((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -58,7 +70,7 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__96ULL__NetEaseBlockCom
 
     public nint operator_multiply_c26ed427()
     {
-        return (nint)NativeMethods.TablePtr->f1850((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1851((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -67,17 +79,17 @@ public sealed unsafe partial class TypedStorageImpl_8ULL__96ULL__NetEaseBlockCom
 
     public nint operator_multiply_7533bfeb()
     {
-        return (nint)NativeMethods.TablePtr->f1851((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1852((void*)_handle);
     }
 
     public nint operator_operator___39f48c62()
     {
-        return (nint)NativeMethods.TablePtr->f1852((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1853((void*)_handle);
     }
 
     public nint operator_operator___5e1145a7()
     {
-        return (nint)NativeMethods.TablePtr->f1853((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f1854((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]

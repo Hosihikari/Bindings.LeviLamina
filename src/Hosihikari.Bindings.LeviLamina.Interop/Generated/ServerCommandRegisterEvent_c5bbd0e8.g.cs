@@ -11,25 +11,37 @@ public sealed unsafe partial class ServerCommandRegisterEvent : global::System.I
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static ServerCommandRegisterEvent Create(nint commandRegistry, bool clientHostedServer) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public bool isClientHostedServer()
     {
-        return NativeMethods.TablePtr->f2594((void*)_handle);
+        return NativeMethods.TablePtr->f2595((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2595((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2596((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2593((void*)_handle);
+            NativeMethods.TablePtr->f2594((void*)_handle);
             _handle = 0;
         }
     }

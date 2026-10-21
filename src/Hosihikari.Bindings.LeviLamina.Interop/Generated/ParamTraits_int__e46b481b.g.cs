@@ -11,16 +11,28 @@ public sealed unsafe partial class ParamTraits_int_ : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static int parseRuleValue()
     {
-        return NativeMethods.TablePtr->f1959();
+        return NativeMethods.TablePtr->f1960();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f1958((void*)_handle);
+            NativeMethods.TablePtr->f1959((void*)_handle);
             _handle = 0;
         }
     }

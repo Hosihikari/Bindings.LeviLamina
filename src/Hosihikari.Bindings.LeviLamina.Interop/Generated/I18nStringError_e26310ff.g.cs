@@ -11,20 +11,32 @@ public sealed unsafe partial class I18nStringError : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint args()
     {
-        return (nint)NativeMethods.TablePtr->f2680((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2681((void*)_handle);
     }
 
     public string key()
     {
-        var __hs_view = NativeMethods.TablePtr->f2681((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2682((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f2682((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2683((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -33,7 +45,7 @@ public sealed unsafe partial class I18nStringError : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(localeCode);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            var __hs_view = NativeMethods.TablePtr->f2683((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
+            var __hs_view = NativeMethods.TablePtr->f2684((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length);
             return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
         }
     }
@@ -42,7 +54,7 @@ public sealed unsafe partial class I18nStringError : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2679((void*)_handle);
+            NativeMethods.TablePtr->f2680((void*)_handle);
             _handle = 0;
         }
     }

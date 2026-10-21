@@ -11,13 +11,25 @@ public sealed unsafe partial class Service : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the class is abstract.", false)]
     public static Service Create() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
     public static nint ServiceId
     {
-        get => (nint)NativeMethods.TablePtr->f2950();
+        get => (nint)NativeMethods.TablePtr->f2953();
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: the member is not exported by the carrier.", false)]
@@ -26,7 +38,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
 
     public void invalidate()
     {
-        NativeMethods.TablePtr->f2951((void*)_handle);
+        NativeMethods.TablePtr->f2954((void*)_handle);
     }
 
 
@@ -34,7 +46,7 @@ public sealed unsafe partial class Service : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2949((void*)_handle);
+            NativeMethods.TablePtr->f2952((void*)_handle);
             _handle = 0;
         }
     }

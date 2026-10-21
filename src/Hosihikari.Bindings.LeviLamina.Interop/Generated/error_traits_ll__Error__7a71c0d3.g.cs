@@ -11,16 +11,28 @@ public sealed unsafe partial class error_traits_ll__Error_ : global::System.IDis
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static void rethrow(global::Hosihikari.Bindings.LeviLamina.Interop.ll.Error e)
     {
-        NativeMethods.TablePtr->f3128((void*)e.Handle);
+        NativeMethods.TablePtr->f3131((void*)e.Handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3127((void*)_handle);
+            NativeMethods.TablePtr->f3130((void*)_handle);
             _handle = 0;
         }
     }

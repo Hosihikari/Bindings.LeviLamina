@@ -11,6 +11,18 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static PlayerInteractBlockEvent Create(nint player, nint item, nint blockPos, nint face, nint clickPos, nint block) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
@@ -18,40 +30,40 @@ public sealed unsafe partial class PlayerInteractBlockEvent : global::System.IDi
     public nint? block()
     {
         var __hs_hasValue = false;
-        var __hs_handle = NativeMethods.TablePtr->f2557((void*)_handle, &__hs_hasValue);
+        var __hs_handle = NativeMethods.TablePtr->f2558((void*)_handle, &__hs_hasValue);
         return __hs_hasValue ? (nint)__hs_handle : null;
     }
 
     public nint blockPos()
     {
-        return (nint)NativeMethods.TablePtr->f2558((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2559((void*)_handle);
     }
 
     public nint clickPos()
     {
-        return (nint)NativeMethods.TablePtr->f2559((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2560((void*)_handle);
     }
 
     public nint face()
     {
-        return (nint)NativeMethods.TablePtr->f2560((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2561((void*)_handle);
     }
 
     public nint item()
     {
-        return (nint)NativeMethods.TablePtr->f2561((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2562((void*)_handle);
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2562((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2563((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2556((void*)_handle);
+            NativeMethods.TablePtr->f2557((void*)_handle);
             _handle = 0;
         }
     }

@@ -11,6 +11,18 @@ public sealed unsafe partial class ServiceIdView : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the class owns a borrowed string field.", false)]
     public static ServiceIdView Create(nint id) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
@@ -23,22 +35,22 @@ public sealed unsafe partial class ServiceIdView : global::System.IDisposable
     {
         get
         {
-            var view = NativeMethods.TablePtr->f2959((void*)_handle);
+            var view = NativeMethods.TablePtr->f2962((void*)_handle);
             return global::System.Text.Encoding.UTF8.GetString(view.Data, checked((int)view.Size));
         }
     }
 
     public ulong version
     {
-        get => NativeMethods.TablePtr->f2960((void*)_handle);
-        set => NativeMethods.TablePtr->f2961((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2963((void*)_handle);
+        set => NativeMethods.TablePtr->f2964((void*)_handle, value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2958((void*)_handle);
+            NativeMethods.TablePtr->f2961((void*)_handle);
             _handle = 0;
         }
     }

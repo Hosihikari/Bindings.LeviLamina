@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_8ULL__16ULL__const_gsl__not_null_Ow
     public TypedStorageType_8ULL__16ULL__const_gsl__not_null_OwnerPtr_ContainerRegistry___(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

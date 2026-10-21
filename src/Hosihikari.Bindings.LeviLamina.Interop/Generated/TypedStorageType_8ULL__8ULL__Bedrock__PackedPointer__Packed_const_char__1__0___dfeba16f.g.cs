@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_8ULL__8ULL__Bedrock__PackedPointer_
     public TypedStorageType_8ULL__8ULL__Bedrock__PackedPointer__Packed_const_char__1__0__(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

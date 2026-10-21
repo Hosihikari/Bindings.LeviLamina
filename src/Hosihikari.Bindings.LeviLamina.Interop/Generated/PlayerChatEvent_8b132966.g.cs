@@ -11,31 +11,43 @@ public sealed unsafe partial class PlayerChatEvent : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static PlayerChatEvent Create(nint player, nint message) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public void deserialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2539((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2540((void*)_handle, (void*)arg0);
     }
 
     public string message()
     {
-        var __hs_view = NativeMethods.TablePtr->f2540((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2541((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2541((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2542((void*)_handle, (void*)arg0);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2538((void*)_handle);
+            NativeMethods.TablePtr->f2539((void*)_handle);
             _handle = 0;
         }
     }

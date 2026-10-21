@@ -11,6 +11,18 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the class owns a borrowed string field.", false)]
     public static SymbolView Create() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class owns a borrowed string field.");
@@ -41,23 +53,23 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
 
     public string raw()
     {
-        var __hs_view = NativeMethods.TablePtr->f2825((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2826((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
     public nint resolve(bool disableErrorOutput)
     {
-        return (nint)NativeMethods.TablePtr->f2826((void*)_handle, disableErrorOutput);
+        return (nint)NativeMethods.TablePtr->f2827((void*)_handle, disableErrorOutput);
     }
 
     public ulong size()
     {
-        return NativeMethods.TablePtr->f2827((void*)_handle);
+        return NativeMethods.TablePtr->f2828((void*)_handle);
     }
 
     public string toString()
     {
-        var __hs_view = NativeMethods.TablePtr->f2828((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f2829((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -65,7 +77,7 @@ public sealed unsafe partial class SymbolView : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2824((void*)_handle);
+            NativeMethods.TablePtr->f2825((void*)_handle);
             _handle = 0;
         }
     }

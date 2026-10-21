@@ -11,25 +11,37 @@ public sealed unsafe partial class MobDieEvent : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static MobDieEvent Create(nint mob, nint source) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
 
     public void serialize(nint arg0)
     {
-        NativeMethods.TablePtr->f2521((void*)_handle, (void*)arg0);
+        NativeMethods.TablePtr->f2522((void*)_handle, (void*)arg0);
     }
 
     public nint source()
     {
-        return (nint)NativeMethods.TablePtr->f2522((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2523((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2520((void*)_handle);
+            NativeMethods.TablePtr->f2521((void*)_handle);
             _handle = 0;
         }
     }

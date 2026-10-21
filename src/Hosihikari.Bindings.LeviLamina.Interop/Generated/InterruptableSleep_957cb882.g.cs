@@ -11,9 +11,21 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static InterruptableSleep Create()
     {
-        var handle = NativeMethods.TablePtr->f2242();
+        var handle = NativeMethods.TablePtr->f2243();
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,7 +36,7 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
 
     public bool interrupt(bool inplace)
     {
-        return NativeMethods.TablePtr->f2243((void*)_handle, inplace);
+        return NativeMethods.TablePtr->f2244((void*)_handle, inplace);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::InterruptableSleep::EtnAwaiter' is not a known bindable declaration.", false)]
@@ -36,7 +48,7 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2241((void*)_handle);
+            NativeMethods.TablePtr->f2242((void*)_handle);
             _handle = 0;
         }
     }

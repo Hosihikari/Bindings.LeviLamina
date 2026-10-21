@@ -11,6 +11,18 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.", false)]
     public static bad_expected_access_ll__Error_ Create(nint e) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: constructors with mutable reference parameters are not projected.");
@@ -21,7 +33,7 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
 
     public nint error_cd83de93()
     {
-        return (nint)NativeMethods.TablePtr->f3124((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3127((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -30,19 +42,19 @@ public sealed unsafe partial class bad_expected_access_ll__Error_ : global::Syst
 
     public nint error_648678e4()
     {
-        return (nint)NativeMethods.TablePtr->f3125((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3128((void*)_handle);
     }
 
     public nint what()
     {
-        return (nint)NativeMethods.TablePtr->f3126((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f3129((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3123((void*)_handle);
+            NativeMethods.TablePtr->f3126((void*)_handle);
             _handle = 0;
         }
     }

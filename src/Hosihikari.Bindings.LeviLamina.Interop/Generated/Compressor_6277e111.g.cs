@@ -11,9 +11,21 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static Compressor Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.compress_utils.Compressor arg0)
     {
-        var handle = NativeMethods.TablePtr->f2214((void*)arg0.Handle);
+        var handle = NativeMethods.TablePtr->f2215((void*)arg0.Handle);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -29,7 +41,7 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
     public void finish()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2215((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2216((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -40,7 +52,7 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
     public void status()
     {
         var __hs_hasValue = false;
-        NativeMethods.TablePtr->f2216((void*)_handle, &__hs_hasValue);
+        NativeMethods.TablePtr->f2217((void*)_handle, &__hs_hasValue);
         if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
     }
 
@@ -50,7 +62,7 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(data);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            NativeMethods.TablePtr->f2217((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
+            NativeMethods.TablePtr->f2218((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, &__hs_hasValue);
             if (!__hs_hasValue) { throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "Binding API call returned an error."); }
         }
     }
@@ -60,7 +72,7 @@ public sealed unsafe partial class Compressor : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2213((void*)_handle);
+            NativeMethods.TablePtr->f2214((void*)_handle);
             _handle = 0;
         }
     }

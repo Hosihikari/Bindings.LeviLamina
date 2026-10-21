@@ -11,16 +11,28 @@ public sealed unsafe partial class FormIdManager : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static uint genFormId()
     {
-        return NativeMethods.TablePtr->f2643();
+        return NativeMethods.TablePtr->f2644();
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2642((void*)_handle);
+            NativeMethods.TablePtr->f2643((void*)_handle);
             _handle = 0;
         }
     }

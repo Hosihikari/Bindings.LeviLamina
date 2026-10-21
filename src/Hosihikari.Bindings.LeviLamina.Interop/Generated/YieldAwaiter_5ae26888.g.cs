@@ -11,9 +11,21 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public static YieldAwaiter Create(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor? exec)
     {
-        var handle = NativeMethods.TablePtr->f2256((void*)(exec?.Handle ?? 0), exec is not null);
+        var handle = NativeMethods.TablePtr->f2257((void*)(exec?.Handle ?? 0), exec is not null);
         if (handle == null)
         {
             throw new global::System.InvalidOperationException(NativeMethods.GetLastError() ?? "BindingShim create call failed.");
@@ -24,12 +36,12 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->f2257((void*)_handle);
+        return NativeMethods.TablePtr->f2258((void*)_handle);
     }
 
     public void await_resume()
     {
-        NativeMethods.TablePtr->f2258((void*)_handle);
+        NativeMethods.TablePtr->f2259((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::coroutine_handle<void>' is not a known bindable declaration.", false)]
@@ -38,14 +50,14 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
 
     public void setExecutor(global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor? ex)
     {
-        NativeMethods.TablePtr->f2259((void*)_handle, (void*)(ex?.Handle ?? 0), ex is not null);
+        NativeMethods.TablePtr->f2260((void*)_handle, (void*)(ex?.Handle ?? 0), ex is not null);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2255((void*)_handle);
+            NativeMethods.TablePtr->f2256((void*)_handle);
             _handle = 0;
         }
     }

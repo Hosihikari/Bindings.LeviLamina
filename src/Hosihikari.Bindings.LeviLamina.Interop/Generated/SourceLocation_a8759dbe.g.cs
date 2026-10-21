@@ -11,13 +11,25 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: consteval constructors cannot be called at runtime.", false)]
     public static SourceLocation Create(nint file, nint function, nint funcsig, int line, int column) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: consteval constructors cannot be called at runtime.");
 
     public int column()
     {
-        return NativeMethods.TablePtr->f16((void*)_handle);
+        return NativeMethods.TablePtr->f17((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: consteval methods cannot be called at runtime.", false)]
@@ -26,54 +38,54 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
 
     public nint file()
     {
-        return (nint)NativeMethods.TablePtr->f17((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f18((void*)_handle);
     }
 
     public nint funcsig()
     {
-        return (nint)NativeMethods.TablePtr->f18((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f19((void*)_handle);
     }
 
     public nint function()
     {
-        return (nint)NativeMethods.TablePtr->f19((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f20((void*)_handle);
     }
 
     public int line()
     {
-        return NativeMethods.TablePtr->f20((void*)_handle);
+        return NativeMethods.TablePtr->f21((void*)_handle);
     }
 
     public int mColumn
     {
-        get => NativeMethods.TablePtr->f21((void*)_handle);
-        set => NativeMethods.TablePtr->f22((void*)_handle, value);
+        get => NativeMethods.TablePtr->f22((void*)_handle);
+        set => NativeMethods.TablePtr->f23((void*)_handle, value);
     }
 
     public nint mFile
     {
-        get => (nint)NativeMethods.TablePtr->f23((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f24((void*)_handle);
     }
 
     public nint mFuncsig
     {
-        get => (nint)NativeMethods.TablePtr->f24((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f25((void*)_handle);
     }
 
     public nint mFunction
     {
-        get => (nint)NativeMethods.TablePtr->f25((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f26((void*)_handle);
     }
 
     public int mLine
     {
-        get => NativeMethods.TablePtr->f26((void*)_handle);
-        set => NativeMethods.TablePtr->f27((void*)_handle, value);
+        get => NativeMethods.TablePtr->f27((void*)_handle);
+        set => NativeMethods.TablePtr->f28((void*)_handle, value);
     }
 
     public string toString()
     {
-        var __hs_view = NativeMethods.TablePtr->f28((void*)_handle);
+        var __hs_view = NativeMethods.TablePtr->f29((void*)_handle);
         return global::System.Text.Encoding.UTF8.GetString(__hs_view.Data, checked((int)__hs_view.Size));
     }
 
@@ -85,7 +97,7 @@ public sealed unsafe partial class SourceLocation : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f15((void*)_handle);
+            NativeMethods.TablePtr->f16((void*)_handle);
             _handle = 0;
         }
     }

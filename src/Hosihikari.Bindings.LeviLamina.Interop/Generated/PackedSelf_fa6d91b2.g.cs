@@ -11,22 +11,34 @@ public sealed unsafe partial class PackedSelf : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint jitfn
     {
-        get => (nint)NativeMethods.TablePtr->f2781((void*)_handle);
+        get => (nint)NativeMethods.TablePtr->f2782((void*)_handle);
     }
 
     public nint self
     {
-        get => (nint)NativeMethods.TablePtr->f2782((void*)_handle);
-        set => NativeMethods.TablePtr->f2783((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2783((void*)_handle);
+        set => NativeMethods.TablePtr->f2784((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2780((void*)_handle);
+            NativeMethods.TablePtr->f2781((void*)_handle);
             _handle = 0;
         }
     }

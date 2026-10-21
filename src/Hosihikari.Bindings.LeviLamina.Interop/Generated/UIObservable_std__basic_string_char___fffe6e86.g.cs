@@ -11,20 +11,32 @@ public sealed unsafe partial class UIObservable_std__basic_string_char__ : globa
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static UIObservable_std__basic_string_char__ Create(nint initial, nint options) =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->f3105((void*)_handle);
+        return NativeMethods.TablePtr->f3108((void*)_handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f3104((void*)_handle);
+            NativeMethods.TablePtr->f3107((void*)_handle);
             _handle = 0;
         }
     }

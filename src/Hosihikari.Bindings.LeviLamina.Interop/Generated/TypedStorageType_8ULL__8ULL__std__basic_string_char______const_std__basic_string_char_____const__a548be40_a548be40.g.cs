@@ -10,4 +10,16 @@ public sealed partial class TypedStorageType_8ULL__8ULL__std__basic_string_char_
     public TypedStorageType_8ULL__8ULL__std__basic_string_char______const_std__basic_string_char_____const__a548be40(nint handle) => _handle = handle;
 
     public nint Handle => _handle;
+
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
 }

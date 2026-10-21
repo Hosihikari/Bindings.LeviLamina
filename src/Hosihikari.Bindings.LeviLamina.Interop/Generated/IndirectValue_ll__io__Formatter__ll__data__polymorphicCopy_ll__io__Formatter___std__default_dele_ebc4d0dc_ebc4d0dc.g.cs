@@ -11,6 +11,18 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the template constructor has no visible definition.", false)]
     public static IndirectValue_ll__io__Formatter__ll__data__polymorphicCopy_ll__io__Formatter___std__default_dele_ebc4d0dc Create() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the template constructor has no visible definition.");
@@ -33,37 +45,37 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
 
     public nint get_b17c0bfb()
     {
-        return (nint)NativeMethods.TablePtr->f2274((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2275((void*)_handle);
     }
 
     public nint get_2abcf897()
     {
-        return (nint)NativeMethods.TablePtr->f2275((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2276((void*)_handle);
     }
 
     public nint getCopyCtor_b13b0094()
     {
-        return (nint)NativeMethods.TablePtr->f2276((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2277((void*)_handle);
     }
 
     public nint getCopyCtor_15f4f740()
     {
-        return (nint)NativeMethods.TablePtr->f2277((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2278((void*)_handle);
     }
 
     public nint getDeleter_4b749aae()
     {
-        return (nint)NativeMethods.TablePtr->f2278((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2279((void*)_handle);
     }
 
     public nint getDeleter_9b683563()
     {
-        return (nint)NativeMethods.TablePtr->f2279((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2280((void*)_handle);
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->f2280((void*)_handle);
+        return NativeMethods.TablePtr->f2281((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -72,7 +84,7 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
 
     public nint operator_multiply_db594926()
     {
-        return (nint)NativeMethods.TablePtr->f2281((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2282((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]
@@ -81,17 +93,17 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
 
     public nint operator_multiply_01d3c2c9()
     {
-        return (nint)NativeMethods.TablePtr->f2282((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2283((void*)_handle);
     }
 
     public nint operator_operator___c50ef6b2()
     {
-        return (nint)NativeMethods.TablePtr->f2283((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2284((void*)_handle);
     }
 
     public nint operator_operator___23b3117c()
     {
-        return (nint)NativeMethods.TablePtr->f2284((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2285((void*)_handle);
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators are not projected.", false)]
@@ -104,19 +116,19 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
 
     public nint release()
     {
-        return (nint)NativeMethods.TablePtr->f2285((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2286((void*)_handle);
     }
 
     public void reset(global::Hosihikari.Bindings.LeviLamina.Interop.ll.io.Formatter ptr, global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.polymorphicCopy_ll__io__Formatter_ copy)
     {
-        NativeMethods.TablePtr->f2286((void*)_handle, (void*)ptr.Handle, (void*)copy.Handle);
+        NativeMethods.TablePtr->f2287((void*)_handle, (void*)ptr.Handle, (void*)copy.Handle);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2273((void*)_handle);
+            NativeMethods.TablePtr->f2274((void*)_handle);
             _handle = 0;
         }
     }

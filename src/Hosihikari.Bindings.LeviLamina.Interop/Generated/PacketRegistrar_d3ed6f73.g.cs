@@ -11,22 +11,34 @@ public sealed unsafe partial class PacketRegistrar
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet? createPacket(ulong runtimeId)
     {
-        var __hs_handle = NativeMethods.TablePtr->f2917((void*)_handle, runtimeId);
+        var __hs_handle = NativeMethods.TablePtr->f2918((void*)_handle, runtimeId);
         return __hs_handle != null ? new global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet((nint)__hs_handle) : null;
     }
 
     public nint? getHandler(ulong runtimeId)
     {
         var __hs_hasValue = false;
-        var __hs_handle = NativeMethods.TablePtr->f2918((void*)_handle, runtimeId, &__hs_hasValue);
+        var __hs_handle = NativeMethods.TablePtr->f2919((void*)_handle, runtimeId, &__hs_hasValue);
         return __hs_hasValue ? (nint)__hs_handle : null;
     }
 
     public static nint getInstance()
     {
-        return (nint)NativeMethods.TablePtr->f2919();
+        return (nint)NativeMethods.TablePtr->f2920();
     }
 
     public bool registerHandler(string name, ulong id, global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.IPacketHandler? handler)
@@ -34,7 +46,7 @@ public sealed unsafe partial class PacketRegistrar
         var __hs_stringBytes0 = global::System.Text.Encoding.UTF8.GetBytes(name);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->f2920((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, id, (void*)(handler?.Handle ?? 0), handler is not null);
+            return NativeMethods.TablePtr->f2921((void*)_handle, __hs_stringData0, (nuint)__hs_stringBytes0.Length, id, (void*)(handler?.Handle ?? 0), handler is not null);
         }
     }
 

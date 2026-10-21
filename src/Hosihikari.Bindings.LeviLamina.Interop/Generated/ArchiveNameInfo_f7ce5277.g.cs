@@ -11,29 +11,41 @@ public sealed unsafe partial class ArchiveNameInfo : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public ulong index
     {
-        get => NativeMethods.TablePtr->f2685((void*)_handle);
-        set => NativeMethods.TablePtr->f2686((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2686((void*)_handle);
+        set => NativeMethods.TablePtr->f2687((void*)_handle, value);
     }
 
     public int interval
     {
-        get => NativeMethods.TablePtr->f2687((void*)_handle);
-        set => NativeMethods.TablePtr->f2688((void*)_handle, value);
+        get => NativeMethods.TablePtr->f2688((void*)_handle);
+        set => NativeMethods.TablePtr->f2689((void*)_handle, value);
     }
 
     public nint time
     {
-        get => (nint)NativeMethods.TablePtr->f2689((void*)_handle);
-        set => NativeMethods.TablePtr->f2690((void*)_handle, (void*)value);
+        get => (nint)NativeMethods.TablePtr->f2690((void*)_handle);
+        set => NativeMethods.TablePtr->f2691((void*)_handle, (void*)value);
     }
 
     public void Dispose()
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2684((void*)_handle);
+            NativeMethods.TablePtr->f2685((void*)_handle);
             _handle = 0;
         }
     }

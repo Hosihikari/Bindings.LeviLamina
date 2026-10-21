@@ -11,6 +11,18 @@ public sealed unsafe partial class AnyObjBase : global::System.IDisposable
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     [global::System.Obsolete("BindingShim cannot project this member: the class is abstract.", false)]
     public static AnyObjBase Create() =>
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
@@ -32,7 +44,7 @@ public sealed unsafe partial class AnyObjBase : global::System.IDisposable
     {
         if (_handle != 0)
         {
-            NativeMethods.TablePtr->f2268((void*)_handle);
+            NativeMethods.TablePtr->f2269((void*)_handle);
             _handle = 0;
         }
     }

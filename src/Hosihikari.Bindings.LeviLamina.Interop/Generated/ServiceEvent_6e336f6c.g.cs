@@ -11,8 +11,20 @@ public sealed unsafe partial class ServiceEvent
 
     public nint Handle => _handle;
 
+    internal nint ReleaseHandle()
+    {
+        if (_handle == 0)
+        {
+            throw new global::System.ObjectDisposedException("handle");
+        }
+
+        var __hs_handle = _handle;
+        _handle = 0;
+        return __hs_handle;
+    }
+
     public nint service()
     {
-        return (nint)NativeMethods.TablePtr->f2604((void*)_handle);
+        return (nint)NativeMethods.TablePtr->f2605((void*)_handle);
     }
 }

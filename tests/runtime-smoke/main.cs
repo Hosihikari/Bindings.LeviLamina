@@ -16,6 +16,8 @@ using Hosihikari.Bindings.LeviLamina.Interop.ll.mod;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.network;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.thread;
 using LlEventId = Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId;
+using LlHashFunctions = Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.Functions;
+using LlReflectionFunctions = Hosihikari.Bindings.LeviLamina.Interop.ll.reflection.Functions;
 using LlVersion = Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version;
 
 public sealed class ShimSmokePlugin : IPlugin
@@ -115,6 +117,13 @@ public sealed class ShimSmokePlugin : IPlugin
             {
                 log.AppendLine($"version.multi={versionMulti.to_string()}");
             }
+
+            var hashesOk = LlHashFunctions.doHash("abc") == 0xe71fa2190541574bUL
+                && LlHashFunctions.doHash2("abc") == 0x18fffffffe7b6e1cUL
+                && LlHashFunctions.doHash3("abc") == 0x000000000b885c8bUL;
+            log.AppendLine($"function.hashes={(hashesOk ? "ok" : "failed")}");
+            var stem = LlReflectionFunctions.typeNameStem("class ll::event::EventId");
+            log.AppendLine($"function.string={(stem == "EventId" ? "ok" : $"unexpected:{stem}")}");
 
             using (var source = SymbolView.Create("beta"))
             using (var target = SymbolView.Create("alpha"))

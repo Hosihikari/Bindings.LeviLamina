@@ -24,6 +24,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `EventId` string construction, name and hash.
 - Inheritance upcast: `EventId.AsHashedIdBase()` returns a borrowed `HashedIdBase` aliasing the same handle.
 - `Version` string construction, string result, field getters, string method parameter.
+- Namespace-level inline functions: `ll.hash_utils.Functions.doHash`/`doHash2`/`doHash3` match the native hash values, and `ll.reflection.Functions.typeNameStem` strips a type prefix.
 - Out-of-line `ll::Error` construction, `operator bool`, `message()` (string result), and destruction.
 - Out-of-line virtual-destructor and allocator-backed lifecycle: `GlobalThreadPauser`, `ConsoleSink`, and `InplaceExecutor` creation and destruction.
 - Multiple string parameters in one call: `Version(1, 2, 3, "beta", "build.5")` pins both the pre-release and build strings and round-trips through `to_string()`.
@@ -52,6 +53,8 @@ version.to_string=1.2.3
 version.fields=1.2.3
 version.valid=True
 version.multi=1.2.3-beta+build.5
+function.hashes=ok
+function.string=ok
 assignment.operator=ok
 error.bool=True
 error.message=success

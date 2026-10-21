@@ -157,6 +157,14 @@ public sealed class ShimSmokePlugin : IPlugin
                     (nint)Marshal.GetFunctionPointerForDelegate(ModCallback), 0, 0, mod);
                 var erased = callbackId != 0 && modRegistry.eraseOnModCallback(callbackId);
                 log.AppendLine($"weak_ptr.mod={(mod is not null && erased ? "ok" : "failed")}");
+                using var commandFlag = CommandFlag.Create(128);
+                var commandHandle = commandRegistrar.getOrCreateCommand(
+                    "hosihikari-smoke-command",
+                    "smoke",
+                    0,
+                    commandFlag,
+                    mod);
+                log.AppendLine($"command.create={(commandHandle != 0 ? "ok" : "failed")}");
             }
 
             var playerInfoHandle = Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo.getInstance();

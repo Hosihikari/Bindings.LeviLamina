@@ -89,7 +89,7 @@ public sealed unsafe partial class ServiceManager
         {
             var __hs_view = NativeMethods.TablePtr->hs_method_ab559b2a((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
             var __hs_items = (void**)__hs_view.Data;
-            var __hs_result = new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult[checked((int)__hs_view.Size)];
+            var __hs_result = __hs_view.Size == 0 ? global::System.Array.Empty<global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult>() : new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult[checked((int)__hs_view.Size)];
             for (var __hs_i = 0; __hs_i < __hs_result.Length; __hs_i++)
             {
                 __hs_result[__hs_i] = new global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.QueryServiceResult((nint)__hs_items[__hs_i]);

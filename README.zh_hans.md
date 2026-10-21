@@ -40,6 +40,10 @@ powershell -File scripts/run-runtime-smoke.ps1 -ServerRoot C:\path\to\bedrock-se
 
 插件验证 `NativeMethods.Load`、`EventId`、`Version`、out-of-line `ll::Error` 的构造/`message()`/析构、分配器一致的虚析构生命周期、`std::function` 回调调用与释放，以及原生异常边界。预期输出与依赖见 `tests/runtime-smoke/README.md`。
 
+## 基准
+
+`scripts/run-benchmarks.ps1` 在同一个 BDS 进程中加载 shim，报告字段读取、标量方法、字符串参数/返回、共享句柄与 vector 参数的单次纳秒与托管分配开销，结果写入 `data/hosihikari/shim-benchmarks/benchmarks.txt`。数值依赖运行环境，不作为 CI 门禁。说明见 `tests/benchmarks/README.md`。
+
 ## 构建
 
 ```shell

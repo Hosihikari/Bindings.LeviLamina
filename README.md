@@ -40,6 +40,10 @@ powershell -File scripts/run-runtime-smoke.ps1 -ServerRoot C:\path\to\bedrock-se
 
 The plugin validates `NativeMethods.Load`, `EventId`, `Version`, out-of-line `ll::Error` construction/`message()`/destruction, allocator-backed virtual-destructor lifecycles, `std::function` callback invocation/release, and the native-exception boundary. The expected output and requirements are in `tests/runtime-smoke/README.md`.
 
+## Benchmarks
+
+`scripts/run-benchmarks.ps1` loads the shim in the same BDS process and reports nanoseconds and managed allocation per call for field getters, scalar methods, string parameters/results, shared handles, and vector parameters. It writes `data/hosihikari/shim-benchmarks/benchmarks.txt`; the numbers are environment-dependent and are not a CI gate. See `tests/benchmarks/README.md`.
+
 ## Build
 
 ```shell

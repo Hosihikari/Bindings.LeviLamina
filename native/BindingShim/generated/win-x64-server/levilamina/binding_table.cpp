@@ -40986,12 +40986,13 @@ static HosihikariSharedHandle hs_director_6fec08f6(std::int32_t priority, Hosihi
 {
     struct hs_director final : ll::event::ListenerBase
     {
+        using hs_invoke_type = void (*)(void*, void*);
         void* hs_userData;
-        void (*hs_invoke)(void*, void*);
+        hs_invoke_type hs_invoke;
         void (*hs_release)(void*);
 
         hs_director(std::int32_t priority, HosihikariSharedHandle mod, void* invoke, void* userData, void* release)
-            : ll::event::ListenerBase(static_cast<ll::event::EventPriority>(priority), hs_weak_from_handle<ll::mod::Mod>(mod)), hs_invoke(static_cast<void (*)(void*, void*)>(invoke)), hs_userData(userData), hs_release(static_cast<void (*)(void*)>(release))
+            : ll::event::ListenerBase(static_cast<ll::event::EventPriority>(priority), hs_weak_from_handle<ll::mod::Mod>(mod)), hs_invoke(reinterpret_cast<hs_invoke_type>(invoke)), hs_userData(userData), hs_release(static_cast<void (*)(void*)>(release))
         {
         }
 
@@ -41000,9 +41001,9 @@ static HosihikariSharedHandle hs_director_6fec08f6(std::int32_t priority, Hosihi
             if (hs_release) { hs_release(hs_userData); }
         }
 
-        void call(ll::event::Event & hs_event) override
+        void call(ll::event::Event & hs_arg0) override
         {
-            if (hs_invoke) { hs_invoke(hs_userData, &hs_event); }
+            if (hs_invoke) { hs_invoke(hs_userData, const_cast<void*>(static_cast<void const*>(&hs_arg0))); }
         }
     };
     return hs_make_shared_handle(std::static_pointer_cast<ll::event::ListenerBase>(std::make_shared<hs_director>(priority, mod, invoke, userData, release)));
@@ -48486,6 +48487,43 @@ catch (...)
     return;
 }
 
+static HosihikariSharedHandle hs_director_19b21cf4(void* invoke, void* userData, void* release) try
+{
+    struct hs_director final : ll::network::IPacketHandler
+    {
+        using hs_invoke_type = void (*)(void*, void*, void*, void*);
+        void* hs_userData;
+        hs_invoke_type hs_invoke;
+        void (*hs_release)(void*);
+
+        hs_director(void* invoke, void* userData, void* release)
+            : hs_invoke(reinterpret_cast<hs_invoke_type>(invoke)), hs_userData(userData), hs_release(static_cast<void (*)(void*)>(release))
+        {
+        }
+
+        ~hs_director() override
+        {
+            if (hs_release) { hs_release(hs_userData); }
+        }
+
+        void handle(const NetworkIdentifier & hs_arg0, NetEventCallback & hs_arg1, const ll::network::Packet & hs_arg2) const override
+        {
+            if (hs_invoke) { hs_invoke(hs_userData, const_cast<void*>(static_cast<void const*>(&hs_arg0)), const_cast<void*>(static_cast<void const*>(&hs_arg1)), const_cast<void*>(static_cast<void const*>(&hs_arg2))); }
+        }
+    };
+    return hs_make_shared_handle(std::static_pointer_cast<ll::network::IPacketHandler>(std::make_shared<hs_director>(invoke, userData, release)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+
 static void hs_destroy_015d20d0(void* hs_self) try
 {
     delete static_cast<ll::network::Packet*>(hs_self);
@@ -50320,6 +50358,43 @@ catch (...)
 {
     setLastError("unknown native exception");
     return;
+}
+
+static HosihikariSharedHandle hs_director_9e189359(void* invoke, void* userData, void* release) try
+{
+    struct hs_director final : ll::thread::ServerTickSyncSleepBase
+    {
+        using hs_invoke_type = void (*)(void*);
+        void* hs_userData;
+        hs_invoke_type hs_invoke;
+        void (*hs_release)(void*);
+
+        hs_director(void* invoke, void* userData, void* release)
+            : hs_invoke(reinterpret_cast<hs_invoke_type>(invoke)), hs_userData(userData), hs_release(static_cast<void (*)(void*)>(release))
+        {
+        }
+
+        ~hs_director() override
+        {
+            if (hs_release) { hs_release(hs_userData); }
+        }
+
+        void check() override
+        {
+            if (hs_invoke) { hs_invoke(hs_userData); }
+        }
+    };
+    return hs_make_shared_handle(std::static_pointer_cast<ll::thread::ServerTickSyncSleepBase>(std::make_shared<hs_director>(invoke, userData, release)));
+}
+catch (std::exception const& hs_error)
+{
+    setLastError(hs_error.what());
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
+}
+catch (...)
+{
+    setLastError("unknown native exception");
+    return HosihikariSharedHandle{nullptr, nullptr, nullptr};
 }
 
 static void hs_destroy_0cb254d8(void* hs_self) try
@@ -56533,6 +56608,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_e62bf0c9,
     &hs_method_b9381af9,
     &hs_destroy_268b95ee,
+    &hs_director_19b21cf4,
     &hs_destroy_015d20d0,
     &hs_method_6e93c7b6,
     &hs_get_716af25e,
@@ -56646,6 +56722,7 @@ const HosihikariBindingTableV1 kTable{
     &hs_method_9f080ef6,
     &hs_method_b24beaae,
     &hs_destroy_9e48764e,
+    &hs_director_9e189359,
     &hs_destroy_0cb254d8,
     &hs_cast_52beb4ae,
     &hs_create_831264b0,

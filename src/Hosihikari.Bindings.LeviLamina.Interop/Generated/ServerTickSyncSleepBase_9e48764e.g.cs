@@ -42,6 +42,12 @@ public sealed unsafe partial class ServerTickSyncSleepBase : global::System.IDis
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the class is abstract.");
 
 
+    public static global::Hosihikari.Bindings.Abi.SharedHandle? CreateDirector(nint invoke, nint userData, nint release)
+    {
+        var __hs_shared = NativeMethods.TablePtr->hs_director_9e189359((void*)invoke, (void*)userData, (void*)release);
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

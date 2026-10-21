@@ -3144,6 +3144,7 @@ struct HosihikariBindingTableV1 {
     HosihikariSharedHandle (*hs_method_e62bf0c9)(void*);
     void* (*hs_method_b9381af9)(void*);
     void (*hs_destroy_268b95ee)(void*);
+    HosihikariSharedHandle (*hs_director_19b21cf4)(void*, void*, void*);
     void (*hs_destroy_015d20d0)(void*);
     std::uint64_t (*hs_method_6e93c7b6)(void*);
     std::int32_t (*hs_get_716af25e)(void*);
@@ -3257,6 +3258,7 @@ struct HosihikariBindingTableV1 {
     HosihikariSharedHandle (*hs_method_9f080ef6)(void*, void*, void*, void*, std::int64_t);
     void* (*hs_method_b24beaae)(void);
     void (*hs_destroy_9e48764e)(void*);
+    HosihikariSharedHandle (*hs_director_9e189359)(void*, void*, void*);
     void (*hs_destroy_0cb254d8)(void*);
     void* (*hs_cast_52beb4ae)(void*);
     void* (*hs_create_831264b0)(const char*, std::size_t, std::uint64_t);

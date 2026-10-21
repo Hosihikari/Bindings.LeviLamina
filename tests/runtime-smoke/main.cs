@@ -6,12 +6,14 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using Hosihikari;
+using Hosihikari.Bindings.Abi;
 using Hosihikari.Bindings.LeviLamina.Interop;
 using Hosihikari.Bindings.LeviLamina.Interop.ll;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.@event;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.io;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.memory;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.mod;
+using Hosihikari.Bindings.LeviLamina.Interop.ll.network;
 using Hosihikari.Bindings.LeviLamina.Interop.ll.thread;
 using LlEventId = Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventId;
 using LlVersion = Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version;
@@ -36,15 +38,20 @@ public sealed class ShimSmokePlugin : IPlugin
     [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
     private delegate void ListenerRelease(nint userData);
 
+    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    private delegate void PacketHandlerInvoke(nint userData, nint netId, nint callback, nint packet);
+
     private static readonly CallbackInvoke Callback = OnCallback;
     private static readonly CallbackRelease Release = OnRelease;
     private static readonly ModCallbackInvoke ModCallback = OnModCallback;
     private static readonly LogCallbackInvoke LogCallback = OnLogCallback;
     private static readonly ListenerInvoke ListenerCallback = OnListenerEvent;
     private static readonly ListenerRelease ListenerReleaseCallback = OnListenerRelease;
+    private static readonly PacketHandlerInvoke PacketHandlerCallback = OnPacket;
     private static string? _logText;
     private static string? _listenerMessage;
     private static bool _listenerReleased;
+    private static SharedHandle? _packetDirector;
 
     private static void OnModCallback(nint userData, nint data, nuint size)
     {
@@ -62,6 +69,10 @@ public sealed class ShimSmokePlugin : IPlugin
     }
 
     private static void OnListenerRelease(nint userData) => _listenerReleased = true;
+
+    private static void OnPacket(nint userData, nint netId, nint callback, nint packet)
+    {
+    }
     private static int _callbackCount;
     private static bool _callbackReleased;
 
@@ -220,6 +231,21 @@ public sealed class ShimSmokePlugin : IPlugin
                     listener?.Dispose();
                     log.AppendLine($"director.release={(_listenerReleased && listenerRemoved ? "ok" : "failed")}");
                 }
+
+                var packetRegistrar = PacketRegistrar.getInstance();
+                const ulong packetHandlerId = 0xFFFF_FFFF_FFFF_FFF0UL;
+                var packetDirector = IPacketHandler.CreateDirector(
+                    (nint)Marshal.GetFunctionPointerForDelegate(PacketHandlerCallback),
+                    0,
+                    0);
+                _packetDirector = packetDirector;
+                var packetRegistered = packetDirector is not null
+                    && packetRegistrar.registerHandler(
+                        "hosihikari-smoke",
+                        packetHandlerId,
+                        IPacketHandler.Borrow(packetDirector.Target));
+                var registeredHandler = packetRegistrar.getHandler(packetHandlerId);
+                log.AppendLine($"packet_handler.register={(packetRegistered && registeredHandler is not null && registeredHandler.Handle == packetDirector!.Target ? "ok" : "failed")}");
             }
 
             var playerInfo = Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo.getInstance();

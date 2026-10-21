@@ -3143,6 +3143,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, global::Hosihikari.Bindings.Abi.SharedHandleData> hs_method_e62bf0c9;
         public delegate* unmanaged[Cdecl]<void*, void*> hs_method_b9381af9;
         public delegate* unmanaged[Cdecl]<void*, void> hs_destroy_268b95ee;
+        public delegate* unmanaged[Cdecl]<void*, void*, void*, global::Hosihikari.Bindings.Abi.SharedHandleData> hs_director_19b21cf4;
         public delegate* unmanaged[Cdecl]<void*, void> hs_destroy_015d20d0;
         public delegate* unmanaged[Cdecl]<void*, ulong> hs_method_6e93c7b6;
         public delegate* unmanaged[Cdecl]<void*, int> hs_get_716af25e;
@@ -3256,6 +3257,7 @@ public static unsafe class NativeMethods
         public delegate* unmanaged[Cdecl]<void*, void*, void*, void*, long, global::Hosihikari.Bindings.Abi.SharedHandleData> hs_method_9f080ef6;
         public delegate* unmanaged[Cdecl]<void*> hs_method_b24beaae;
         public delegate* unmanaged[Cdecl]<void*, void> hs_destroy_9e48764e;
+        public delegate* unmanaged[Cdecl]<void*, void*, void*, global::Hosihikari.Bindings.Abi.SharedHandleData> hs_director_9e189359;
         public delegate* unmanaged[Cdecl]<void*, void> hs_destroy_0cb254d8;
         public delegate* unmanaged[Cdecl]<void*, void*> hs_cast_52beb4ae;
         public delegate* unmanaged[Cdecl]<byte*, nuint, ulong, void*> hs_create_831264b0;

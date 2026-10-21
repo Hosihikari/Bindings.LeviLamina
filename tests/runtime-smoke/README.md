@@ -34,6 +34,7 @@ The script builds the solution and native shim, copies the plugin sources and bo
 - `CommandFlag` from a dependency declaration constructs from its enum value; `CommandRegistrar.getOrCreateCommand` accepts the flag and the mod weak reference and returns a typed borrowed `CommandHandle`.
 - Typed borrowed returns: `CommandRegistrar.getInstance`, `ModManagerRegistry.getInstance`, `LoggerRegistry.getInstance`, and `PlayerInfo.getInstance` return wrappers instead of `nint`; a borrowed `RuntimeOverload` from `text()` is disposed without destroying the original overload.
 - Director projection: `ListenerBase.CreateDirector` builds a shared listener forwarding `call(Event&)` to a managed callback; `Event.Borrow` wraps the callback handle, `EventBus` publishes a `ConsoleOutputtedEvent`, and the release callback fires after removal and disposal.
+- Multi-parameter director: `IPacketHandler.CreateDirector` builds a handler whose `handle` signature takes three references; registering it with `PacketRegistrar` and reading it back through `getHandler` returns the same target.
 - `std::weak_ptr<ll::mod::Mod>` parameters accept a `SharedHandle`; `ModManagerRegistry.executeOnModLoad` registers a callback for the mod obtained from `getMod`, and the registration is removed by id.
 - `optional_ref<T>` projection: `PlayerInfo::fromName`/`fromXuid` return a borrowed `PlayerInfoEntry?`; lookups for absent players report an empty reference.
 - `nonstd::expected_lite::expected<T, ll::Error>` projection: `Property::setJson` reports the native error through `InvalidOperationException` with the `ll::Error` message.
@@ -74,6 +75,7 @@ borrowed.dispose=ok
 director.add=ok
 director.callback=ok
 director.release=ok
+packet_handler.register=ok
 optional_ref.missing=ok
 expected.error=caught
 invalid=caught:invalid argument

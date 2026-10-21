@@ -42,6 +42,12 @@ public sealed unsafe partial class IPacketHandler : global::System.IDisposable
         throw new global::System.NotSupportedException("BindingShim cannot project this member: the member is not exported by the carrier.");
 
 
+    public static global::Hosihikari.Bindings.Abi.SharedHandle? CreateDirector(nint invoke, nint userData, nint release)
+    {
+        var __hs_shared = NativeMethods.TablePtr->hs_director_19b21cf4((void*)invoke, (void*)userData, (void*)release);
+        return global::Hosihikari.Bindings.Abi.SharedHandle.FromNative(__hs_shared);
+    }
+
     public void Dispose()
     {
         if (_handle != 0)

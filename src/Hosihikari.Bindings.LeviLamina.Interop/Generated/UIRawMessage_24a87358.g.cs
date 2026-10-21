@@ -171,31 +171,29 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
         }
         global::System.Text.Encoding.UTF8.GetBytes(key, __hs_stringBytes0);
         var __hs_vectorItems1 = substitutions ?? global::System.Array.Empty<string>();
-        var __hs_vectorBytes1 = new byte[__hs_vectorItems1.Length][];
-        var __hs_vectorViews1 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorItems1.Length];
-        var __hs_vectorHandles1 = new nint[__hs_vectorItems1.Length];
-        try
+        var __hs_vectorCount1 = __hs_vectorItems1.Length;
+        var __hs_vectorByteTotal1 = 0;
+        for (var __hs_i1 = 0; __hs_i1 < __hs_vectorCount1; __hs_i1++) { __hs_vectorByteTotal1 += global::System.Text.Encoding.UTF8.GetByteCount(__hs_vectorItems1[__hs_i1] ?? string.Empty); }
+        scoped global::System.Span<byte> __hs_vectorArena1;
+        if (__hs_vectorByteTotal1 <= 1024) { __hs_vectorArena1 = stackalloc byte[__hs_vectorByteTotal1 == 0 ? 1 : __hs_vectorByteTotal1]; } else { __hs_vectorArena1 = new byte[__hs_vectorByteTotal1]; }
+        scoped global::System.Span<global::Hosihikari.Bindings.Abi.StringView> __hs_vectorViews1;
+        if (__hs_vectorCount1 <= 64) { __hs_vectorViews1 = stackalloc global::Hosihikari.Bindings.Abi.StringView[__hs_vectorCount1 == 0 ? 1 : __hs_vectorCount1]; } else { __hs_vectorViews1 = new global::Hosihikari.Bindings.Abi.StringView[__hs_vectorCount1]; }
+        fixed (byte* __hs_vectorArenaPtr1 = __hs_vectorArena1)
+        fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData1 = __hs_vectorViews1)
         {
-            for (var __hs_i1 = 0; __hs_i1 < __hs_vectorItems1.Length; __hs_i1++)
+            var __hs_vectorOffset1 = 0;
+            for (var __hs_i1 = 0; __hs_i1 < __hs_vectorCount1; __hs_i1++)
             {
-                __hs_vectorBytes1[__hs_i1] = global::System.Text.Encoding.UTF8.GetBytes(__hs_vectorItems1[__hs_i1] ?? string.Empty);
-                var __hs_bytes = __hs_vectorBytes1[__hs_i1];
-                var __hs_ptr = (nint)global::System.Runtime.InteropServices.Marshal.AllocHGlobal(__hs_bytes.Length == 0 ? 1 : __hs_bytes.Length);
-                if (__hs_bytes.Length > 0) { global::System.Runtime.InteropServices.Marshal.Copy(__hs_bytes, 0, (nint)__hs_ptr, __hs_bytes.Length); }
-                __hs_vectorHandles1[__hs_i1] = __hs_ptr;
-                __hs_vectorViews1[__hs_i1] = new global::Hosihikari.Bindings.Abi.StringView { Data = (byte*)__hs_ptr, Size = (nuint)__hs_bytes.Length };
+                var __hs_item1 = __hs_vectorItems1[__hs_i1] ?? string.Empty;
+                var __hs_length1 = global::System.Text.Encoding.UTF8.GetByteCount(__hs_item1);
+                global::System.Text.Encoding.UTF8.GetBytes(__hs_item1, __hs_vectorArena1.Slice(__hs_vectorOffset1, __hs_length1));
+                __hs_vectorData1[__hs_i1] = new global::Hosihikari.Bindings.Abi.StringView { Data = __hs_vectorArenaPtr1 + __hs_vectorOffset1, Size = (nuint)__hs_length1 };
+                __hs_vectorOffset1 += __hs_length1;
             }
-            fixed (global::Hosihikari.Bindings.Abi.StringView* __hs_vectorData1 = __hs_vectorViews1)
+            fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                fixed (byte* __hs_stringData0 = __hs_stringBytes0)
-                {
-                    return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->hs_method_93e42ffe(__hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(substitutions?.Length ?? 0)));
-                }
+                return new global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage((nint)NativeMethods.TablePtr->hs_method_93e42ffe(__hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(substitutions?.Length ?? 0)));
             }
-        }
-        finally
-        {
-            for (var __hs_i1 = 0; __hs_i1 < __hs_vectorHandles1.Length; __hs_i1++) { if (__hs_vectorHandles1[__hs_i1] != 0) { global::System.Runtime.InteropServices.Marshal.FreeHGlobal((nint)__hs_vectorHandles1[__hs_i1]); } }
         }
     }
 

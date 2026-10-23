@@ -77,7 +77,7 @@ public sealed unsafe partial class CommandOutput : global::System.IDisposable
 
     public bool mHasPlayerText
     {
-        get => NativeMethods.TablePtr->hs_get_41f5a5a1((void*)_handle);
+        get => NativeMethods.TablePtr->hs_get_41f5a5a1((void*)_handle) != 0;
         set => NativeMethods.TablePtr->hs_set_41f5a5a1((void*)_handle, value);
     }
 

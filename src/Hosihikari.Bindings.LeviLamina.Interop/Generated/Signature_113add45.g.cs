@@ -68,7 +68,7 @@ public sealed unsafe partial class Signature : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.Signature other)
     {
-        return NativeMethods.TablePtr->hs_method_fc945bb7((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_fc945bb7((void*)_handle, (void*)other.Handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureElement operator_index(ulong idx)

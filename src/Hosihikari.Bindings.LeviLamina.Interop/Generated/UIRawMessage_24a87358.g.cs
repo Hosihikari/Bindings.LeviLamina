@@ -82,7 +82,7 @@ public sealed unsafe partial class UIRawMessage : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage arg0)
     {
-        return NativeMethods.TablePtr->hs_method_42613d84((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->hs_method_42613d84((void*)_handle, (void*)arg0.Handle) != 0;
     }
 
     public static global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage rawText(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.UIRawMessage[] messages)

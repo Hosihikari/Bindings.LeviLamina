@@ -127,12 +127,12 @@ public sealed unsafe partial class Mod : global::System.IDisposable
 
     public bool isDisabled()
     {
-        return NativeMethods.TablePtr->hs_method_53251ec7((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_53251ec7((void*)_handle) != 0;
     }
 
     public bool isEnabled()
     {
-        return NativeMethods.TablePtr->hs_method_d05c78a2((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_d05c78a2((void*)_handle) != 0;
     }
 
     public void onDisable(nint funcInvoke, nint funcUserData, nint funcRelease)

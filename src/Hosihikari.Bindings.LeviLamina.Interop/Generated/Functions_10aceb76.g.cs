@@ -7,22 +7,22 @@ public static unsafe partial class Functions
 {
     public static bool check_delimiter(nint first, nint last, sbyte delimiter)
     {
-        return NativeMethods.TablePtr->hs_function_799121c6((void*)first, (void*)last, delimiter);
+        return NativeMethods.TablePtr->hs_function_799121c6((void*)first, (void*)last, delimiter) != 0;
     }
 
     public static bool is_digit(sbyte c)
     {
-        return NativeMethods.TablePtr->hs_function_69a7aff2(c);
+        return NativeMethods.TablePtr->hs_function_69a7aff2(c) != 0;
     }
 
     public static bool is_identifier_char(sbyte c)
     {
-        return NativeMethods.TablePtr->hs_function_38ad8cf8(c);
+        return NativeMethods.TablePtr->hs_function_38ad8cf8(c) != 0;
     }
 
     public static bool is_letter(sbyte c)
     {
-        return NativeMethods.TablePtr->hs_function_b3f13297(c);
+        return NativeMethods.TablePtr->hs_function_b3f13297(c) != 0;
     }
 
     public static ushort to_digit(sbyte c)

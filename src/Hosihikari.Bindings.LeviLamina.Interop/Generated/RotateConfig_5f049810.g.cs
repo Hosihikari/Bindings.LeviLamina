@@ -39,13 +39,13 @@ public sealed unsafe partial class RotateConfig : global::System.IDisposable
 
     public bool cleanup
     {
-        get => NativeMethods.TablePtr->hs_get_5b5ce809((void*)_handle);
+        get => NativeMethods.TablePtr->hs_get_5b5ce809((void*)_handle) != 0;
         set => NativeMethods.TablePtr->hs_set_5b5ce809((void*)_handle, value);
     }
 
     public bool compress
     {
-        get => NativeMethods.TablePtr->hs_get_8f7e80e3((void*)_handle);
+        get => NativeMethods.TablePtr->hs_get_8f7e80e3((void*)_handle) != 0;
         set => NativeMethods.TablePtr->hs_set_8f7e80e3((void*)_handle, value);
     }
 
@@ -81,7 +81,7 @@ public sealed unsafe partial class RotateConfig : global::System.IDisposable
 
     public bool rotateOnOpen
     {
-        get => NativeMethods.TablePtr->hs_get_b8d001ba((void*)_handle);
+        get => NativeMethods.TablePtr->hs_get_b8d001ba((void*)_handle) != 0;
         set => NativeMethods.TablePtr->hs_set_b8d001ba((void*)_handle, value);
     }
 

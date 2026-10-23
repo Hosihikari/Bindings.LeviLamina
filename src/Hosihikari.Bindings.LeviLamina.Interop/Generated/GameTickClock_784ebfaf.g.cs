@@ -44,7 +44,7 @@ public sealed unsafe partial class GameTickClock : global::System.IDisposable
 
     public static bool is_steady
     {
-        get => NativeMethods.TablePtr->hs_get_adee4377();
+        get => NativeMethods.TablePtr->hs_get_adee4377() != 0;
     }
 
     public static long now()

@@ -123,12 +123,12 @@ public sealed unsafe partial class VersionRequirement : global::System.IDisposab
 
     public bool matches(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version version)
     {
-        return NativeMethods.TablePtr->hs_method_d5f9a824((void*)_handle, (void*)version.Handle);
+        return NativeMethods.TablePtr->hs_method_d5f9a824((void*)_handle, (void*)version.Handle) != 0;
     }
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.VersionRequirement other)
     {
-        return NativeMethods.TablePtr->hs_method_5b07e282((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_5b07e282((void*)_handle, (void*)other.Handle) != 0;
     }
 
     public string to_string()
@@ -152,7 +152,7 @@ public sealed unsafe partial class VersionRequirement : global::System.IDisposab
         global::System.Text.Encoding.UTF8.GetBytes(str, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_bde0e2d6(__hs_stringData0, (nuint)__hs_stringByteCount0);
+            return NativeMethods.TablePtr->hs_method_bde0e2d6(__hs_stringData0, (nuint)__hs_stringByteCount0) != 0;
         }
     }
 

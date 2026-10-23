@@ -89,7 +89,7 @@ public sealed unsafe partial class Observable_std__basic_string_char__ : global:
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->hs_method_e9a29ddb((void*)_handle, id);
+        return NativeMethods.TablePtr->hs_method_e9a29ddb((void*)_handle, id) != 0;
     }
 
     public void Dispose()

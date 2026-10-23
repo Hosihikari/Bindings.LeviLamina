@@ -39,7 +39,7 @@ public sealed unsafe partial class EventBus
 
     public bool addListener(global::Hosihikari.Bindings.Abi.SharedHandle? arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
     {
-        return NativeMethods.TablePtr->hs_method_056c47a7((void*)_handle, arg0?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), (void*)arg1.Handle);
+        return NativeMethods.TablePtr->hs_method_056c47a7((void*)_handle, arg0?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), (void*)arg1.Handle) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::event::EventIdView>' is not a known bindable declaration.", false)]
@@ -68,22 +68,22 @@ public sealed unsafe partial class EventBus
 
     public bool hasEvent(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView eventId)
     {
-        return NativeMethods.TablePtr->hs_method_8d9cf8af((void*)_handle, (void*)eventId.Handle);
+        return NativeMethods.TablePtr->hs_method_8d9cf8af((void*)_handle, (void*)eventId.Handle) != 0;
     }
 
     public bool hasListener(global::Hosihikari.Bindings.Abi.SharedHandle? listener)
     {
-        return NativeMethods.TablePtr->hs_method_8d24ae3c((void*)_handle, listener?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return NativeMethods.TablePtr->hs_method_8d24ae3c((void*)_handle, listener?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData)) != 0;
     }
 
     public bool hasListener(ulong id)
     {
-        return NativeMethods.TablePtr->hs_method_cf9e8ec4((void*)_handle, id);
+        return NativeMethods.TablePtr->hs_method_cf9e8ec4((void*)_handle, id) != 0;
     }
 
     public bool hasListener(ulong arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
     {
-        return NativeMethods.TablePtr->hs_method_f0c217a0((void*)_handle, arg0, (void*)arg1.Handle);
+        return NativeMethods.TablePtr->hs_method_f0c217a0((void*)_handle, arg0, (void*)arg1.Handle) != 0;
     }
 
     public void publish(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.Event arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
@@ -112,17 +112,17 @@ public sealed unsafe partial class EventBus
 
     public bool removeListener(global::Hosihikari.Bindings.Abi.SharedHandle? listener)
     {
-        return NativeMethods.TablePtr->hs_method_a0f1fc86((void*)_handle, listener?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return NativeMethods.TablePtr->hs_method_a0f1fc86((void*)_handle, listener?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData)) != 0;
     }
 
     public bool removeListener(global::Hosihikari.Bindings.Abi.SharedHandle? arg0, global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.EventIdView arg1)
     {
-        return NativeMethods.TablePtr->hs_method_e3d6e983((void*)_handle, arg0?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), (void*)arg1.Handle);
+        return NativeMethods.TablePtr->hs_method_e3d6e983((void*)_handle, arg0?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), (void*)arg1.Handle) != 0;
     }
 
     public bool removeListener(ulong id)
     {
-        return NativeMethods.TablePtr->hs_method_f13ded5e((void*)_handle, id);
+        return NativeMethods.TablePtr->hs_method_f13ded5e((void*)_handle, id) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: callback return type 'std::unique_ptr<ll::event::EmitterBase>' is not supported.", false)]

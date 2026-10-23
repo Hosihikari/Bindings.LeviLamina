@@ -91,7 +91,7 @@ public sealed unsafe partial class IndirectValue_ll__io__Formatter__ll__data__po
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->hs_method_8b9de394((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_8b9de394((void*)_handle) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: rvalue-qualified members are not projected.", false)]

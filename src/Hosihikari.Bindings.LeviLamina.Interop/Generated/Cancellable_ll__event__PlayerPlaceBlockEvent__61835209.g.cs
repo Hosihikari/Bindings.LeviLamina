@@ -49,7 +49,7 @@ public sealed unsafe partial class Cancellable_ll__event__PlayerPlaceBlockEvent_
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->hs_method_9fe9fa4e((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_9fe9fa4e((void*)_handle) != 0;
     }
 
     public void serialize(nint nbt)

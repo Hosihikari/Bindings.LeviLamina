@@ -74,7 +74,7 @@ public sealed unsafe partial class Observable_double_ : global::System.IDisposab
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->hs_method_ffac1252((void*)_handle, id);
+        return NativeMethods.TablePtr->hs_method_ffac1252((void*)_handle, id) != 0;
     }
 
     public void Dispose()

@@ -80,7 +80,7 @@ public sealed unsafe partial class AnyFunction : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->hs_method_0a5e165e((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_0a5e165e((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction operator_assign_ab62667b(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.AnyFunction other)

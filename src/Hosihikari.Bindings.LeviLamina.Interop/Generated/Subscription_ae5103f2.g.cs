@@ -61,7 +61,7 @@ public sealed unsafe partial class Subscription : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->hs_method_6c2d01a6((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_6c2d01a6((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Subscription operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Subscription arg0)

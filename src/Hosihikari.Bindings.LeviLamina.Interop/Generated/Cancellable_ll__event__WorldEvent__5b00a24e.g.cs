@@ -49,7 +49,7 @@ public sealed unsafe partial class Cancellable_ll__event__WorldEvent_ : global::
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->hs_method_2f426a76((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_2f426a76((void*)_handle) != 0;
     }
 
     public void serialize(nint nbt)

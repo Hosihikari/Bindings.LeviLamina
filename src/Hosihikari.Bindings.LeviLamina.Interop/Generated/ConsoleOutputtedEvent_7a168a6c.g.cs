@@ -64,7 +64,7 @@ public sealed unsafe partial class ConsoleOutputtedEvent : global::System.IDispo
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->hs_method_69101db0((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_69101db0((void*)_handle) != 0;
     }
 
     public string message()

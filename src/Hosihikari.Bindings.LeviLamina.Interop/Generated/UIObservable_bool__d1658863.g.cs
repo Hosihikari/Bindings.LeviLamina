@@ -43,7 +43,7 @@ public sealed unsafe partial class UIObservable_bool_ : global::System.IDisposab
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->hs_method_62e115c7((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_62e115c7((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_bool_ AsObservable_bool_()

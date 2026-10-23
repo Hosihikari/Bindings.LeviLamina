@@ -8,8 +8,8 @@
     { "name": "hosihikari-csharp" }
   ],
   "extraInfo": {
-    "api": "2",
-    "format_version": "1",
-    "provider": "csharp"
+    "api_version": "2",
+    "manifest_version": "1",
+    "loader": "csharp"
   }
 }

@@ -43,7 +43,7 @@ public sealed unsafe partial class PlayerInfo
 
     public bool erase(global::Hosihikari.Bindings.LeviLamina.Interop.mce.UUID arg0)
     {
-        return NativeMethods.TablePtr->hs_method_9c9b63a5((void*)_handle, (void*)arg0.Handle);
+        return NativeMethods.TablePtr->hs_method_9c9b63a5((void*)_handle, (void*)arg0.Handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.PlayerInfo_Nested.PlayerInfoEntry? fromName(string arg0)

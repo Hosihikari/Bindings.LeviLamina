@@ -79,7 +79,7 @@ public sealed unsafe class Variant_361b5093 : global::System.IDisposable
             return null;
         }
 
-        return NativeMethods.TablePtr->hs_variant_361b5093_get_1((void*)_handle);
+        return NativeMethods.TablePtr->hs_variant_361b5093_get_1((void*)_handle) != 0;
     }
 
     public int? AsInt32()

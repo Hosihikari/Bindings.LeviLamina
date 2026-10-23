@@ -184,7 +184,7 @@ public sealed unsafe partial class Logger : global::System.IDisposable
 
     public bool shouldLog(int level)
     {
-        return NativeMethods.TablePtr->hs_method_464ced3e((void*)_handle, level);
+        return NativeMethods.TablePtr->hs_method_464ced3e((void*)_handle, level) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::Generator<ll::io::SinkBase &>' is not a known bindable declaration.", false)]

@@ -96,7 +96,7 @@ public sealed unsafe partial class CustomForm : global::System.IDisposable
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->hs_method_fe218c64((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_fe218c64((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.CustomForm label(global::Hosihikari.Bindings.LeviLamina.Interop.Variant_d6da2e34 text, global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.TextOptions options)

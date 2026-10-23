@@ -74,7 +74,7 @@ public sealed unsafe partial class Observable_ll__ui__UIRawMessage_ : global::Sy
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->hs_method_8658992c((void*)_handle, id);
+        return NativeMethods.TablePtr->hs_method_8658992c((void*)_handle, id) != 0;
     }
 
     public void Dispose()

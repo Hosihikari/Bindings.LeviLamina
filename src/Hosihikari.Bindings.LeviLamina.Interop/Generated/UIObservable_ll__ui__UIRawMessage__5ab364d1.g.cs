@@ -43,7 +43,7 @@ public sealed unsafe partial class UIObservable_ll__ui__UIRawMessage_ : global::
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->hs_method_b0335033((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_b0335033((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Observable_ll__ui__UIRawMessage_ AsObservable_ll__ui__UIRawMessage_()

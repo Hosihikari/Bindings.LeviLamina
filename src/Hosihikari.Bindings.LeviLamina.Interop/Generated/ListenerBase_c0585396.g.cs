@@ -63,7 +63,7 @@ public sealed unsafe partial class ListenerBase : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.@event.ListenerBase other)
     {
-        return NativeMethods.TablePtr->hs_method_34bb69f6((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_34bb69f6((void*)_handle, (void*)other.Handle) != 0;
     }
 
 

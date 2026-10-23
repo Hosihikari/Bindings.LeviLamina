@@ -39,7 +39,7 @@ public sealed unsafe partial class SleepAwaiter : global::System.IDisposable
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->hs_method_c501b34d((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_c501b34d((void*)_handle) != 0;
     }
 
     public void await_resume()

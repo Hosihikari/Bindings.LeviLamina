@@ -51,7 +51,7 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
 
     public bool getData()
     {
-        return NativeMethods.TablePtr->hs_method_e37c0f25((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_e37c0f25((void*)_handle) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: assignment operators on template specializations are not projected.", false)]
@@ -74,7 +74,7 @@ public sealed unsafe partial class Observable_bool_ : global::System.IDisposable
 
     public bool unsubscribe(uint id)
     {
-        return NativeMethods.TablePtr->hs_method_8da0720f((void*)_handle, id);
+        return NativeMethods.TablePtr->hs_method_8da0720f((void*)_handle, id) != 0;
     }
 
     public void Dispose()

@@ -79,7 +79,7 @@ public sealed unsafe partial class Property : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->hs_method_525dca87((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_525dca87((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property operator_assign_bfa12fa4(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.Property arg0)

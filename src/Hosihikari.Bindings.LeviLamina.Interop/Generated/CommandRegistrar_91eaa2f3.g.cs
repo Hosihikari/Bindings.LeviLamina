@@ -81,7 +81,7 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->hs_method_7027890d((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, type, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->hs_method_7027890d((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, type, __hs_vectorData1, (nuint)(values?.Length ?? 0)) != 0;
             }
         }
     }
@@ -130,7 +130,7 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->hs_method_54e89d5e((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->hs_method_54e89d5e((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0)) != 0;
             }
         }
     }
@@ -170,7 +170,7 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->hs_method_0bf55812((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->hs_method_0bf55812((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0)) != 0;
             }
         }
     }
@@ -245,7 +245,7 @@ public sealed unsafe partial class CommandRegistrar
         global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_3f1d97ed((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
+            return NativeMethods.TablePtr->hs_method_3f1d97ed((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0) != 0;
         }
     }
 
@@ -264,7 +264,7 @@ public sealed unsafe partial class CommandRegistrar
         global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_5ed64b33((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
+            return NativeMethods.TablePtr->hs_method_5ed64b33((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0) != 0;
         }
     }
 
@@ -303,7 +303,7 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->hs_method_21c982c8((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->hs_method_21c982c8((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0)) != 0;
             }
         }
     }
@@ -343,7 +343,7 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->hs_method_bd62379b((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->hs_method_bd62379b((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0)) != 0;
             }
         }
     }
@@ -396,7 +396,7 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->hs_method_a1a34edb((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->hs_method_a1a34edb((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0)) != 0;
             }
         }
     }
@@ -436,7 +436,7 @@ public sealed unsafe partial class CommandRegistrar
             }
             fixed (byte* __hs_stringData0 = __hs_stringBytes0)
             {
-                return NativeMethods.TablePtr->hs_method_ec359fd0((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0));
+                return NativeMethods.TablePtr->hs_method_ec359fd0((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_vectorData1, (nuint)(values?.Length ?? 0)) != 0;
             }
         }
     }

@@ -50,6 +50,6 @@ public sealed unsafe partial class HashedIdBase
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.hash_utils.HashedIdBase other)
     {
-        return NativeMethods.TablePtr->hs_method_a350e776((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_a350e776((void*)_handle, (void*)other.Handle) != 0;
     }
 }

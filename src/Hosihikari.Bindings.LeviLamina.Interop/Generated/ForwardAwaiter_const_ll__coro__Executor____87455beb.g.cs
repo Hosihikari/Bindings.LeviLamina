@@ -43,7 +43,7 @@ public sealed unsafe partial class ForwardAwaiter_const_ll__coro__Executor___ : 
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->hs_method_7f13234a((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_7f13234a((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.coro.Executor await_resume()

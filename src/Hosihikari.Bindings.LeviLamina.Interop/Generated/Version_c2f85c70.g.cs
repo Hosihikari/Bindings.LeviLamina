@@ -187,7 +187,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public bool isIdenticalTo(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version other)
     {
-        return NativeMethods.TablePtr->hs_method_fe3f8be8((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_fe3f8be8((void*)_handle, (void*)other.Handle) != 0;
     }
 
     public ushort major
@@ -209,7 +209,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.Version other)
     {
-        return NativeMethods.TablePtr->hs_method_30379641((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_30379641((void*)_handle, (void*)other.Handle) != 0;
     }
 
     public ushort patch
@@ -244,7 +244,7 @@ public sealed unsafe partial class Version : global::System.IDisposable
         global::System.Text.Encoding.UTF8.GetBytes(str, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_937ab2ba(__hs_stringData0, (nuint)__hs_stringByteCount0);
+            return NativeMethods.TablePtr->hs_method_937ab2ba(__hs_stringData0, (nuint)__hs_stringByteCount0) != 0;
         }
     }
 

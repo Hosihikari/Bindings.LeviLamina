@@ -44,7 +44,7 @@ public sealed unsafe partial class Stacktrace : global::System.IDisposable
 
     public bool empty()
     {
-        return NativeMethods.TablePtr->hs_method_98d6483c((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_98d6483c((void*)_handle) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::thread::id' is not a known bindable declaration.", false)]

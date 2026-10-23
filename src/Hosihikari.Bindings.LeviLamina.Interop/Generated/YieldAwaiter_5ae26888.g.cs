@@ -50,7 +50,7 @@ public sealed unsafe partial class YieldAwaiter : global::System.IDisposable
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->hs_method_3670d610((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_3670d610((void*)_handle) != 0;
     }
 
     public void await_resume()

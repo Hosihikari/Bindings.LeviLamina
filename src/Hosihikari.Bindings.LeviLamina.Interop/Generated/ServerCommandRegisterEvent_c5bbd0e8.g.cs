@@ -43,7 +43,7 @@ public sealed unsafe partial class ServerCommandRegisterEvent : global::System.I
 
     public bool isClientHostedServer()
     {
-        return NativeMethods.TablePtr->hs_method_b38fe1da((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_b38fe1da((void*)_handle) != 0;
     }
 
     public void serialize(nint arg0)

@@ -69,7 +69,7 @@ public sealed unsafe partial class PatternFormatter : global::System.IDisposable
 
     public bool colored
     {
-        get => NativeMethods.TablePtr->hs_get_5480a5b6((void*)_handle);
+        get => NativeMethods.TablePtr->hs_get_5480a5b6((void*)_handle) != 0;
         set => NativeMethods.TablePtr->hs_set_5480a5b6((void*)_handle, value);
     }
 

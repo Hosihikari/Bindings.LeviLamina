@@ -76,7 +76,7 @@ public sealed unsafe partial class MessageBox : global::System.IDisposable
 
     public bool isShowing()
     {
-        return NativeMethods.TablePtr->hs_method_b11cad00((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_b11cad00((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox operator_assign(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.MessageBox arg0)

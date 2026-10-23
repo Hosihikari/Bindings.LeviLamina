@@ -39,7 +39,7 @@ public sealed unsafe partial class from_chars_result : global::System.IDisposabl
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->hs_method_797e9c0f((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_797e9c0f((void*)_handle) != 0;
     }
 
     public void value()

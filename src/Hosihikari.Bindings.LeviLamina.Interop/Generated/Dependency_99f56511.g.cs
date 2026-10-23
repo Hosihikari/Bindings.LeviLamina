@@ -48,7 +48,7 @@ public sealed unsafe partial class Dependency : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Dependency other)
     {
-        return NativeMethods.TablePtr->hs_method_bdbf76a1((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_bdbf76a1((void*)_handle, (void*)other.Handle) != 0;
     }
 
     public nint version

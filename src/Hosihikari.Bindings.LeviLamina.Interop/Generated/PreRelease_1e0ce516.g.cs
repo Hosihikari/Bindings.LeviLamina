@@ -123,7 +123,7 @@ public sealed unsafe partial class PreRelease : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.PreRelease other)
     {
-        return NativeMethods.TablePtr->hs_method_f147eaaf((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_f147eaaf((void*)_handle, (void*)other.Handle) != 0;
     }
 
     public string to_string()

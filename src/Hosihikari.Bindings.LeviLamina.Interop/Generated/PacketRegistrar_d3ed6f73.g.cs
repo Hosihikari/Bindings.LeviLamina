@@ -70,7 +70,7 @@ public sealed unsafe partial class PacketRegistrar
         global::System.Text.Encoding.UTF8.GetBytes(name, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_806eebd2((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, id, (void*)(handler?.Handle ?? 0), handler is not null);
+            return NativeMethods.TablePtr->hs_method_806eebd2((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, id, (void*)(handler?.Handle ?? 0), handler is not null) != 0;
         }
     }
 

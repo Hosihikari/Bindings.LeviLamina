@@ -71,12 +71,12 @@ public sealed unsafe partial class Optional_std__variant_int__bool__float__Dimen
 
     public bool has_value()
     {
-        return NativeMethods.TablePtr->hs_method_3a6096cb((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_3a6096cb((void*)_handle) != 0;
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->hs_method_52e4aef6((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_52e4aef6((void*)_handle) != 0;
     }
 
     public nint operator_const_std__variant_int__bool__float__DimensionType__std__bas_d1d9cc7a()

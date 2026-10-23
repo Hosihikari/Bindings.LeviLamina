@@ -232,7 +232,7 @@ public sealed unsafe partial class ScreenSession : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->hs_method_6bbf78c7((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_6bbf78c7((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession operator_assign_e92563b0(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.ScreenSession arg0)

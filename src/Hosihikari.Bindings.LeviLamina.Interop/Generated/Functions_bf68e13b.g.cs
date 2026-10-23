@@ -7,11 +7,11 @@ public static unsafe partial class Functions
 {
     public static bool isEventSerializedObj_3ec798b4(nint tag)
     {
-        return NativeMethods.TablePtr->hs_function_3ec798b4((void*)tag);
+        return NativeMethods.TablePtr->hs_function_3ec798b4((void*)tag) != 0;
     }
 
     public static bool isEventSerializedObj_ec91eaf2(nint tag)
     {
-        return NativeMethods.TablePtr->hs_function_ec91eaf2((void*)tag);
+        return NativeMethods.TablePtr->hs_function_ec91eaf2((void*)tag) != 0;
     }
 }

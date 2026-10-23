@@ -100,12 +100,12 @@ public sealed unsafe partial class ServiceManager
 
     public bool registerService(global::Hosihikari.Bindings.Abi.SharedHandle? service, global::Hosihikari.Bindings.Abi.SharedHandle? mod)
     {
-        return NativeMethods.TablePtr->hs_method_952e2d89((void*)_handle, service?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData));
+        return NativeMethods.TablePtr->hs_method_952e2d89((void*)_handle, service?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData), mod?.ToNative() ?? default(global::Hosihikari.Bindings.Abi.SharedHandleData)) != 0;
     }
 
     public bool unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.service.ServiceIdView id)
     {
-        return NativeMethods.TablePtr->hs_method_b9950e80((void*)_handle, (void*)id.Handle);
+        return NativeMethods.TablePtr->hs_method_b9950e80((void*)_handle, (void*)id.Handle) != 0;
     }
 
     public void unregisterService(global::Hosihikari.Bindings.LeviLamina.Interop.ll.mod.Mod mod)

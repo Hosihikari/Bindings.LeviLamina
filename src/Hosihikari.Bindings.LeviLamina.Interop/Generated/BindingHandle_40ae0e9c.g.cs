@@ -72,12 +72,12 @@ public sealed unsafe partial class BindingHandle : global::System.IDisposable
 
     public bool isClientWritable()
     {
-        return NativeMethods.TablePtr->hs_method_9cf859b8((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_9cf859b8((void*)_handle) != 0;
     }
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->hs_method_76b2ba1c((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_76b2ba1c((void*)_handle) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle operator_assign_91e7b69b(global::Hosihikari.Bindings.LeviLamina.Interop.ll.ui.detail.BindingHandle arg0)

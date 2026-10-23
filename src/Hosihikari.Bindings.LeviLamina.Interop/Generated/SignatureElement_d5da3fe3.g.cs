@@ -74,7 +74,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public bool isWildcard()
     {
-        return NativeMethods.TablePtr->hs_method_985014ba((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_985014ba((void*)_handle) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'std::byte' is not a known bindable declaration.", false)]
@@ -83,7 +83,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public bool operator_equal(global::Hosihikari.Bindings.LeviLamina.Interop.ll.memory.SignatureElement other)
     {
-        return NativeMethods.TablePtr->hs_method_2319360a((void*)_handle, (void*)other.Handle);
+        return NativeMethods.TablePtr->hs_method_2319360a((void*)_handle, (void*)other.Handle) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value record parameter 'std::byte' is not a known bindable declaration.", false)]
@@ -92,7 +92,7 @@ public sealed unsafe partial class SignatureElement : global::System.IDisposable
 
     public bool operator_equal(byte other)
     {
-        return NativeMethods.TablePtr->hs_method_1b15f4fa((void*)_handle, other);
+        return NativeMethods.TablePtr->hs_method_1b15f4fa((void*)_handle, other) != 0;
     }
 
     public void Dispose()

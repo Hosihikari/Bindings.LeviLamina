@@ -43,7 +43,7 @@ public sealed unsafe partial class Formatter : global::System.IDisposable
 
     public static bool supportColorLog()
     {
-        return NativeMethods.TablePtr->hs_method_792d8900();
+        return NativeMethods.TablePtr->hs_method_792d8900() != 0;
     }
 
 

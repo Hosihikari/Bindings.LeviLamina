@@ -39,7 +39,7 @@ public sealed unsafe partial class ParamStorageType : global::System.IDisposable
 
     public bool hold(ulong kind)
     {
-        return NativeMethods.TablePtr->hs_method_e18196dc((void*)_handle, kind);
+        return NativeMethods.TablePtr->hs_method_e18196dc((void*)_handle, kind) != 0;
     }
 
     public ulong index()

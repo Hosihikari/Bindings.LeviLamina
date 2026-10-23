@@ -50,12 +50,12 @@ public sealed unsafe partial class CancellableCallback : global::System.IDisposa
 
     public bool call()
     {
-        return NativeMethods.TablePtr->hs_method_9382df67((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_9382df67((void*)_handle) != 0;
     }
 
     public bool cancel()
     {
-        return NativeMethods.TablePtr->hs_method_a18f4d5f((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_a18f4d5f((void*)_handle) != 0;
     }
 
 

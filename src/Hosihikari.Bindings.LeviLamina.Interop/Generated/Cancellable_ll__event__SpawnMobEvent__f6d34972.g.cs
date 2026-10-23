@@ -49,7 +49,7 @@ public sealed unsafe partial class Cancellable_ll__event__SpawnMobEvent_ : globa
 
     public bool isCancelled()
     {
-        return NativeMethods.TablePtr->hs_method_1bad133a((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_1bad133a((void*)_handle) != 0;
     }
 
     public void serialize(nint nbt)

@@ -39,7 +39,7 @@ public sealed unsafe partial class ServerClock : global::System.IDisposable
 
     public static bool is_steady
     {
-        get => NativeMethods.TablePtr->hs_get_44d042e1();
+        get => NativeMethods.TablePtr->hs_get_44d042e1() != 0;
     }
 
     public static long now()

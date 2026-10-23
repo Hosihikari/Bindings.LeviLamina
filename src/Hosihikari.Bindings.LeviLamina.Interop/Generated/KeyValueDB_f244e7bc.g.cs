@@ -113,13 +113,13 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         global::System.Text.Encoding.UTF8.GetBytes(key, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_48307b42((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
+            return NativeMethods.TablePtr->hs_method_48307b42((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0) != 0;
         }
     }
 
     public bool empty()
     {
-        return NativeMethods.TablePtr->hs_method_5c7dbf54((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_5c7dbf54((void*)_handle) != 0;
     }
 
     public string? get(string key)
@@ -158,7 +158,7 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         global::System.Text.Encoding.UTF8.GetBytes(key, __hs_stringBytes0);
         fixed (byte* __hs_stringData0 = __hs_stringBytes0)
         {
-            return NativeMethods.TablePtr->hs_method_48d48e3e((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0);
+            return NativeMethods.TablePtr->hs_method_48d48e3e((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0) != 0;
         }
     }
 
@@ -199,14 +199,14 @@ public sealed unsafe partial class KeyValueDB : global::System.IDisposable
         {
             fixed (byte* __hs_stringData1 = __hs_stringBytes1)
             {
-                return NativeMethods.TablePtr->hs_method_6234755d((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1);
+                return NativeMethods.TablePtr->hs_method_6234755d((void*)_handle, __hs_stringData0, (nuint)__hs_stringByteCount0, __hs_stringData1, (nuint)__hs_stringByteCount1) != 0;
             }
         }
     }
 
     public bool write(global::Hosihikari.Bindings.LeviLamina.Interop.ll.data.KeyValueDB_Nested.WriteBatch batch)
     {
-        return NativeMethods.TablePtr->hs_method_7d81ee9b((void*)_handle, (void*)batch.Handle);
+        return NativeMethods.TablePtr->hs_method_7d81ee9b((void*)_handle, (void*)batch.Handle) != 0;
     }
 
 

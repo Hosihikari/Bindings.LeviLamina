@@ -50,7 +50,7 @@ public sealed unsafe partial class InterruptableSleep : global::System.IDisposab
 
     public bool interrupt(bool inplace)
     {
-        return NativeMethods.TablePtr->hs_method_221c0e9e((void*)_handle, inplace);
+        return NativeMethods.TablePtr->hs_method_221c0e9e((void*)_handle, inplace) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'll::coro::InterruptableSleep::EtnAwaiter' is not a known bindable declaration.", false)]

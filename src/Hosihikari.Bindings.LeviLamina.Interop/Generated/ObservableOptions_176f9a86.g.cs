@@ -39,7 +39,7 @@ public sealed unsafe partial class ObservableOptions : global::System.IDisposabl
 
     public bool clientWritable
     {
-        get => NativeMethods.TablePtr->hs_get_e3b4abac((void*)_handle);
+        get => NativeMethods.TablePtr->hs_get_e3b4abac((void*)_handle) != 0;
         set => NativeMethods.TablePtr->hs_set_e3b4abac((void*)_handle, value);
     }
 

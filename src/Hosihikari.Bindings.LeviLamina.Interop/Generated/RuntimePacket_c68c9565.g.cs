@@ -80,12 +80,12 @@ public sealed unsafe partial class RuntimePacket : global::System.IDisposable
 
     public bool hasPacket()
     {
-        return NativeMethods.TablePtr->hs_method_c3929489((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_c3929489((void*)_handle) != 0;
     }
 
     public bool isOwned()
     {
-        return NativeMethods.TablePtr->hs_method_a6d85d09((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_a6d85d09((void*)_handle) != 0;
     }
 
     public void movePacket(global::Hosihikari.Bindings.LeviLamina.Interop.ll.network.Packet newPacket)

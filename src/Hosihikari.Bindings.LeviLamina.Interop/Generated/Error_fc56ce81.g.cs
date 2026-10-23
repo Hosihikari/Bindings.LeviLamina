@@ -177,7 +177,7 @@ public sealed unsafe partial class Error : global::System.IDisposable
 
     public bool operator_bool()
     {
-        return NativeMethods.TablePtr->hs_method_d1d2bd04((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_d1d2bd04((void*)_handle) != 0;
     }
 
     [global::System.Obsolete("BindingShim cannot project this member: by-value return type 'nonstd::expected_lite::unexpected_type<ll::Error>' is not a known bindable declaration.", false)]

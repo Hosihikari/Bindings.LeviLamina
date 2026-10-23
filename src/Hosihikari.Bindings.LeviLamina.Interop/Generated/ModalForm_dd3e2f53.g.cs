@@ -117,12 +117,12 @@ public sealed unsafe partial class ModalForm : global::System.IDisposable
 
     public bool sendTo(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return NativeMethods.TablePtr->hs_method_3fad9683((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return NativeMethods.TablePtr->hs_method_3fad9683((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease) != 0;
     }
 
     public bool sendUpdate(nint player, nint callbackInvoke, nint callbackUserData, nint callbackRelease)
     {
-        return NativeMethods.TablePtr->hs_method_337e43e5((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease);
+        return NativeMethods.TablePtr->hs_method_337e43e5((void*)_handle, (void*)player, (void*)callbackInvoke, (void*)callbackUserData, (void*)callbackRelease) != 0;
     }
 
     public global::Hosihikari.Bindings.LeviLamina.Interop.ll.form.ModalForm setContent(string content)

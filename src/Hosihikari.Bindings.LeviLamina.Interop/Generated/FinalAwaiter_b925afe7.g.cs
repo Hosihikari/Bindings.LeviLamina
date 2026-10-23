@@ -39,7 +39,7 @@ public sealed unsafe partial class FinalAwaiter : global::System.IDisposable
 
     public bool await_ready()
     {
-        return NativeMethods.TablePtr->hs_method_1b7c3580((void*)_handle);
+        return NativeMethods.TablePtr->hs_method_1b7c3580((void*)_handle) != 0;
     }
 
     public void await_resume()

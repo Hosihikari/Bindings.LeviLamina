@@ -226,11 +226,17 @@ struct hs_unique_void_deleter
 {
     void operator()(void*) const noexcept {}
 };
+template <class T>
+void const* hs_type_tag()
+{
+    static const int tag = 0;
+    return &tag;
+}
 struct hs_shared_holder_base
 {
     virtual ~hs_shared_holder_base() = default;
     virtual std::shared_ptr<const void> hs_share() const = 0;
-    virtual std::type_index hs_type() const = 0;
+    virtual void const* hs_type() const = 0;
 };
 
 template <class T>
@@ -243,7 +249,7 @@ struct hs_shared_holder final : hs_shared_holder_base
         return std::shared_ptr<const void>(value, value.get());
     }
 
-    std::type_index hs_type() const override { return std::type_index(typeid(T)); }
+    void const* hs_type() const override { return hs_type_tag<T>(); }
 };
 
 template <class T>
@@ -274,7 +280,7 @@ std::shared_ptr<T> hs_shared_from_handle(HosihikariSharedHandle handle)
 {
     if (handle.holder == nullptr) { return {}; }
     auto* holder = static_cast<hs_shared_holder_base*>(handle.holder);
-    if (holder->hs_type() != std::type_index(typeid(T))) {
+    if (holder->hs_type() != hs_type_tag<T>()) {
         throw std::invalid_argument("shared handle type mismatch");
     }
     using Value = std::remove_const_t<T>;
